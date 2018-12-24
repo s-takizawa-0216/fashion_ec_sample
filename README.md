@@ -11,6 +11,8 @@
 |password|string|null: false|
 |postalcode|string|null: false|
 |email|string|null:false|
+|uid|string|null:false|
+|provider|string|null:false|
 
 ### Association
 - has_one :credit_card

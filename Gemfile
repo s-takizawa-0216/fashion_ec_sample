@@ -70,3 +70,5 @@ gem "payjp"
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'font-awesome-rails'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'

@@ -5,14 +5,15 @@
 |Column|Type|Options|
 |------|----|-------|
 |gender|string|null: false|
-|birthyear|integer|null: false|
-|birthymonth|integer|null: false|
-|birthday|integer|null: false|
+|birth_year|integer|null: false|
+|birth_month|integer|null: false|
+|birth_day|integer|null: false|
 |password|string|null: false|
-|postalcode|string|null: false|
+|postal_code|integer|null: false|
 |email|string|null:false|
-|uid|string|null:false|
-|provider|string|null:false|
+|mail_magazine|integer|null: false|
+|provider|string||
+|uid|string||
 
 ### Association
 - has_one :credit_card

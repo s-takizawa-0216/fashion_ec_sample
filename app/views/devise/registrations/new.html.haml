@@ -1,0 +1,37 @@
+.sign-up__header
+  %ul.sign-up__header-line
+    %li.sign-up__header-line__zozo ZOZOTOWN
+    %li.sign-up__header-line__input
+      %input.header-keyword-search{type: "search", name: "keyword", placeholder: "何かお探しですか？"}
+      %button.header-keyword-search-btn{type: "search"}
+    = link_to do
+      %li.sign-up__header-line__login ログイン
+    %li.sign-up__header-line__news
+      = link_to do
+        %i{class: "fal fa-comment-alt"}
+    %li.sign-up__header-line__fav
+    %li.sign-up__header-line__cart
+    %li.sign-up__header-line__list
+
+
+
+
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  .field
+    = f.label :email
+    %br/
+    = f.email_field :email, autofocus: true, autocomplete: "email"
+  .field
+    = f.label :password
+    - if @minimum_password_length
+      %em
+        (#{@minimum_password_length} characters minimum)
+    %br/
+    = f.password_field :password, autocomplete: "new-password"
+  .field
+    = f.label :password_confirmation
+    %br/
+    = f.password_field :password_confirmation, autocomplete: "new-password"
+  .actions
+    = f.submit "Sign up"
+= render "devise/shared/links"

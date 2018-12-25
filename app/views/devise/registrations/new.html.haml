@@ -1,17 +1,85 @@
-.sign-up__header
-  %ul.sign-up__header-line
-    %li.sign-up__header-line__zozo ZOZOTOWN
-    %li.sign-up__header-line__input
-      %input.header-keyword-search{type: "search", name: "keyword", placeholder: "何かお探しですか？"}
-      %button.header-keyword-search-btn{type: "search"}
-    = link_to do
-      %li.sign-up__header-line__login ログイン
-    %li.sign-up__header-line__news
-      = link_to do
-        %i{class: "fal fa-comment-alt"}
-    %li.sign-up__header-line__fav
-    %li.sign-up__header-line__cart
-    %li.sign-up__header-line__list
+.sign-up
+  .sign-up__header this header is created by Mr.T
+  .sign-up__breadcrumbs breadcrumbs will be set here
+  .sign-up__main
+    .sign-up__main__header.clearfix
+      %ul.side-by-side-ul
+        %li.side-by-side-li
+          =fa_icon "users", class: "users-icon"
+        %li.side-by-side-li.resistration-new-member-msg 新規会員登録
+
+    .sign-up__main__middle
+      .user-resistration-form
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          .user-resistration-form__top-msg 基本情報
+          .user-resistration-form__gender
+            %ul.side-by-side-ul.user-resistration-form__gender__line.clearfix
+              %li.side-by-side-li.user-resistration-form__gender__line__msg 性別
+              %li.side-by-side-li
+                %input{type: "checkbox", class: "checkbox-arrange-male"}
+              %li.side-by-side-li.user-resistration-form__gender__line__text 男性 
+              %li.side-by-side-li.user-resistration-form__gender__line__female-msg 
+                %input{type: "checkbox", class: "checkbox-arrange-female"}
+              %li.side-by-side-li.user-resistration-form__gender__line__text  女性
+              %li.side-by-side-li.user-resistration-form__gender__line__female-msg  
+                %input{type: "checkbox", class: "checkbox-arrange-others"}
+              %li.side-by-side-li.user-resistration-form__gender__line__text  その他
+          .user-resistration-form__gender
+            %ul.side-by-side-ul.user-resistration-form__gender__line.clearfix
+              %li.side-by-side-li.user-resistration-form__gender__line__birth 生年月日
+              %li.side-by-side-li
+                %select{type: "select", class: "select-arrange-year"}
+              %li.side-by-side-li.user-resistration-form__gender__line__year  年
+              %li.side-by-side-li.user-resistration-form__gender__line__female-msg 
+                %select{type: "select", class: "select-arrange-year"}
+              %li.side-by-side-li.user-resistration-form__gender__line__year  月
+              %li.side-by-side-li.user-resistration-form__gender__line__female-msg  
+                %select{type: "select", class: "select-arrange-year"}
+              %li.side-by-side-li.user-resistration-form__gender__line__year  日
+          .user-resistration-form__gender
+            %ul.side-by-side-ul.user-resistration-form__postal__line.clearfix
+              %li.side-by-side-li.user-resistration-form__postal__line__postal 郵便番号
+              %li.side-by-side-li.user-resistration-form__postal__line__hissu
+                .user-resistration-form__postal__line__hissu-box
+                  .user-resistration-form__postal__line__hissu-box-msg 必須
+              %li.side-by-side-li
+                %input{type: "text", class: "text-arrange-postal", placeholder: "例:2617116"}
+              =link_to "https://www.post.japanpost.jp/zipcode/index.html" do
+                %li.side-by-side-li.user-resistration-form__postal__line__postal-search 郵便番号を検索
+                %li.side-by-side-li.user-resistration-form__postal__line__postal-icon
+                  %i.fa.fa-edit
+          .user-resistration-form__gender
+            .user-resistration-form__gender__line__email
+              %ui.side-by-side-ul
+                %li
+                  = f.label :メールアドレス, class: "user-resistration-form__gender__line__email__label"
+                %li (ZOZOID)
+                %li.side-by-side-li
+                .zozoid__hissu
+                  .zozoid__hissu-box
+                    .zozoid__hissu-box-msg 必須
+                %li.mail-to-zozoid ※メールアドレスがZOZO IDとなります
+              %ui.side-by-side-ul.clearfix
+                %li.side-by-side-li
+                  %input{type: "checkbox", class: "checkbox-arrange-coupon"}
+                %li.sale_and_coupon セールやクーポンなどのお得な情報を受け取る
+              = f.email_field :email, autofocus: true,placeholder:"例 : zozo@zozotown.jp", autocomplete: "email",class: "user-resistration-form__gender__line__email__text"
+          .user-resistration-form__gender
+            .user-resistration-form__gender__line__email
+              %ui.side-by-side-ul
+                %li
+                  = f.label :パスワード
+                %li.side-by-side-li
+                .zozoid__hissu
+                  .zozoid__hissu-box
+                    .zozoid__hissu-box-msg 必須
+                %li.mail-to-zozoid ※ZOZOIDに含まれない英数字混合 8~12文字
+              = f.password_field :password, autocomplete: "new-password" ,class: "new-password-box"
+
+
+
+  .sign-up__footer
+  
 
 
 

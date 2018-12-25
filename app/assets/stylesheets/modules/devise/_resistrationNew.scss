@@ -17,7 +17,6 @@
   }
 
   &__main{
-    height: 700px;
     margin: 5px 150px 70px;
 
     &__header{
@@ -178,6 +177,12 @@
 
           }
         }
+        .personal-info-consern{
+          font-size: 14px; 
+        }
+      }
+      .user-resistration-form__gender__bottom{
+        padding-bottom: 40px;
       }
     }
   }
@@ -196,12 +201,23 @@
   }
 }
 
-.select-arrange-year{
+select#user_birth_year{
   width: 90px;
   height: 38px;
   color: gray;
 }
 
+select#user_birth_month{
+  width: 90px;
+  height: 38px;
+  color: gray;
+}
+
+select#user_birth_day{
+  width: 90px;
+  height: 38px;
+  color: gray;
+}
 .text-arrange-postal{
   padding-left: 12px;
   font-size:13px;
@@ -216,4 +232,20 @@
 .checkbox-arrange-coupon{
   margin-left: 140px;
 }
+
+.personal-info-consern-checkbox{
+  margin-left: 140px;
+  margin-right: 5px;
+}
+
+.new-resistration-btn{
+  width: 270px;
+  background: #2490D0;
+  height: 40px;
+  display: block;
+  margin:  0 auto;
+
+}
+
+
 

@@ -1,0 +1,307 @@
+#wrapper{
+  position: relative;
+  margin: auto;
+  text-align: left;
+
+  #body{
+    width: 980px;
+    margin: 0 auto;
+    position: relative;
+
+    article{ display: block;}
+
+    .section{ border-top: 1px solid #ebebeb;}
+
+    #goods{
+      min-width: 980px;
+      max-width: 1280px;
+      margin: auto;
+    }
+
+    .innerMain{
+      margin: auto;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #goodMainArea{
+      padding-bottom: 25px;
+
+      #goodsLeft{
+        width: 560px;
+        float: left;
+        z-index: 30;
+        position: relative;
+
+        .innerLeft{
+
+          #photoGallery{
+            position: relative;
+            width: 560px;
+            margin-bottom: 5px;
+
+            #photoMain{
+              width: 500px;
+              height: 600px;
+              margin: auto;
+              text-align: center;
+              overflow: hidden;
+              position: relative;
+              img{
+                display: block;
+                height: 100%;
+                margin: auto;
+              }
+            }
+
+            #preNextCtrl{
+              position: absolute;
+              top: 0;
+              width: 500px;
+              left: 30px;
+              li{
+                position: absolute;
+                top: 0;
+                height: 600px;
+                width: 30px;
+                cursor: pointer;
+                z-index: 5;
+                span{
+                  top: 230px;
+                  position: absolute;
+                  display: block;
+                  padding: 138px 0 0 0;
+                  width: 20px;
+                  height: 0;
+                  text-indent: -9999px;
+                  overflow: hidden;
+                  cursor: pointer;
+                }
+              }
+              #btnPrev{
+                left: -30px;
+                span{
+                  left: 0px;
+                }
+              }
+              #btnNext{
+                right: -30px;
+                span{
+                  right: 0px;
+                }
+              }
+            }
+
+            #photoCaption{
+              font-size: 10px;
+              line-height: 1.2;
+              text-align: center;
+              height: auto;
+              margin: 13px 10px 8px;
+            }
+
+            #photoThimb{
+              margin: 0 0 0 15px;
+              li{
+                position: relative;
+                z-index: 1;
+                vertical-align: top;
+                display: inline-block;
+                zoom: 1;
+                font-size: 10px;
+                text-align: left!important;
+                width: 36px;
+                margin: 15px 0 0 22px;
+                // padding: 0 0 19px 0;
+                p{
+                  margin: 3px 0 0 0;
+                  line-height: 1.3;
+                  width: 45px;
+                }
+                span{
+                  line-height: 1.1;
+                  margin: 5px 0 0;
+                  display: block;
+                }
+                .imCaption{display: none}
+                div span{
+                  display: block;
+                  background: #ffffff;
+                  font-size: 10px;
+                  line-height: 1.2;
+                  margin: 0;
+                  text-align: center;
+                }
+              }
+
+              .current{
+                z-index: 2;
+                %div{
+                  width: 35px;
+                  span{
+                    display: block;
+                    background: #ffffff;
+                    font-size: 10px;
+                    line-height: 1.2;
+                    margin: 0;
+                    text-align: center;
+                  }
+                  img{
+                    border: solid 3px #878787;
+                    margin: -3px;
+                  }
+                }
+              }
+            }
+          }
+
+
+          #zozoReviewStatus{
+            padding: 21px 0 0 40px;
+            margin-top: 30px;
+            .tit{
+              .h{
+                float: none;
+                font-size: 18px;
+              }
+            }
+            .container{
+              position: relative;
+              padding: 0px;
+              .zozoStaff{
+                margin: 30px 0 0;
+                ul {position: relative;}
+                .feedMedia{
+                  border: none;
+                  .feedLink{
+                    padding: 0;
+                    float: left;
+                    width: 140px;
+                    display: block;
+                    table-layout: fixed;
+                    position: relative;
+                    height: 100%;
+                    color: #808080;
+                    text-decoration: none;
+                    figure{
+                      text-align: center;
+                      display: table-cell;
+                      vertical-align: top;
+                    }
+                    div{
+                      .feedMeta{font-size: 10px;}
+                      .feedH{
+                        display: block;
+                        color: #2d2d2d;
+                        font-size: 14px;
+                        line-height: 1.6;
+                      }
+
+                    }
+                  }
+                  .statusTbl{
+                    border: 1px solid #e9e9e9;
+                    border-collapse: collapse;
+                    width: 365px;
+                    float: right;
+                    box-sizing: border-box;
+                    margin-left: 15px;
+                    th{
+                      background: #f8f8f8;
+                      padding: 10px 5px 8px;
+                      text-align: center;
+                      border: 1px solid #ebebeb;
+                      font-size: 14px;
+                      box-sizing: border-box;
+                      color: #2d2d2d;
+                    }
+                    td{
+                      border: 1px solid #e9e9e9;
+                      padding: 11px 10px 10px;
+                      box-sizing: border-box;
+                      color: #808080;
+                    }
+                    tbody{
+                      th{
+                      width: 80px;
+                      vertical-align: middle;
+                      text-align: left;
+                      padding: 0 5px;
+                      vertical-align: middle;
+                     }
+                    }
+                    .lows .colm{
+                      float: left;
+                      width: 15%;
+                      // width: 44px;
+                      min-height: 1em;
+                      font-size: 11px;
+                      text-align: center;
+                      padding: 5px 0;
+                      line-height: 1.2;
+                    }
+                    .lows .min{
+                      text-align: left;
+                      padding-right: 10px;}
+                    .lows .max{
+                      text-align: right;
+                      padding-left: 10px;
+                    }
+                    .lows .cnt{
+                      text-align: left;
+                      text-indent: -1em;
+                      position: relative;
+                      margin: 10px 0 -10px;
+                      padding: 0;
+                    }
+                    .lows .cnt i {
+                      background: #ebebeb;
+                      height: 2px;
+                      display: block;
+                      position: absolute;
+                      width: 100%;
+                      left: 0;
+                      top: 0
+                    }
+                    .lows .val0:after{background: #ebebeb;}
+                    .lows .cnt:after{
+                      content: "";
+                      display: block;
+                      width: 8px;
+                      height: 8px;
+                      border-radius: 8px;
+                      background: #EEEEEE;
+                      position: absolute;
+                      left: -4px;
+                      top: -3px;
+                      z-index: 2;
+                    }
+                    .lows .cnt4{width: 0;}
+                    .lows .active:before{
+                      content: "";
+                      display: block;
+                      width: 14px;
+                      height: 14px;
+                      border-radius: 7px;
+                      background: #ffda95;
+                      position: absolute;
+                      left: -7px;
+                      top: -6px;
+                      z-index: 1;
+                    }
+                    .lows .active:after{
+                      background: #ffb300;
+                    }
+                  }
+                }
+              }
+            }
+            .info{
+              color: #808080;
+              font-size: 13px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

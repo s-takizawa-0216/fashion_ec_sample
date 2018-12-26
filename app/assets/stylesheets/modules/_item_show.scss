@@ -53,7 +53,8 @@
               }
             }
 
-            #preNextCtrl{
+            .prevNextCtrl{
+              background-color: red;
               position: absolute;
               top: 0;
               width: 500px;
@@ -65,6 +66,9 @@
                 width: 30px;
                 cursor: pointer;
                 z-index: 5;
+                font-size: 50px;
+                line-height: 600px;
+                color: #C0C0C0;
                 span{
                   top: 230px;
                   position: absolute;
@@ -78,13 +82,13 @@
                 }
               }
               #btnPrev{
-                left: -30px;
+                left: -23px;
                 span{
                   left: 0px;
                 }
               }
               #btnNext{
-                right: -30px;
+                right: -35px;
                 span{
                   right: 0px;
                 }
@@ -305,3 +309,15 @@
     }
   }
 }
+
+// .slider-arrow {
+//   position: absolute;
+//   top: 50%;
+//   height: 100px;
+//   margin-top: -18px;  /* 高さの半分だけネガティブマージン */
+//   color: black;
+//   line-height: 100px;
+//   font-size: 100px;
+//   cursor: pointer;
+//   z-index: 10;  /* 重要 */
+// }

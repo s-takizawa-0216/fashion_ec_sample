@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  devise_scope :user do
+    get 'users/done_signup',  to: 'users/registrations#done_signup', as: :user_resistration_done_signup
+  end
+
   root "items#index"
 end
 

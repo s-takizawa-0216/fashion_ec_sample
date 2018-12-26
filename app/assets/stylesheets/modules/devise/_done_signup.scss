@@ -1,0 +1,16 @@
+.done-signup-container{
+  width: 500px;
+  margin: 60px auto 60px;
+  &__msg{
+    font-weight: bold;
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  &__text{
+    text-align: center;
+    font-size: 12px;
+    color: gray;
+  }
+}

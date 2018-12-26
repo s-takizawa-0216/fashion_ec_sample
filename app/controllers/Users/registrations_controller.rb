@@ -54,7 +54,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def sns_params
-    params.require(:user).permit(:email, :gender, :birth_year, :birth_month, :birth_day, :postal_code, :mail_magazine, :provider, :uid)
+    params.require(:user).permit(:password, :email, :gender, :birth_year, :birth_month, :birth_day, :postal_code, :mail_magazine, :provider, :uid)
   end
   # def sns_params
 

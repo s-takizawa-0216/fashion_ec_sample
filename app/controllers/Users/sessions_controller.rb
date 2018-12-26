@@ -19,6 +19,10 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # protected
+  def after_sigh_out_path_for(resource)
+    new_user_session_path
+  end
+
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params

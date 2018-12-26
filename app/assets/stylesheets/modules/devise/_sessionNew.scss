@@ -1,0 +1,74 @@
+.user-login-form{
+  background: #f0f0f0;
+  width: 850px;
+  margin: 40px auto 0;
+  border-radius: 4px;
+  &__left{
+    float: left;
+    width: 500px;
+    &__msg{
+      font-size: 18px;
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+    &__email{
+      font-size: 13px;
+      padding-left: 12px;
+      width: 320px;
+      height: 40px;
+      display: block;
+      margin: 10px auto 0;
+    }
+    &__btn{
+      width: 336px;
+      margin: 20px auto 40px; 
+    }
+  }
+
+  &__middle{
+    margin-top: 40px;
+    float: left;
+    width: 1px;
+    height: 200px; 
+    background-color: rgb( 192, 192, 192);
+  }
+  &__right{
+    width: 300px;
+    float: left;
+    &__auth{
+      font-size: 18px;
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+    &__point{
+      font-size: 12px;
+      color: gray;
+      text-align: center;
+    }
+  }
+}
+
+.login-btn{
+  background-color: #2490D0;
+  height:40px;
+  width: 120px;
+  color: #fff;
+  border-radius: 3px;
+}
+
+.ligin-btn-line-ul{
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+.facebook-auth{
+  background: #f0f0f0;
+  width: 240px;
+  height: 40px;
+  display: block;
+  margin: 0 auto;
+  color: #2490D0;
+  margin-bottom: 10px;
+}

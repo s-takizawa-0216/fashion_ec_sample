@@ -3,12 +3,9 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-  before_action :sns_new, only: [:facebook, :google]
+  before_action :sns_new, only: [:google]
 
   def done_signup
-  end
-
-  def facebook
   end
 
   def google

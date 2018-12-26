@@ -30,8 +30,7 @@
 
         .user-login-form__right
           .user-login-form__right__auth 外部サイトIDでログイン
-          %input{type: :submit, value: "Facebook", class: "facebook-auth"}
-          = link_to 'Google', user_google_oauth2_omniauth_authorize_path, class: "facebook-auth"
+          = link_to 'Google アカウント', user_google_oauth2_omniauth_authorize_path, class: "facebook-auth"
           .user-login-form__right__point ZOZOポイントが貯まる
           
   .sign-up__footer

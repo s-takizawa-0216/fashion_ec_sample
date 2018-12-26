@@ -4,10 +4,10 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|gender|string|null: false|
-|birth_year|integer|null: false|
-|birth_month|integer|null: false|
-|birth_day|integer|null: false|
+|gender|string||
+|birth_year|integer||
+|birth_month|integer||
+|birth_day|integer||
 |password|string|null: false|
 |postal_code|integer|null: false|
 |email|string|null:false|

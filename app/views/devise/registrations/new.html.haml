@@ -46,7 +46,8 @@
                 .user-resistration-form__postal__line__hissu-box
                   .user-resistration-form__postal__line__hissu-box-msg 必須
               %li.side-by-side-li
-                = f.text_field :postal_code, class: "text-arrange-postal", placeholder: "例:2617116"
+                = f.text_field :postal_code, class: "text-arrange-postal", placeholder: "例:2617116", required: "required"
+              .postal-7-numbers 郵便番号をハイフン無しの数字7ケタで入力してください
               =link_to "https://www.post.japanpost.jp/zipcode/index.html" do
                 %li.side-by-side-li.user-resistration-form__postal__line__postal-search 郵便番号を検索
                 %li.side-by-side-li.user-resistration-form__postal__line__postal-icon
@@ -56,18 +57,19 @@
             .user-resistration-form__gender__line__email
               %ui.side-by-side-ul
                 %li
-                  = f.label :メールアドレス, class: "user-resistration-form__gender__line__email__label"
+                  = f.label :メールアドレス, class: "user-resistration-form__gender__line__email__label", required: "required"
                 %li (ZOZOID)
                 %li.side-by-side-li
                 .zozoid__hissu
                   .zozoid__hissu-box
                     .zozoid__hissu-box-msg 必須
-                %li.mail-to-zozoid ※メールアドレスがZOZO IDとなります
+                %li.mail-to-zozoid#input-email メールアドレスを入力してください
+                %li.mail-to-zozoid#hide-zozo※メールアドレスがZOZOIDとなります 
               %ui.side-by-side-ul.clearfix
                 %li.side-by-side-li.checkbox-arrange-coupon
-                  = f.check_box :mail_magazine, checkedvalue: 1
+                  = f.check_box :mail_magazine, checkedvalue: 1, uncheckedvalue: 0
                 %li.sale_and_coupon セールやクーポンなどのお得な情報を受け取る
-              = f.email_field :email, autofocus: true,placeholder:"例 : zozo@zozotown.jp", autocomplete: "email",class: "user-resistration-form__gender__line__email__text"
+              = f.email_field :email, autofocus: true,placeholder:"例 : zozo@zozotown.jp", autocomplete: "email",class: "user-resistration-form__gender__line__email__text", id: "ask-email",required: "required"
 
           .user-resistration-form__gender
             .user-resistration-form__gender__line__email
@@ -78,8 +80,9 @@
                 .zozoid__hissu
                   .zozoid__hissu-box
                     .zozoid__hissu-box-msg 必須
-                %li.mail-to-zozoid ※ZOZOIDに含まれない英数字混合 8~12文字
-              = f.password_field :password, autocomplete: "new-password" ,class: "new-password-box"
+                %li.mail-to-zozoid#input-password パスワードを入力して下さい
+                %li.mail-to-zozoid#hide-password ※ZOZOIDに含まれない英数字混合 8~12文字
+              = f.password_field :password, autocomplete: "new-password" ,class: "new-password-box",id: "ask-password",required: "required"
 
           .user-resistration-form__gender__bottom
             .user-resistration-form__gender__line__email.clearfix

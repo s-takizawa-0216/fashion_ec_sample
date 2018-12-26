@@ -12,6 +12,10 @@
     .sign-up__main__middle
       .user-resistration-form.clearfix
         = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = f.hidden_field :uid, value: "#{@user.uid}"
+          = f.hidden_field :provider, value: "#{@user.provider}"
+          = f.hidden_field :password, value: "#{@user.password}"
+          = f.hidden_field :email, value: "#{@user.email}"
           .user-resistration-form__top-msg 基本情報
           .user-resistration-form__gender
             %ul.side-by-side-ul.user-resistration-form__gender__line.clearfix
@@ -41,9 +45,9 @@
 
           .user-resistration-form__gender
             %ul.side-by-side-ul.user-resistration-form__postal__line.clearfix
-              %li.side-by-side-li.user-resistration-form__postal__line__postal.gray 郵便番号
+              %li.side-by-side-li.user-resistration-form__postal__line__postal.gray.sns-postal 郵便番号
               %li.side-by-side-li
-                = f.text_field :postal_code, class: "text-arrange-postal", placeholder: "例:2617116"
+                = f.text_field :postal_code, class: "text-arrange-postal", placeholder: "例:2617116",required: "required"
               =link_to "https://www.post.japanpost.jp/zipcode/index.html" do
                 %li.side-by-side-li.user-resistration-form__postal__line__postal-search 郵便番号を検索
                 %li.side-by-side-li.user-resistration-form__postal__line__postal-icon
@@ -55,7 +59,7 @@
               %li.side-by-side-li.confirm-user-email #{@user.email}
             %ui.side-by-side-ul
               %li.side-by-side-li.checkbox-arrange-coupon.sns-coupon
-                = f.check_box :mail_magazine, checkedvalue: 1
+                = f.check_box :mail_magazine, checkedvalue: 1, uncheckedvalue: 0
               %li.sale_and_coupon.sns-coupon セールやクーポンなどのお得な情報を受け取る
 
           = f.submit "会員登録を完了する", class: "sns-resistration-btn"

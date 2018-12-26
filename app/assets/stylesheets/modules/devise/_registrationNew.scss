@@ -83,12 +83,15 @@
 
           .user-resistration-form__postal__line{
             padding: 30px 0 ;
+
             &__postal{
               font-size: 15px;
               padding-top: 10px;
             }
+
             &__hissu{
               padding: 13px 0 0 8px;
+
               &-box{
                 width: 28px;
                 height: 18px;
@@ -104,13 +107,17 @@
             }
 
             &__postal-search{
-              padding: 10px 0 0 80px;
+              padding-left: 60px;
               font-size: 13px;
               color: gray;
+              position: relative;
+              bottom: 35px;
             }
 
             &__postal-icon{
-              padding: 9px 0 0 3px;
+              padding-left: 3px;
+              position: relative;
+              bottom: 35px;
               font-size: 15px;
               color: gray;
             }
@@ -229,6 +236,7 @@ select#user_birth_day{
   height: 38px;
   color: gray;
 }
+
 .text-arrange-postal{
   padding-left: 12px;
   font-size:13px;
@@ -255,5 +263,21 @@ select#user_birth_day{
   height: 40px;
   display: block;
   margin:  0 auto;
+  color: #fff;
+}
 
+#hide-zozo{
+  display: none;
+}
+
+.postal-7-numbers {
+  font-size: 10px;
+  float: left;
+  color: gray;
+  margin-left: 140px;
+  padding-top: 10px;
+}
+
+#hide-password{
+  display: none;
 }

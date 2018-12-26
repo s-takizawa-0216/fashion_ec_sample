@@ -2,12 +2,12 @@
 
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
-  def facebook
-    callback_for(:facebook)
-  end
-
   def google_oauth2
     callback_for(:google)
+  end
+
+  def failure
+    redirect_to new_user_registration_path
   end
 
   def callback_for(provider)

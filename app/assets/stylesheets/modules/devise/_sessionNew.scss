@@ -3,15 +3,18 @@
   width: 850px;
   margin: 40px auto 0;
   border-radius: 4px;
+
   &__left{
     float: left;
     width: 500px;
+
     &__msg{
       font-size: 18px;
       text-align: center;
       margin-top: 40px;
       margin-bottom: 20px;
     }
+
     &__email{
       font-size: 13px;
       padding-left: 12px;
@@ -20,6 +23,7 @@
       display: block;
       margin: 10px auto 0;
     }
+
     &__btn{
       width: 336px;
       margin: 20px auto 40px; 
@@ -33,16 +37,20 @@
     height: 200px; 
     background-color: rgb( 192, 192, 192);
   }
+
   &__right{
     width: 300px;
     float: left;
+
     &__auth{
       font-size: 18px;
       text-align: center;
       margin-top: 40px;
       margin-bottom: 40px;
     }
+    
     &__point{
+      margin-top: 15px;
       font-size: 12px;
       color: gray;
       text-align: center;
@@ -66,9 +74,13 @@
 .facebook-auth{
   background: #f0f0f0;
   width: 240px;
-  height: 40px;
+  height: 35px;
   display: block;
   margin: 0 auto;
   color: #2490D0;
   margin-bottom: 10px;
+  border: 1px ridge;
+  border-color: lightgray;
+  text-align: center;
+  padding-top: 12px;
 }

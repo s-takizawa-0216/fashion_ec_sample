@@ -41,6 +41,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+  def build_resource(hash=nil)
+    hash[:uid] = User.create_unique_string
+    super
+  end
+
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.

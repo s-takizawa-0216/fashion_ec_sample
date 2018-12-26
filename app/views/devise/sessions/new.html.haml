@@ -1,0 +1,36 @@
+.sign-up
+  .sign-up__header this header is created by Mr.T
+  .sign-up__breadcrumbs breadcrumbs will be set here
+
+  .sign-up__main
+    .sign-up__main__header.clearfix
+      %ul.side-by-side-ul
+        %li.side-by-side-li
+          =fa_icon "users", class: "users-icon"
+        %li.side-by-side-li.resistration-new-member-msg ログイン
+
+    .user-login-form.clearfix
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .user-login-form__left
+          .user-login-form__left__msg ZOZO ID でログイン
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレスまたはZOZO ID", class: "user-login-form__left__email"
+          = f.password_field :password, placeholder: "パスワード", autocomplete: "current-password",class: "user-login-form__left__email"
+          .user-login-form__left__btn.clearfix
+            %ul.side-by-side-ul
+              %li.side-by-side-li
+                = f.submit "ログイン", class: "login-btn"
+              %li.side-by-side-li
+                %ul.ligin-btn-line-ul
+                  = link_to do
+                    %li ID・パスワードをお忘れですか？
+                  = link_to new_user_registration_path do
+                    %li 初めてご利用の方（新規会員登録）
+
+        .user-login-form__middle
+
+        .user-login-form__right
+          .user-login-form__right__auth 外部サイトIDでログイン
+          = link_to 'Google アカウント', user_google_oauth2_omniauth_authorize_path, class: "facebook-auth"
+          .user-login-form__right__point ZOZOポイントが貯まる
+          
+  .sign-up__footer

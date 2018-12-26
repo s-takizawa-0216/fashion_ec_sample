@@ -3,7 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i[google_oauth2]
-  
+
+  validates :email, :password, :postal_code, presence: true
+
   def self.find_omniauth(auth)
     self.where(provider: auth.provider, uid: auth.uid).first
   end

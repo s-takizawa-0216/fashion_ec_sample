@@ -31,31 +31,7 @@
         .user-login-form__right
           .user-login-form__right__auth 外部サイトIDでログイン
           %input{type: :submit, value: "Facebook", class: "facebook-auth"}
-          = link_to 'Google', user_google_oauth2_omniauth_authorize_path
+          = link_to 'Google', user_google_oauth2_omniauth_authorize_path, class: "facebook-auth"
           .user-login-form__right__point ZOZOポイントが貯まる
-
-
-
-
-
-
-
-
-
+          
   .sign-up__footer
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"

@@ -3,9 +3,15 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
+  before_action :sns_new, only: [:facebook, :google]
 
   def done_signup
-    
+  end
+
+  def facebook
+  end
+
+  def google
   end
   # GET /resource/sign_up
   # def new
@@ -41,12 +47,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  def build_resource(hash=nil)
-    hash[:uid] = User.create_unique_string
-    super
+  protected
+  
+  def sns_new
+    @user = User.new(sns_params)
   end
 
-  # protected
+  def sns_params
+    params.require(:user).permit(:email, :gender, :birth_year, :birth_month, :birth_day, :postal_code, :mail_magazine, :provider, :uid)
+  end
+  # def sns_params
+
+  #   params.require(:user).permit(:email, :password, :provider, :uid)
+  # end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params

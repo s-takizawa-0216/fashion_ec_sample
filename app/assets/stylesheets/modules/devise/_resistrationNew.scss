@@ -80,6 +80,7 @@
               font-size: 14px;
             }
           }
+
           .user-resistration-form__postal__line{
             padding: 30px 0 ;
             &__postal{
@@ -98,32 +99,36 @@
 
                 &-msg{
                   font-size: 11px;
-                  
                 }
               }
             }
+
             &__postal-search{
               padding: 10px 0 0 80px;
               font-size: 13px;
               color: gray;
             }
+
             &__postal-icon{
               padding: 9px 0 0 3px;
               font-size: 15px;
               color: gray;
             }
           }
+
           &__line__email{
             padding: 25px 0 ;
-
           }
+
           &__line__email__label{
               padding-right: 29px;
           }
+
           .zozoid__hissu{
             padding-left: 80px;
             position: relative;
             bottom: 20px;
+
             &-box{
               width: 28px;
               height: 18px;
@@ -131,12 +136,13 @@
               border-radius: 3px;
               text-align: center;
               margin-right: 50px;
+
               &-msg{
                 font-size: 11px;
-                  
               }
             }
           }
+
           &__line__email__text{
             width: 380px;
             height: 40px;
@@ -150,18 +156,21 @@
             border-color: rgb(166, 166, 166);
             padding-left: 12px;
           }
+
           .mail-to-zozoid {
             font-size: 10px;
             color: gray;
             padding-left: 145px;
             padding-bottom: 10px;
           }
+
           .sale_and_coupon {
             font-size: 12px;
             color: gray;
             float: left;
             padding: 4px 0 0 2px;
           }
+
           .new-password-box{
             width: 300px;
             height: 40px;
@@ -177,10 +186,12 @@
 
           }
         }
+
         .personal-info-consern{
           font-size: 14px; 
         }
       }
+
       .user-resistration-form__gender__bottom{
         padding-bottom: 40px;
       }
@@ -246,6 +257,3 @@ select#user_birth_day{
   margin:  0 auto;
 
 }
-
-
-

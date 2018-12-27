@@ -1,17 +1,37 @@
-$(function() {
-  $('#photoMain').slick({
-    arrows: true,
-    appendArrows: $('.prevNextCtrl'),
-    prevArrow: '<li class="fa fa-angle-left" id="btnPrev"></div>',
-    nextArrow: '<li class="fa fa-angle-right" id="btnNext"></div>',
-    speed: 0,
-  });
-});
+$(function(){
+  function photoChange(target){
+    var photoList = $('#photoGallery').find("#photoMain li");
+    var thimb = [];
+    var current = 0;
 
-$(function() {
-  $('#photoThimb img').click(function(){
-    var $thisImg = $(this).attr('src');
-    $('#photoMain img').attr({src: $thisImg})
-  });
-});
+    function open(){
+      $(photoList[current]).stop().fadeIn(10)
+    }
 
+    function close(){
+      $(photoList[current]).stop().fadeOut(0)
+    }
+
+    function clickTn(num){
+      if( current != num){
+        close();
+        current = num
+        open();
+      };
+    };
+
+    function init(){
+      $('#photoGallery').find("#photoThimb li").each(function(index){
+        thimb[index] = $($(this).find('img'));
+        $($(this).find('div')).on('click', function(){
+          clickTn(index);
+        })
+      });
+    };
+    init()
+    open()
+  };
+
+
+  photoChange('#photoGallery')
+});

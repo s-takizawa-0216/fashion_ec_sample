@@ -54,32 +54,32 @@
               .disc-hissu__disc ショップ名
             %li.side-by-side-li
               .disc-hissu__hissu 必須
-          %select{class: "item-shop-select"}
+          = f.select :shop_id, @shop.map{|shop|[shop.name, shop.id]},{}, class: "item-shop-select"
 
       .item-new-main__selection.clearfix
         .item-new-main__selection-msg
           %ul.side-by-side-ul.disc-hissu
             %li.side-by-side-li
               .disc-hissu__disc ブランド名
-          %select{class: "item-shop-select"}
+          = f.select :brand_id, @brand.map{|brand|[brand.name, brand.id]},{}, class: "item-shop-select"
 
       .item-new-main__selection.clearfix
         .item-new-main__selection-msg
           %ul.side-by-side-ul.disc-hissu
             %li.side-by-side-li
               .disc-hissu__disc カテゴリー1
-          %select{class: "item-shop-select item-category-select"}
+          = f.select :parent_category_id, @parent_category.map{|parent_category|[parent_category.name, parent_category.id]},{}, class: "item-shop-select item-category-select"
           %ul.side-by-side-ul.disc-hissu
             %li.side-by-side-li
               .disc-hissu__disc カテゴリー2
-          %select{class: "item-shop-select item-category-select"}
+          = f.select :child_category_id, @child_category.map{|child_category|[child_category.name, child_category.id]},{}, class: "item-shop-select item-category-select"
 
       .item-new-main__selection.clearfix
         .item-new-main__selection-msg
           %ul.side-by-side-ul.disc-hissu
             %li.side-by-side-li
               .disc-hissu__disc  レディース/メンズ
-          = f.select :gender, [[],["レディース/メンズ","レディースメンズ"],["レディース", "レディース"],["メンズ","メンズ"]], {}, class: "item-shop-select"
+          = f.select :gender, [[],["レディース/メンズ","レディースメンズ"],["レディース", "レディース"],["メンズ","メンズ"],["キッズ","キッズ"]], {}, class: "item-shop-select"
 
       .item-new-main__selection.clearfix
         .item-new-main__selection-msg
@@ -109,14 +109,14 @@
           %ul.side-by-side-ul.disc-hissu
             %li.side-by-side-li
               .disc-hissu__disc  原産国
-          = f.select :gender, [[],["日本","日本"],["中国", "中国"],["ベトナム","ベトナム"],["インド","インド"],["アメリカ","アメリカ"],["マレーシア","マレーシア"]], {}, class: "item-shop-select"
+          = f.select :origin, [[],["日本","日本"],["中国", "中国"],["ベトナム","ベトナム"],["インド","インド"],["アメリカ","アメリカ"],["マレーシア","マレーシア"]], {}, class: "item-shop-select"
 
       .item-new-main__selection.clearfix
         .item-new-main__selection-msg
           %ul.side-by-side-ul.disc-hissu
             %li.side-by-side-li
               .disc-hissu__disc  材料
-          = f.select :gender, [[],["ポリエステル","ポリエステル"],["シルク", "シルク"],["コットン","コットン"],["カシミヤ","カシミヤ"],["レザー","レザー"],["ダウン","ダウン"],["レーヨン","レーヨン"]], {}, class: "item-shop-select"
+          = f.select :material, [[],["ポリエステル","ポリエステル"],["シルク", "シルク"],["コットン","コットン"],["カシミヤ","カシミヤ"],["レザー","レザー"],["ダウン","ダウン"],["レーヨン","レーヨン"]], {}, class: "item-shop-select"
 
       .item-new-main__selection.clearfix
         .item-new-main__selection-msg

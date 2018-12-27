@@ -3,6 +3,7 @@
     .item-new-header__content
       .item-new-header__content__msg ZOZOTOWN
 
+
   .item-new-main
     = form_for @item do |f|
       .item-new-main__header
@@ -127,12 +128,12 @@
           .delivery-yn
             = f.check_box :wrapping, checkedvalue: 1, uncheckedvalue: 0, class: "delivery-check"
             .delivery-yn__msg ※ラッピングが可能な場合はチェックしてください。
+
       .item-new-main__selection.clearfix
         .item-new-main__selection-msg
           = f.submit "出品する", class: "post-item-btn"
-          = link_to do
+          = link_to root_path do
             .item-return-btn もどる
 
-  
 
     .item-new-footer

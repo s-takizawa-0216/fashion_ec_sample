@@ -45,6 +45,7 @@
   &__selection{
     border-bottom: 1px solid;
     border-color: rgb(128, 128, 128);
+
     &-msg{
       margin: 30px auto;
       width: 720px;
@@ -162,17 +163,19 @@
 
 .priceholder{
   margin-left: 130px;
+
   .enmark{
     font-size: 20px;
     padding: 10px 10px 0;
   }
   .item-price-input{
     height: 45px;
-    width: 200px;
+    width: 180px;
     background-color: #fff;
     display: block;
     border-radius: 3px;
     border: 1px solid gray;
+    padding-left: 10px;
   }
 }
 
@@ -183,6 +186,7 @@
   position: relative;
   right: 260px;
   bottom: 30px;
+  
   &__msg{
     font-size: 12px;
     color: gray;

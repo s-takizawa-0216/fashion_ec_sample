@@ -96,22 +96,34 @@
 .dropzone-hidden{
   opacity: 0;
   width: 600px;
-  height: 150px;
+  height: 10px;
+  padding-top: 110px;
   position: relative;
   float: right;
-  bottom: 150px;
+  bottom: 140px;
   right: 60px;
 }
 
-.item-name-input{
-  height:50px;
+#preview.preview-zone{
+  max-height: 200px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.into-box{
+  width: 620px;
+  height: 120px;
+  padding-left: 40px;
+}
+
+.items-input{
+  height: 50px;
   width: 500px;
-  display: block;
-  position: relative;
-  bottom: 70px;
-  left: 110px;
   border-radius: 3px;
-  border: 1px solid gray;
+  bottom: 2px;
+  float: right;
+  margin-bottom: 40px;
+  clear: both;
 }
 
 .item-name-ul{
@@ -227,3 +239,4 @@ input.delivery-check[type=checkbox]{
   padding-top: 7px;
   margin-top: 10px;
 }
+

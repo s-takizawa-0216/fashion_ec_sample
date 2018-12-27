@@ -83,6 +83,7 @@
   background: #f5f5f5;
   width: 600px;
   height: 150px;
+
   &__msg{
     font-size: 14px;
     height: 40px;
@@ -132,9 +133,11 @@
   width: 160px;
   font-weight: bold;
   height: 25px;
+
   &__disc{
     font-size: 16px;
   }
+  
   &__hissu{
     font-size: 12px;
     background-color: red;
@@ -146,7 +149,7 @@
   }
 }
 
-.item-shop-select{
+select#item_shop_id,#item_brand_id,.item-shop-select{
   height: 45px;
   width: 200px;
   background-color: #fff;
@@ -156,7 +159,14 @@
   margin-left: 150px;
 }
 
-.item-category-select{
+select#item_parent_category_id,#item_child_category_id{
+  height: 45px;
+  width: 200px;
+  background-color: #fff;
+  display: block;
+  border-radius: 3px;
+  border: 1px solid gray;
+  margin-left: 150px;
   position: relative;
   bottom: 30px;
 }
@@ -168,6 +178,7 @@
     font-size: 20px;
     padding: 10px 10px 0;
   }
+
   .item-price-input{
     height: 45px;
     width: 180px;

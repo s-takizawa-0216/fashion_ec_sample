@@ -15,6 +15,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(create_params)
+    binding.pry
     @item.save
       redirect_to new_item_path
   end

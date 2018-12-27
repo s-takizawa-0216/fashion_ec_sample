@@ -19,7 +19,7 @@
                 %li.side-by-side-li
                   .image-hissu__hissu 必須
             %li.maximau-upload 最大10枚までアップロードできます。
-            .drop-zone
+            .drop-zone#droped-hidden
               %ul.drop-zone__msg
                 %li ドラッグアンドドロップまたは
                 %li または画像をアップロード
@@ -36,7 +36,7 @@
                 %li.side-by-side-li
                   .image-hissu__hissu 必須
             %li.maximau-upload 
-            = f.text_field :name, class: "item-name-input", placeholder: "商品名 (必須40文字まで)"
+            = f.text_field :name, class: "item-name-input", placeholder: "商品名 (必須40文字まで)", required: true
 
       .item-new-main__selection.clearfix
         .item-new-main__selection-msg
@@ -45,7 +45,7 @@
               .disc-hissu__disc 説明
             %li.side-by-side-li
               .disc-hissu__hissu 必須
-          = f.text_area :discription, placeholder: "商品の説明をここに書いてください。購入者に対して分かりやすいことを心がけましょう！", class: "item-discription-input"
+          = f.text_area :discription, placeholder: "商品の説明をここに書いてください。購入者に対して分かりやすいことを心がけましょう！", class: "item-discription-input", required: true
 
       .item-new-main__selection.clearfix
         .item-new-main__selection-msg
@@ -54,25 +54,24 @@
               .disc-hissu__disc ショップ名
             %li.side-by-side-li
               .disc-hissu__hissu 必須
-          = f.select :shop_id, @shop.map{|shop|[shop.name, shop.id]},{}, class: "item-shop-select"
+          = f.select :shop_id, @shop.map{|shop|[shop.name, shop.id]},{}, class: "item-shop-select", include_blank: true, required: true
 
       .item-new-main__selection.clearfix
         .item-new-main__selection-msg
           %ul.side-by-side-ul.disc-hissu
             %li.side-by-side-li
               .disc-hissu__disc ブランド名
-          = f.select :brand_id, @brand.map{|brand|[brand.name, brand.id]},{}, class: "item-shop-select"
-
+          = f.select :brand_id, @brand.map{|brand|[brand.name, brand.id]}, include_blank: true
       .item-new-main__selection.clearfix
         .item-new-main__selection-msg
           %ul.side-by-side-ul.disc-hissu
             %li.side-by-side-li
               .disc-hissu__disc カテゴリー1
-          = f.select :parent_category_id, @parent_category.map{|parent_category|[parent_category.name, parent_category.id]},{}, class: "item-shop-select item-category-select"
+          = f.select :parent_category_id, @parent_category.map{|parent_category|[parent_category.name, parent_category.id]}, include_blank: true
           %ul.side-by-side-ul.disc-hissu
             %li.side-by-side-li
               .disc-hissu__disc カテゴリー2
-          = f.select :child_category_id, @child_category.map{|child_category|[child_category.name, child_category.id]},{}, class: "item-shop-select item-category-select"
+          = f.select :child_category_id, @child_category.map{|child_category|[child_category.name, child_category.id]}, include_blank: true
 
       .item-new-main__selection.clearfix
         .item-new-main__selection-msg
@@ -91,7 +90,7 @@
           %ul.side-by-side-ul.priceholder
             %li.side-by-side-li.enmark ¥
             %li.side-by-side-li
-            = f.text_field :price, placeholder: "例)¥3,000",class: "item-price-input"
+            = f.text_field :price, placeholder: "例)¥3,000",class: "item-price-input", required: true
 
       .item-new-main__selection.clearfix
         .item-new-main__selection-msg

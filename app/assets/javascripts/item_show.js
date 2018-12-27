@@ -6,19 +6,19 @@ $(function(){
     var btnPrev = $('#btnPrev')
     var btnNext = $('#btnNext')
 
-    function open(){
-      $(photoList[current]).stop().fadeIn(10)
+    function click_open(){
+      $(photoList[current]).stop().fadeIn(10, checkControl)
     }
 
-    function close(){
+    function click_close(){
       $(photoList[current]).stop().fadeOut(0)
     }
 
     function clickTn(num){
       if( current != num){
-        close();
+        click_close();
         current = num
-        open();
+        click_open();
       };
     };
 
@@ -31,20 +31,20 @@ $(function(){
       });
     };
     init()
-    open()
+    click_open()
 
-    function open1(){
+    function slide_open(){
       btnPrev.off('click');
       btnNext.off('click');
       $(photoList[current]).stop().fadeIn(0, checkControl);
     };
 
-    function close1(){
+    function slide_close(){
       $(photoList).stop().fadeOut(0)
     }
 
     function clickControl(type){
-      close1();
+      slide_close();
       switch(type){
         case 'btnPrev':
           current--;
@@ -53,7 +53,7 @@ $(function(){
           current++;
           break;
       };
-      open1();
+      slide_open();
     }
 
     function checkControl(){
@@ -82,8 +82,8 @@ $(function(){
       btn.show();
       btn.off('click').on('click', function(){clickControl($(btn).attr('id'));});
     };
-
     checkControl();
+    slide_open();
   };
   photoChange('#photoGallery')
 });

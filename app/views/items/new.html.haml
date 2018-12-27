@@ -98,8 +98,6 @@
           %ul.side-by-side-ul.disc-hissu
             %li.side-by-side-li
               .disc-hissu__disc 即日配送可否
-            %li.side-by-side-li
-              .disc-hissu__hissu 必須
           .delivery-yn
             = f.check_box :delivery_days, checkedvalue: 1, uncheckedvalue: 0, class: "delivery-check"
             .delivery-yn__msg ※即日配送がか可能な場合はチェックしてください。
@@ -123,8 +121,6 @@
           %ul.side-by-side-ul.disc-hissu
             %li.side-by-side-li
               .disc-hissu__disc ラッピング可否
-            %li.side-by-side-li
-              .disc-hissu__hissu 必須
           .delivery-yn
             = f.check_box :wrapping, checkedvalue: 1, uncheckedvalue: 0, class: "delivery-check"
             .delivery-yn__msg ※ラッピングが可能な場合はチェックしてください。

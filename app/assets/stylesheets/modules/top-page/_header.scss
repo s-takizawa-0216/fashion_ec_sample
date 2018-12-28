@@ -88,6 +88,10 @@
           &__name {
             line-height: 50px;
             font-size: 13px;
+
+            > a {
+              color:#ffffff;
+            }
           }
 
         &__popup {
@@ -183,8 +187,22 @@
     position: absolute;
     left:585px;
     width:295px;
-    color:#2797ff;
+    color:#2d2d2d;
   }
+
+  &__inner-comment-log-in {
+    background-color:#ffffff;
+    text-align: center;
+    border:solid 1px #ededed;
+    display: none;
+    position: absolute;
+    left:585px;
+    width:200px;
+    height: 151px;
+    color:#2d2d2d;
+    padding: 10px;
+  }
+
 
       &__inner__comment-box {
         background-color: #2797ff;
@@ -195,15 +213,36 @@
         font-size: 12px;
       }
 
+      &__inner__comment-box-log-in {
+        font-size: 12px;
+        text-decoration: none;
+
+          >a {
+          color:#2797ff;
+          }
+      }
+
+        &__inner__comment {
+          color:#2797ff;
+          padding: 10px;
+        }
+
         &__inner__comment-text {
           font-size: 14px;
           color:#2d2d2d;
         }
 
+        &__inner__comment-text-log-in {
+          font-size: 12px;
+          color:#2d2d2d;
+          line-height: 20px;
+          text-align: center;
+        }
+
 
           &__inner__comment-button {
             position: absolute;
-            top:100px;
+            top:120px;
             left:120px;
             color:#ffffff;
             text-decoration: none;
@@ -218,8 +257,19 @@
     border:solid 1px #ededed;
     display: none;
     position: absolute;
-    width:505px;
     left:390px;
+    width:505px;
+  }
+
+  &__inner-fav-log-in {
+    background-color:#ffffff;
+    border:solid 1px #ededed;
+    display: none;
+    position: absolute;
+    left:620px;
+    padding: 10px;
+    color:red;
+    width:200px;
   }
 
     &__inner__favbox {
@@ -227,6 +277,14 @@
         text-align: left;
         margin-left:20px;
         color:#2d2d2d;
+    }
+
+    &__inner__favbox-log-in {
+        font-size: 12px;
+        text-align: center;
+        margin-left:20px;
+        color:#2d2d2d;
+        line-height: 20px;
     }
 
       &__inner__fav {
@@ -256,6 +314,10 @@
 
           &__font {
             font-size: 12px;
+
+            > a {
+            color:#2d2d2d;
+            }
           }
 
         &__shop {
@@ -294,6 +356,8 @@
     left:585px;
     width:295px;
     color:#2797ff;
+    padding-top: 10px;
+
   }
 
       &__inner__cart-box {
@@ -307,13 +371,14 @@
 
         &__inner__cart-text {
           font-size: 14px;
+          padding: 10px;
           color:#2d2d2d;
         }
 
 
           &__inner__cart-button {
             position: absolute;
-            top:100px;
+            top:130px;
             left:80px;
             color:#ffffff;
             text-decoration: none;

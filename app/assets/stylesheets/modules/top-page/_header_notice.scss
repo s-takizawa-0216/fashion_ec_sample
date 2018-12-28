@@ -1,0 +1,144 @@
+.fashion_ec_sample {
+  min-width: 1000px;
+  margin: auto;
+  position: relative;
+  zoom: 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrapper {
+  width: 100%;
+  margin: auto;
+  text-align: left;
+  position: relative;
+}
+
+//top-index部分 始まり
+.top__index {
+  background-color:#2797ff;
+  width: 100%;
+  height:60px;
+
+    &__center {
+      display: table;
+      margin-left: auto;
+      margin-right: auto;
+      width: 980px;
+      height: 60px;
+      display: flex;
+
+
+      &__curcle {
+        width: 112px;
+        line-height: 1;
+        z-index: 1;
+        position: relative;
+
+        &__time {
+          margin-top: 3px;
+          text-align: center;
+          display: inline-block;
+
+          &--last {
+            width: 1em;
+            -webkit-writing-mode: vertical-rl;
+            -ms-writing-mode: tb-rl;
+            writing-mode: vertical-rl;
+            font-size: 12px;
+            font-weight: bold;
+          }
+
+          &--count {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 30px;
+            margin-left:1px;
+          }
+
+          &--time {
+            font-size: 12px;
+            font-weight: bold;
+            margin-left:1px;
+          }
+        }
+
+        &__main {
+          margin: -26px 0 -26px;
+          border-radius: 57px;
+          padding: 32px 15px;
+          width: 82px;
+          height: 48px;
+          background: #ffffff;
+
+          &--label {
+            border-radius: 2px;
+            padding: 3px;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 13px;
+            text-align: center;
+            background-color:#2797ff;
+            }
+          }
+        }
+      }
+    }
+
+      .index__label {
+        -webkit-writing-mode: vertical-rl;
+        -ms-writing-mode: tb-rl;
+        writing-mode: vertical-rl;
+        font-size: 20px;
+        vertical-align: middle;
+        line-height: 1;
+        margin-left: 10px;
+        margin-top: 10px;
+        color:#ffffff;
+
+          &__price {
+            margin-left: 10px;
+            line-height:60px;
+            font-size: 45px;
+            color:#ffffff;
+          }
+
+          &__content {
+            width: 350px;
+            font-size: 12px;
+            color:#ffffff;
+            line-height: 1.384615385;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-wrap: normal;
+            white-space: nowrap;
+            padding: 10px;
+            font-weight: 100;
+
+          }
+        }
+
+        .index__action {
+          padding: 10px;
+
+          &__row {
+          display: flex;
+          }
+
+            &__coupon {
+            color:#ffffff;
+            border:1px solid #ffffff;
+            border-radius: 3px;
+            padding: 8px  15px;
+            font-size: 12px;
+            min-height:15px;
+            font-weight: 100;
+            }
+
+            &__detail {
+            margin-left: 10px;
+            background-color: #ffffff;
+            border-radius: 3px;
+            font-size: 12px;
+            padding: 8px  30px;
+            font-weight: 100;
+            }
+         }

@@ -8,7 +8,10 @@
 
   = render partial: 'shared/header-notice'
 
-  = render partial: 'shared/header'
+- if user_signed_in?
+  = render partial: 'shared/header-logged-in'
+- else
+  = render partial: 'shared/header-log-in'
 
   .header__content
     %ul.header__content__ul

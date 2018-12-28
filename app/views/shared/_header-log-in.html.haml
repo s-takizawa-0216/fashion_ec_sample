@@ -8,26 +8,10 @@
           %input.header__main__search{type:"submit" , value:""}
           = fa_icon ("search") ,class: "search-image"
       .header__right
-        %ul.header__right__ul
-          %li.header__right__li
-            .header__right__name-js
-              %span.header__right__name {user-email}様
-            .header__right__popup
-              .header__right__popup__inner
-                %ul
-                  %li.header__right__popup__top
-                    = link_to '計測結果を見る' , "#", class: "header__right__popup__text"
-                  %li.header__right__popup__top
-                    = link_to 'ユーザー情報の編集' , "#", class: "header__right__popup__text"
-                %ul.header__right__popup__bottom
-                  %li.header__right__popup__top
-                    = link_to '登録情報' , "#" , class: "header__right__popup__text1"
-                  %li.header__right__popup__top
-                    = link_to '注文履歴・発送状況' , "#" ,class: "header__right__popup__text1"
-                  %li.header__right__popup__top
-                    = link_to 'メールマガジン' , "#" , class: "header__right__popup__text1"
-                  %li.header__right__popup__top
-                    = link_to 'ログアウト', "#" , class: "header__right__popup__text1"
+        .header__right__ul
+          .header__right__name-js
+            %span.header__right__name
+              = link_to 'ログイン' , new_user_session_path
 
 
           %li.header__right__li-menu
@@ -103,56 +87,31 @@
               .header__right__popup__inner-cart
                 .header__right__popup__inner__cartbox
                   .header__right__popup__inner__cart
-                    =fa_icon ("shopping-cart 2x" )
+                    =fa_icon ("shopping-cart 3x" )
                   %p.header__right__popup__inner__cart-text カートに商品が○件あります。
-                  .header__right__popup__inner__cart-box
-                    = link_to 'ショッピングカートを見る' , '#' , class: 'header__right__popup__inner__cart-button'
 
           %li.header__right__li-fav
             .header__right__fav-js
               %span
                 = fa_icon ("heart")
               .header__right__popup
-                .header__right__popup__inner-fav
-                  %p.header__right__popup__inner__favbox お気に入り
-                  %ul.header__right__popup__inner__fav
-                    %li
-                      %lavel.header__right__popup__inner__fav-li アイテム一覧
-                    %li
-                      %label.header__right__popup__inner__fav-li ブランド一覧
-                    %li
-                      %label.header__right__popup__inner__fav-li ショップ一覧
-                  %dl.header__right__popup__bland.clearfix
-                    %dt ブランド
-                    %dd.header__right__popup__font
-                      = link_to '全てのお気に入りブランド'
-                    %dd.header__right__popup__font
-                      = link_to 'zozo'
-                    %dd.header__right__popup__font
-                      = link_to 'zozo'
-                    %dd.header__right__popup__font
-                      = link_to 'zozo'
-                    %dd.header__right__popup__font
-                      = link_to 'zozo'
-                    %dd.header__right__popup__font
-                      = link_to 'zozo'
-                  %dl.header__right__popup__shop.clearfix
-                    %dt ショップ
-                    %dd.header__right__popup__favlogo
-                      = fa_icon ("heart 3x")
-                    %dd.header__right__popup__shfont
-                      %p お気に入りのショップを
-                      見つけよう！
+                .header__right__popup__inner-fav-log-in
+                  = fa_icon ("heart 3x")
+                  %p.header__right__popup__inner__favbox-log-in
+                    会員でない方でも「お気に入り」が使えるようになりました。
+                  .header__right__popup__inner__comment-box-log-in
+                    = link_to '詳しくはこちら' , '#'
 
           %li.header__right__li-notice
             .header__right__notice-js
               %span
                 = fa_icon ("comment")
               .header__right__popup
-                .header__right__popup__inner-comment
+                .header__right__popup__inner-comment-log-in
                   .header__right__popup__inner__commentbox
                     .header__right__popup__inner__comment
-                      =fa_icon ("comment 2x" )
-                    %p.header__right__popup__inner__comment-text 新着のお知らせが○件あります。
-                    .header__right__popup__inner__comment-box
-                      = link_to 'お知らせ一覧' , '#' , class: 'header__right__popup__inner__comment-button'
+                      =fa_icon ("comment 3x" )
+                    %p.header__right__popup__inner__comment-text-log-in
+                      お気に入りアイテムやショップの値下がり情報などをお知らせします
+                    .header__right__popup__inner__comment-box-log-in
+                      = link_to '詳しくはこちら' , '#'

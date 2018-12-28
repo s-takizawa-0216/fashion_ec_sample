@@ -17,8 +17,8 @@ $(function () {
 
       $preview.append($('<img>').attr({
         src: e.target.result,
-        width: "80px",
-        height:"100px",
+        width: "100px",
+        height:"120px",
         class: "preview-zone0",
       }));
     };
@@ -50,8 +50,8 @@ $(function () {
 
       $preview.append($('<img>').attr({
         src: e.target.result,
-        width: "80px",
-        height:"100px",
+        width: "100px",
+        height:"120px",
         class: "preview-zone1",
       }));
     };
@@ -83,8 +83,8 @@ $(function () {
 
       $preview.append($('<img>').attr({
         src: e.target.result,
-        width: "80px",
-        height:"100px",
+        width: "100px",
+        height:"120px",
         class: "preview-zone2",
       }));
     };
@@ -116,8 +116,8 @@ $(function () {
 
       $preview.append($('<img>').attr({
         src: e.target.result,
-        width: "80px",
-        height:"100px",
+        width: "100x",
+        height:"120px",
         class: "preview-zone3",
       }));
     };
@@ -149,8 +149,8 @@ $(function () {
 
       $preview.append($('<img>').attr({
         src: e.target.result,
-        width: "80px",
-        height:"100px",
+        width: "100px",
+        height:"120px",
         class: "preview-zone4",
       }));
     };
@@ -182,8 +182,8 @@ $(function () {
 
       $preview.append($('<img>').attr({
         src: e.target.result,
-        width: "80px",
-        height:"100px",
+        width: "100px",
+        height:"120px",
         class: "preview-zone5",
       }));
     };
@@ -215,8 +215,8 @@ $(function () {
 
       $preview.append($('<img>').attr({
         src: e.target.result,
-        width: "80px",
-        height:"100px",
+        width: "100px",
+        height:"120px",
         class: "preview-zone6",
       }));
     };
@@ -248,8 +248,8 @@ $(function () {
 
       $preview.append($('<img>').attr({
         src: e.target.result,
-        width: "80px",
-        height:"100px",
+        width: "100px",
+        height:"120px",
         class: "preview-zone7",
       }));
     };
@@ -281,8 +281,8 @@ $(function () {
 
       $preview.append($('<img>').attr({
         src: e.target.result,
-        width: "80px",
-        height:"100px",
+        width: "100px",
+        height:"120px",
         class: "preview-zone8",
       }));
     };
@@ -314,9 +314,9 @@ $(function () {
 
       $preview.append($('<img>').attr({
         src: e.target.result,
-        width: "80px",
-        height:"100px",
-        class: "preview-zone9",
+        width: "100px",
+        height:"120px",
+        class: "preview-zone9a",
       }));
     };
   })(file);

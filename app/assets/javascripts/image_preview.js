@@ -27,7 +27,6 @@ $(function () {
     if (file){
         reader.readAsDataURL(file);
     }
-
   });
 });
 
@@ -60,7 +59,6 @@ $(function () {
     if (file){
         reader.readAsDataURL(file);
     }
-
   });
 });
 
@@ -93,7 +91,6 @@ $(function () {
     if (file){
         reader.readAsDataURL(file);
     }
-
   });
 });
 
@@ -126,7 +123,6 @@ $(function () {
     if (file){
         reader.readAsDataURL(file);
     }
-
   });
 });
 
@@ -159,7 +155,6 @@ $(function () {
     if (file){
         reader.readAsDataURL(file);
     }
-
   });
 });
 
@@ -192,7 +187,6 @@ $(function () {
     if (file){
         reader.readAsDataURL(file);
     }
-
   });
 });
 
@@ -225,7 +219,6 @@ $(function () {
     if (file){
         reader.readAsDataURL(file);
     }
-
   });
 });
 
@@ -258,7 +251,6 @@ $(function () {
     if (file){
         reader.readAsDataURL(file);
     }
-
   });
 });
 
@@ -291,7 +283,6 @@ $(function () {
     if (file){
         reader.readAsDataURL(file);
     }
-
   });
 });
 
@@ -324,7 +315,6 @@ $(function () {
     if (file){
         reader.readAsDataURL(file);
     }
-
   });
 });
 

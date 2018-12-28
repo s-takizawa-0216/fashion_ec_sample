@@ -9,14 +9,18 @@ class ItemsController < ApplicationController
     @brand = Brand.all
     @shop = Shop.all
     @parent_category = Category.where(depth: 0)
-    @child_category = Category.where(depth: 1)
-
+    @tops_category = Category.where(parent_id: 1)
+    @jackets_category = Category.where(parent_id: 5)
+    @pants_category = Category.where(parent_id: 9)
   end
 
   def create
     @item = Item.new(create_params)
-    @item.save
+    if @item.save
+      redirect_to root_path
+    else
       redirect_to new_item_path
+    end
   end
 
   private

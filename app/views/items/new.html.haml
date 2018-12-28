@@ -23,8 +23,14 @@
               %ul.drop-zone__msg
                 %li ドラッグアンドドロップまたは
                 %li または画像をアップロード
-            = f.fields_for :images, class: "drop-zone" do |image_file|
-              = image_file.file_field :image, multiple: true, type: "file", class: "dropzone-hidden"
+            = f.fields_for :images do |image|
+              = image.file_field :image,  type: "file", class: "dropzone-hidden"
+            = f.fields_for :images do |image|
+              = image.file_field :image,  type: "file", class: "dropzone-hidden"
+            = f.fields_for :images do |image|
+              = image.file_field :image,  type: "file", class: "dropzone-hidden"
+            = f.fields_for :images do |image|
+              = image.file_field :image,  type: "file", class: "dropzone-hidden"
             .preview-zone#preview
 
       .item-new-main__selection.clearfix

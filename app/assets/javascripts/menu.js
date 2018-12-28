@@ -1,185 +1,145 @@
 $(function(){
 
-  $('.header__right__name-js').mouseover(function(){
-    $('.header__right__name-js').css({
+var name = $('.header__right__name-js ,.header__right__name-js-log-in')
+    name_inner = $('.header__right__popup__inner'),
+    other = $('.header__right__notice-js , .header__right__fav-js , .header__right__cart-js , .header__right__menu-js , .header__right__notice-js-log-in , .header__right__fav-js-log-in , .header__right__cart-js-log-in , .header__right__menu-js-log-in , .header__right__name-js-log-in ')
+
+var notice = $('.header__right__notice-js , .header__right__notice-js-log-in'),
+    notice_inner = $('.header__right__popup__inner-comment , .header__right__popup__inner-comment-log-in')
+
+
+var fav = $('.header__right__fav-js , .header__right__fav-js-log-in'),
+    fav_inner = $('.header__right__popup__inner-fav , .header__right__popup__inner-fav-log-in')
+
+var cart = $('.header__right__cart-js , .header__right__cart-js-log-in'),
+    cart_inner = $('.header__right__popup__inner-cart , .header__right__popup__inner-cart-log-in')
+
+var menu = $('.header__right__menu-js , .header__right__menu-js-log-in'),
+    menu_inner = $('.header__right__popup__inner-list , .header__right__popup__inner-list-log-in')
+
+
+//user-name 部分
+  $(name).mouseover(function(){
+    $(name).css({
       'background-color': 'black'
     })
   });
 
-  $('.header__right__popup__inner').mouseleave(function(){
-    $('.header__right__name-js').css({
+  $(other).mouseleave(function(){
+    $(name).css({
       'background-color': '#2d2d2d'
     })
   });
 
-  $('.header__right__name-js').mouseover(function(){
-    $('.header__right__popup__inner').show();
+  $(name).mouseover(function(){
+    $(name_inner).show();
   });
 
-   $('.header__right__popup__inner').mouseleave(function(){
-    $('.header__right__popup__inner').hide();
+  $(other).mouseover(function(){
+   $(name_inner).hide();
+  });
+
+
+   $(name_inner).mouseleave(function(){
+    $(name_inner).hide();
    });
 
-});
 
-
-$(function(){
-
-  $('.header__right__name-js').mouseover(function(){
-    $('.header__right__name-js').css({
+//お知らせ部分
+  $(notice).mouseover(function(){
+    $(notice).css({
       'background-color': 'black'
     })
   });
 
-  $('.header__right__name-js').mouseleave(function(){
-    $('.header__right__name-js').css({
-      'background-color': '#2d2d2d'
-    })
-  });
-});
-
-
-$(function(){
-
-  $('.header__right__notice-js').mouseover(function(){
-    $('.header__right__notice-js').css({
-      'background-color': 'black'
-    })
-  });
-
-  $('.header__right__popup__inner-comment').mouseleave(function(){
-    $('.header__right__notice-js').css({
+  $(other).mouseleave(function(){
+    $(notice).css({
       'background-color': '#2d2d2d'
     })
   });
 
-  $('.header__right__notice-js').mouseover(function(){
-    $('.header__right__popup__inner-comment').show();
+  $(notice).mouseover(function(){
+    $(notice_inner).show();
   });
 
-   $('.header__right__popup__inner-comment').mouseleave(function(){
-    $('.header__right__popup__inner-comment').hide();
+  $(fav).mouseover(function(){
+    $(notice_inner).hide();
+  });
+
+
+   $(notice_inner).mouseleave(function(){
+    $(notice_inner).hide();
    });
 
-});
-
-$(function(){
-
-  $('.header__right__notice-js').mouseover(function(){
-    $('.header__right__notice-js').css({
+//お気に入り
+  $(fav).mouseover(function(){
+    $(fav).css({
       'background-color': 'black'
     })
   });
 
-  $('.header__right__popup__inner-comment-log-in').mouseleave(function(){
-    $('.header__right__notice-js').css({
+  $(other).mouseleave(function(){
+    $(fav).css({
       'background-color': '#2d2d2d'
     })
   });
 
-  $('.header__right__notice-js').mouseover(function(){
-    $('.header__right__popup__inner-comment-log-in').show();
+  $(fav).mouseover(function(){
+    $(fav_inner).show();
   });
 
-   $('.header__right__popup__inner-comment-log-in').mouseleave(function(){
-    $('.header__right__popup__inner-comment-log-in').hide();
+  $(cart).mouseover(function(){
+    $(fav_inner).hide();
+  });
+
+   $(fav_inner).mouseleave(function(){
+    $(fav_inner).hide();
    });
 
-});
-
-$(function(){
-
-  $('.header__right__fav-js').mouseover(function(){
-    $('.header__right__fav-js').css({
+//カート
+  $(cart).mouseover(function(){
+    $(cart).css({
       'background-color': 'black'
     })
   });
 
-  $('.header__right__popup__inner-fav').mouseleave(function(){
-    $('.header__right__fav-js').css({
+  $(other).mouseleave(function(){
+    $(cart).css({
       'background-color': '#2d2d2d'
     })
   });
 
-  $('.header__right__fav-js').mouseover(function(){
-    $('.header__right__popup__inner-fav').show();
+  $(cart).mouseover(function(){
+    $(cart_inner).show();
   });
 
-   $('.header__right__popup__inner-fav').mouseleave(function(){
-    $('.header__right__popup__inner-fav').hide();
+  $(menu).mouseover(function(){
+    $(fav_inner).hide();
+  });
+
+   $(cart_inner).mouseleave(function(){
+    $(cart_inner).hide();
    });
 
-});
-
-$(function(){
-
-  $('.header__right__fav-js').mouseover(function(){
-    $('.header__right__fav-js').css({
-    'background-color': 'black'
-    })
-  });
-
-  $('.header__right__popup__inner-fav-log-in').mouseleave(function(){
-    $('.header__right__fav-js').css({
-      'background-color': '#2d2d2d'
-    })
-  });
-
-
-   $('.header__right__fav-js').mouseover(function(){
-    $('.header__right__popup__inner-fav-log-in').show();
-  });
-
-   $('.header__right__popup__inner-fav-log-in').mouseleave(function(){
-    $('.header__right__popup__inner-fav-log-in').hide();
-   });
- });
-
-
-$(function(){
-
-  $('.header__right__cart-js').mouseover(function(){
-    $('.header__right__cart-js').css({
+//menu
+  $(menu).mouseover(function(){
+    $(menu).css({
       'background-color': 'black'
     })
   });
 
-  $('.header__right__popup__inner-cart').mouseleave(function(){
-    $('.header__right__cart-js').css({
+  $(other).mouseleave(function(){
+    $(menu).css({
       'background-color': '#2d2d2d'
     })
   });
 
-  $('.header__right__cart-js').mouseover(function(){
-    $('.header__right__popup__inner-cart').show();
+  $(menu).mouseover(function(){
+    $(menu_inner).show();
   });
 
-   $('.header__right__popup__inner-cart').mouseleave(function(){
-    $('.header__right__popup__inner-cart').hide();
-   });
-
-});
-
-$(function(){
-
-  $('.header__right__menu-js').mouseover(function(){
-    $('.header__right__menu-js').css({
-      'background-color': 'black'
-    })
-  });
-
-  $('.header__right__popup__inner-list').mouseleave(function(){
-    $('.header__right__menu-js').css({
-      'background-color': '#2d2d2d'
-    })
-  });
-
-  $('.header__right__menu-js').mouseover(function(){
-    $('.header__right__popup__inner-list').show();
-  });
-
-   $('.header__right__popup__inner-list').mouseleave(function(){
-    $('.header__right__popup__inner-list').hide();
+   $(menu_inner).mouseleave(function(){
+    $(menu_inner).hide();
    });
 
 });

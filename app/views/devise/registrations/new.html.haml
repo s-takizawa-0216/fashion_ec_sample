@@ -1,5 +1,5 @@
 .sign-up
-  .sign-up__header this header is created by Mr.T
+  = render partial: 'shared/header-log-in'
   .sign-up__breadcrumbs breadcrumbs will be set here
 
   .sign-up__main
@@ -18,11 +18,11 @@
               %li.side-by-side-li.user-resistration-form__gender__line__msg 性別
               %li.side-by-side-li
                 = f.radio_button :gender, "男性"
-              %li.side-by-side-li.user-resistration-form__gender__line__text 男性 
+              %li.side-by-side-li.user-resistration-form__gender__line__text 男性
               %li.side-by-side-li.user-resistration-form__gender__line__female-msg
                 = f.radio_button :gender, "女性"
               %li.side-by-side-li.user-resistration-form__gender__line__text  女性
-              %li.side-by-side-li.user-resistration-form__gender__line__female-msg  
+              %li.side-by-side-li.user-resistration-form__gender__line__female-msg
                 = f.radio_button :gender, "その他"
               %li.side-by-side-li.user-resistration-form__gender__line__text  その他
 
@@ -32,10 +32,10 @@
               %li.side-by-side-li
                 = f.select :birth_year,[[],[1990, 1990], [1991, 1991], [1992, 1992], [1993, 1993], [1994, 1994], [1995, 1995]], {}
               %li.side-by-side-li.user-resistration-form__gender__line__year  年
-              %li.side-by-side-li.user-resistration-form__gender__line__female-msg 
+              %li.side-by-side-li.user-resistration-form__gender__line__female-msg
                 = f.select :birth_month,[[],[1,1], [2,2], [3,3,], [4,4], [5,5], [6, 6],[7,7],[8,8],[9,9],[10,10],[11,11],[12,12]],{}
               %li.side-by-side-li.user-resistration-form__gender__line__year  月
-              %li.side-by-side-li.user-resistration-form__gender__line__female-msg  
+              %li.side-by-side-li.user-resistration-form__gender__line__female-msg
                 = f.select :birth_day,[[],[1,1], [2,2], [3,3,], [4,4], [5,5], [6, 6],[7,7],[8,8],[9,9],[10,10],[11,11],[12,12],[13,13],[14,14],[15,15],[16,16],[17,17],[18,18],[19,19],[20,20],[21,21],[22,22],[23,23],[24,24],[25,25,],[26,26],[27,27],[28,28],[29,29],[30,30],[31,31]],{}
               %li.side-by-side-li.user-resistration-form__gender__line__year  日
 
@@ -64,7 +64,7 @@
                   .zozoid__hissu-box
                     .zozoid__hissu-box-msg 必須
                 %li.mail-to-zozoid#input-email メールアドレスを入力してください
-                %li.mail-to-zozoid#hide-zozo※メールアドレスがZOZOIDとなります 
+                %li.mail-to-zozoid#hide-zozo※メールアドレスがZOZOIDとなります
               %ui.side-by-side-ul.clearfix
                 %li.side-by-side-li.checkbox-arrange-coupon
                   = f.check_box :mail_magazine, checkedvalue: 1, uncheckedvalue: 0
@@ -96,7 +96,7 @@
                   %li.side-by-side-li ,
                 =link_to do
                   %li.side-by-side-li 個人情報保護方針
-                  %li.side-by-side-li 
+                  %li.side-by-side-li
                     %i.fa.fa-bookmark
                 %li.side-by-side-li に同意する
             = f.submit "会員登録", class: "new-resistration-btn"

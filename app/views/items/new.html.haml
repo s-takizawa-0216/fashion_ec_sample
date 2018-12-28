@@ -10,28 +10,72 @@
         .item-new-main__header-msg 商品の情報を入力
 
       .item-new-main__selection
-        .item-new-main__selection-msg
-          %ul
-            %li
-              %ul.side-by-side-ul.image-hissu.clearfix
-                %li.side-by-side-li
-                  .image-hissu__image 出品画像
-                %li.side-by-side-li
-                  .image-hissu__hissu 必須
-            %li.maximau-upload 最大10枚までアップロードできます。
-            .drop-zone#droped-hidden
-              %ul.drop-zone__msg
-                %li ドラッグアンドドロップまたは
-                %li または画像をアップロード
-            = f.fields_for :images do |image|
-              = image.file_field :image,  type: "file", class: "dropzone-hidden"
-            = f.fields_for :images do |image|
-              = image.file_field :image,  type: "file", class: "dropzone-hidden"
-            = f.fields_for :images do |image|
-              = image.file_field :image,  type: "file", class: "dropzone-hidden"
-            = f.fields_for :images do |image|
-              = image.file_field :image,  type: "file", class: "dropzone-hidden"
-            .preview-zone#preview
+        %ui.image-ul
+          %li.image-li__image 出品画像
+          %li.image-li__hissu 必須
+        .maximum-iamges-10 最大10枚までアップロードできます。
+        .slice-upload-content.clearfix 
+          %ul.side-by-side-ul
+
+            %li.side-by-side-li
+              .mini-uploaders#upload-hidden0
+                = f.fields_for :images do |image|
+                  = image.file_field :image,  type: "file", class: "image-upload-zone" 
+            .preview-zone0#preview
+
+            %li.side-by-side-li
+              .mini-uploaders#upload-hidden1
+                = f.fields_for :images do |image|
+                  = image.file_field :image,  type: "file", class: "image-upload-zone" 
+            .preview-zone1#preview
+
+            %li.side-by-side-li
+              .mini-uploaders#upload-hidden2
+                = f.fields_for :images do |image|
+                  = image.file_field :image,  type: "file", class: "image-upload-zone" 
+            .preview-zone2#preview
+
+            %li.side-by-side-li
+              .mini-uploaders#upload-hidden3
+                = f.fields_for :images do |image|
+                  = image.file_field :image,  type: "file", class: "image-upload-zone" 
+            .preview-zone3#preview
+
+            %li.side-by-side-li
+              .mini-uploaders#upload-hidden4
+                = f.fields_for :images do |image|
+                  = image.file_field :image,  type: "file", class: "image-upload-zone" 
+            .preview-zone4#preview
+
+            %li.side-by-side-li
+              .mini-uploaders#upload-hidden5
+                = f.fields_for :images do |image|
+                  = image.file_field :image,  type: "file", class: "image-upload-zone" 
+            .preview-zone5#preview
+
+            %li.side-by-side-li
+              .mini-uploaders#upload-hidden6
+                = f.fields_for :images do |image|
+                  = image.file_field :image,  type: "file", class: "image-upload-zone" 
+            .preview-zone6#preview
+
+            %li.side-by-side-li
+              .mini-uploaders#upload-hidden7
+                = f.fields_for :images do |image|
+                  = image.file_field :image,  type: "file", class: "image-upload-zone" 
+            .preview-zone7#preview
+
+            %li.side-by-side-li
+              .mini-uploaders#upload-hidden8
+                = f.fields_for :images do |image|
+                  = image.file_field :image,  type: "file", class: "image-upload-zone" 
+            .preview-zone8#preview
+
+            %li.side-by-side-li
+              .mini-uploaders#upload-hidden9
+                = f.fields_for :images do |image|
+                  = image.file_field :image,  type: "file", class: "image-upload-zone" 
+            .preview-zone9#preview
 
       .item-new-main__selection.clearfix
         .into-box

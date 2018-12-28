@@ -1,0 +1,29 @@
+// 注意 link_to のパス部分はクオーテーションは不要！！
+%head
+
+%body.fashion_ec_sample
+  %script{ src: "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"}
+  %script{ src: "https://code.jquery.com/jquery-3.3.1.min.js"}
+  %script{:src => "/assets/jquery.color.js", :type => "text/javascript"}
+
+  = render partial: 'shared/header-notice'
+
+- if user_signed_in?
+  = render partial: 'shared/header-logged-in'
+- else
+  = render partial: 'shared/header-log-in'
+
+  .header__content
+    %ul.header__content__ul
+      %li.header__content__list#tab-all
+        =link_to 'すべて'
+      %li.header__content__list#tab-mens
+        =link_to 'メンズ'
+      %li.header__content__list#tab-womens
+        =link_to 'レディース'
+      %li.header__content__list#tab-kids
+        =link_to 'キッズ'
+
+
+
+

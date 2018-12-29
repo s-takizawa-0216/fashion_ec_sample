@@ -39,6 +39,26 @@
             width: 560px;
             margin-bottom: 5px;
 
+            #zoomContainer{
+              display: none;
+              position: absolute;
+              top: 0;
+              left: 540px;
+              border: 1px solid #ccc;
+              height: 600px;
+              width: 500px;
+              overflow: hidden;
+              img{
+                width: 1500px;
+                margin-top: 0px;
+                margin-left: 0px;
+              }
+            }
+
+            #zoomContainer.active{
+              display: block;
+            }
+
             #photoMain{
               width: 500px;
               height: 600px;
@@ -46,13 +66,31 @@
               text-align: center;
               overflow: hidden;
               position: relative;
+
+              .loupe{
+                position: absolute;
+                top: 50px;
+                left: 30px;
+                z-index: 2;
+                background: #f57716;
+                opacity: 0.3;
+                height: 172px;
+                width: 172px;
+                display: none;
+              }
+
+
               img{
                 display: block;
                 height: 100%;
                 margin: auto;
+                width: 500px;
+                height: 600px;
               }
             }
-
+            #photoMain:hover .loupe{
+              display: block;
+            }
             .prevNextCtrl{
               background-color: red;
               position: absolute;

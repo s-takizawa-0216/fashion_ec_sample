@@ -8,21 +8,453 @@
 
   = render partial: 'shared/header-notice'
 
-- if user_signed_in?
-  = render partial: 'shared/header-logged-in'
-- else
-  = render partial: 'shared/header-log-in'
+  - if user_signed_in?
+    = render partial: 'shared/header-logged-in'
+  - else
+    = render partial: 'shared/header-log-in'
 
-  .header__content
+.header__content.clearfix
+  .header__content__box
     %ul.header__content__ul
       %li.header__content__list#tab-all
-        =link_to 'すべて'
+        =link_to 'すべて', '#' , id: 'tab-all-js'
       %li.header__content__list#tab-mens
-        =link_to 'メンズ'
+        =link_to 'メンズ', '#' , id: 'tab-mens-js'
       %li.header__content__list#tab-womens
-        =link_to 'レディース'
+        =link_to 'レディース', '#' , id: 'tab-womens-js'
       %li.header__content__list#tab-kids
-        =link_to 'キッズ'
+        =link_to 'キッズ' , '#' , id: 'tab-kids-js'
+      .header__content__list-news
+        = link_to 'ZOZOTOWNからのお知らせ'
+
+.main#main__contents
+  .main__content.clearfix
+    .left__content
+      %section
+        %h2 探す
+        %ul.left__content__list
+          %li
+            = link_to 'ブランドから探す'
+          %li
+            = link_to 'ショップから探す'
+          %li
+            = link_to 'ランキングから探す'
+          %li
+            = link_to 'コーディネイトから探す'
+          %li
+            = link_to 'こだわり条件から探す'
+
+      %section
+        %h2 カテゴリー
+        %ul.left__content__list-category
+          %li#category-js-show
+            = link_to '#' do
+              %label トップス
+              = fa_icon 'chevron-right', id:'chevron-right'
+              #category-js-hide
+                %ul
+                  %li
+                    = link_to 'Tシャツ/カットソー' , '#'
+                  %li
+                    = link_to 'シャツ/ブラウス', '#'
+                  %li
+                    = link_to 'ポロシャツ', '#'
+                  %li
+                    = link_to 'ニット/セーター', '#'
+                  %li
+                    = link_to 'ベスト', '#'
+                  %li
+                    = link_to 'パーカー', '#'
+                  %li
+                    = link_to 'スウェット', '#'
+                  %li
+                    = link_to 'カーディガン', '#'
+                  %li
+                    = link_to 'アンサンブル', '#'
+                  %li
+                    = link_to 'ジャージ', '#'
+                  %li
+                    = link_to 'タンクトップ', '#'
+                  %li
+                    = link_to 'キャミソール', '#'
+                  %li
+                    = link_to 'チューブトップ', '#'
+                  %li
+                    = link_to 'その他トップス', '#'
+
+          %li#category-js-show-outer
+            = link_to '#' do
+              %label ジャケット/アウター
+              = fa_icon 'chevron-right', id:'chevron-right'
+              #category-js-hide-outer
+                %ul
+                  %li
+                    = link_to 'テーラードジャケット' , '#'
+                  %li
+                    = link_to 'ノーカラージャケット', '#'
+                  %li
+                    = link_to 'デニムジャケット', '#'
+                  %li
+                    = link_to 'ライダースジャケット', '#'
+                  %li
+                    = link_to 'ブルゾン', '#'
+                  %li
+                    = link_to 'カバーオール', '#'
+                  %li
+                    = link_to 'ミリタリージャケット', '#'
+                  %li
+                    = link_to 'MA1', '#'
+                  %li
+                    = link_to 'ダウンベスト', '#'
+                  %li
+                    = link_to 'ダウンジャケット/コート', '#'
+                  %li
+                    = link_to 'ダッフルコート', '#'
+                  %li
+                    = link_to 'モッズコート', '#'
+                  %li
+                    = link_to 'ピーコート', '#'
+                  %li
+                    = link_to 'ステンカラーコート', '#'
+                  %li
+                    = link_to 'トレンチコート', '#'
+                  %li
+                    = link_to 'チェスターコート', '#'
+                  %li
+                    = link_to 'ムートンコート', '#'
+                  %li
+                    = link_to 'ナイロンジャケット', '#'
+                  %li
+                    = link_to 'マウンテンパーカー', '#'
+                  %li
+                    = link_to 'スタジャン', '#'
+                  %li
+                    = link_to 'スカジャン', '#'
+                  %li
+                    = link_to 'ポンチョ', '#'
+                  %li
+                    = link_to 'その他アウター', '#'
+
+          %li#category-js-show-pant
+            = link_to '#' do
+              %lavel パンツ
+              = fa_icon 'chevron-right', id:'chevron-right'
+              #category-js-hide-pant
+                %ul
+                  %li
+                    = link_to 'デニムパンツ' , '#'
+                  %li
+                    = link_to 'カーゴパンツ', '#'
+                  %li
+                    = link_to 'チノパンツ', '#'
+                  %li
+                    = link_to 'スラックス', '#'
+                  %li
+                    = link_to 'パンツ', '#'
+
+          %li
+            = link_to '#' do
+              %lavel オールインワン
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel スカート
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel ワンピース
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel スーツ/ネクタイ
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel バッグ
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel シューズ
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel ファッション雑貨
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel 財布/小物
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel 時計
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel ヘアアクセサリー
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel アクセサリー
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel アンダーウェア
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel レッグウェア
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel 帽子
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel インテリア
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel 食器/キッチン
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel 雑貨/ホビー/スポーツ
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel コスメ/ヘルスケア
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel 音楽/本・雑誌
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel 水着/着物・浴衣
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel マタニティ/ベビー
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel その他
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to 'カテゴリ一覧' , '#' , id: 'category-all'
+
+      %section.favorite
+        %h2
+          %label お気に入り
+          %span NEW
+        %ul.left__content__list-category
+          %li
+            = link_to 'アイテム' , '#'
+
+          %li#fav-js-show
+            = link_to '#' do
+              %label ブランド
+              = fa_icon 'chevron-right', id:'chevron-right'
+              #fav-js-hide
+                .fav__box
+                  .fav__box__icon
+                    = fa_icon ('heart 3x')
+                  .fav__box__text
+                    %p 会員でない方でも「お気に入り」が
+                    %p 使えるようになりました。
+                  .fav__box__button
+                    = link_to '詳しくはこちら ' , '#'
+
+          %li#fav-js-show-shop
+            = link_to '#' do
+              %label ショップ
+              = fa_icon 'chevron-right', id:'chevron-right'
+              #fav-js-hide-shop
+                .fav__box
+                  .fav__box__icon
+                    = fa_icon ('heart 3x')
+                  .fav__box__text
+                    %p 会員でない方でも「お気に入り」が
+                    %p 使えるようになりました。
+                  .fav__box__button
+                    = link_to '詳しくはこちら ' , '#'
+
+      %section
+        %h2 ブランド
+        %ol.left__content__list-bland
+          %li
+            %span#rank1 1
+            = link_to 'nanouniverse', '#'
+          %li
+            %span#rank2 2
+            = link_to 'nanouniverse' , '#'
+          %li
+            %span#rank3 3
+            = link_to 'nanouniverse' , '#'
+          %li
+            %span#rank-other 4
+            = link_to 'nanouniverse' , '#'
+          %li
+            %span#rank-other 5
+            = link_to 'nanouniverse' , '#'
+          %li
+            %span#rank-other 6
+            = link_to 'nanouniverse' , '#'
+          %li
+            %span#rank-other 7
+            = link_to 'nanouniverse' , '#'
+          %li
+            %span#rank-other 8
+            = link_to 'nanouniverse' , '#'
+          %li
+            %span#rank-other 9
+            = link_to 'nanouniverse' , '#'
+          %li
+            %span#rank-other 10
+            = link_to 'nanouniverse' , '#'
+          %li
+            %span#rank-other 11
+            = link_to 'nanouniverse' , '#'
+          %li
+            %span#rank-other 12
+            = link_to 'nanouniverse' , '#'
+          %li
+            %span#rank-other 13
+            = link_to 'nanouniverse' , '#'
+          %li
+            %span#rank-other 14
+            = link_to 'nanouniverse' , '#'
+          %li
+            %span#rank-other 15
+            = link_to 'nanouniverse' , '#'
+          %li
+            %span#rank-other 16
+            = link_to 'nanouniverse' , '#'
+          %li
+            %span#rank-other 17
+            = link_to 'nanouniverse' , '#'
+          %li
+            %span#rank-other 18
+            = link_to 'nanouniverse' , '#'
+          %li
+            %span#rank-other 19
+            = link_to 'nanouniverse' , '#'
+          %li
+            %span#rank-other 20
+            = link_to 'nanouniverse' , '#'
+          %li
+            = link_to 'ブランド一覧' , '#' , id: 'shop_bland-all'
+
+      %section
+        %h2 ショップ
+        %ol.left__content__list-bland
+          %li
+            %span#rank1 1
+            = link_to 'nanouniverse', '#'
+          %li
+            %span#rank2 2
+            = link_to 'nanouniverse' , '#'
+          %li
+            %span#rank3 3
+            = link_to 'nanouniverse' , '#'
+          %li
+            %span#rank-other 4
+            = link_to 'nanouniverse' , '#'
+          %li
+            %span#rank-other 5
+            = link_to 'nanouniverse' , '#'
+          %li
+            %span#rank-other 6
+            = link_to 'nanouniverse' , '#'
+          %li
+            %span#rank-other 7
+            = link_to 'nanouniverse' , '#'
+          %li
+            %span#rank-other 8
+            = link_to 'nanouniverse' , '#'
+          %li
+            %span#rank-other 9
+            = link_to 'nanouniverse' , '#'
+          %li
+            %span#rank-other 10
+            = link_to 'nanouniverse' , '#'
+          %li
+            %span#rank-other 11
+            = link_to 'nanouniverse' , '#'
+          %li
+            %span#rank-other 12
+            = link_to 'nanouniverse' , '#'
+          %li
+            %span#rank-other 13
+            = link_to 'nanouniverse' , '#'
+          %li
+            %span#rank-other 14
+            = link_to 'nanouniverse' , '#'
+          %li
+            %span#rank-other 15
+            = link_to 'nanouniverse' , '#'
+          %li
+            %span#rank-other 16
+            = link_to 'nanouniverse' , '#'
+          %li
+            %span#rank-other 17
+            = link_to 'nanouniverse' , '#'
+          %li
+            %span#rank-other 18
+            = link_to 'nanouniverse' , '#'
+          %li
+            %span#rank-other 19
+            = link_to 'nanouniverse' , '#'
+          %li
+            %span#rank-other 20
+            = link_to 'nanouniverse' , '#'
+          %li
+            = link_to 'ショップ一覧' , '#' , id: 'shop_bland-all'
+
+      %section
+        %h2 モール
+        %ul.left__content__list
+          %li
+            = link_to 'ZOZOUSED', '#'
+        .left__content__image
+          %ul.left__content__list
+            %li
+              = link_to '#' do
+                = image_tag ("/assets/pc_banner_used_20170907.png")
+
+      %section.dd
+        %h2 採用情報
+        %ul.left__content__list-recruit
+          %li
+            = link_to '#' do
+              %label
+              %p カスタマーサポート 中途採用
+              %p.bottom-text ZOZOTOWN
+          %li
+            = link_to '#' do
+              %label
+              %p つくば商品管理アルバイト採用
+              %p.bottom-text ZOZOTOWN
+          %li
+            = link_to '#' do
+              %label
+              %p お直しスタッフ アルバイト採用
+              %p.bottom-text プライベートブランド ZOZO
+          %li
+            = link_to '#' do
+              %label
+              %p エンジニア・商品管理中途採用
+              %p.bottom-text ZOZOUSED
+          %li
+            = link_to '採用情報一覧' , '#' , id: 'category-all'
+
+
+
+
+
+    .right__content
+
+.footer
 
 
 

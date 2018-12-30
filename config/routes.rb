@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :items, only: [:new, :create]
 
   
-  resources :trades, only: [:cart]
-    get   'cart',       to: 'items#cart',      as: :cart
+  resources :trades, only: [:index] 
+
 end
 

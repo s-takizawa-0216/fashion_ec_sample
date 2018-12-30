@@ -1,0 +1,96 @@
+= render "shared/header-logged-in"
+
+.cart-main
+
+  .cart-main__header.clearfix
+    .cart-main__header__left
+      = fa_icon "shopping-cart 3x",class: "cart-main__header__left-oncart"
+      .cart-main__header__left-msg ショッピングカート
+    .cart-main__header__right
+      = image_tag "/images/cart-info_step1.jpg"
+
+
+  / カートに何も入っていない時
+  / .cart-main__content
+  /   .cart-main__content__noitem-msg カートに商品は入っていません
+  /   = link_to "ショピングを続ける", root_path, class: "continue-shopping-btn"
+
+  / .cart-main__checked-item.clearfix
+  /   .cart-main__checked-item-msg 以前カートに入れたアイテム
+  /   %ul.side-by-side-ul.cart-main__checked-item__line.clearfix
+  /     %li.side-by-side-li.cart-main__checked-item__line__li
+  /       = image_tag "https://c.imgz.jp/541/19639541/19639541B_142_D_215.jpg", class: "cart-main__checked-item__line__li-image"
+  /       .cart-main__checked-item__line__li-item-name HANES
+  /       %span.cart-main__checked-item__line__li-item-price ¥1,996
+  /       %span.cart-main__checked-item__line__li-tax-include 税込
+  /       %button{class: "add-to-cart-btn"} カートに入れる
+  /     %li.side-by-side-li.cart-main__checked-item__line__li
+  /       = image_tag "https://c.imgz.jp/541/19639541/19639541B_142_D_215.jpg", class: "cart-main__checked-item__line__li-image"
+  /       .cart-main__checked-item__line__li-item-name HANES
+  /       %span.cart-main__checked-item__line__li-item-price ¥1,996
+  /       %span.cart-main__checked-item__line__li-tax-include 税込
+  /       %button{class: "add-to-cart-btn"} カートに入れる
+
+  /     %li.side-by-side-li.cart-main__checked-item__line__li
+  /       = image_tag "https://c.imgz.jp/541/19639541/19639541B_142_D_215.jpg", class: "cart-main__checked-item__line__li-image"
+  /       .cart-main__checked-item__line__li-item-name HANES
+  /       %span.cart-main__checked-item__line__li-item-price ¥1,996
+  /       %span.cart-main__checked-item__line__li-tax-include 税込
+  /       %button{class: "add-to-cart-btn"} カートに入れる
+  /     %li.side-by-side-li.cart-main__checked-item__line__li
+  /       = image_tag "https://c.imgz.jp/541/19639541/19639541B_142_D_215.jpg", class: "cart-main__checked-item__line__li-image"
+  /       .cart-main__checked-item__line__li-item-name HANES
+  /       %span.cart-main__checked-item__line__li-item-price ¥1,996
+  /       %span.cart-main__checked-item__line__li-tax-include 税込
+  /       %button{class: "add-to-cart-btn"} カートに入れる
+  /     %li.side-by-side-li.cart-main__checked-item__line__li
+  /       = image_tag "https://c.imgz.jp/541/19639541/19639541B_142_D_215.jpg", class: "cart-main__checked-item__line__li-image"
+  /       .cart-main__checked-item__line__li-item-name HANES
+  /       %span.cart-main__checked-item__line__li-item-price ¥1,996
+  /       %span.cart-main__checked-item__line__li-tax-include 税込
+  /       %button{class: "add-to-cart-btn"} カートに入れる
+  /     %li.side-by-side-li.cart-main__checked-item__line__li
+  /       = image_tag "https://c.imgz.jp/541/19639541/19639541B_142_D_215.jpg", class: "cart-main__checked-item__line__li-image"
+  /       .cart-main__checked-item__line__li-item-name HANES
+  /       %span.cart-main__checked-item__line__li-item-price ¥1,996
+  /       %span.cart-main__checked-item__line__li-tax-include 税込
+  /       %button{class: "add-to-cart-btn"} カートに入れる
+  /     %li.side-by-side-li.cart-main__checked-item__line__li
+  /       = image_tag "https://c.imgz.jp/541/19639541/19639541B_142_D_215.jpg", class: "cart-main__checked-item__line__li-image"
+  /       .cart-main__checked-item__line__li-item-name HANES
+  /       %span.cart-main__checked-item__line__li-item-price ¥1,996
+  /       %span.cart-main__checked-item__line__li-tax-include 税込
+  /       %button{class: "add-to-cart-btn"} カートに入れる
+  /     %li.side-by-side-li.cart-main__checked-item__line__li
+  /       = image_tag "https://c.imgz.jp/541/19639541/19639541B_142_D_215.jpg", class: "cart-main__checked-item__line__li-image"
+  /       .cart-main__checked-item__line__li-item-name HANES
+  /       %span.cart-main__checked-item__line__li-item-price ¥1,996
+  /       %span.cart-main__checked-item__line__li-tax-include 税込
+  /       %button{class: "add-to-cart-btn"} カートに入れる
+
+
+  / カートにアイテムがある時
+  .cart-main__middle.clearfix
+    %table.cart-main__middle__left
+      %tr.cart-main__middle__left__item-space
+        %td.cart-main__middle__left__item-space-image
+          = image_tag "https://c.imgz.jp/970/24834970/24834970B_160_D_125.jpg", class: "in-cart-item-image"
+        %td.cart-main__middle__left__item-space-detail
+          %p.in-cart-item-p ショップ名
+          %p.in-cart-item-p ブランド名
+          %p.in-cart-item-p 親カテゴリー/子カテゴリー
+          %p.in-cart-item-p カラー
+          %p.in-cart-item-p サイズ
+          %p.in-cart-item-p-no-retutn 返品交換対象外
+        %td.cart-main__middle__left__item-space
+
+
+
+
+    .cart-main__middle__right
+    
+    
+
+  
+
+

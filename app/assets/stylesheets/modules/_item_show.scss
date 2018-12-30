@@ -67,16 +67,23 @@
               overflow: hidden;
               position: relative;
 
+              li {
+                display: none
+              }
+
               .loupe{
                 position: absolute;
                 top: 50px;
                 left: 30px;
                 z-index: 2;
-                background: #f57716;
+                background: #ffffff;
                 opacity: 0.3;
                 height: 172px;
                 width: 172px;
                 display: none;
+                border: solid;
+                border-width: 1px;
+                border-color: #777;
               }
 
 
@@ -346,6 +353,18 @@
       }
     }
   }
+}
+
+.list-item{
+  display: list-item;
+}
+
+.opacity-zero{
+  opacity: 0;
+}
+
+.display-none{
+  display: none;
 }
 
 // .slider-arrow {

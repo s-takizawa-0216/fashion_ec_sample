@@ -13,12 +13,17 @@ $(function(){
       var image = $(elem).find('img');
       zoomArea.addClass("active");
       zoomImage.attr('src', image.attr('src'));
-      // var width = (image.width() * leftScale)
+      // var width = (image.width() * topScale)
       // zoomImage.css('width', width)
+      // var height = (image.height() * leftScale)
+      // zoomImage.css('height', height)
+      $("#btnNext").addClass("opacity-zero")
+      console.log("HELLO")
     });
 
     $(elem).on('mouseleave', function(){
       zoomArea.removeClass('active');
+      $("#btnNext").removeClass("opacity-zero")
     });
 
      // var xmax, ymax;
@@ -56,6 +61,7 @@ $(function(){
 
       lens.css({top: top, left: left})
       zoomImage.css({marginLeft: -(left * topScale), marginTop: -(top * leftScale)})
+
     });
   });
 });

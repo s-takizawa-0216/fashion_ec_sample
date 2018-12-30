@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_24_124833) do
+ActiveRecord::Schema.define(version: 2018_12_27_104300) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -26,6 +26,14 @@ ActiveRecord::Schema.define(version: 2018_12_24_124833) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "image", null: false
+    t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_images_on_item_id"
+  end
+
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "discription", null: false
@@ -33,7 +41,7 @@ ActiveRecord::Schema.define(version: 2018_12_24_124833) do
     t.integer "price", null: false
     t.string "material"
     t.string "origin"
-    t.string "delivery_days", null: false
+    t.integer "delivery_days", null: false
     t.integer "wrapping", null: false
     t.bigint "shop_id"
     t.bigint "brand_id"
@@ -61,10 +69,19 @@ ActiveRecord::Schema.define(version: 2018_12_24_124833) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "gender"
+    t.integer "birth_year"
+    t.integer "birth_month"
+    t.integer "birth_day"
+    t.integer "postal_code", null: false
+    t.integer "mail_magazine", null: false
+    t.string "provider"
+    t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "images", "items"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories", column: "child_category_id"
   add_foreign_key "items", "categories", column: "parent_category_id"

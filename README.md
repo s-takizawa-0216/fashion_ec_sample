@@ -46,11 +46,11 @@
 |------|----|-------|
 |name|string|null:false|
 |discription|string|null:false|
-|gender|string|null:false|
+|gender|string||
 |price|integer|null:false|
-|material|string|null:false|
+|material|string||
 |origin|string||
-|delivery_days|string|null:false|
+|delivery_days|integer|null:false|
 |wrapping|integer|null:false|
 |shop_id|references|null:false , foreign_key: true|
 |bland_id|references|null:false, foreign_key: true|

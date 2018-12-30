@@ -1,0 +1,184 @@
+.item-new
+  .item-new-header
+    .item-new-header__content
+      .item-new-header__content__msg ZOZOTOWN
+
+  .item-new-main
+    = form_for @item, multipart: true do |f|
+      .item-new-main__header
+        .item-new-main__header-msg 商品の情報を入力
+
+      .item-new-main__selection
+        %ui.image-ul
+          %li.image-li__image 出品画像
+          %li.image-li__hissu 必須
+        .maximum-iamges-10 最大10枚までアップロードできます。
+        .slice-upload-content.clearfix 
+          %ul.side-by-side-ul
+
+            %li.side-by-side-li
+              .mini-uploaders#upload-hidden0
+                = f.fields_for :images do |image|
+                  = image.file_field :image,  type: "file", class: "image-upload-zone" 
+            .preview-zone0#preview
+
+            %li.side-by-side-li
+              .mini-uploaders#upload-hidden1
+                = f.fields_for :images do |image|
+                  = image.file_field :image,  type: "file", class: "image-upload-zone" 
+            .preview-zone1#preview
+
+            %li.side-by-side-li
+              .mini-uploaders#upload-hidden2
+                = f.fields_for :images do |image|
+                  = image.file_field :image,  type: "file", class: "image-upload-zone" 
+            .preview-zone2#preview
+
+            %li.side-by-side-li
+              .mini-uploaders#upload-hidden3
+                = f.fields_for :images do |image|
+                  = image.file_field :image,  type: "file", class: "image-upload-zone" 
+            .preview-zone3#preview
+
+            %li.side-by-side-li
+              .mini-uploaders#upload-hidden4
+                = f.fields_for :images do |image|
+                  = image.file_field :image,  type: "file", class: "image-upload-zone" 
+            .preview-zone4#preview
+
+            %li.side-by-side-li
+              .mini-uploaders#upload-hidden5
+                = f.fields_for :images do |image|
+                  = image.file_field :image,  type: "file", class: "image-upload-zone" 
+            .preview-zone5#preview
+
+            %li.side-by-side-li
+              .mini-uploaders#upload-hidden6
+                = f.fields_for :images do |image|
+                  = image.file_field :image,  type: "file", class: "image-upload-zone" 
+            .preview-zone6#preview
+
+            %li.side-by-side-li
+              .mini-uploaders#upload-hidden7
+                = f.fields_for :images do |image|
+                  = image.file_field :image,  type: "file", class: "image-upload-zone" 
+            .preview-zone7#preview
+
+            %li.side-by-side-li
+              .mini-uploaders#upload-hidden8
+                = f.fields_for :images do |image|
+                  = image.file_field :image,  type: "file", class: "image-upload-zone" 
+            .preview-zone8#preview
+
+            %li.side-by-side-li
+              .mini-uploaders#upload-hidden9
+                = f.fields_for :images do |image|
+                  = image.file_field :image,  type: "file", class: "image-upload-zone" 
+            .preview-zone9#preview
+
+      .item-new-main__selection.clearfix
+        .into-box
+          .item-new-main__selection-msg
+            %ul.side-by-side-ul.disc-hissu
+              %li.side-by-side-li
+                .disc-hissu__disc 商品名
+              %li.side-by-side-li
+                .disc-hissu__hissu 必須
+          = f.text_field :name, placeholder: "商品名 (必須40文字まで)", required: true, class: "items-input"
+
+      .item-new-main__selection.clearfix
+        .item-new-main__selection-msg
+          %ul.side-by-side-ul.disc-hissu
+            %li.side-by-side-li
+              .disc-hissu__disc 説明
+            %li.side-by-side-li
+              .disc-hissu__hissu 必須
+          = f.text_area :discription, placeholder: "商品の説明をここに書いてください。購入者に対して分かりやすいことを心がけましょう！", class: "item-discription-input", required: true
+
+      .item-new-main__selection.clearfix
+        .item-new-main__selection-msg
+          %ul.side-by-side-ul.disc-hissu
+            %li.side-by-side-li
+              .disc-hissu__disc ショップ名
+            %li.side-by-side-li
+              .disc-hissu__hissu 必須
+          = f.select :shop_id, @shop.map{|shop|[shop.name, shop.id]},{}, class: "item-shop-select", include_blank: true, required: true
+
+      .item-new-main__selection.clearfix
+        .item-new-main__selection-msg
+          %ul.side-by-side-ul.disc-hissu
+            %li.side-by-side-li
+              .disc-hissu__disc ブランド名
+          = f.select :brand_id, @brand.map{|brand|[brand.name, brand.id]}, include_blank: true
+
+      .item-new-main__selection.clearfix
+        .item-new-main__selection-msg
+          %ul.side-by-side-ul.disc-hissu
+            %li.side-by-side-li
+              .disc-hissu__disc カテゴリー
+          = f.select :parent_category_id, @parent_category.map{|parent_category|[parent_category.name, parent_category.id]}, prompt: "カテゴリー1を選択"
+
+          = f.select :child_category_id, @tops_category.map{|tops_category|[tops_category.name, tops_category.id]}, {prompt: "カテゴリー2を選択"}, {class: "tops"}
+
+          = f.select :child_category_id, @jackets_category.map{|jackets_category|[jackets_category.name, jackets_category.id]}, {prompt: "カテゴリー2を選択"}, {class: "jackets"}
+
+          = f.select :child_category_id, @pants_category.map{|pants_category|[pants_category.name, pants_category.id]}, {prompt: "カテゴリー2を選択"}, {class: "pants"}
+
+      .item-new-main__selection.clearfix
+        .item-new-main__selection-msg
+          %ul.side-by-side-ul.disc-hissu
+            %li.side-by-side-li
+              .disc-hissu__disc  レディース/メンズ
+          = f.select :gender, [[],["レディース/メンズ","レディースメンズ"],["レディース", "レディース"],["メンズ","メンズ"],["キッズ","キッズ"]], {}, class: "item-shop-select"
+
+      .item-new-main__selection.clearfix
+        .item-new-main__selection-msg
+          %ul.side-by-side-ul.disc-hissu
+            %li.side-by-side-li
+              .disc-hissu__disc 値段
+            %li.side-by-side-li
+              .disc-hissu__hissu 必須
+          %ul.side-by-side-ul.priceholder
+            %li.side-by-side-li.enmark ¥
+            %li.side-by-side-li
+            = f.text_field :price, placeholder: "例)¥3,000",class: "item-price-input", required: true
+
+      .item-new-main__selection.clearfix
+        .item-new-main__selection-msg
+          %ul.side-by-side-ul.disc-hissu
+            %li.side-by-side-li
+              .disc-hissu__disc 即日配送可否
+          .delivery-yn
+            = f.check_box :delivery_days, checkedvalue: 1, uncheckedvalue: 0, class: "delivery-check"
+            .delivery-yn__msg ※即日配送がか可能な場合はチェックしてください。
+
+      .item-new-main__selection.clearfix
+        .item-new-main__selection-msg
+          %ul.side-by-side-ul.disc-hissu
+            %li.side-by-side-li
+              .disc-hissu__disc  原産国
+          = f.select :origin, [[],["日本","日本"],["中国", "中国"],["ベトナム","ベトナム"],["インド","インド"],["アメリカ","アメリカ"],["マレーシア","マレーシア"]], {}, class: "item-shop-select"
+
+      .item-new-main__selection.clearfix
+        .item-new-main__selection-msg
+          %ul.side-by-side-ul.disc-hissu
+            %li.side-by-side-li
+              .disc-hissu__disc  材料
+          = f.select :material, [[],["ポリエステル","ポリエステル"],["シルク", "シルク"],["コットン","コットン"],["カシミヤ","カシミヤ"],["レザー","レザー"],["ダウン","ダウン"],["レーヨン","レーヨン"]], {}, class: "item-shop-select"
+
+      .item-new-main__selection.clearfix
+        .item-new-main__selection-msg
+          %ul.side-by-side-ul.disc-hissu
+            %li.side-by-side-li
+              .disc-hissu__disc ラッピング可否
+          .delivery-yn
+            = f.check_box :wrapping, checkedvalue: 1, uncheckedvalue: 0, class: "delivery-check"
+            .delivery-yn__msg ※ラッピングが可能な場合はチェックしてください。
+
+      .item-new-main__selection.clearfix
+        .item-new-main__selection-msg
+          = f.submit "出品する", class: "post-item-btn"
+          = link_to root_path do
+            .item-return-btn もどる
+
+    .item-new-footer

@@ -195,13 +195,21 @@
     float: right;
     border: 3px ridge;
     border-radius: 6px;
-
-    &__zozo, &__facebook{
-      font-famiy: 'arial black';
-      font-size: 20px;
-      padding-left: 70px;
+    &-tab{
+      width: 330px;
+      background: #fff;
+      
+      &__zozo, &__facebook{
+        width: 163px;
+        float: left;
+        font-famiy: 'arial black';
+        font-size: 20px;
+        text-align: center;
+        border: 1px solid;
+        border-color: #f6f6f6;
+      }
     }
-    &__box{
+    &__zozobox{
       border-bottom: 1px solid;
       border-color: silver;
       margin-top: 25px;
@@ -219,7 +227,7 @@
         width: 250px;
         height: 40px;
         border: 1px solid;
-      border-color: gray;
+        border-color: gray;
         border-radius: 2px;
       }
       .forget-email-box{
@@ -261,6 +269,41 @@
         font-size: 12px;
       }
     }
+
+    &__facebookbox{
+      display: none;
+      border-bottom: 1px solid;
+      border-color: silver;
+      margin-top: 25px;
+      padding-left: 35px;
+
+      &-msg{
+        font-size: 16px;
+        margin-bottom: 15px;
+      }
+
+      &-text{
+        font-size: 12px;
+      }
+
+      &-info{
+        font-size: 11px;
+      }
+
+      &-btn{
+        margin: 15px 0 10px;
+        font-size: 16px;
+        width: 260px;
+        height: 50px;
+        background: #2490D0;
+        color: #fff;
+        border-radius: 5px;
+      }
+      .facebook-wrapping{
+        margin: 15px 0;
+      }
+    }
+
     &__footer{
       margin: 25px;
 
@@ -343,6 +386,14 @@
       }
     }
   }
+}
+
+.cart-main__middle__right-tab-zozo{
+  display: block;
+}
+
+.selected{
+  background-color: #f6f6f6;
 }
 
 

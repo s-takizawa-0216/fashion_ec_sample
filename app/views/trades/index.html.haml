@@ -10,7 +10,7 @@
       = image_tag "/images/cart-info_step1.jpg"
 
 
-  / カートに何も入っていない時
+  / カートに何も入っていない時　if文で条件文分岐
   / .cart-main__content
   /   .cart-main__content__noitem-msg カートに商品は入っていません
   /   = link_to "ショピングを続ける", root_path, class: "continue-shopping-btn"
@@ -69,7 +69,7 @@
   /       %button{class: "add-to-cart-btn"} カートに入れる
 
 
-  / カートにアイテムがある時
+  / カートにアイテムがある時 if文で条件文分岐
   .cart-main__middle.clearfix
     %table.cart-main__middle__left
       %tr.cart-main__middle__left__item-space
@@ -109,50 +109,79 @@
           = link_to "消去"
 
     .cart-main__middle__right
-      %span.cart-main__middle__right__zozo ZOZO
-      %span.cart-main__middle__right__facebook facebook
-      .cart-main__middle__right__box
-        .cart-main__middle__right__box-msg ログインしてレジに進む
-        %input{type: "text", placeholder: "メールアドレスまたはZOZOID", class: "cart-main__middle__right__box-input"}
-        %input{type: "text", placeholder: "パスワード", class: "cart-main__middle__right__box-input"}
-        = link_to "ID・パスワードを忘れた方パスワードを忘れた方" do
-          .forget-email-box ID・パスワードを忘れた方
-        %button{class: "cart-main__middle__right__box-arigato-transaction-btn"}
-          %p.arigato-price-msg ARIGATO価格
-          %p.confirm-arigato-price ¥4,000で購入する
-        .cart-main__middle__right__box-only-creditcard-msg お支払いはクレジットカードのみとなります。
-        %p.cart-main__middle__right__box-zozoarigato-info-up ※ZOZOARIGATO価格での購入にはZOZOARIGATO
-        %p.cart-main__middle__right__box-zozoarigato-info-bottom
-          %span メンバー入会（有料）が必要になります。
-          %span.cart-main__middle__right__box-zozoarigato-detail 
-            = link_to "詳細"
+      .cart-main__middle__right-tab.clearfix
+        .cart-main__middle__right-tab__zozo.selected#zozotab ZOZO
+        .cart-main__middle__right-tab__facebook#facebooktab facebook
+      .cart-main__middle__right-tab-zozo
+        .cart-main__middle__right__zozobox
+          .cart-main__middle__right__zozobox-msg ログインしてレジに進む
+          %input{type: "text", placeholder: "メールアドレスまたはZOZOID", class: "cart-main__middle__right__zozobox-input"}
+          %input{type: "text", placeholder: "パスワード", class: "cart-main__middle__right__zozobox-input"}
+          = link_to "ID・パスワードを忘れた方パスワードを忘れた方" do
+            .forget-email-box ID・パスワードを忘れた方
+          %button{class: "cart-main__middle__right__zozobox-arigato-transaction-btn"}
+            %p.arigato-price-msg ARIGATO価格
+            %p.confirm-arigato-price ¥4,000で購入する
+          .cart-main__middle__right__zozobox-only-creditcard-msg お支払いはクレジットカードのみとなります。
+          %p.cart-main__middle__right__zozobox-zozoarigato-info-up ※ZOZOARIGATO価格での購入にはZOZOARIGATO
+          %p.cart-main__middle__right__zozobox-zozoarigato-info-bottom
+            %span メンバー入会（有料）が必要になります。
+            %span.cart-main__middle__right__zozobox-zozoarigato-detail 
+              = link_to "詳細"
 
-      .cart-main__middle__right__footer
-        .cart-main__middle__right__footer__usual
-          %button{class: "cart-main__middle__right__footer__usual-price-box"} 
-            %span 通常価格
-            %span ¥4,000
-            %span 通常価格
-            %span 
-              = fa_icon "angle-down", class: "usual-price-arrow"
-          .cart-main__middle__right__footer__usual-continue-shopping
-            = link_to "ショッピングを続ける", root_path
+        .cart-main__middle__right__footer
+          .cart-main__middle__right__footer__usual
+            %button#register-btn{class: "cart-main__middle__right__footer__usual-price-box"} 
+              %span 通常価格
+              %span ¥4,000
+              %span 通常価格
+              %span 
+                = fa_icon "angle-down", class: "usual-price-arrow"
+            .cart-main__middle__right__footer__usual-continue-shopping
+              = link_to "ショッピングを続ける", root_path
 
-        .cart-main__middle__right__footer__open
-          .cart-main__middle__right__footer__open-confirm-price
-            %span 通常価格
-            %span ¥3,046
-            %span で購入する
-          %button#show-register{class: "cart-main__middle__right__footer__open-next-to-register"} レジ進むへ
-          .cart-main__middle__right__footer__open-wrapping.clearfix
-            %input{type: :checkbox, class: "cart-main__middle__right__footer__open-wrapping-checkbox"}
-            .cart-main__middle__right__footer__open-wrapping-middle
-              %span ラッピングをご希望の方はこちらにチェックをしてください
-              %span.wrapping-detail-msg (有料)
-              %span
-                = link_to "詳細"
-            .cart-main__middle__right__footer__open-wrapping-right
-              = image_tag "https://img4.zozo.jp/giftwrapping/pc/cart_giftgray.png", class: "wrapping-image"
+          .cart-main__middle__right__footer__open#open-register
+            .cart-main__middle__right__footer__open-confirm-price
+              %span 通常価格
+              %span ¥4,000
+              %span で購入する
+            %button{class: "cart-main__middle__right__footer__open-next-to-register"} レジ進むへ
+            .cart-main__middle__right__footer__open-wrapping.clearfix
+              %input{type: :checkbox, class: "cart-main__middle__right__footer__open-wrapping-checkbox"}
+              .cart-main__middle__right__footer__open-wrapping-middle
+                %span ラッピングをご希望の方はこちらにチェックをしてください
+                %span.wrapping-detail-msg (有料)
+                %span
+                  = link_to "詳細"
+              .cart-main__middle__right__footer__open-wrapping-right
+                = image_tag "https://img4.zozo.jp/giftwrapping/pc/cart_giftgray.png", class: "wrapping-image"
+            .cart-main__middle__right__footer__open-continue-shopping
+              = link_to "ショッピングを続ける", root_path
+      .cart-main__middle__right__facebookbox
+        %p.cart-main__middle__right__facebookbox-msg ログインしてレジに進む
+        %p.cart-main__middle__right__facebookbox-text facebookでログインすると
+        %p.cart-main__middle__right__facebookbox-text ・ZOZOポイント
+        %p.cart-main__middle__right__facebookbox-text ・クーポン
+        %p.cart-main__middle__right__facebookbox-text ・ZOZOTOW GIFTCARD
+        %p.cart-main__middle__right__facebookbox-text 上記サービスがご利用いただけません
+        %p.cart-main__middle__right__facebookbox-info 
+          %span ※ご利用になる場合は,
+          %span
+            = link_to "ZOZO IDと連携"
+          %span.cart-main__middle__right__facebookbox-info し,
+        %p.cart-main__middle__right__facebookbox-info ZOZOIDで再ログインしてください。
+        %button{class: "cart-main__middle__right__facebookbox-btn"} facebook IDでログイン
+        .cart-main__middle__right__facebookbox-info 
+          = link_to "facebook IDログインに関して"
+        .cart-main__middle__right__footer__open-wrapping.facebook-wrapping.clearfix
+          %input{type: :checkbox, class: "cart-main__middle__right__footer__open-wrapping-checkbox"}
+          .cart-main__middle__right__footer__open-wrapping-middle
+            %span ラッピングをご希望の方はこちらにチェックをしてください
+            %span.wrapping-detail-msg (有料)
+            %span
+              = link_to "詳細"
+          .cart-main__middle__right__footer__open-wrapping-right
+            = image_tag "https://img4.zozo.jp/giftwrapping/pc/cart_giftgray.png", class: "wrapping-image"
           .cart-main__middle__right__footer__open-continue-shopping
             = link_to "ショッピングを続ける", root_path
 

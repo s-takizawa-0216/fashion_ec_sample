@@ -18,7 +18,6 @@ $(function(){
       // var height = (image.height() * leftScale)
       // zoomImage.css('height', height)
       $("#btnNext").addClass("opacity-zero")
-      console.log("HELLO")
     });
 
     $(elem).on('mouseleave', function(){

@@ -70,7 +70,7 @@
 
 
   / カートにアイテムがある時 if文で条件文分岐
-  .cart-main__middle.clearfix
+  .cart-main__middle
     %table.cart-main__middle__left
       %tr.cart-main__middle__left__item-space
         %td.cart-main__middle__left__item-space-image
@@ -85,33 +85,20 @@
         %td.cart-main__middle__left__item-space-price ¥10,000
         %td.cart-main__middle__left__item-space-count-item
           .cart-main__middle__left__item-space-count-item__box.clearfix
+            %button{class: "cart-main__middle__left__item-space-count-item__box-btn-minus", id: "minus"} -
             .cart-main__middle__left__item-space-count-item__box-number 1
-            %button{class: "cart-main__middle__left__item-space-count-item__box-btn"} +
+            %button{class: "cart-main__middle__left__item-space-count-item__box-btn-plus", id: "plus"} +
         %td.cart-main__middle__left__item-space-delete-btn
           = link_to "消去"
+      
 
-      %tr.cart-main__middle__left__item-space
-        %td.cart-main__middle__left__item-space-image
-          = image_tag "https://c.imgz.jp/970/24834970/24834970B_160_D_125.jpg", class: "in-cart-item-image"
-        %td.cart-main__middle__left__item-space-detail
-          %p.in-cart-item-p ショップ名
-          %p.in-cart-item-p ブランド名
-          %p.in-cart-item-p 親カテゴリー/子カテゴリー
-          %p.in-cart-item-p カラー
-          %p.in-cart-item-p サイズ
-          %p.in-cart-item-p-no-retutn 返品交換対象外
-        %td.cart-main__middle__left__item-space-price ¥10,000
-        %td.cart-main__middle__left__item-space-count-item
-          .cart-main__middle__left__item-space-count-item__box.clearfix
-            .cart-main__middle__left__item-space-count-item__box-number 1
-            %button{class: "cart-main__middle__left__item-space-count-item__box-btn"} +
-        %td.cart-main__middle__left__item-space-delete-btn
-          = link_to "消去"
+      
+
 
     .cart-main__middle__right
       .cart-main__middle__right-tab.clearfix
-        .cart-main__middle__right-tab__zozo.selected#zozotab ZOZO
-        .cart-main__middle__right-tab__facebook#facebooktab facebook
+        %button{class: "cart-main__middle__right-tab__zozo selected", id: "zozotab"} ZOZO
+        %button{class: "cart-main__middle__right-tab__facebook", id: "facebooktab"} facebook
       .cart-main__middle__right-tab-zozo
         .cart-main__middle__right__zozobox
           .cart-main__middle__right__zozobox-msg ログインしてレジに進む
@@ -157,6 +144,7 @@
                 = image_tag "https://img4.zozo.jp/giftwrapping/pc/cart_giftgray.png", class: "wrapping-image"
             .cart-main__middle__right__footer__open-continue-shopping
               = link_to "ショッピングを続ける", root_path
+      
       .cart-main__middle__right__facebookbox
         %p.cart-main__middle__right__facebookbox-msg ログインしてレジに進む
         %p.cart-main__middle__right__facebookbox-text facebookでログインすると
@@ -184,6 +172,53 @@
             = image_tag "https://img4.zozo.jp/giftwrapping/pc/cart_giftgray.png", class: "wrapping-image"
           .cart-main__middle__right__footer__open-continue-shopping
             = link_to "ショッピングを続ける", root_path
+
+    .cart-main__middle__sum-payment
+      %p.cart-main__middle__sum-payment-price
+        %span 商品合計
+        %span.cart-main__middle__sum-payment-price-span  ¥8,000
+      %p.cart-main__middle__sum-payment-zozoarigato 
+        %span ZOZOARIGATO価格
+        %span.cart-main__middle__sum-payment-zozoarigato-span  ¥7,000
+      %p.cart-main__middle__sum-payment-limit
+        %span.cart-main__middle__sum-payment-limit-bold ツケ払いできます。
+        %span お支払いは
+        %span.cart-main__middle__sum-payment-limit-span 2月28日
+        %span でOK。
+        %span
+          = link_to "詳細" 
+
+    .pre-incart-item
+      .pre-incart-item__header 以前カートに入れたアイテム
+      %table.pre-incart-item__main 
+        %tr.pre-incart-item__main-box
+          %td.pre-incart-item__main-box-image
+            = image_tag "https://c.imgz.jp/598/35589598/35589598_14_D_215.jpg", height: " 150px", width: "125px"
+          %td.pre-incart-item__main-box-detail
+            %p.pre-incart-item__main-box-detail-shop ショプ名
+            %p.pre-incart-item__main-box-detail-shop  ブランド名
+            %p
+              %span.pre-incart-item__main-box-detail-shop  ¥10,000
+              %span.pre-incart-item__main-box-detail-tax 税込
+            %p.pre-incart-item__main-box-detail-tax  カラー: グレー 
+            %p.pre-incart-item__main-box-detail-tax  サイズ: LARGE
+          %td.pre-incart-item__main-box-add-to-cart
+            %button{class: "pre-incart-item__main-box-add-to-cart-btn"} カートに入れる
+        %tr.pre-incart-item__main-box
+          %td.pre-incart-item__main-box-image
+            = image_tag "https://c.imgz.jp/598/35589598/35589598_14_D_215.jpg", height: " 150px", width: "125px"
+          %td.pre-incart-item__main-box-detail
+            %p.pre-incart-item__main-box-detail-shop ショプ名
+            %p.pre-incart-item__main-box-detail-shop  ブランド名
+            %p
+              %span.pre-incart-item__main-box-detail-shop  ¥10,000
+              %span.pre-incart-item__main-box-detail-tax 税込
+            %p.pre-incart-item__main-box-detail-tax  カラー: グレー 
+            %p.pre-incart-item__main-box-detail-tax  サイズ: LARGE
+          %td.pre-incart-item__main-box-add-to-cart
+            %button{class: "pre-incart-item__main-box-add-to-cart-btn"} カートに入れる
+
+
 
 
 

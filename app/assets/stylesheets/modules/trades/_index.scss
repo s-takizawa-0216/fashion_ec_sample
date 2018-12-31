@@ -109,6 +109,7 @@
   margin: 0 auto;
 
   &__left{
+    float: left;
     margin-top: 40px;
 
     &__item-space{
@@ -153,45 +154,49 @@
 
         &__box{
           margin-left: 50px;
-          border: 1px solid;
-          border-color: gray;
           border-radius: 4px;
           height: 26px;
           width: 81px;
 
-         &-number{
-          height: 26px;
-          font-size: 16px;
+          &-number{
+          text-align: center;
+          width: 23px;
+          height: 22px;
+          font-size: 14px;
           float: left;
-          padding-left: 8px;
-          padding-right: 8px;
-         }
+          }
 
-         &-btn-minus{
-          border-right: 1px solid;
-          border-color: gray;
+          &-btn-minus{
+          position: relative;
+          z-index: 2;
+          outline: none;
+          border-radius: 4px 0 0 4px;
           background-color: #f6f6f6;
           color: #007ebe;
           float: left;
           font-size: 20px;
           width: 27px; 
           height: 26px;
-         }
+          }
 
-         &-btn-plus{
-          border-right: 1px solid;
-          border-color: gray;
+          &-btn-plus{
+          position: relative;
+          z-index: 2;
+          outline: none;
+          border-radius: 0 4px 4px 0;
           background-color: #f6f6f6;
           color: #007ebe;
           float: left;
           font-size: 20px;
           width: 27px; 
           height: 26px;
-         }
+          }
         }
       }
 
       &-delete-btn{
+        position: relative;
+        z-index: 2;
         text-align: center;
         width: 80px;
         font-size: 14px;
@@ -200,12 +205,10 @@
   }
 
   &__right{
-    position: relative;
-    bottom: 450px;
+    float: right;
+    margin-top: 15px;
     background: #f6f6f6;
     width: 330px;
-    margin-top: 30px;
-    float: right;
     border: 3px ridge;
     border-radius: 6px;
 
@@ -497,5 +500,3 @@
 .selected{
   background-color: #f6f6f6;
 }
-
-

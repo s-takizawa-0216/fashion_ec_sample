@@ -3,6 +3,9 @@ class TradesController < ApplicationController
   
   def index
   end
-  
+
+  def order
+  end
+
 end
 

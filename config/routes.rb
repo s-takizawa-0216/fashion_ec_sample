@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   resources :items, only: [:new, :create]
 
   
-  resources :trades, only: [:index] 
+  resources :trades, only: [:index, :order] do
+    get   'order',       to: 'trades#order',      as: :order
+  end
 
 end
 

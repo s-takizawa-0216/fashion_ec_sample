@@ -1,0 +1,29 @@
+.order-main{
+  height: 100%;
+  width: 100%;
+  &__header{
+   width: 1000px;
+   margin: 0 auto;
+   &__left{
+    float: left;
+    width: 670px;
+    border-bottom: 1px solid;
+    border-color: lightgray;
+    &__zozo-logo{
+      margin-top: 15px;
+      font-size: 30px;
+      font-weight: bold;
+    }
+    &__msg{
+      margin: 16px 0;
+      font-size: 20px;
+    }
+   }
+   &__right{
+    float: left;
+    width: 300px;
+    margin: 45px 0 0 30px;
+   }
+  }
+}
+

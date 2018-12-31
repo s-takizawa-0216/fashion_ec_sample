@@ -24,24 +24,3 @@ $(function(){
     $(this).addClass('selected');
   });
 });
-
-// カート画面の商品個数カウント 
-$(function(){
-  var step = 1;
-  var min = 1;
-
-  var count = $("[id=number]").val();
-  var count = parseInt(count);
-
-  $('[id=minus]').click(function(){
-    count -= step
-  if( count < min ) { count = min; };
-    $("[id=number]").val(count);
-  });
-
-  $('[id=plus]').click(function(){
-    count += step
-    $("[id=number]").val(count);
-  });
-});
-

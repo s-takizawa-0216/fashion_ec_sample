@@ -58,19 +58,61 @@
     .confirm-item
       .confirm-item__header お届け商品
       .confirm-item__box
-        .confirm-item__box-top
-          %ul.side-by-side-ul
+        .confirm-item__box-top.clearfix
+          %ul.side-by-side-ul.confirm-top-marign
+            %li.side-by-side-li 
+              .confirm-item__box-top__index お届け日
             %li.side-by-side-li
+              .confirm-item__box-top__info
+                %p 指定なし：2〜5日以内に発送 
+                %p.gray 日時指定：日時を選択してください。
+                %p.gray
+                  %span 即日配送：※今回のご注文では選択できません。
+                  %span
+                    =fa_icon "exclamation", id: "exclamation"
             %li.side-by-side-li
+              .confirm-item__box-top__price ¥0
             %li.side-by-side-li
+              %button{class: "confirmation-change-address confirm-item__box-top-btn"}変更
+        .confirm-item__box-item.clearfix
+          %ul.side-by-side-ul.confirm-top-marign
             %li.side-by-side-li
-           
+              .confirm-item__box-item__index 商品
+            %li.side-by-side-li
+              .confirm-item__box-item__image
+                = image_tag 'https://img4.zozo.jp/goodsimages/24834970/24834970B_156_D.jpg',height: "85px", width: "70px"
+            %li.side-by-side-li
+              .confirm-item__box-item__info
+                %p ショップ名
+                %p ブランド名
+                %p 親カテゴリー/子カテゴリー
+                %p カラー
+                %p サイズ
+                %p 
+                  %span 数量：
+                  %span 1
+            %li.side-by-side-li
+              .confirm-item__box-item__price ¥1,000
+            %li.side-by-side-li
+              %button{class: "confirmation-change-address confirm-item__box-top-btn, confirm-item-zone"}変更
+        .confirm-item__box-shipping.clearfix
+          %ul.side-by-side-ul.confirm-top-marign
+            %li.side-by-side-li
+              .confirm-item__box-shipping__index 送料
+            %li.side-by-side-li
+              .confirm-item__box-shipping__price ¥200
 
-        
-
-            
 
   .confirm-main__right
+    .confirm-main__right__top
+      %button{class: ".confirm-main__right__top"}注文を確定する
+    .confirm-main__right__info
+      %span 商品合計
+      %span ¥972
+    .confirm-main__right__detail 
+      %span 品代
+      %span ¥972
+
 
 
 .order-main__footer#footer-top

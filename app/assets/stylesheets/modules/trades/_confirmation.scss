@@ -2,29 +2,37 @@
   margin-top: 20px;
   border-bottom: 1px solid lightgray;
   width: 670px;
+
   &__index{
     font-size: 14px;
   }
+
   &__info{
     font-size: 13px;
   }
+
   &__middle{
     padding-left: 40px;
   }
+
   &__receive{
     font-weight: bold;
     font-size: 15px;
   }
+
   &__background-receive{
     margin: 10px 0;
     background: #f0f0f0;
   }
+
   &__receive-image{
     margin: 15px 10px 0 0;
   }
+
   &__background-receive-btn{
     background: #f0f0f0;
   }
+
   .shop-selection-btn{
     background: #2490d0;
     color: #fff;
@@ -33,6 +41,7 @@
 }
 
 .confirmation-change-address{
+  border-radius: 3px;
   color: #2490d0;
   background: transparent;
   border: 1px solid #2490d0;
@@ -42,6 +51,7 @@
 .receive-add{
   padding-left: 30px;
 }
+
 .payment-add{
   padding-top: 25px;
   padding-bottom: 25px;
@@ -59,20 +69,85 @@
 }
 
 .confirm-item{
-  background: aqua;
-  border-bottom: 1px solid lightgray;
   width: 670px;
-  height: 400px;
+
   &__header{
     margin: 20px 0 20px 20px;
   }
+
   &__box{
-    height: 300px;
     border-radius: 5px;
     border: 1px solid silver;
-    margin-left: 20px;
+    margin: 20px 0 20px 0;
     width: 648px;
+
+    &-top{
+      border-bottom: 1px solid silver;
+
+      &__index{
+        margin-top: 15px;
+        text-align: center;
+        width: 120px;
+        font-size: 13px;
+      }
+
+      &__info{
+        font-size: 13px;
+        width: 330px;
+      }
+
+      &__price{
+        font-size: 15px;
+        margin-top: 15px;
+        width: 115px;
+        text-align: center;
+      }
+
+      &-btn{
+        margin-top: 10px;
+      }
+    }
+    &-item{
+      border-bottom: 1px solid silver;
+      &__index{
+        font-size: 13px;
+        width: 120px;
+        text-align: center;
+      }
+      &__image{
+        padding: 19px 0;
+        width: 70px;
+      }
+      &__info{
+        margin-left: 10px;
+        font-size: 13px;
+      }
+      &__price{
+        margin-top: 40px;
+      font-size: 14px;
+      width: 200px;
+      text-align: center;
+      }
+    }
+    &-shipping{
+      width: 100%;
+      font-size: 13px;
+      &__index{
+        margin-left: 20px;
+        padding-bottom: 15px;
+      }
+      &__price{
+        padding-left: 400px;
+      }
+    }
   }
+}
+.confirm-top-marign{
+  margin-top: 15px;
+}
+
+.confirm-item-zone{
+  margin-top: 40px;
 }
 
 .confirm-main__right{

@@ -102,10 +102,6 @@
         width: 115px;
         text-align: center;
       }
-
-      &-btn{
-        margin-top: 10px;
-      }
     }
     &-item{
       border-bottom: 1px solid silver;
@@ -142,12 +138,29 @@
     }
   }
 }
+
 .confirm-top-marign{
   margin-top: 15px;
 }
 
+.confirm-item__box-top-btn{
+  text-align: center;
+  padding-top: 4px;
+  font-size: 12px;
+  height: 22px;
+  margin-top: 10px;
+  width: 60px;
+  border-radius: 3px;
+  color: #2490d0;
+  background: transparent;
+  border: 1px solid #2490d0;
+}
+
+.margin-giving{
+  margin-top: 10px;
+}
 .confirm-item-zone{
-  margin-top: 40px;
+  margin-top: 45px;
 }
 
 .confirm-main__right{

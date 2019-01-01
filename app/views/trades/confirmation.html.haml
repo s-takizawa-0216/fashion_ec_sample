@@ -22,7 +22,8 @@
             %span 電話：
             %span 09000000000
         %td.receive-add
-          %button{class: "confirmation-change-address"}変更
+          .confirm-item__box-top-btn
+            = link_to "変更", trade_order_path
       %tr
         %td
         %td.clearfix.confirm-table__background-receive-btn
@@ -46,7 +47,9 @@
           %span.confirm-table__info (一括払い)
         %td.confirm-table__index.payment-add ¥0
         %td.payment-add 
-          %button{class: "confirmation-change-address"}変更
+          .confirm-item__box-top-btn
+            = link_to "変更", trade_order_path
+      %tr
     %table.confirm-table-ex
       %tr
         %td.confirm-table__index.arigato-add ARIGATO応援先
@@ -73,7 +76,9 @@
             %li.side-by-side-li
               .confirm-item__box-top__price ¥0
             %li.side-by-side-li
-              %button{class: "confirmation-change-address confirm-item__box-top-btn"}変更
+              .confirm-item__box-top-btn
+                = link_to "変更", trade_order_path
+        .confirm-item__box-shipping.clearfix
         .confirm-item__box-item.clearfix
           %ul.side-by-side-ul.confirm-top-marign
             %li.side-by-side-li
@@ -94,7 +99,8 @@
             %li.side-by-side-li
               .confirm-item__box-item__price ¥1,000
             %li.side-by-side-li
-              %button{class: "confirmation-change-address confirm-item__box-top-btn, confirm-item-zone"}変更
+              .confirm-item__box-top-btn.confirm-item-zone
+                = link_to "変更", trades_path
         .confirm-item__box-shipping.clearfix
           %ul.side-by-side-ul.confirm-top-marign
             %li.side-by-side-li
@@ -134,9 +140,6 @@
       %p をお受けできない場合がございます。
       %p
         = link_to "返品について"
-
-
-
 
 .order-main__footer#footer-top
   .order-main__footer-box

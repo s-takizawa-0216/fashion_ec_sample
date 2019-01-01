@@ -159,6 +159,97 @@
   background: #f6f6f6;
   border: 1px solid #EDEDED;
   border-radius: 6px;
-  box-shadow: 1px 0 5px 4px rgba(69, 145, 175, 0.6);
+  &__top{
+    text-align: center;
+    &-btn{
+      opacity: 0.8;
+      font-size: 26px;
+      margin-top: 15px;
+      box-shadow: 1px 0 5px 4px rgba(69, 145, 175, 0.6);
+      width: 250px;
+      height: 70px;
+      background: #993399;
+      color: #fff;
+      border-style: ridge;
+    }
+  }
+  &__info{
+    margin-top: 15px;
+    font-size: 14px;
+    &-msg{
+      padding-left: 30px;
+    }
+    &-price{
+      padding-left: 140px;
+    }
+  }
+  &__detail{
+    margin-top: 10px;
+    height: 64px;
+    background: #eaeaea;
+    font-size: 14px;
+    &__head{
+      height: 15px;
+    }
+    &__top{
+      margin: 0 auto;
+      width: 250px;
+      height: 1px;
+      background: lightgray;
+    }
+    &__bottom{
+      margin-top: 10px;
+      &-msg{
+        padding-left: 30px;
+      }
+      &-price{
+        padding-left: 170px;
+      }
+    }
+  }
+  &__shipping{
+    margin-top: 10px;
+    &-msg{
+      padding-left: 30px;
+      font-size: 14px;
+    }
+    &-add{
+      font-size: 11px;
+      color: gray;
+    }
+    &-price{
+      padding-left: 10px;
+      font-size: 14px;
+    }
+  }
+  &__extra-fee{
+    margin-top: 10px;
+    &-msg{
+      font-size: 14px;
+      padding-left: 30px;
+    }
+    &-price{
+      font-size: 14px;
+      padding-left: 120px;
+    }
+  }
+  &__sum{
+    margin-top: 10px;
+    &-msg{
+      padding-left: 30px;
+      font-size: 14px;
+    }
+    &-add{
+      font-size: 11px;
+    }
+    &-price{
+      padding-left: 130px;
+      font-size: 14px;
+    }
+  }
+  &__bottom{
+    margin: 10px 0 20px 30px;
+    font-size: 11px;
+  }
 }
 

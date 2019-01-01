@@ -105,13 +105,36 @@
 
   .confirm-main__right
     .confirm-main__right__top
-      %button{class: ".confirm-main__right__top"}注文を確定する
+      %button{class: "confirm-main__right__top-btn"}注文を確定する
     .confirm-main__right__info
-      %span 商品合計
-      %span ¥972
+      %span.confirm-main__right__info-msg 商品合計
+      %span.confirm-main__right__info-price ¥972
     .confirm-main__right__detail 
-      %span 品代
-      %span ¥972
+      .confirm-main__right__detail__head
+      .confirm-main__right__detail__top
+      .confirm-main__right__detail__bottom
+        %span.confirm-main__right__detail__bottom-msg 品代
+        %span.confirm-main__right__detail__bottom-price ¥972
+    .confirm-main__right__shipping
+      %span.confirm-main__right__shipping-msg 送料
+      %span.confirm-main__right__shipping-add (指定なし：2〜5日以内に発送)
+      %span.confirm-main__right__shipping-price ¥200
+    .confirm-main__right__extra-fee
+      %span.confirm-main__right__extra-fee-msg 支払い手数料
+      %span.confirm-main__right__extra-fee-price ¥0
+    .confirm-main__right__sum
+      %span.confirm-main__right__sum-msg 合計
+      %span.confirm-main__right__sum-add (税込)
+      %span.confirm-main__right__sum-price ¥1,172
+    .confirm-main__right__bottom
+      %p.gray ※送料は一律￥200です。
+      %p ご注文完了前に必ずサイズ・カラー・価格・数量の
+      %p ご確認をお願いいたします。
+      %p 一部商品や、商品状態により注文取消し・返品
+      %p をお受けできない場合がございます。
+      %p
+        = link_to "返品について"
+
 
 
 

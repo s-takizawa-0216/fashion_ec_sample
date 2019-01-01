@@ -8,7 +8,9 @@ class TradesController < ApplicationController
   end
 
   def confirmation
-    
+  end
+
+  def done_transaction
   end
 
 end

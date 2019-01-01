@@ -70,4 +70,3 @@ $(function(){
     $('#new-creditcard-top').removeClass('checked');
   });
 });
-

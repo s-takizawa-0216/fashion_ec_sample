@@ -1,6 +1,7 @@
 // 住所追加項目
 $(function(){
   $('#new-address-check').click(function(){
+
     $('#new-address').show();
     $('#address-header').removeClass('unchecked');
     $('#address-header').addClass('checked');
@@ -9,15 +10,16 @@ $(function(){
 
 $(function(){
   $('#hide-new-address').click(function(){
+
     $('#new-address').hide();
     $('#address-header').addClass('unchecked');
-    
   });
 });
 
 // 発送方法選択項目
 $(function(){
   $('#new-delivery-check').click(function(){
+
     $('#new-delivery').show();
     $('#delivery-header').removeClass('unchecked');
     $('#delivery-header').addClass('checked');
@@ -28,6 +30,7 @@ $(function(){
 
 $(function(){
   $('#hide-new-delivery').click(function(){
+
     $('#new-delivery').hide();
     $('#delivery-header').addClass('unchecked');
     $('#date-new-delivery').hide();
@@ -37,6 +40,7 @@ $(function(){
 
 $(function(){
   $('#date-new-delivery-check').click(function(){
+
     $('#date-new-delivery').show();
     $('#date-delivery-header').removeClass('unchecked');
     $('#date-delivery-header').addClass('checked');
@@ -47,6 +51,7 @@ $(function(){
 
 $(function(){
   $('#creditcard-check').click(function(){
+
     $('#new-creditcard').css("display", "block");
     $('#creditcard-header').removeClass('unchecked');
     $('#creditcard-header').addClass('checked');
@@ -55,6 +60,7 @@ $(function(){
 
 $(function(){
   $('#new-creditcard-check').click(function(){
+
     $('#new-creditcard-info').css("display", "block");
     $('#new-creditcard-top').addClass('checked');
     $('#usual-card-num1').hide();
@@ -64,6 +70,7 @@ $(function(){
 
 $(function(){
   $('#nomal-card').click(function(){
+    
     $('#new-creditcard-info').hide();
     $('#usual-card-num1').show();
     $('#usual-card-num2').show();

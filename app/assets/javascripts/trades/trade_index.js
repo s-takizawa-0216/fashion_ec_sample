@@ -6,7 +6,7 @@ $(function(){
   });
 });
 
-// カート画面の　購入確認のタブの切り替え
+// カート画面の購入確認のタブの切り替え
 $(function(){
   $('#facebooktab').click(function(){
     $('.cart-main__middle__right-tab-zozo').hide();

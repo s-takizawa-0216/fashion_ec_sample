@@ -1,4 +1,4 @@
-.order-main
+.order-main.clearfix
   .order-main__header.clearfix
     .order-main__header__left
       .order-main__header__left__zozo-logo ZOZOTOWN
@@ -6,7 +6,61 @@
     .order-main__header__right
       = image_tag "/images/cart-info_step1.jpg"
 
-
   .order-main__body
+    .order-main__body__item-space.clearfix
+      .order-main__body__item-space__index 
+        %p.order-main__body__item-space__index-msg  お届け先
+      .order-main__body__item-space__detail
+        .order-main__body__item-space__detail-box.clearfix
+          %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left"}
+          .order-main__body__item-space__detail-box__right
+            %p
+              %span 苗字
+              %span 名前
+              %span 様
+            %p
+              %span 〒
+              %span 0000000
+              %span.ship-on-day 即日発送可能
+            %p
+              %span 住所：
+              %span 東京都渋谷区渋谷1-1-1
+            %p
+              %span 電話：
+              %span 090-000-0000
+        .order-main__body__item-space__detail-box
+          %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left"}
+          .order-main__body__item-space__detail-box__right.new-address
+            %p 新しいお届け先を追加する 
+
+
+    .order-main__body__item-space.clearfix
+      .order-main__body__item-space__index 
+        %p.deliverly-days-msg  配送方法
+        %p お届け予定日
+      .order-main__body__item-space__detail
+        .order-main__body__item-space__detail-box.clearfix
+          %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left"}
+          .order-main__body__item-space__detail-box__right
+            %p
+              %span 指定なし
+              %span 2〜5日以内に発送
+              %span ¥200
+          %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left"}
+          .order-main__body__item-space__detail-box__right
+            %p
+              %span 日時指定
+              %span 希望日時を指定してください
+              %span ¥200
+          %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left"}
+          .order-main__body__item-space__detail-box__right
+            %p
+              %span 即日発送
+              %span 最短
+              %span  ◯月◯日（◯）午前中
+              %span ¥550
+
+
+  .order-main__right
   .order-main__footer
 

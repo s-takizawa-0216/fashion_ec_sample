@@ -2,6 +2,7 @@
   height: 100%;
   width: 1000px;
   margin: 0 auto;
+
   &__header{
     width: 100%;
 
@@ -32,9 +33,9 @@
 
   &__body{
     float: left;
-    width: 670px;
 
     &__item-space{
+      width: 670px;
       border-bottom: 1px solid;
       border-color: lightgray;
 
@@ -55,13 +56,16 @@
 
         &-box{
           margin: 20px 0;
+
           &__left{
             float: left;
-            margin: 20px 15px 0;
+            margin: 10px 10px 0;
           }
+
           &__right{
             float: left;
             font-size: 13px;
+
             .ship-on-day{
               margin-left: 5px;
               background: #c2aa00;
@@ -73,14 +77,25 @@
               border-radius: 3px;
             }
           }
+
           .new-address{
-            margin-top: 20px;
+            margin: 10px 0 10px;
           }
         }
       }
+
       .deliverly-days-msg{
         margin-top: 25px;
       }
+
+      .make-space-box-right{
+        margin-top: 10px;
+      }
+    }
+
+    &__zozocard{
+      margin: 15px 0 30px;
+      font-size: 12px;
     }
   }
 
@@ -88,7 +103,91 @@
     left: 800px;
     position: absolute;
     float: left;
-    margin-left: 30px;
+    margin-left: 40px;
     width: 300px;
+    background: #f6f6f6;
+    border: 1px solid #EDEDED;
+    border-radius: 6px;
+    box-shadow: 1px 0 5px 4px rgba(69, 145, 175, 0.6);
+
+    &__content{
+      margin: 15px;
+      &__tonext-btn{
+        background: #2490d0;
+        color: #fff;
+        width: 267px;
+        height: 48px;
+        font-size: 18px;
+        border-radius: 3px;
+      }
+      &__info-box{
+        border-bottom: 1px solid lightgray;
+        margin-top: 20px;
+        padding-bottom: 15px;
+        font-size: 13px;
+      }
+      &__summary{
+        margin-top: 10px;
+        &-top{
+          font-size: 18px;
+          font-weight: bold;
+        }
+        &-middle{
+          font-size: 11px;
+        }
+        &-bottom{
+          color: red;
+          font-size: 18px;
+          font-weight: bold;
+        }
+      }
+    }
   }
+}
+
+.margin-space60{
+  margin-right: 60px;
+}
+
+.margin-space65{
+  margin-right: 65px;
+}
+
+.margin-space80{
+  margin-right: 80px;
+}
+
+.margin-space90{
+  margin-right: 90px;
+}
+.margin-space90{
+  margin-right: 90px;
+}
+
+.margin-space110{
+  margin-right: 110px;
+}
+
+.margin-space130{
+  margin-right: 130px;
+}
+
+.margin-space135{
+  margin-right: 135px;
+}
+
+.margin-space140{
+  margin-right: 140px;
+}
+
+.margin-space170{
+  margin-right: 170px;
+}
+
+.make-span-red {
+  color: red;
+}
+
+.make-span-bold {
+  font-weight: bold;
 }

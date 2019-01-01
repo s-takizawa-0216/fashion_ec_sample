@@ -33,7 +33,6 @@
           .order-main__body__item-space__detail-box__right.new-address
             %p 新しいお届け先を追加する 
 
-
     .order-main__body__item-space.clearfix
       .order-main__body__item-space__index 
         %p.deliverly-days-msg  配送方法
@@ -41,26 +40,106 @@
       .order-main__body__item-space__detail
         .order-main__body__item-space__detail-box.clearfix
           %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left"}
-          .order-main__body__item-space__detail-box__right
+          .order-main__body__item-space__detail-box__right.make-space-box-right
             %p
-              %span 指定なし
-              %span 2〜5日以内に発送
+              %span.margin-space115 指定なし
+              %span.margin-space115 2〜5日以内に発送
               %span ¥200
+        .order-main__body__item-space__detail-box.clearfix
           %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left"}
-          .order-main__body__item-space__detail-box__right
+          .order-main__body__item-space__detail-box__right.make-space-box-right
             %p
-              %span 日時指定
-              %span 希望日時を指定してください
+              %span.margin-space90 日時指定
+              %span.margin-space80 希望日時を指定してください
               %span ¥200
+        .order-main__body__item-space__detail-box.clearfix
           %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left"}
-          .order-main__body__item-space__detail-box__right
+          .order-main__body__item-space__detail-box__right.make-space-box-right
             %p
-              %span 即日発送
-              %span 最短
-              %span  ◯月◯日（◯）午前中
+              %span.margin-space90  即日発送
+              %span.make-span-red 最短
+              %span.margin-space90.make-span-bold  ◯月◯日（◯）午前中
               %span ¥550
 
+    .order-main__body__item-space.clearfix
+      .order-main__body__item-space__index
+        %p.deliverly-days-msg お支払い方法
+        %p
+      .order-main__body__item-space__detail
+        .order-main__body__item-space__detail-box.clearfix
+          %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left"}
+          .order-main__body__item-space__detail-box__right.make-space-box-right
+            %p
+              %span.margin-space115 ツケ払い
+              %span.margin-space130 10ポイント還元
+              %span ¥324
+        .order-main__body__item-space__detail-box.clearfix
+          %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left"}
+          .order-main__body__item-space__detail-box__right.make-space-box-right
+            %p
+              %span.margin-space90 ZOZOCARD
+              %span.margin-space140 20ポイント還元
+              %span ¥0
+        .order-main__body__item-space__detail-box.clearfix
+          %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left"}
+          .order-main__body__item-space__detail-box__right.make-space-box-right
+            %p
+              %span.margin-space65 クレジットカード
+              %span.margin-space135  10ポイント還元
+              %span ¥0
+        .order-main__body__item-space__detail-box.clearfix
+          %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left"}
+          .order-main__body__item-space__detail-box__right.make-space-box-right
+            %p
+              %span.margin-space115 代金引換
+              %span.margin-space130 10ポイント還元
+              %span ¥324
+        .order-main__body__item-space__detail-box.clearfix
+          %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left"}
+          .order-main__body__item-space__detail-box__right.make-space-box-right
+            %p
+              %span.margin-space115 LINE Pay
+              %span.margin-space135  10ポイント還元
+              %span ¥0
+        .order-main__body__item-space__detail-box.clearfix
+          %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left"}
+          .order-main__body__item-space__detail-box__right.make-space-box-right
+            %p
+              %span.margin-space115 コンビニ
+              %span.margin-space130 10ポイント還元
+              %span ¥324
+
+    .order-main__body__zozocard
+      %p
+        %span ※
+        %span
+          = link_to "ZOZOCARDとは?"
+      %p
+        %span ※デビットカード機能付きカード、カード会社発行のプリペイドカードのご利用はお控えください。詳しくは
+        %span
+          = link_to "注意事情"
+        %span をご確認ください。
+      %p ※コンビニを選択した場合、お支払いを確認後に配送方法「指定なし」でお届けなしとなります。
 
   .order-main__right
-  .order-main__footer
+    .order-main__right__content
+      %button{class: "order-main__right__content__tonext-btn"} 次に進む
+      .order-main__right__content__info-box
+        %p
+          %span.margin-space140 商品合計
+          %span ¥
+          %span 1,080
+        %p
+          %span.margin-space170 送料
+          %span ¥
+          %span 320
+        %p
+          %span.margin-space135 支払い手数料
+          %span ¥
+          %span 0
+      .order-main__right__content__summary
+        %span.order-main__right__content__summary-top 合計
+        %span.order-main__right__content__summary-middle.margin-space110 (税込)
+        %span.order-main__right__content__summary-bottom ¥
+        %span.order-main__right__content__summary-bottom 1,400
 

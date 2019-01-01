@@ -151,21 +151,60 @@
           .no-function-box#new-creditcard
             .new-address-additional__header.clearfix
               .new-address-additional__header-msg.margin-space110 カード番号
-              %input{type: :checkbox, class: "new-address-additional__header-check"}
+              %input{type: :checkbox, class: "new-address-additional__header-check", id: "nomal-card"}
               .new-address-additional__header-msg.margin-space40 カード番号下4桁
               .new-address-additional__header-msg 期限
-            .new-address-additional__header.clearfix
+            .new-address-additional__header.clearfix#usual-card-num1
+              .new-address-additional__header-msg.margin-space67 セキュリティコード
+              .new-address-additional__header-msg 
+                %p
+                  %input{type: :text, placeholder: "半角数字のみ", class: "credit-numbers"}
+                %p.security-msg セキュリティコードについて
+            .new-address-additional__header.clearfix#usual-card-num2
+              .new-address-additional__header-msg.margin-space115.make-space-box-right 支払い回数
+              .new-address-additional__header-msg.make-space-box-right
+                %select{class: "credit-numbers"}
+                  %option{value: 1}一括払い
+                  %option{value: 2}2回払い
+                  %option{value: 3}3回払い
+                  %option{value: 4}24回払い
+                  %option{value: 5}ボーナス払い
+            .new-address-additional__header.clearfix.new-address-confirm#erasable-creditcard
               %input{type: :checkbox, class: "new-address-additional__header-check",id: "new-creditcard-check"}
-                .new-address-additional__header-msg 新しいカードを追加
-          .no-function-box#new-creditcard
+                .new-address-additional__header-msg#new-creditcard-top 新しいカードを追加
+          .no-function-box#new-creditcard-info
             .new-address-additional__header.clearfix
-              = image_tag "https://zozo.jp/_cart/order/img/card_company.gif"
+              = image_tag "https://zozo.jp/_cart/order/img/card_company.gif", class: "genere-cards"
             .new-address-additional__header.clearfix
-              .new-address-additional__header-msg.margin-space110 カード番号
-              %input{type: :text, placeholder: "半角数字のみ(ハイフンなし)", class: "new-address-additional__header-check"}
+              .new-address-additional__header-msg.margin-space130 カード番号
+              %input{type: :text, placeholder: "半角数字のみ(ハイフンなし)", class: "credit-numbers"}
             .new-address-additional__header.clearfix
-              .new-address-additional__header-msg セキュリティコード
-              %input{type: :text, placeholder: "半角数字のみ", class: "new-address-additional__header-check"}
+              .new-address-additional__header-msg.margin-space67 セキュリティコード
+              .new-address-additional__header-msg 
+                %p
+                  %input{type: :text, placeholder: "半角数字のみ", class: "credit-numbers"}
+                %p.security-msg セキュリティコードについて
+            .new-address-additional__header.clearfix
+              .new-address-additional__header-msg.margin-space130.make-space-box-right 有効期限
+              .new-address-additional__header-msg.make-space-box-right
+                %span
+                  %select{class: "month-selection"}
+                %span 月
+                %span
+                  %select{class: "month-selection"}
+                %span 日
+            .new-address-additional__header.clearfix
+              .new-address-additional__header-msg.margin-space115.make-space-box-right 支払い回数
+              .new-address-additional__header-msg.make-space-box-right
+                %select{class: "credit-numbers"}
+                  %option{value: 1}一括払い
+                  %option{value: 2}2回払い
+                  %option{value: 3}3回払い
+                  %option{value: 4}24回払い
+                  %option{value: 5}ボーナス払い
+            .new-address-additional__header.new-address-confirm.clearfix
+              %input{type: :checkbox, class: "new-address-additional__header-check",id: "new-creditcard-check"}
+                .new-address-additional__header-msg  このクレジットカード情報を登録する
 
 
 
@@ -175,15 +214,6 @@
                 %span 
                   = link_to "こちら"
                 %span をご確認ください。
-
-            
-        
-
-
-
-
-
-
 
         .order-main__body__item-space__detail-box.clearfix
           %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left"}
@@ -240,4 +270,16 @@
         %span.order-main__right__content__summary-middle.margin-space110 (税込)
         %span.order-main__right__content__summary-bottom ¥
         %span.order-main__right__content__summary-bottom 1,400
+
+.order-main__footer
+  .order-main__footer-box
+    %ul.side-by-side-ul.order-main__footer-box-ul.clearfix
+      %li.side-by-side-li.order-main__footer-box-li-right コーポレイトサイト
+      %li.side-by-side-li.order-main__footer-box-li-both 会社概要
+      %li.side-by-side-li.order-main__footer-box-li-both IR情報
+      %li.side-by-side-li.order-main__footer-box-li-both 採用情報
+      %li.side-by-side-li.order-main__footer-box-li-both 利用規約
+      %li.side-by-side-li.order-main__footer-box-li-both プライバシーポリシー
+      %li.side-by-side-li.order-main__footer-box-li-left 特定商取引法に基づく表示・古物営業法に基づく表示
+  .order-main__footer-bottom ©ZOZO,Inc
 

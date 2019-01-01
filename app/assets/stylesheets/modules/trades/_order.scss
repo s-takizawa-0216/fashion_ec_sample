@@ -161,6 +161,10 @@
   margin-right: 65px;
 }
 
+.margin-space67{
+  margin-right: 67px;
+}
+
 .margin-space70{
   margin-right: 70px;
 }
@@ -321,5 +325,39 @@
 }
 
 #new-creditcard{
-  // display: none;
+  display: none;
+}
+
+.genere-cards{
+  margin-left: 30px;
+}
+
+.credit-numbers{
+  width: 239px;
+  height: 40px;
+  font-size: 15px;
+  background: #fff;
+  font-size: 12px;
+}
+
+.security-msg{
+  color: #007ebe;
+}
+
+.month-selection{
+  width: 100px;
+  height: 40px;
+}
+
+.new-address-confirm{
+  padding-left: 30px;
+  padding-top: 40px;
+}
+
+#new-creditcard-info{
+  display: none;
+}
+
+#new-creditcard-top {
+  width: 400px;
 }

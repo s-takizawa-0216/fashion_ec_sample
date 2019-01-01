@@ -53,3 +53,21 @@ $(function(){
   });
 });
 
+$(function(){
+  $('#new-creditcard-check').click(function(){
+    $('#new-creditcard-info').css("display", "block");
+    $('#new-creditcard-top').addClass('checked');
+    $('#usual-card-num1').hide();
+    $('#usual-card-num2').hide();
+  });
+});
+
+$(function(){
+  $('#nomal-card').click(function(){
+    $('#new-creditcard-info').hide();
+    $('#usual-card-num1').show();
+    $('#usual-card-num2').show();
+    $('#new-creditcard-top').removeClass('checked');
+  });
+});
+

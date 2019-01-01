@@ -1,0 +1,89 @@
+.confirm-table{
+  margin-top: 20px;
+  border-bottom: 1px solid lightgray;
+  width: 670px;
+  &__index{
+    font-size: 14px;
+  }
+  &__info{
+    font-size: 13px;
+  }
+  &__middle{
+    padding-left: 40px;
+  }
+  &__receive{
+    font-weight: bold;
+    font-size: 15px;
+  }
+  &__background-receive{
+    margin: 10px 0;
+    background: #f0f0f0;
+  }
+  &__receive-image{
+    margin: 15px 10px 0 0;
+  }
+  &__background-receive-btn{
+    background: #f0f0f0;
+  }
+  .shop-selection-btn{
+    background: #2490d0;
+    color: #fff;
+    padding: 10px 20px;
+  }
+}
+
+.confirmation-change-address{
+  color: #2490d0;
+  background: transparent;
+  border: 1px solid #2490d0;
+  padding: 5px 20px;
+}
+
+.receive-add{
+  padding-left: 30px;
+}
+.payment-add{
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 50px;
+}
+
+.confirm-table-ex{
+  border-bottom: 1px solid lightgray;
+  width: 670px;
+}
+
+.arigato-add{
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.confirm-item{
+  background: aqua;
+  border-bottom: 1px solid lightgray;
+  width: 670px;
+  height: 400px;
+  &__header{
+    margin: 20px 0 20px 20px;
+  }
+  &__box{
+    height: 300px;
+    border-radius: 5px;
+    border: 1px solid silver;
+    margin-left: 20px;
+    width: 648px;
+  }
+}
+
+.confirm-main__right{
+  left: 800px;
+  position: absolute;
+  float: left;
+  margin-left: 40px;
+  width: 300px;
+  background: #f6f6f6;
+  border: 1px solid #EDEDED;
+  border-radius: 6px;
+  box-shadow: 1px 0 5px 4px rgba(69, 145, 175, 0.6);
+}
+

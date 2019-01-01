@@ -45,3 +45,11 @@ $(function(){
   });
 });
 
+$(function(){
+  $('#creditcard-check').click(function(){
+    $('#new-creditcard').css("display", "block");
+    $('#creditcard-header').removeClass('unchecked');
+    $('#creditcard-header').addClass('checked');
+  });
+});
+

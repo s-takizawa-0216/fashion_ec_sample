@@ -136,13 +136,55 @@
               %span.margin-space90 ZOZOCARD
               %span.margin-space140 20ポイント還元
               %span ¥0
-        .order-main__body__item-space__detail-box.clearfix
-          %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left"}
-          .order-main__body__item-space__detail-box__right.make-space-box-right
-            %p
-              %span.margin-space65 クレジットカード
-              %span.margin-space135  10ポイント還元
-              %span ¥0
+
+
+
+
+
+
+        .new-address-additional
+          .new-address-additional__header.clearfix.unchecked#creditcard-header
+            %input{type: :checkbox, class: "new-address-additional__header-check",id: "creditcard-check"}
+              .new-address-additional__header-msg.margin-space40 クレジットーカード
+              .new-address-additional__header-msg.margin-space135 10ポイント還元
+              .new-address-additional__header-msg ¥0
+          .no-function-box#new-creditcard
+            .new-address-additional__header.clearfix
+              .new-address-additional__header-msg.margin-space110 カード番号
+              %input{type: :checkbox, class: "new-address-additional__header-check"}
+              .new-address-additional__header-msg.margin-space40 カード番号下4桁
+              .new-address-additional__header-msg 期限
+            .new-address-additional__header.clearfix
+              %input{type: :checkbox, class: "new-address-additional__header-check",id: "new-creditcard-check"}
+                .new-address-additional__header-msg 新しいカードを追加
+          .no-function-box#new-creditcard
+            .new-address-additional__header.clearfix
+              = image_tag "https://zozo.jp/_cart/order/img/card_company.gif"
+            .new-address-additional__header.clearfix
+              .new-address-additional__header-msg.margin-space110 カード番号
+              %input{type: :text, placeholder: "半角数字のみ(ハイフンなし)", class: "new-address-additional__header-check"}
+            .new-address-additional__header.clearfix
+              .new-address-additional__header-msg セキュリティコード
+              %input{type: :text, placeholder: "半角数字のみ", class: "new-address-additional__header-check"}
+
+
+
+            .new-address-additional__header.clearfix
+              .new-address-additional__header-msg.detail-credit-card 
+                %span ※クレジットカードの個人情報取り扱いにつきましては、
+                %span 
+                  = link_to "こちら"
+                %span をご確認ください。
+
+            
+        
+
+
+
+
+
+
+
         .order-main__body__item-space__detail-box.clearfix
           %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left"}
           .order-main__body__item-space__detail-box__right.make-space-box-right

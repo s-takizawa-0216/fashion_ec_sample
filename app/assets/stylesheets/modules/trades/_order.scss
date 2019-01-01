@@ -145,6 +145,14 @@
   }
 }
 
+.margin-space40{
+  margin-right: 40px;
+}
+
+.margin-space50{
+  margin-right: 50px;
+}
+
 .margin-space60{
   margin-right: 60px;
 }
@@ -236,7 +244,7 @@
 }
 
 .new-address-additional{
-  width: 470px;
+  width: 500px;
   background: #f6f6f6;
 
   &__header{
@@ -305,4 +313,13 @@
 
 #date-new-delivery{
   display: none;
+}
+
+.detail-credit-card {
+  font-size: 11px;
+  color: gray;
+}
+
+#new-creditcard{
+  // display: none;
 }

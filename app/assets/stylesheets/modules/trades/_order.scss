@@ -221,18 +221,27 @@
   color: #808080;
 }
 
-#vanish-address{
-  display: block;
-}
-.new-address-additional{
+#new-address{
   display: none;
+}
+
+.checked{
+  border-bottom: 1px solid lightgray;
+  background: #f6f6f6;
+}
+
+.unchecked{
+  background: #fff;
+  border-bottom: none;
+}
+
+.new-address-additional{
   width: 470px;
   background: #f6f6f6;
 
   &__header{
-    border-bottom: 1px solid lightgray;
     padding-top: 15px;
-    padding-left: 15px;
+    padding-left: 10px;
     height: 35px;
 
     &-check{
@@ -268,4 +277,32 @@
       }
     }
   }
+}
+
+#new-delivery{
+  display: none;
+}
+
+.date-select{
+  width: 210px;
+  height: 40px;
+  background: #fff;
+}
+
+.time-select{
+  margin-left: 10px;
+  width: 170px;
+  height: 40px;
+  background: #fff;
+}
+
+.date-delivery-input{
+  font-size: 14px;
+  background: #fff;
+  width: 380px;
+  height: 40px;
+}
+
+#date-new-delivery{
+  display: none;
 }

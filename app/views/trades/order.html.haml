@@ -28,16 +28,12 @@
             %p
               %span 電話：
               %span 090-000-0000
-        .order-main__body__item-space__detail-box#vanish-address
-          %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left", id: "add-address"}
-          .order-main__body__item-space__detail-box__right.new-address
-            %p 新しいお届け先を追加する
-        
-        .new-address-additional#new-address
-          .new-address-additional__header.clearfix
-            %input{type: :checkbox, class: "new-address-additional__header-check"}
+
+        .new-address-additional
+          .new-address-additional__header.clearfix.unchecked#address-header
+            %input{type: :checkbox, class: "new-address-additional__header-check", id: "new-address-check"}
               .new-address-additional__header-msg 新しいお届け先を追加
-          .new-address-additional__body
+          .new-address-additional__body#new-address
             .new-address-additional__body-box
               %p.new-address-additional__body-box-msg
                 %span.margin-space100 種別
@@ -71,34 +67,54 @@
                 %span 
                   %input{type: :text,class: "address-name", placeholder: " 例）09012345678"}
 
-
     .order-main__body__item-space.clearfix
       .order-main__body__item-space__index 
         %p.deliverly-days-msg  配送方法
         %p お届け予定日
       .order-main__body__item-space__detail
         .order-main__body__item-space__detail-box.clearfix
-          %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left"}
+          %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left", id: "hide-new-delivery"}
           .order-main__body__item-space__detail-box__right.make-space-box-right
             %p
               %span.margin-space115 指定なし
               %span.margin-space115 2〜5日以内に発送
               %span ¥200
-        .order-main__body__item-space__detail-box.clearfix
-          %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left"}
-          .order-main__body__item-space__detail-box__right.make-space-box-right
-            %p
-              %span.margin-space90 日時指定
-              %span.margin-space80 希望日時を指定してください
-              %span ¥200
-        .order-main__body__item-space__detail-box.clearfix
-          %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left"}
-          .order-main__body__item-space__detail-box__right.make-space-box-right
-            %p
-              %span.margin-space90  即日発送
-              %span.make-span-red 最短
-              %span.margin-space90.make-span-bold  ◯月◯日（◯）午前中
-              %span ¥550
+
+        .new-address-additional
+          .new-address-additional__header.clearfix.unchecked#delivery-header
+            %input{type: :checkbox, class: "new-address-additional__header-check",id: "new-delivery-check"}
+              .new-address-additional__header-msg.margin-space80 日時指定
+              .new-address-additional__header-msg.margin-space80 希望日時を選択してください
+              .new-address-additional__header-msg ¥200
+          .new-address-additional__body#new-delivery
+            .new-address-additional__body-box
+              %p.new-address-additional__body-box-msg
+                %span
+                  %select{class: "date-select"}
+                    %option{value: 1} 指定しない
+                    %option{value: 2} 1月1日
+                    %option{value: 3} 1月2日
+                    %option{value: 4} 1月3日
+                %span 
+                  %select{class: "time-select"}
+                    %option{value: 1} 指定しない
+                    %option{value: 2} 午前中
+                    %option{value: 3} 午後
+
+        .new-address-additional
+          .new-address-additional__header.clearfix.unchecked#date-delivery-header
+            %input{type: :checkbox, class: "new-address-additional__header-check",id: "date-new-delivery-check"}
+              .new-address-additional__header-msg.margin-space70 即日発送
+              .new-address-additional__header-msg.make-span-bold.make-span-red 最短 
+              .new-address-additional__header-msg.make-span-bold ◯月◯日（◯）
+              .new-address-additional__header-msg.margin-space80 午前中
+              .new-address-additional__header-msg ¥500
+          .new-address-additional__body#date-new-delivery
+            .new-address-additional__body-box
+              %select{class: "date-delivery-input"}
+                %option{value: 1} 1月2日 指定しない
+                %option{value: 2} 1月2日 午前中
+                %option{value: 3} 1月2日 14:00~16:00
 
     .order-main__body__item-space.clearfix
       .order-main__body__item-space__index

@@ -7,5 +7,9 @@ class TradesController < ApplicationController
   def order
   end
 
+  def confirmation
+    
+  end
+
 end
 

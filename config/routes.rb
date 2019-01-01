@@ -12,8 +12,9 @@ Rails.application.routes.draw do
   resources :items, only: [:new, :create]
 
   
-  resources :trades, only: [:index, :order] do
+  resources :trades, only: [:index, :order, :confirmation] do
     get   'order',       to: 'trades#order',      as: :order
+    get   'confirmation',       to: 'trades#confirmation',      as: :confirmation
   end
 
 end

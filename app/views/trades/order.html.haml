@@ -154,7 +154,7 @@
               .new-address-additional__header-msg 
                 %p
                   %input{type: :text, placeholder: "半角数字のみ", class: "credit-numbers"}
-                %p.security-msg セキュリティコードについて
+                %p.security-msg#popup-cursor1 セキュリティコードについて
             .new-address-additional__header.clearfix#usual-card-num2
               .new-address-additional__header-msg.margin-space115.make-space-box-right 支払い回数
               .new-address-additional__header-msg.make-space-box-right
@@ -178,7 +178,7 @@
               .new-address-additional__header-msg 
                 %p
                   %input{type: :text, placeholder: "半角数字のみ", class: "credit-numbers"}
-                %p.security-msg セキュリティコードについて
+                %p.security-msg#popup-cursor2 セキュリティコードについて
             .new-address-additional__header.clearfix
               .new-address-additional__header-msg.margin-space130.make-space-box-right 有効期限
               .new-address-additional__header-msg.make-space-box-right
@@ -231,6 +231,10 @@
               %span.margin-space115 コンビニ
               %span.margin-space130 10ポイント還元
               %span ¥324
+
+    .popup-card#popup-image
+      = image_tag "/images/popupcard.png", width: "300px", height: "200px"
+
 
     .order-main__body__zozocard
       %p

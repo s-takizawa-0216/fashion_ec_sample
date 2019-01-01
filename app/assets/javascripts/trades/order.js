@@ -70,3 +70,17 @@ $(function(){
     $('#new-creditcard-top').removeClass('checked');
   });
 });
+
+// セキュリティーコードとは？
+$(function(){
+  $('#popup-cursor1,#popup-cursor2').mouseover(function(){
+    $('#popup-image').show();
+  });
+});
+
+$(function(){
+  $('#popup-cursor1,#popup-cursor2').mouseleave(function(){
+    $('#popup-image').hide();
+  });
+});
+

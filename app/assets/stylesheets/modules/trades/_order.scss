@@ -153,10 +153,18 @@
   margin-right: 65px;
 }
 
+.margin-space70{
+  margin-right: 70px;
+}
+
 .margin-space80{
   margin-right: 80px;
 }
 
+.margin-space85{
+  margin-right: 85px;
+}
+
 .margin-space90{
   margin-right: 90px;
 }
@@ -164,8 +172,16 @@
   margin-right: 90px;
 }
 
+.margin-space100{
+  margin-right: 100px;
+}
+
 .margin-space110{
   margin-right: 110px;
+}
+
+.margin-space115{
+  margin-right: 115px;
 }
 
 .margin-space130{
@@ -190,4 +206,66 @@
 
 .make-span-bold {
   font-weight: bold;
+}
+
+.new-msg{
+  font-size: 8px;
+  height: 11px;
+  background: #3dd4d7;
+  color: #fff;
+  border-radius: 3px;
+}
+
+.prefecture-msg{
+  font-size: 13px;
+  color: #808080;
+}
+
+#vanish-address{
+  display: block;
+}
+.new-address-additional{
+  display: none;
+  width: 470px;
+  background: #f6f6f6;
+
+  &__header{
+    border-bottom: 1px solid lightgray;
+    padding-top: 15px;
+    padding-left: 15px;
+    height: 35px;
+
+    &-check{
+      float: left;
+    }
+
+    &-msg{
+      margin-left: 10px;
+      float: left;
+      font-size: 13px;
+    }
+  }
+  &__body{
+    height: 100%;
+
+    &-box{
+      margin: 15px auto 20px;
+      width: 400px;
+      &-msg{
+        margin-top: 20px;
+        font-size: 14px;
+      }
+      .address-genre{
+        height: 40px;
+        width: 210px;
+        background: #fff;
+      }
+      .address-name{
+        width: 235px;
+        height: 35px;
+        border-radius: 2px;
+        border: 1px solid gray;
+      }
+    }
+  }
 }

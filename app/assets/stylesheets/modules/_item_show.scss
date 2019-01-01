@@ -637,7 +637,6 @@
           }
         }
         #tabItemInfo{
-          display: block;
           padding: 25px 0 0;
           .innerBox{
             .contbox{
@@ -683,7 +682,103 @@
             }
           }
         }
-        #tabSizeInfo{}
+        #tabSizeInfo{
+          padding: 25px 0 0;
+          margin: 0px;
+          .noScrollTbl{
+            padding: 25px 0 0;
+            margin: 0px;
+            border-bottom: 0;
+          }
+          table {
+            min-width: 100%;
+            border: #dcdcdc solid 1px;
+            box-sizing: border-box;
+            border-collapse: collapse;
+
+            thead{
+              display: table-header-group;
+              vertical-align: middle;
+            }
+            tbody{
+              display: table-row-group;
+              vertical-align: middle;
+              border-color: inherit;
+            }
+            tr{
+              display: table-row;
+              vertical-align: inherit;
+              border-color: inherit;
+              td{
+                max-width: 20%;
+                white-space: normal;
+                word-break: break-all;
+                height: 62px;
+                text-align: center;
+                border-top: #dcdcdc solid 1px;
+                border-bottom: #dcdcdc solid 1px;
+                border-right: #dcdcdc 1px solid;
+              }
+            }
+            th{
+              background: #f0f0f0;
+              padding: 10px 0;
+              line-height: 1.4;
+              white-space: normal;
+              border-left: none;
+              border-top: #dcdcdc solid 1px;
+              border-bottom: #dcdcdc solid 1px;
+              border-right: #dcdcdc 1px solid;
+              text-align: center;
+              font-size: 12px;
+              width: 74px;
+            }
+            th:first-child{
+              width: 8em;
+            }
+          }
+          .fa {
+            font-size: 18px;
+            padding-left: 2px;
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+    #snsBtn{
+      margin: 25px 0 0 0;
+      padding: 20px 0;
+      border-top: 1px solid #ebebeb;
+      #social{
+        li{
+          display: inline-block;
+          padding-right: 20px;
+          .fa{
+            vertical-align: bottom;
+            font-size: 18px;
+            color: #999;
+          }
+        }
+      }
+    }
+    .goodsAddFavBtn{
+      .txt{padding-bottom: 10px;}
+      .brand{
+        border: 1px solid #2490d0;
+        -webkit-border-radius: 2px;
+        padding: 5px 10px;
+        color: #007ebe;
+        width: 225px;
+        text-align: center;
+        .fa{
+          -webkit-text-stroke: 1.5px #007ebe;
+          color: #FFF;
+          opacity: 0.5;
+          padding-right: 1px;
+        }
+      }
+      .brand:hover {
+        opacity: 0.6;
       }
     }
   }
@@ -699,6 +794,10 @@
 
 .display-none{
   display: none;
+}
+
+.display-block{
+  display: block;
 }
 
 .link{

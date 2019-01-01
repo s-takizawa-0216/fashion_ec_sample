@@ -21,16 +21,22 @@ $(function(){
 
 $(function(){
   var tabList = $("#swConditionTab").find("li");
+  var itemInfo = $("#tabItemInfo")
+  var sizeInfo = $("#tabSizeInfo")
   $(tabList[0]).click(function(){
     $(this).addClass("current");
     $(this).removeClass('link');
     $(tabList[1]).removeClass("current");
     $(tabList[1]).addClass('link');
+    itemInfo.removeClass("display-none");
+    sizeInfo.addClass("display-none");
   });
   $(tabList[1]).click(function(){
     $(this).addClass("current");
     $(this).removeClass('link');
     $(tabList[0]).removeClass("current");
     $(tabList[0]).addClass('link');
+    sizeInfo.removeClass("display-none")
+    itemInfo.addClass("display-none")
   });
 });

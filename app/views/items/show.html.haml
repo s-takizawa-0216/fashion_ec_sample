@@ -330,12 +330,72 @@
                             %a.link 返品の詳細
                             %span.lines l
                             %a.link ポイントの詳細
-                      #tabSizeInfo
+                      #tabSizeInfo.display-none
                         #itemSize
                           #tblItemSize
-                          %p.bottomText
-                          %p.zozosizeText
+                            %table.noScrollTbl
+                              %thead
+                                %tr
+                                  %th サイズ
+                                  %th.dataName 着丈
+                                  %th.dataName 肩幅
+                                  %th.dataName 身幅
+                                  %th.dataName そで丈
+                              %tbody
+                                %tr.specDetail
+                                  %th
+                                    M
+                                    %p.zozosize(M)
+                                  %td 65
+                                  %td 54
+                                  %td 56
+                                  %td 60.5
+                                %tr.specDetail
+                                  %th
+                                    L
+                                    %p.zozosize(L)
+                                  %td 70
+                                  %td 57
+                                  %td 59
+                                  %td 60.5
+                                %tr.specDetail
+                                  %th
+                                    XL
+                                    %p.zozosize(XL)
+                                  %td 71.5
+                                  %td 66
+                                  %td 67
+                                  %td 60.5
+                          %p.bottomText ※ZOZOTOWN独自の方法により採寸しております。
+                          %p.zozosizeText ※（）内の表示はZOZOTOWN独自の基準で振り分けたサイズです。ブランド表記サイズとは異なりますのでご注意ください。
                           %p.link
+                            %a
+                              サイズガイド
+                              = fa_icon("th-large")
+                  #snsBtn
+                    %ul#social.clear-fix
+                      %li.mailbutton
+                        %a
+                          = fa_icon("envelope")
+                      %li.twitter
+                        %a
+                          = fa_icon("twitter")
+                      %li.facebook
+                        %a
+                          = fa_icon("facebook-f")
+                      %li.google
+                        %a
+                          = fa_icon("google-plus")
+                  .goodsAddFavBtn
+                    %p.txt このブランド「EMMA CLOTHES」はお好きですか？
+                    %p.brand
+                      %a.addFavBrand
+                        %span.rearrival
+                        = fa_icon("heart")
+                        このブランドをお気に入りに登録
+
+
+
 
                 #returned
                 .tabContainer

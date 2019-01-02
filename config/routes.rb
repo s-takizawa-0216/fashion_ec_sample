@@ -8,6 +8,15 @@ Rails.application.routes.draw do
   end
 
   root "items#index"
-  resources :items, only: [:new, :create] 
+
+  resources :items, only: [:new, :create]
+
+  
+  resources :trades, only: [:index, :order, :confirmation, :done_transaction] do
+    get   'order',       to: 'trades#order',      as: :order
+    get   'confirmation',       to: 'trades#confirmation',      as: :confirmation
+    get   'done_transaction',       to: 'trades#done_transaction',      as: :done_transaction
+  end
+
 end
 

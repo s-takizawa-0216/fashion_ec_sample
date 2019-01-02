@@ -1,0 +1,289 @@
+.order-main.clearfix
+  .order-main__header.clearfix
+    .order-main__header__left
+      .order-main__header__left__zozo-logo ZOZOTOWN
+      .order-main__header__left__msg お届け先・配送方法・お支払い方法
+    .order-main__header__right
+      = image_tag "/images/cart-info_step1.jpg"
+
+  .order-main__body
+    .order-main__body__item-space.clearfix
+      .order-main__body__item-space__index 
+        %p.order-main__body__item-space__index-msg  お届け先
+      .order-main__body__item-space__detail
+        .order-main__body__item-space__detail-box.clearfix
+          %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left", id: "hide-new-address"}
+          .order-main__body__item-space__detail-box__right#hide-address
+            %p
+              %span 苗字
+              %span 名前
+              %span 様
+            %p
+              %span 〒
+              %span 0000000
+              %span.ship-on-day 即日発送可能
+            %p
+              %span 住所：
+              %span 東京都渋谷区渋谷1-1-1
+            %p
+              %span 電話：
+              %span 090-000-0000
+
+        .new-address-additional
+          .new-address-additional__header.clearfix.unchecked#address-header
+            %input{type: :checkbox, class: "new-address-additional__header-check", id: "new-address-check"}
+              .new-address-additional__header-msg 新しいお届け先を追加
+
+          .new-address-additional__body#new-address
+            .new-address-additional__body-box
+              %p.new-address-additional__body-box-msg
+                %span.margin-space100 種別
+                %span 
+                  %select{class: "address-genre"}
+                    %option{value: 1}勤務先・職場
+                    %option{value: 2}友人・知人宅
+                    %option{value: 3}実家
+                    %option{value: 4}その他
+              %p.new-address-additional__body-box-msg
+                %span.margin-space85 お名前
+                %span 
+                  %input{type: :text,class: "address-name", placeholder: " 姓 名（全角）"}
+              %p.new-address-additional__body-box-msg
+                %span.margin-space70 郵便番号
+                %span 
+                  %input{type: :text,class: "address-name", placeholder: " 例) 2617127"}
+              %p.new-address-additional__body-box-msg
+                %span.margin-space70 都道府県
+                %span.prefecture-msg 郵便番号を入力してください
+              %p.new-address-additional__body-box-msg
+                %span.margin-space85 住所1
+                %span 
+                  %input{type: :text,class: "address-name", placeholder: " 市区町村、番地など"}
+              %p.new-address-additional__body-box-msg
+                %span.margin-space85 住所2
+                %span 
+                  %input{type: :text,class: "address-name", placeholder: " 建物名など（任意）"}
+              %p.new-address-additional__body-box-msg
+                %span.margin-space65 電話番号
+                %span 
+                  %input{type: :text,class: "address-name", placeholder: " 例）09012345678"}
+
+    .order-main__body__item-space.clearfix
+      .order-main__body__item-space__index 
+        %p.deliverly-days-msg  配送方法
+        %p お届け予定日
+      .order-main__body__item-space__detail
+        .order-main__body__item-space__detail-box.clearfix
+          %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left", id: "hide-new-delivery"}
+          .order-main__body__item-space__detail-box__right.make-space-box-right
+            %p
+              %span.margin-space115 指定なし
+              %span.margin-space115 2〜5日以内に発送
+              %span ¥200
+
+        .new-address-additional
+          .new-address-additional__header.clearfix.unchecked#delivery-header
+            %input{type: :checkbox, class: "new-address-additional__header-check",id: "new-delivery-check"}
+              .new-address-additional__header-msg.margin-space80 日時指定
+              .new-address-additional__header-msg.margin-space80 希望日時を選択してください
+              .new-address-additional__header-msg ¥200
+          .new-address-additional__body#new-delivery
+            .new-address-additional__body-box
+              %p.new-address-additional__body-box-msg
+                %span
+                  %select{class: "date-select"}
+                    %option{value: 1} 指定しない
+                    %option{value: 2} 1月1日
+                    %option{value: 3} 1月2日
+                    %option{value: 4} 1月3日
+                %span 
+                  %select{class: "time-select"}
+                    %option{value: 1} 指定しない
+                    %option{value: 2} 午前中
+                    %option{value: 3} 午後
+
+        .new-address-additional
+          .new-address-additional__header.clearfix.unchecked#date-delivery-header
+            %input{type: :checkbox, class: "new-address-additional__header-check",id: "date-new-delivery-check"}
+              .new-address-additional__header-msg.margin-space70 即日発送
+              .new-address-additional__header-msg.make-span-bold.make-span-red 最短 
+              .new-address-additional__header-msg.make-span-bold ◯月◯日（◯）
+              .new-address-additional__header-msg.margin-space80 午前中
+              .new-address-additional__header-msg ¥500
+          .new-address-additional__body#date-new-delivery
+            .new-address-additional__body-box
+              %select{class: "date-delivery-input"}
+                %option{value: 1} 1月2日 指定しない
+                %option{value: 2} 1月2日 午前中
+                %option{value: 3} 1月2日 14:00~16:00
+
+    .order-main__body__item-space.clearfix
+      .order-main__body__item-space__index
+        %p.deliverly-days-msg お支払い方法
+        %p
+      .order-main__body__item-space__detail
+        .order-main__body__item-space__detail-box.clearfix
+          %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left"}
+          .order-main__body__item-space__detail-box__right.make-space-box-right
+            %p
+              %span ツケ払い
+              %span.new-msg.margin-space90 NEW
+              %span.margin-space130 10ポイント還元
+              %span ¥324
+        .order-main__body__item-space__detail-box.clearfix
+          %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left"}
+          .order-main__body__item-space__detail-box__right.make-space-box-right
+            %p
+              %span.margin-space90 ZOZOCARD
+              %span.margin-space140 20ポイント還元
+              %span ¥0
+
+        .new-address-additional
+          .new-address-additional__header.clearfix.unchecked#creditcard-header
+            %input{type: :checkbox, class: "new-address-additional__header-check",id: "creditcard-check"}
+              .new-address-additional__header-msg.margin-space40 クレジットーカード
+              .new-address-additional__header-msg.margin-space135 10ポイント還元
+              .new-address-additional__header-msg ¥0
+          
+          .no-function-box#new-creditcard
+            .new-address-additional__header.clearfix
+              .new-address-additional__header-msg.margin-space110 カード番号
+              %input{type: :checkbox, class: "new-address-additional__header-check", id: "nomal-card"}
+              .new-address-additional__header-msg.margin-space40 カード番号下4桁
+              .new-address-additional__header-msg 期限
+            .new-address-additional__header.clearfix#usual-card-num1
+              .new-address-additional__header-msg.margin-space67 セキュリティコード
+              .new-address-additional__header-msg 
+                %p
+                  %input{type: :text, placeholder: "半角数字のみ", class: "credit-numbers"}
+                %p.security-msg#popup-cursor1 セキュリティコードについて
+            .new-address-additional__header.clearfix#usual-card-num2
+              .new-address-additional__header-msg.margin-space115.make-space-box-right 支払い回数
+              .new-address-additional__header-msg.make-space-box-right
+                %select{class: "credit-numbers"}
+                  %option{value: 1}一括払い
+                  %option{value: 2}2回払い
+                  %option{value: 3}3回払い
+                  %option{value: 4}24回払い
+                  %option{value: 5}ボーナス払い
+            .new-address-additional__header.clearfix.new-address-confirm#erasable-creditcard
+              %input{type: :checkbox, class: "new-address-additional__header-check",id: "new-creditcard-check"}
+                .new-address-additional__header-msg#new-creditcard-top 新しいカードを追加
+          
+          .no-function-box#new-creditcard-info
+            .new-address-additional__header.clearfix
+              = image_tag "https://zozo.jp/_cart/order/img/card_company.gif", class: "genere-cards"
+            .new-address-additional__header.clearfix
+              .new-address-additional__header-msg.margin-space130 カード番号
+              %input{type: :text, placeholder: "半角数字のみ(ハイフンなし)", class: "credit-numbers"}
+            .new-address-additional__header.clearfix
+              .new-address-additional__header-msg.margin-space67 セキュリティコード
+              .new-address-additional__header-msg 
+                %p
+                  %input{type: :text, placeholder: "半角数字のみ", class: "credit-numbers"}
+                %p.security-msg#popup-cursor2 セキュリティコードについて
+            .new-address-additional__header.clearfix
+              .new-address-additional__header-msg.margin-space130.make-space-box-right 有効期限
+              .new-address-additional__header-msg.make-space-box-right
+                %span
+                  %select{class: "month-selection"}
+                %span 月
+                %span
+                  %select{class: "month-selection"}
+                %span 日
+            .new-address-additional__header.clearfix
+              .new-address-additional__header-msg.margin-space115.make-space-box-right 支払い回数
+              .new-address-additional__header-msg.make-space-box-right
+                %select{class: "credit-numbers"}
+                  %option{value: 1}一括払い
+                  %option{value: 2}2回払い
+                  %option{value: 3}3回払い
+                  %option{value: 4}24回払い
+                  %option{value: 5}ボーナス払い
+            .new-address-additional__header.new-address-confirm.clearfix
+              %input{type: :checkbox, class: "new-address-additional__header-check",id: "new-creditcard-check"}
+                .new-address-additional__header-msg  このクレジットカード情報を登録する
+
+
+
+            .new-address-additional__header.clearfix
+              .new-address-additional__header-msg.detail-credit-card 
+                %span ※クレジットカードの個人情報取り扱いにつきましては、
+                %span 
+                  = link_to "こちら"
+                %span をご確認ください。
+
+        .order-main__body__item-space__detail-box.clearfix
+          %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left"}
+          .order-main__body__item-space__detail-box__right.make-space-box-right
+            %p
+              %span.margin-space115 代金引換
+              %span.margin-space130 10ポイント還元
+              %span ¥324
+        
+        .order-main__body__item-space__detail-box.clearfix
+          %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left"}
+          .order-main__body__item-space__detail-box__right.make-space-box-right
+            %p
+              %span.margin-space115 LINE Pay
+              %span.margin-space135  10ポイント還元
+              %span ¥0
+        
+        .order-main__body__item-space__detail-box.clearfix
+          %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left"}
+          .order-main__body__item-space__detail-box__right.make-space-box-right
+            %p
+              %span.margin-space115 コンビニ
+              %span.margin-space130 10ポイント還元
+              %span ¥324
+
+    .popup-card#popup-image
+      = image_tag "/images/popupcard.png", width: "300px", height: "200px"
+
+
+    .order-main__body__zozocard
+      %p
+        %span ※
+        %span
+          = link_to "ZOZOCARDとは?"
+      %p
+        %span ※デビットカード機能付きカード、カード会社発行のプリペイドカードのご利用はお控えください。詳しくは
+        %span
+          = link_to "注意事情"
+        %span をご確認ください。
+      %p ※コンビニを選択した場合、お支払いを確認後に配送方法「指定なし」でお届けなしとなります。
+
+  .order-main__right#order-right
+    .order-main__right__content
+      %button{class: "order-main__right__content__tonext-btn"} 次に進む
+      .order-main__right__content__info-box
+        %p
+          %span.margin-space140 商品合計
+          %span ¥
+          %span 1,080
+        %p
+          %span.margin-space170 送料
+          %span ¥
+          %span 320
+        %p
+          %span.margin-space135 支払い手数料
+          %span ¥
+          %span 0
+      .order-main__right__content__summary
+        %span.order-main__right__content__summary-top 合計
+        %span.order-main__right__content__summary-middle.margin-space110 (税込)
+        %span.order-main__right__content__summary-bottom ¥
+        %span.order-main__right__content__summary-bottom 1,400
+
+.order-main__footer#footer-top
+  .order-main__footer-box
+    %ul.side-by-side-ul.order-main__footer-box-ul.clearfix
+      %li.side-by-side-li.order-main__footer-box-li-right コーポレイトサイト
+      %li.side-by-side-li.order-main__footer-box-li-both 会社概要
+      %li.side-by-side-li.order-main__footer-box-li-both IR情報
+      %li.side-by-side-li.order-main__footer-box-li-both 採用情報
+      %li.side-by-side-li.order-main__footer-box-li-both 利用規約
+      %li.side-by-side-li.order-main__footer-box-li-both プライバシーポリシー
+      %li.side-by-side-li.order-main__footer-box-li-left 特定商取引法に基づく表示・古物営業法に基づく表示
+  .order-main__footer-bottom ©ZOZO,Inc
+

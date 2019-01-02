@@ -1,3 +1,4 @@
+// アイテム詳細画面 メイン画像の拡大機能
 $(function(){
   var zoomArea = $('#zoomContainer');
   var zoomImage = zoomArea.find('img');

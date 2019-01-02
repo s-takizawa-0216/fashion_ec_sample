@@ -1,3 +1,4 @@
+// タグの切り替え（ARIGATO価格・通常価格）
 $(function(){
   var tabList = $(".premium-tab-lists").find(".premium-tab-list-item")
   var cartBtn = $(".cart .btn")
@@ -19,6 +20,7 @@ $(function(){
   });
 });
 
+// タグの切り替え（アイテム説明・サイズ詳細）
 $(function(){
   var tabList = $("#swConditionTab").find("li");
   var itemInfo = $("#tabItemInfo")
@@ -41,6 +43,7 @@ $(function(){
   });
 });
 
+//要素の開閉（もっと見る・閉じる）
 $(function(){
   var trigger = $("#goods").find(".trigger");
   var nextData = $("#goods").find(".nextData");
@@ -62,3 +65,57 @@ $(function(){
     });
   });
 });
+
+//最近チェックしたアイテムのスライド
+$(function(){
+  prevBtn = $("#history_item.section").find(".prev")
+  nextBtn = $("#history_item.section").find(".next")
+  slideElem = $("#history_item.section .data").find("ul")
+  pixCount = $("#history_item.section .data").find("li").length
+  dataSize = 924
+  left = 0
+  maxLeft = - (Math.floor(pixCount/11) * 924)
+
+  function checkBtn(){
+    if( left == 0){
+      prevBtn.hide()
+    } else {
+      prevBtn.show()
+    }
+    if( left == maxLeft){
+      nextBtn.hide()
+    } else {
+      nextBtn.show()
+    }
+  }
+
+  prevBtn.click(function(){
+    left += dataSize
+    slideElem.css('left', left)
+    checkBtn(left)
+  })
+
+  nextBtn.click(function(){
+    left -= dataSize
+    slideElem.css('left', left)
+    checkBtn(left)
+  })
+
+  checkBtn()
+})
+
+  // $(function(){})
+  //   prevBtn.click(function(){
+  //     console.log(left)
+  //     left += dataSize
+  //     console.log(left)
+  //     slideElem.css('left', left)
+  //   })
+
+  //   nextBtn.click(function(){
+  //     console.log(left)
+  //     left -= dataSize
+  //     console.log(left)
+  //     slideElem.css('left', left)
+  //   })
+  // })

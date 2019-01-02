@@ -1028,12 +1028,18 @@
     .container{
       height: 84px;
       .data{
-        width: 900px;
+        width: 924px;
+        height: 84px;
         margin-left: 69px;
+        overflow: hidden;
+        position: relative;
         ul {
           width: 60000px;
+          position: absolute;
+          left: 0px;
           li {
-            width: 80px;
+            float: left;
+            width: 84px;
             height: 84px;
             padding-left: 0px;
             img{

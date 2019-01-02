@@ -40,3 +40,25 @@ $(function(){
     itemInfo.addClass("display-none")
   });
 });
+
+$(function(){
+  var trigger = $("#goods").find(".trigger");
+  var nextData = $("#goods").find(".nextData");
+
+  nextData.hide();
+
+  $(trigger).each(function(index, elem){
+    var nextData = $(elem).parent(".item_show_control").find(".nextData")
+    $(elem).click(function(){
+      if(nextData.is(':hidden')){
+        nextData.slideDown();
+        $(this).find('a').text('閉じる ');
+        $(this).find('a').append('<i class="fa fa-angle-up"></i>')
+      } else{
+        nextData.slideUp();
+        $(this).find('a').text('もっと見る ');
+        $(this).find('a').append('<i class="fa fa-angle-down"></i>')
+      }
+    });
+  });
+});

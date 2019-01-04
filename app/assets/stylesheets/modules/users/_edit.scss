@@ -99,6 +99,19 @@
   height: 28px;
 }
 
+.usesr-basic-info-bottom{
+  padding-left: 110px;
+  margin-top: 30px;
+  
+  .user-basicinfo-btn{
+    width: 165px;
+    padding: 10px;
+    background: #2490d0;
+    color: #fff;
+    font-size: 13px;
+  }
+}
+
 input{
   outline: none;
 }

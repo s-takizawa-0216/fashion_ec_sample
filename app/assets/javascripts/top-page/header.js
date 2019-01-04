@@ -1,16 +1,23 @@
 // //24時になったらheaderのbackground-colorをランダムで変更
+
 // $(document).ready(function() {
 //   setAutoRndColor();
 // });
 // function setAutoRndColor(){
 //   var hue = 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
+
+// function loop (){
+//   setTimeout(loop,5000)
+
 //   var now_hour = new Date().getHours();
 //  if ( now_hour == 0){
-//   $('.top__index').animate({
+//   $('.top__index , #random-color').animate({
 //     backgroundColor: hue
-//   })
+//    })
 //   setAutoRndColor();
 //  }
+// loop();
+// }
 // }
 
 // //２４時間のカウントダウン

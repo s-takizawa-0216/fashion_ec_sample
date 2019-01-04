@@ -1,0 +1,379 @@
+.order-main{
+  height: 100%;
+  width: 1000px;
+  margin: 0 auto;
+
+  &__header{
+    width: 100%;
+
+   &__left{
+    float: left;
+    width: 670px;
+    border-bottom: 1px solid;
+    border-color: lightgray;
+
+    &__zozo-logo{
+      margin-top: 15px;
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    &__msg{
+      margin: 16px 0;
+      font-size: 20px;
+    }
+   }
+
+   &__right{
+    float: left;
+    width: 300px;
+    margin: 35px 0 0 30px;
+   }
+  }
+
+  &__body{
+    float: left;
+
+    &__item-space{
+      width: 670px;
+      border-bottom: 1px solid;
+      border-color: lightgray;
+
+      &__index{
+        float: left;
+        width: 150px;
+        font-size: 14px;
+
+        &-msg{
+          margin-top: 60px;
+        }
+      }
+
+      &__detail{
+        float: left;
+        width: 520px;
+        margin-bottom: 15px;
+
+        &-box{
+          margin: 20px 0;
+
+          &__left{
+            float: left;
+            margin: 10px 10px 0;
+          }
+
+          &__right{
+            float: left;
+            font-size: 13px;
+
+            .ship-on-day{
+              margin-left: 5px;
+              background: #c2aa00;
+              color: #fff;
+              height: 18px;
+              width: 70px;
+              padding: 2px;
+              font-size: 11px;
+              border-radius: 3px;
+            }
+          }
+
+          .new-address{
+            margin: 10px 0 10px;
+          }
+        }
+      }
+
+      .deliverly-days-msg{
+        margin-top: 25px;
+      }
+
+      .make-space-box-right{
+        margin-top: 10px;
+      }
+    }
+
+    &__zozocard{
+      margin: 15px 0 30px;
+      font-size: 12px;
+    }
+  }
+
+  &__right{
+    left: 800px;
+    position: fixed;
+    float: left;
+    margin-left: 40px;
+    width: 300px;
+    background: #f6f6f6;
+    border: 1px solid #EDEDED;
+    border-radius: 6px;
+    box-shadow: 1px 0 5px 4px rgba(69, 145, 175, 0.6);
+
+    &__content{
+      margin: 15px;
+      &__tonext-btn{
+        background: #2490d0;
+        color: #fff;
+        width: 267px;
+        height: 48px;
+        font-size: 18px;
+        border-radius: 3px;
+      }
+      &__info-box{
+        border-bottom: 1px solid lightgray;
+        margin-top: 20px;
+        padding-bottom: 15px;
+        font-size: 13px;
+      }
+      &__summary{
+        margin-top: 10px;
+        &-top{
+          font-size: 18px;
+          font-weight: bold;
+        }
+        &-middle{
+          font-size: 11px;
+        }
+        &-bottom{
+          color: red;
+          font-size: 18px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+.margin-space40{
+  margin-right: 40px;
+}
+
+.margin-space50{
+  margin-right: 50px;
+}
+
+.margin-space60{
+  margin-right: 60px;
+}
+
+.margin-space65{
+  margin-right: 65px;
+}
+
+.margin-space67{
+  margin-right: 67px;
+}
+
+.margin-space70{
+  margin-right: 70px;
+}
+
+.margin-space80{
+  margin-right: 80px;
+}
+
+.margin-space85{
+  margin-right: 85px;
+}
+
+.margin-space90{
+  margin-right: 90px;
+}
+.margin-space90{
+  margin-right: 90px;
+}
+
+.margin-space100{
+  margin-right: 100px;
+}
+
+.margin-space110{
+  margin-right: 110px;
+}
+
+.margin-space115{
+  margin-right: 115px;
+}
+
+.margin-space130{
+  margin-right: 130px;
+}
+
+.margin-space135{
+  margin-right: 135px;
+}
+
+.margin-space140{
+  margin-right: 140px;
+}
+
+.margin-space170{
+  margin-right: 170px;
+}
+
+.make-span-red {
+  color: red;
+}
+
+.make-span-bold {
+  font-weight: bold;
+}
+
+.new-msg{
+  font-size: 8px;
+  height: 11px;
+  background: #3dd4d7;
+  color: #fff;
+  border-radius: 3px;
+}
+
+.prefecture-msg{
+  font-size: 13px;
+  color: #808080;
+}
+
+#new-address{
+  display: none;
+}
+
+.checked{
+  border-bottom: 1px solid lightgray;
+  background: #f6f6f6;
+}
+
+.unchecked{
+  background: #fff;
+  border-bottom: none;
+}
+
+.new-address-additional{
+  width: 500px;
+  background: #f6f6f6;
+
+  &__header{
+    padding-top: 15px;
+    padding-left: 10px;
+    height: 35px;
+
+    &-check{
+      float: left;
+    }
+
+    &-msg{
+      margin-left: 10px;
+      float: left;
+      font-size: 13px;
+    }
+  }
+  &__body{
+    height: 100%;
+
+    &-box{
+      margin: 15px auto 20px;
+      width: 400px;
+      &-msg{
+        margin-top: 20px;
+        font-size: 14px;
+      }
+      .address-genre{
+        height: 40px;
+        width: 210px;
+        background: #fff;
+      }
+      .address-name{
+        width: 235px;
+        height: 35px;
+        border-radius: 2px;
+        border: 1px solid gray;
+      }
+    }
+  }
+}
+
+#new-delivery{
+  display: none;
+}
+
+.date-select{
+  width: 210px;
+  height: 40px;
+  background: #fff;
+}
+
+.time-select{
+  margin-left: 10px;
+  width: 170px;
+  height: 40px;
+  background: #fff;
+}
+
+.date-delivery-input{
+  font-size: 14px;
+  background: #fff;
+  width: 380px;
+  height: 40px;
+}
+
+#date-new-delivery{
+  display: none;
+}
+
+.detail-credit-card {
+  font-size: 11px;
+  color: gray;
+}
+
+#new-creditcard{
+  display: none;
+}
+
+.genere-cards{
+  margin-left: 30px;
+}
+
+.credit-numbers{
+  width: 239px;
+  height: 40px;
+  font-size: 15px;
+  background: #fff;
+  font-size: 12px;
+}
+
+.security-msg{
+  color: #007ebe;
+}
+
+.month-selection{
+  width: 100px;
+  height: 40px;
+}
+
+.new-address-confirm{
+  padding-left: 30px;
+  padding-top: 40px;
+}
+
+#new-creditcard-info{
+  display: none;
+}
+
+#new-creditcard-top {
+  width: 400px;
+}
+
+.popup-card{
+  display: none;
+  z-index: 2;
+  left: 150px;
+  bottom: 400px;
+  position: relative;
+  float: right;
+  width: 300px;
+  height: 200px;
+  border: 1px ridge;
+}
+
+#popup-cursor1, #popup-cursor2{
+  cursor: pointer;
+}

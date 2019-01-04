@@ -197,9 +197,3 @@
 ### Association
 - belongs_to :stock
 
-
-
-
-
-
-

@@ -74,7 +74,7 @@ $(function(){
   pixCount = $("#history_item.section .data").find("li").length
   dataSize = 924
   left = 0
-  maxLeft = - (Math.floor(pixCount/11) * 924)
+  maxLeft = - (Math.floor(pixCount/11) * dataSize)
 
   function checkBtn(){
     if( left == 0){
@@ -103,19 +103,3 @@ $(function(){
 
   checkBtn()
 })
-
-  // $(function(){})
-  //   prevBtn.click(function(){
-  //     console.log(left)
-  //     left += dataSize
-  //     console.log(left)
-  //     slideElem.css('left', left)
-  //   })
-
-  //   nextBtn.click(function(){
-  //     console.log(left)
-  //     left -= dataSize
-  //     console.log(left)
-  //     slideElem.css('left', left)
-  //   })
-  // })

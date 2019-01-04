@@ -129,11 +129,11 @@
                     %ul.clearfix
                       %li
                         %a
-                          = image_tag "http://cdn.wimg.jp/coordinate/9djlpm/20181118135925438/20181118135925438_125.jpg"
+                          = image_tag "http://cdn.wimg.jp/coordinate/9djlpm/20181118135925438/20181118135925438_500.jpg"
                         %p.txt 168cm / M
                       %li
                         %a
-                          = image_tag "http://cdn.wimg.jp/coordinate/1o548p/20181115094709235/20181115094709235_125.jpg"
+                          = image_tag "http://cdn.wimg.jp/coordinate/1o548p/20181115094709235/20181115094709235_500.jpg"
                         %p.txt 175cm / L
                       %li
                         %a
@@ -809,6 +809,96 @@
               %h2 ZOZOTOWN（ゾゾタウン）のご紹介
             .txt
               %p ZOZOTOWNはEMMA CLOTHES（エマ クローズ）のスウェットなど、人気ブランドのアイテムを多数取り揃えるファッション通販サイトです。スウェットなど、7154ブランドの最新アイテムをオンラインでご購入いただけます。
+
+.fancybox-overlay.fancybox-overlay-fixed
+  .fancybox-outer
+    .fancybox-inner
+      .fancybox-iframe
+        #detail.clearfix
+          .detailphoto
+            %article
+              .photo
+                = image_tag "http://cdn.wimg.jp/coordinate/9djlpm/20181118135925438/20181118135925438_500.jpg"
+              .meta
+                %p.viewcount
+                  %span.vc 130 view
+                  %span.dd ZOZOTOWNでの閲覧数
+                #snsBtn
+                  %ul.social
+                    %li.twitter
+                      %a
+                        = fa_icon("twitter")
+                    %li.facebook
+                      %a
+                        = fa_icon("facebook-f")
+                    %li.google
+                      %a
+                        = fa_icon("google-plus")
+
+          .content
+            .detailinfo
+              %article
+                .staffinfo
+                  .prof
+                    %ul
+                      %li.primg
+                        %a
+                          = image_tag "http://cdn.wimg.jp/profile/9djlpm/20181002124945465_80.jpg"
+                      %li.sinfo
+                        %p.shop WEARISTA
+                        %P.name
+                          %a
+                            %span Ryo
+                            = fa_icon("share-square")
+                        %P.tall
+                          身長
+                          %span 175cm
+                        %p.poweard
+                          %a
+                            = fa_icon("weixin")
+                            %span フォローする
+                .codeitem
+                  %h2.ttl
+                    コーディネートアイテム
+                    %span (2アイテム)
+                  %ul.clearfix
+                    %li
+                      .img
+                        %a
+                          = image_tag "https://c.imgz.jp/442/34183442/34183442B_33_D_500.jpg"
+                      %p.brandname ブランド：EMMA CLOTHES
+                      %p.size
+                        着用サイズ：
+                        %span M
+                      %p.price.discount<
+                        ¥4,795
+                        %span.tax> 税込
+                        %span.rate 20%OFF
+
+                    %li.clear
+                      .img
+                        %a
+                          = image_tag "https://c.imgz.jp/139/28919139/28919139B_9_D_215.jpg"
+                      %p.brandname ブランド：EMMA CLOTHES
+                      %p.size
+                        着用サイズ：
+                        %span M
+                      %p.price
+                        ¥4,795
+                        %span.tax> 税込
+                        %span.rate 在庫なし
+
+                  .nots
+                    ※上記商品以外は、備品もしくはスタッフ私物となります。
+
+
+
+        %a.fancybox-nav.fancybox-prev
+          %i.fa.fa-angle-left
+        %a.fancybox-nav.fancybox-next
+          %i.fa.fa-angle-right
+        .fancybox-item.fancybox-close
+          %i.fa.fa-times
 
 
 

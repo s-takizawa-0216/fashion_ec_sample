@@ -1,0 +1,55 @@
+#stockIndexBody{
+  .headerContent{
+    background-color: #323232;
+    .inner{
+      padding: 25px 40px 20px;
+
+      h1{
+        color: #FFF;
+        font-size: 25px;
+        line-height: 1.5;
+      }
+
+      .txt{
+        float: left;
+        margin: -5px 25px 0 0;
+      }
+      .searchItem{
+        float: left;
+        border-radius: 3px;
+        .keyword{
+          float: left;
+          .stockKeyword{
+            padding: 5px 5px 5px 11px;
+            line-height: 18px;
+            height: 18px;
+            width: 210px;
+            border: none;
+            position: relative;
+            text-decoration: none;
+            width: 230px;
+            font-size: 14px;
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+          }
+        }
+        .submit{
+          float: right;
+          width: 30px;
+          .stockSubmit{
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+            border: none;
+            background-color: #C0C0C0;
+            height: 28px;
+          }
+          .fa{
+              margin: 0px 0 0 3px;
+              font-size: 20px;
+              color: #808080;
+          }
+        }
+      }
+    }
+  }
+}

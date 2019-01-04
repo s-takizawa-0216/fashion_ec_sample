@@ -1,1 +1,12 @@
-
+#stockIndexBody
+  .headerContent
+    .inner.clearfix
+      .txt
+        %h1 商品在庫の一覧
+      .searchItem.clearfix
+        %p.keyword
+          %input{type: "serch", placeholder: "出品アイテムをここに", class: "stockKeyword"}
+        %p.submit
+          %button.stockSubmit
+            = fa_icon 'search'
+  .mainContent

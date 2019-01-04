@@ -1,0 +1,73 @@
+.user-info-main{
+  position: static;
+  margin: 0 150px;
+
+  &__header{
+    margin-top: 10px;
+    font-size: 23px;
+
+    .user-info-icon{
+      font-size: 40px;
+      color: blue;
+    }
+  }
+
+  &__body{
+    position: static;
+    height: 100%;
+
+    &-left{
+      float: left;
+      width: 150px;
+
+      &-list{
+        list-style: none;
+        font-size: 14px;
+
+        a{
+          color: #555555;
+        }
+
+        a:hover{
+          color: #007ebe;
+          text-decoration: underline;
+        }
+
+        &__side-box{
+          padding: 20px 0;
+          border-bottom: 1px solid lightgray;
+
+          .side-box-index{
+            font-size: 18px;
+            padding-bottom: 10px;
+          }
+
+          .side-box-index2{
+            font-size: 18px;
+          }
+
+          .side-box-msg{
+            padding-bottom: 7px;
+            color: inherit;
+          }
+        }
+
+        &__middle-box{
+          padding: 20px 0;
+        }
+
+        &__bottom-box{
+          border: 1px solid lightgray;
+          padding: 15px;
+        }
+      }
+    }
+
+    &-right{
+      position: static;
+      margin-top: 25px;
+      float: right;
+      width: 780px;
+    }
+  }
+}

@@ -5,7 +5,7 @@ $(function(){
   })
 
   $('.left__content__list-category').mouseout(function(){
-    $('#category-js-hide').css('left', 999999)
+    $('#category-js-hide').css('left', -999999)
   })
 
 
@@ -14,7 +14,7 @@ $(function(){
   })
 
   $('.left__content__list-category').mouseout(function(){
-    $('#category-js-hide-outer').css('left', 999999)
+    $('#category-js-hide-outer').css('left', -999999)
   })
 
    $('#category-js-show-pant').mouseover(function(){
@@ -22,7 +22,7 @@ $(function(){
   })
 
   $('.left__content__list-category').mouseout(function(){
-    $('#category-js-hide-pant').css('left', 999999)
+    $('#category-js-hide-pant').css('left', -999999)
   })
 
    $('#fav-js-show').mouseover(function(){
@@ -30,7 +30,7 @@ $(function(){
   })
 
   $('.left__content__list-category').mouseout(function(){
-    $('#fav-js-hide').css('left', 999999)
+    $('#fav-js-hide').css('left', -999999)
   })
 
   $('#fav-js-show-shop').mouseover(function(){
@@ -38,7 +38,7 @@ $(function(){
   })
 
   $('.left__content__list-category').mouseout(function(){
-    $('#fav-js-hide-shop').css('left', 999999)
+    $('#fav-js-hide-shop').css('left', -999999)
   })
 
 });

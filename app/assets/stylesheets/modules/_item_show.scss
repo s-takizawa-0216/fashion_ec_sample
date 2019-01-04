@@ -543,6 +543,7 @@
       padding: 0 0 20px 0;
       .nameList{
         a{color: #646464;}
+        a:hover{text-decoration: underline;}
       }
 
       h1{
@@ -1185,6 +1186,8 @@
         padding: 40px 0;
         width: 888px;
         margin: auto;
+        ul.cordinates li{
+        }
         .detailphoto{
           width: 450px;
           float: left;

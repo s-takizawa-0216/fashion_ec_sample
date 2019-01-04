@@ -21,7 +21,7 @@
               .innerLeft
                 #photoGallery
                   #zoomContainer
-                    = image_tag "https://c.imgz.jp/442/34183442/34183442B_33_D_500.jpg"
+                    = image_tag ""
                   %ul#photoMain.hasZoom
                     %li.list-item
                       = image_tag "https://c.imgz.jp/442/34183442/34183442B_33_D_500.jpg"
@@ -41,6 +41,7 @@
                     %li#btnNext
                       = fa_icon ("angle-right")
                   %p#photoCaption インディゴブルー H185/58kg / B90 / W77 / H90 / 着用サイズ：XL
+                  /アイテムミニ画像
                   %ul#photoThimb
                     %li.current
                       #div
@@ -394,11 +395,11 @@
                                 %span :
                               %dd
                                 %ul.lineNavi.clearfix
-                                  %li.link
-                                    トップス
+                                  %li
+                                    %a.link トップス
                                     %span ＜
-                                  %li.link
-                                    スウェット
+                                  %li
+                                    %a.link スウェット
                               %dt
                                 素材
                                 %span :
@@ -810,6 +811,7 @@
             .txt
               %p ZOZOTOWNはEMMA CLOTHES（エマ クローズ）のスウェットなど、人気ブランドのアイテムを多数取り揃えるファッション通販サイトです。スウェットなど、7154ブランドの最新アイテムをオンラインでご購入いただけます。
 
+
 .fancybox-overlay.fancybox-overlay-fixed
   .fancybox-outer
     .fancybox-inner
@@ -834,7 +836,6 @@
                     %li.google
                       %a
                         = fa_icon("google-plus")
-
           .content
             .detailinfo
               %article
@@ -887,11 +888,8 @@
                         ¥4,795
                         %span.tax> 税込
                         %span.rate 在庫なし
-
                   .nots
                     ※上記商品以外は、備品もしくはスタッフ私物となります。
-
-
 
         %a.fancybox-nav.fancybox-prev
           %i.fa.fa-angle-left

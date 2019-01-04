@@ -4,15 +4,16 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|gender|string|null: false|
-|birthyear|integer|null: false|
-|birthymonth|integer|null: false|
-|birthday|integer|null: false|
+|gender|string||
+|birth_year|integer||
+|birth_month|integer||
+|birth_day|integer||
 |password|string|null: false|
-|postalcode|string|null: false|
+|postal_code|integer|null: false|
 |email|string|null:false|
-|uid|string|null:false|
-|provider|string|null:false|
+|mail_magazine|integer|null: false|
+|provider|string||
+|uid|string||
 
 ### Association
 - has_one :credit_card
@@ -45,11 +46,11 @@
 |------|----|-------|
 |name|string|null:false|
 |discription|string|null:false|
-|gender|string|null:false|
+|gender|string||
 |price|integer|null:false|
-|material|string|null:false|
+|material|string||
 |origin|string||
-|delivery_days|string|null:false|
+|delivery_days|integer|null:false|
 |wrapping|integer|null:false|
 |shop_id|references|null:false , foreign_key: true|
 |bland_id|references|null:false, foreign_key: true|
@@ -134,7 +135,6 @@
 ### Association
 - belongs_to :user
 - belongs_to :item
-- belongs_to :shop
 
 ## images_table
 

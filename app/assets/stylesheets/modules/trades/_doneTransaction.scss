@@ -1,0 +1,23 @@
+.done-main{
+  border-radius: 25px;
+  background-color: gray;
+  width: 600px;
+  height: 350px;
+  margin: 50px auto 20px;
+  &__header{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: lightgray;
+    color: #fff;
+    font-size: 25px;
+    text-align: center;
+    font-weight: bold;
+  } 
+  &__footer{
+    padding-top: 80px;
+    padding-bottom: 50px;
+    font-size: 35px;
+    text-align: center;
+    font-weight: bold;
+  }
+}

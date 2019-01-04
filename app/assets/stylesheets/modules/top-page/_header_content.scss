@@ -1,0 +1,48 @@
+.header__content {
+  background-color: #f0f0f0;
+
+
+    &__box {
+      width: 980px;
+      height: 41px;
+      margin: 0 auto;
+
+      &__ul {
+        float: left;
+      }
+    }
+
+      &__list {
+        padding: 8.5px;
+        float: left;
+
+      &:hover {
+        background-color:#DCDCDC;
+      }
+
+        >a {
+          text-decoration: none;
+          color:#2d2d2d;
+          font-size: 14px;
+
+        }
+      }
+
+      &__list-news {
+         float: right;
+         padding: 8.5px;
+
+       >a {
+          text-decoration: none;
+          color:#2d2d2d;
+          font-size: 14px;
+       }
+      }
+
+   #tab-all {
+    background-color:#C0C0C0;
+   }
+}
+
+
+

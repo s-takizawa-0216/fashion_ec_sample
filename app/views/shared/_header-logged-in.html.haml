@@ -1,0 +1,157 @@
+.header__main
+  .header__main__inner
+    .header__main__content
+      = link_to 'ZOZOTOWN' , root_path , class: "logo-css"
+      %form.header__main__form{ action:"#" , method:"#"}
+      .header__main__box
+        %input.header__main__input{ placeholder: "何をお探しですか？", type: "search"}
+          %input.header__main__search{type:"submit" , value:""}
+          = fa_icon ("search") ,class: "search-image"
+      .header__right
+        %ul.header__right__ul
+          %li.header__right__li
+            .header__right__name-js
+              %span.header__right__name {user-email}様
+            .header__right__popup
+              .header__right__popup__inner
+                %ul
+                  %li.header__right__popup__top
+                    = link_to '計測結果を見る' , "#", class: "header__right__popup__text"
+                  %li.header__right__popup__top
+                    = link_to 'ユーザー情報の編集' , "#", class: "header__right__popup__text"
+                %ul.header__right__popup__bottom
+                  %li.header__right__popup__top
+                    = link_to '登録情報' , "#" , class: "header__right__popup__text1"
+                  %li.header__right__popup__top
+                    = link_to '注文履歴・発送状況' , "#" ,class: "header__right__popup__text1"
+                  %li.header__right__popup__top
+                    = link_to 'メールマガジン' , "#" , class: "header__right__popup__text1"
+                  %li.header__right__popup__top
+                    = link_to 'ログアウト',  destroy_user_session_path, method: :delete , class: "header__right__popup__text1"
+
+          %li.header__right__li-menu
+            .header__right__menu-js
+              %span
+                = fa_icon ("list")
+              .header__right__popup
+                .header__right__popup__inner-list
+                  .header__right__popup__inner__listbox
+                    %ul.header__right__popup__ulist
+                      %li.header__right__popup__list-big
+                        = link_to '探す'
+                      %li.header__right__popup__list
+                        = link_to 'カテゴリー一覧'
+                      %li.header__right__popup__list
+                        = link_to 'ブランド一覧'
+                      %li.header__right__popup__list
+                        = link_to 'ショップ一覧'
+                      %li.header__right__popup__list
+                        = link_to 'ショップニュース一覧'
+                      %li.header__right__popup__list
+                        = link_to 'コーディネイト一覧'
+                      %li.header__right__popup__list
+                        = link_to 'ファッションまとめ一覧'
+                      %li.header__right__popup__list
+                        = link_to 'ランキング一覧'
+                      %li.header__right__popup__list
+                        = link_to 'こだわり検索'
+
+                    %ul.header__right__popup__ulist-help
+                      %li.header__right__popup__list-help-big
+                        = link_to 'ヘルプ'
+                      %li.header__right__popup__list-help
+                        = link_to '良くある質問'
+                      %li.header__right__popup__list-help
+                        = link_to 'お届けについて'
+                      %li.header__right__popup__list-help
+                        = link_to 'お支払い方法について'
+                      %li.header__right__popup__list-help
+                        = link_to '注文取消し・返品について'
+                      %li.header__right__popup__list-help
+                        = link_to 'はじめての方へ'
+                      %li.header__right__popup__list-help
+                        = link_to '新規会員登録'
+
+                    %ul.header__right__popup__ulist-mole
+                      %li.header__right__popup__list-mole-big
+                        = link_to 'モール'
+                      %li.header__right__popup__list-mole
+                        = link_to 'ZOZOTOWN'
+                      %p.header__right__popup__list-mole 日本最大級のファッション通販サイト
+                      %li.header__right__popup__list-mole
+                        = link_to 'ZOZOUSED'
+                      %p.header__right__popup__list-mole ブランド古着のファッションモール
+
+                    %ul.header__right__popup__ulist-searvice
+                      %li.header__right__popup__list-searvice-big
+                        = link_to 'サービス'
+                      %li.header__right__popup__list-searvice
+                        = link_to 'ZOZOARIGATO'
+                      %li.header__right__popup__list-searvice
+                        = link_to 'おまかせ定期便'
+                      %li.header__right__popup__list-searvice
+                        = link_to 'ギフトラッピング'
+                      %li.header__right__popup__list-searvice
+                        = link_to 'ブランド古着買取'
+
+          %li.header__right__li-cart
+            .header__right__cart-js
+              %span
+                = fa_icon ("shopping-cart")
+                .header__right__popup
+              .header__right__popup__inner-cart
+                .header__right__popup__inner__cartbox
+                  .header__right__popup__inner__cart
+                    =fa_icon ("shopping-cart 2x" )
+                  %p.header__right__popup__inner__cart-text カートに商品が○件あります。
+                  .header__right__popup__inner__cart-box
+                    = link_to 'ショッピングカートを見る' , trades_path , class: 'header__right__popup__inner__cart-button'
+
+          %li.header__right__li-fav
+            .header__right__fav-js
+              %span
+                = fa_icon ("heart")
+              .header__right__popup
+                .header__right__popup__inner-fav
+                  %p.header__right__popup__inner__favbox お気に入り
+                  %ul.header__right__popup__inner__fav
+                    %li
+                      %lavel.header__right__popup__inner__fav-li アイテム一覧
+                    %li
+                      %label.header__right__popup__inner__fav-li ブランド一覧
+                    %li
+                      %label.header__right__popup__inner__fav-li ショップ一覧
+                  %dl.header__right__popup__bland.clearfix
+                    %dt ブランド
+                    %dd.header__right__popup__font
+                      = link_to '全てのお気に入りブランド'
+                    %dd.header__right__popup__font
+                      = link_to 'zozo'
+                    %dd.header__right__popup__font
+                      = link_to 'zozo'
+                    %dd.header__right__popup__font
+                      = link_to 'zozo'
+                    %dd.header__right__popup__font
+                      = link_to 'zozo'
+                    %dd.header__right__popup__font
+                      = link_to 'zozo'
+                  %dl.header__right__popup__shop.clearfix
+                    %dt ショップ
+                    %dd.header__right__popup__favlogo
+                      = fa_icon ("heart 3x")
+                    %dd.header__right__popup__shfont
+                      %p お気に入りのショップを
+                      見つけよう！
+
+          %li.header__right__li-notice
+            .header__right__notice-js
+              %span
+                = fa_icon ("comment")
+              .header__right__popup
+                .header__right__popup__inner-comment
+                  .header__right__popup__inner__commentbox
+                    .header__right__popup__inner__comment
+                      =fa_icon ("comment 2x" )
+                    %p.header__right__popup__inner__comment-text 新着のお知らせが○件あります。
+                    .header__right__popup__inner__comment-box
+                      = link_to 'お知らせ一覧' , '#' , class: 'header__right__popup__inner__comment-button'

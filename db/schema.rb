@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_29_022639) do
+ActiveRecord::Schema.define(version: 2019_01_04_162417) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -22,6 +22,12 @@ ActiveRecord::Schema.define(version: 2018_12_29_022639) do
     t.string "name", null: false
     t.integer "depth", null: false
     t.integer "parent_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "colors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -61,6 +67,24 @@ ActiveRecord::Schema.define(version: 2018_12_29_022639) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "size", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "stocks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "item_id"
+    t.bigint "size_id"
+    t.bigint "color_id"
+    t.integer "count", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["color_id"], name: "index_stocks_on_color_id"
+    t.index ["item_id"], name: "index_stocks_on_item_id"
+    t.index ["size_id"], name: "index_stocks_on_size_id"
+  end
+
   create_table "trades", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "status", null: false
     t.bigint "item_id"
@@ -96,6 +120,9 @@ ActiveRecord::Schema.define(version: 2018_12_29_022639) do
   add_foreign_key "items", "categories", column: "child_category_id"
   add_foreign_key "items", "categories", column: "parent_category_id"
   add_foreign_key "items", "shops"
+  add_foreign_key "stocks", "colors"
+  add_foreign_key "stocks", "items"
+  add_foreign_key "stocks", "sizes"
   add_foreign_key "trades", "items"
   add_foreign_key "trades", "users"
 end

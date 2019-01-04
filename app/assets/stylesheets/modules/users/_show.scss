@@ -20,7 +20,6 @@
     &__content{
       position: static;
       height: 100%;
-      margin-top: 15px;
 
       &-tr{
       border-bottom: 1px solid #dcdcdc;
@@ -84,4 +83,6 @@
   }
 }
 
-
+.users-table-space{
+  padding: 20px 0;
+}

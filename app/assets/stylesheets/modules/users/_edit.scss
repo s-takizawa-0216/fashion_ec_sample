@@ -1,3 +1,19 @@
+.basic-user-info__content-tr{
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.basic-user-info__content-th{
+  width: 160px;
+  font-size: 15px;
+  color: #808080;
+}
+
+.basic-user-info__content-td{
+  width: 562px;
+  font-size: 13px;
+}
+
+
 .user-info-hissu{
   margin-left: 5px;
   font-size: 10px;
@@ -9,6 +25,80 @@
 }
 
 .basic-username-input{
-  width: 220px;
+  padding: 7px 10px;
+  font-size: 15px;
+  width: 210px;
+  height: 26px;
+
+}
+
+.basic-username-checkbox{
+  margin-left: 25px;
+}
+
+.basic-username-checkbox-msg{
+  font-size: 13px;
+}
+
+.basic-username-select{
+  width: 90px;
   height: 40px;
+  background-color: #fff;
+}
+
+.basic-userpostal-input{
+  padding: 7px 10px;
+  font-size: 15px;
+  width: 170px;
+  height: 26px;
+}
+
+.basic-userpostal-btn{
+  width: 125px;
+  height: 36px;
+  font-size: 12px;
+  border-radius: 3px;
+  background: #8a8a8a;
+  color: #fff;
+}
+
+.users-table-space{
+  a:hover{
+    text-decoration: underline;
+  }
+}
+
+.userbasic-postal-icon{
+  color: #007ebe;
+  font-size: 16px;
+}
+
+.users-table-space-shorter{
+  padding: 15px 0;
+}
+
+.users-table-space-shorter-bottom{
+  padding-bottom: 15px;
+}
+
+.basic-address-input{
+  padding: 7px 10px;
+  font-size: 15px;
+  border: 1px solid #c8c8c8;
+  width: 480px;
+  height: 26px;
+  border-radius: 2px;
+}
+
+.basic-user-phonenumber-input{
+  border: 1px solid #c8c8c8;
+  border-radius: 3px;
+  padding: 7px 10px;
+  font-size: 15px;
+  width: 116px;
+  height: 28px;
+}
+
+input{
+  outline: none;
 }

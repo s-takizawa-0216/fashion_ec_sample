@@ -12,22 +12,22 @@
           %li.header__right__li
             .header__right__name-js
               %span.header__right__name {user-email}様
-            .header__right__popup
               .header__right__popup__inner
-                %ul
-                  %li.header__right__popup__top
-                    = link_to '計測結果を見る' , "#", class: "header__right__popup__text"
-                  %li.header__right__popup__top
-                    = link_to 'ユーザー情報の編集' , "#", class: "header__right__popup__text"
-                %ul.header__right__popup__bottom
-                  %li.header__right__popup__top
-                    = link_to '登録情報' , "#" , class: "header__right__popup__text1"
-                  %li.header__right__popup__top
-                    = link_to '注文履歴・発送状況' , "#" ,class: "header__right__popup__text1"
-                  %li.header__right__popup__top
-                    = link_to 'メールマガジン' , "#" , class: "header__right__popup__text1"
-                  %li.header__right__popup__top
-                    = link_to 'ログアウト',  destroy_user_session_path, method: :delete , class: "header__right__popup__text1"
+                .header__right__popup__inner-box
+                  %ul.header__right__popup__inner-ul
+                    %li.header__right__popup__top
+                      = link_to '計測結果を見る' , "#", class: "header__right__popup__text"
+                    %li.header__right__popup__top
+                      = link_to 'ユーザー情報の編集' , "#", class: "header__right__popup__text"
+                  %ul.header__right__popup__bottom
+                    %li.header__right__popup__top
+                      = link_to '登録情報' , "#" , class: "header__right__popup__text1"
+                    %li.header__right__popup__top
+                      = link_to '注文履歴・発送状況' , "#" ,class: "header__right__popup__text1"
+                    %li.header__right__popup__top
+                      = link_to 'メールマガジン' , "#" , class: "header__right__popup__text1"
+                    %li.header__right__popup__top
+                      = link_to 'ログアウト',  destroy_user_session_path, method: :delete , class: "header__right__popup__text1"
 
           %li.header__right__li-menu
             .header__right__menu-js

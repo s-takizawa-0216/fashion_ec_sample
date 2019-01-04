@@ -9,4 +9,7 @@ class UsersController < ApplicationController
   def credit
   end
 
+  private
+
+
 end

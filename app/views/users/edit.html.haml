@@ -3,5 +3,13 @@
 
 .user-info-main
   .user-info-main__header
+    %span
+      = fa_icon "users", class: "user-info-icon"
+    %span ZOZOID
+    %span 様の登録情報
+
+  .user-info-main__body.clearfix
+    = render "/users/shared/sidebar.html.haml"
+    .user-info-main__body-right
 
 .footer it will be grabbed form Mr.T

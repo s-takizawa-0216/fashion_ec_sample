@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :items, only: [:new, :create]
 
-  resources :users, only: [:edit] do
+  resources :users, only: [:show, :edit] do
     get 'address', to: 'users#address', as: :address
     get 'credit', to: 'users#credit', as: :credit
   end

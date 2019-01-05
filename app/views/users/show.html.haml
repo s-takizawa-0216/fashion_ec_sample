@@ -13,7 +13,7 @@
     = render "/users/shared/sidebar.html.haml"
 
     .user-info-main__body-right
-      .body-right__top
+      .body-right__top#basic-userinfo
         .body-right__top-inside
           .body-right__top-inside__header
             .body-right__top-inside__header-index 会員情報登録
@@ -62,7 +62,7 @@
                   .user-info-change-btn
                     = link_to "変更"
 
-      .body-right__top
+      .body-right__top#additonal-address
         .body-right__top-inside
           .body-right__top-inside__header
             .body-right__top-inside__header-index お届け先の変更・追加
@@ -74,7 +74,7 @@
                   %p
                     = link_to "お届け先を追加する。"
 
-      .body-right__top
+      .body-right__top#alter-credit-card
         .body-right__top-inside
           .body-right__top-inside__header
             .body-right__top-inside__header-index クレジットカードの変更

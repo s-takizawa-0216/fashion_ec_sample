@@ -52,4 +52,98 @@
       }
     }
   }
+  .mainContent{
+    padding: 40px 40px;
+    margin: 20px 0;
+    #stockInfo{
+      margin: 0 auto;
+      #addStock{}
+      #tblItemSize{
+        .specDetail:hover{
+          outline: solid 2px rgba(#8B0000,0.5);
+        }
+        table {
+          border: #dcdcdc solid 1px;
+          box-sizing: border-box;
+          border-collapse: collapse;
+          width: 100%;
+
+          thead{
+            display: table-header-group;
+            vertical-align: middle;
+          }
+          tbody{
+            display: table-row-group;
+            vertical-align: middle;
+            border-color: inherit;
+          }
+          tr{
+            display: table-row;
+            vertical-align: inherit;
+            border-color: inherit;
+            td{
+              max-width: 20%;
+              white-space: normal;
+              word-break: break-all;
+              height: 50px;
+              text-align: center;
+              border-top: #dcdcdc solid 1px;
+              border-bottom: #dcdcdc solid 1px;
+              border-right: #dcdcdc 1px solid;
+              font-size: 13px;
+            }
+            .iconBtn:hover{
+              opacity: 0.5;
+            }
+            .fa{
+              font-size: 20px;
+              color: #696969;
+            }
+            .fa:hover{opacity: 0.5;}
+          }
+          th{
+            background: #777;
+            color: white;
+            padding: 10px 0;
+            line-height: 1.4;
+            white-space: normal;
+            border-left: none;
+            border-top: #dcdcdc solid 1px;
+            border-bottom: #dcdcdc solid 1px;
+            border-right: #dcdcdc 1px solid;
+            text-align: center;
+            font-size: 13px;
+            width: 74px;
+          }
+          th:first-child{
+            width: 8em;
+          }
+          .brandCell{
+            width: 80px;
+          }
+          .colorCell{
+            width: 70px;
+          }
+          .iconCell{
+            width: 40px;
+          }
+          .sizeCell{
+            width: 40px;
+          }
+          .countCell{
+            width: 50px;
+          }
+          .itemName{
+            background-color: #f0f0f0;
+            color: black;
+          }
+        }
+        .fa {
+          font-size: 18px;
+          padding-left: 2px;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
 }

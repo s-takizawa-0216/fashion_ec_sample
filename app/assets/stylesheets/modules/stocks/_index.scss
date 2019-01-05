@@ -166,3 +166,155 @@
     }
   }
 }
+
+.AddStack{
+  &-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 8010;
+    background: rgba(black, 0.6);
+    height: 100%;
+    width: 100%;
+
+  }
+  &-overlayfixed{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+  }
+  &-wrap{
+    // width: 950px;
+    // height: auto;
+    // overflow: visible;
+    // position: fixed;
+    // top: 35px;
+    // left: 73px;
+  }
+
+  &-close{
+    position: absolute;
+    font-size: 30px;
+    font-weight: lighter;
+    right: 96px;
+    top: 38px;
+    width: 40px;
+    height: 40px;
+    color: #C0C0C0;
+    background-color: #8B0000;
+    border-radius: 50%;
+    text-align: center;
+    i{display: block;
+      margin: 4px 0 0;
+      color: #FFFAFA;}
+
+    i:hover{opacity: 0.6;}
+  }
+
+  &-iframe{
+    width: 850px;
+    height: 650px;
+    margin: 0 auto;
+    position: fixed;
+    top: 78px;
+    left: 0;
+    right: 0;
+    background: #f9f9f9;
+    -webkit-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    border: solid #f9f9f9;
+    position: fixed;
+    overflow: scroll;
+    #detail{
+      padding: 20px 0;
+      width: 100%;
+      margin: auto;
+      h2{
+        padding: 5px 16px 20px;
+        font-size: 26px;
+        line-height: 1.6;
+        text-align: center;
+        font-weight: 600;
+        color: #555555;
+      }
+      .AddStackForm{
+        border-top: 1px solid #DDD;
+        padding: 20px 40px;
+      }
+      .form-group{
+        padding: 10px 10px 30px;
+        .mainLabel{
+          float: left;
+          font-weight: 600;
+          display: block;
+          padding-bottom: 10px
+        }
+        .form-require{
+          float: left;
+          background: #B22222;
+          margin: 2px 0 0 8px;
+          padding: 1px 4px;
+          border-radius: 2px;
+          color: #fff;
+          font-size: 12px;
+          vertical-align: top;
+        }
+        .input-default{
+          height: 25px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+        }
+        .radioBox{
+          clear:both;
+          width: 100%;
+          padding-left: 15px;
+          .radioSelect{
+            float: left;
+            padding: 5px 0 5px;
+            margin-right: 25px;
+            width: 30%;
+            label{
+              height: 40px;
+            }
+          }
+        }
+      }
+      .selectBox{
+        select{
+          z-index: 2;
+          height: 48px;
+          width: 219px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: 0;
+          font-size: 16px;
+          line-height: 1.5;
+          cursor: pointer;
+        }
+
+      }
+      .submitBtn{
+        width: 200px;
+        line-height: 28px;
+        font-size: 15px;
+        margin: 0 auto;
+        display: block;
+        margin: 0 auto;
+        background-color: #555555;
+        color: #FFFFE0;
+        border: 1px solid #555555;
+        border-radius: 3px;
+      }
+      .submitBtn:hover{
+        box-shadow: 0 0 15px rgba(#444444,0.3)
+      }
+    }
+  }
+}
+.clearBoth{clear:both;}
+

@@ -74,3 +74,74 @@
               %td.iconBtn
                 %a.iconBtn
                   = fa_icon("trash")
+
+.AddStack-overlay.AddStack-overlay-fixed
+  .AddStack-outer
+    .AddStack-inner
+      .AddStack-iframe
+        #detail
+          %h2 在庫情報の入力
+          %form.AddStackForm
+            .form-group
+              %label.mainLabel アイテム名
+              %span.form-require 必須
+              .radioBox.clearfix
+                .radioSelect
+                  %input{type:"radio"}
+                  %label アイテム１
+                .radioSelect
+                  %input{type:"radio"}
+                  %label アイテム２
+                .radioSelect
+                  %input{type:"radio"}
+                  %label アイテム３
+                .radioSelect
+                  %input{type:"radio"}
+                  %label アイテム4
+                .radioSelect
+                  %input{type:"radio"}
+                  %label アイテム5
+                .radioSelect
+                  %input{type:"radio"}
+                  %label アイテム6
+
+            .form-group
+              %label.mainLabel サイズ
+              %span.form-require 必須
+              %br.clearBoth
+              .selectBox
+                %select
+                  %option ---
+                  %option XS
+                  %option S
+                  %option M
+                  %option L
+                  %option XL
+                  %option XXL
+
+
+            .form-group
+              %label.mainLabel カラー
+              %span.form-require 必須
+              %br.clearBoth
+              .selectBox
+                %select
+                  %option ---
+                  %option ブラック
+                  %option ホワイト
+                  %option グレー
+                  %option レッド
+                  %option ネイビー
+                  %option グリーン
+
+            .form-group
+              %label.mainLabel 個数
+              %span.form-require 必須
+              .clearBoth
+              %input{type:"number", class: "input-default", min: "0"}
+
+            %button{type:"submit",class: "submitBtn"}
+              登録する
+      .AddStack-item.AddStack-close
+        %i.fa.fa-times
+

@@ -36,6 +36,7 @@
 |phone_number|integer|null: false|
 |shpping_way|string|null: false|
 |payment_method|string|null: false|
+|user_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -81,7 +82,7 @@
 |------|----|-------|
 |name|string|null: false|
 |depth|integer|null: false|
-|parent_id|integer|null: false|
+|parent_id|references|null: false|
 
 
 ### Association

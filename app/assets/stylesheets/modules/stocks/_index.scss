@@ -78,6 +78,8 @@
       #tblItemSize{
         .specDetail:hover{
           outline: solid 2px rgba(#8B0000,0.5);
+          .itemName{background-color: #FFE4E1;}
+          td{background-color: #FFFAFA;}
         }
         table {
           border: #dcdcdc solid 1px;

@@ -54,10 +54,27 @@
   }
   .mainContent{
     padding: 40px 40px;
-    margin: 20px 0;
     #stockInfo{
       margin: 0 auto;
-      #addStock{}
+      #addStock{
+        padding: 0 10px 15px;
+        .addBtn{
+          width: 80px;
+          height: 30px;
+          display: block;
+          margin: 0 0 0 auto;
+          background-color: #8B0000;
+          color: #FFFFE0;
+          font-weight: 500;
+          border: solid 1px #8B0000;
+          border-radius: 3px;
+        }
+        .addBtn:hover{
+          opacity: 0.8;
+          box-shadow: 0 0 15px rgba(#B22222,0.3);
+        }
+
+      }
       #tblItemSize{
         .specDetail:hover{
           outline: solid 2px rgba(#8B0000,0.5);

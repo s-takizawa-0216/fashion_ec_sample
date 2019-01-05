@@ -1,0 +1,41 @@
+= render "/shared/header-logged-in.html.haml"
+.sign-up__breadcrumbs breadcrumbs will be set here
+
+.user-info-main
+  .user-info-main__header
+    %span
+      = fa_icon "users", class: "user-info-icon"
+    %span ZOZOID
+    %span 様の登録情報
+
+  .user-info-main__body.clearfix
+
+    = render "/users/shared/sidebar.html.haml"
+
+    .user-info-main__body-right
+      .body-right__top
+        .body-right__top-inside
+          .body-right__top-inside__header
+            .body-right__top-inside__header-index 
+              %p メールアドレスの変更
+              %p.user-basic-email-msg 変更するメールアドレスを入力し、確認メールを送信してください。
+
+          .body-right__top-inside__content
+            %table
+              %tr.basic-user-info__content-tr
+                %th.basic-user-info__content-th
+                  %span メールアドレス
+                %td.basic-user-info__content-td
+                  .users-table-space
+                    %p
+                      %input{placeholder: "例）ZOZO2020＠zozotown.jp",class: "basic-useremail-input"}
+                    %p.basic-useremail-input-msg ※zozo.jpからドメイン着信許可の設定をしてください。
+
+              %tr
+                %th.basic-user-info__content-th
+                %td.basic-user-info__content-td
+                  .users-table-space.usesr-basic-info-bottom
+                    %button{class: "user-basicinfo-btn"} 確認する
+
+.footer it will be grabbed form Mr.T
+

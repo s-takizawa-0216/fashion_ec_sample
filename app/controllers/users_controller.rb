@@ -9,6 +9,9 @@ class UsersController < ApplicationController
   def email
   end
 
+  def password_edit
+  end
+
   def address
   end
 

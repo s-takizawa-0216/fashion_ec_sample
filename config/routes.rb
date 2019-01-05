@@ -10,8 +10,6 @@ Rails.application.routes.draw do
   root "items#index"
   resources :items, only: [:new, :create, :show]
 
-  resources :items, only: [:new, :create]
-
   resources :users, only: [:show, :edit, :email, :password_edit, :address] do
     get 'email', to: 'users#email', as: :email
     get 'password_edit', to: 'users#password_edit', as: :password_edit

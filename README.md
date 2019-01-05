@@ -170,6 +170,7 @@
 |expire_month|integer|null: false|
 |expire_year|integer|null: false|
 |security_code|integer|null: false|
+|user_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -210,7 +211,7 @@
 |address1|stringr|null: false|
 |address2|stringr|null: false|
 |phonenumber|stringr|null: false|
-|user_id|integer|null: false|
+|user_id|references|null: false|
 
 
 ### Association

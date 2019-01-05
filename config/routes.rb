@@ -11,7 +11,8 @@ Rails.application.routes.draw do
 
   resources :items, only: [:new, :create]
 
-  resources :users, only: [:show, :edit] do
+  resources :users, only: [:show, :edit, :email, :address, :credit] do
+    get 'email', to: 'users#email', as: :email
     get 'address', to: 'users#address', as: :address
     get 'credit', to: 'users#credit', as: :credit
   end

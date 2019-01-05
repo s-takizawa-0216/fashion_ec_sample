@@ -6,6 +6,9 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def email
+  end
+
   def address
   end
 

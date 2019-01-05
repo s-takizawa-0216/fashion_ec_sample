@@ -2,7 +2,7 @@
   .headerContent{
     background-color: #323232;
     .inner{
-      padding: 25px 40px 20px;
+      padding: 25px 60px 20px;
 
       h1{
         color: #FFF;
@@ -12,7 +12,7 @@
 
       .txt{
         float: left;
-        margin: -5px 25px 0 0;
+        margin: -5px 40px 0 0;
       }
       .searchItem{
         float: left;
@@ -53,14 +53,14 @@
     }
   }
   .mainContent{
-    padding: 40px 40px;
+    padding: 40px 60px;
     #stockInfo{
       margin: 0 auto;
       #addStock{
         padding: 0 10px 15px;
         .addBtn{
-          width: 80px;
-          height: 30px;
+          width: 100px;
+          height: 40px;
           display: block;
           margin: 0 0 0 auto;
           background-color: #8B0000;
@@ -75,7 +75,7 @@
         }
 
       }
-      #tblItemSize{
+      #tblStockInfo{
         .specDetail:hover{
           outline: solid 2px rgba(#8B0000,0.5);
           .itemName{background-color: #FFE4E1;}
@@ -197,7 +197,7 @@
     position: absolute;
     font-size: 30px;
     font-weight: lighter;
-    right: 96px;
+    right: 250px;
     top: 38px;
     width: 40px;
     height: 40px;

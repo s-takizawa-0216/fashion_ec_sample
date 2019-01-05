@@ -14,7 +14,7 @@
       #addStock
         %button.addBtn
           %a 追加
-      #tblItemSize
+      #tblStockInfo
         %table
           %thead
             %tr
@@ -32,7 +32,7 @@
               %td S
               %td ワインレッド
               %td 100
-              %td.iconBtn
+              %td.iconBtn.iconEdit
                 %a
                 = fa_icon("edit")
               %td.iconBtn
@@ -44,7 +44,7 @@
               %td M
               %td モスキーグリーン
               %td 20
-              %td.iconBtn
+              %td.iconBtn.iconEdit
                 %a
                 = fa_icon("edit")
               %td.iconBtn
@@ -56,7 +56,7 @@
               %td L
               %td ブラック
               %td 30
-              %td.iconBtn
+              %td.iconBtn.iconEdit
                 %a
                   = fa_icon("edit")
               %td.iconBtn
@@ -65,10 +65,10 @@
             %tr.specDetail
               %th.itemName アイテムE
               %td SHANEL
-              %td
+              %td XL
               %td シャンパンゴールド
               %td 10
-              %td.iconBtn
+              %td.iconBtn.iconEdit
                 %a
                   = fa_icon("edit")
               %td.iconBtn
@@ -80,7 +80,7 @@
     .AddStack-inner
       .AddStack-iframe
         #detail
-          %h2 在庫情報の入力
+          %h2 在庫情報の登録
           %form.AddStackForm
             .form-group
               %label.mainLabel アイテム名

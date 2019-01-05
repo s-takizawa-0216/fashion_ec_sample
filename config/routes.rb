@@ -8,15 +8,17 @@ Rails.application.routes.draw do
   end
 
   root "items#index"
+  resources :items, only: [:new, :create, :show]
 
-  resources :items, only: [:new, :create]
+  resources :users, only: [:show, :edit, :email, :password_edit, :address] do
+    get 'email', to: 'users#email', as: :email
+    get 'password_edit', to: 'users#password_edit', as: :password_edit
+    get 'address', to: 'users#address', as: :address
+  end
 
-  
   resources :trades, only: [:index, :order, :confirmation, :done_transaction] do
     get   'order',       to: 'trades#order',      as: :order
     get   'confirmation',       to: 'trades#confirmation',      as: :confirmation
     get   'done_transaction',       to: 'trades#done_transaction',      as: :done_transaction
   end
-
 end
-

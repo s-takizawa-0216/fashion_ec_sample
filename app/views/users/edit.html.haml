@@ -1,0 +1,158 @@
+= render "/shared/header-logged-in.html.haml"
+.sign-up__breadcrumbs breadcrumbs will be set here
+
+.user-info-main
+  .user-info-main__header
+    %span
+      = fa_icon "users", class: "user-info-icon"
+    %span ZOZOID
+    %span 様の登録情報
+
+  .user-info-main__body.clearfix
+
+    = render "/users/shared/sidebar.html.haml"
+
+    .user-info-main__body-right
+      .body-right__top
+        .body-right__top-inside
+          .body-right__top-inside__header
+            .body-right__top-inside__header-index 基本情報の変更
+          .body-right__top-inside__content
+            %table
+              %tr.basic-user-info__content-tr
+                %th.basic-user-info__content-th
+                  %span お名前
+                  %span.user-info-hissu 必須
+                %td.basic-user-info__content-td
+                  .users-table-space
+                    %span.margin-space15
+                      %input{class: "basic-username-input"}
+                    %span
+                      %input{class: "basic-username-input"}
+
+              %tr.basic-user-info__content-tr
+                %th.basic-user-info__content-th
+                  %span お名前(カナ)
+                  %span.user-info-hissu 必須
+                %td.basic-user-info__content-td
+                  .users-table-space
+                    %span.margin-space15
+                      %input{class: "basic-username-input"}
+                    %span
+                      %input{class: "basic-username-input"}
+
+              %tr.basic-user-info__content-tr
+                %th.basic-user-info__content-th
+                  %p 性別
+                %td.basic-user-info__content-td
+                  .users-table-space.basic-username-checkbox-msg
+                    %label
+                      %input{type: :checkbox}
+                      %span 男性
+                    %label.basic-username-checkbox
+                      %input{type: :checkbox}
+                      %span 女性
+                    %label.basic-username-checkbox
+                      %input{type: :checkbox}
+                      %span その他
+
+              %tr.basic-user-info__content-tr
+                %th.basic-user-info__content-th
+                  %p 生年月日
+                %td.basic-user-info__content-td
+                  .users-table-space
+                    %label
+                      %select{class: "basic-username-select"}
+                        %option{value: 1} 1990
+                        %option{value: 2} 1991
+                        %option{value: 3} 1992
+                        %option{value: 4} 1993
+                        %option{value: 5} 1994
+                        %option{value: 6} 1995
+                      %span 年
+                    %label.basic-username-checkbox
+                      %select{class: "basic-username-select"}
+                        %option{value: 1} 1
+                        %option{value: 2} 2
+                        %option{value: 3} 3
+                        %option{value: 4} 4
+                        %option{value: 5} 5
+                        %option{value: 6} 6
+                        %option{value: 7} 7
+                        %option{value: 8} 8
+                        %option{value: 9} 9
+                        %option{value: 10} 10
+                        %option{value: 11} 11
+                        %option{value: 12} 12
+                      %span 月
+                    %label.basic-username-checkbox
+                      %select{class: "basic-username-select"}
+                        %option{value: 1} 1
+                        %option{value: 2} 2
+                        %option{value: 3} 3
+                        %option{value: 4} 4
+                        %option{value: 5} 5
+                        %option{value: 6} 6
+                        %option{value: 7} 7
+                        %option{value: 8} 8
+                        %option{value: 9} 9
+                        %option{value: 10} 10
+                        %option{value: 11} 11
+                        %option{value: 12} 12
+                      %span 日
+
+              %tr.basic-user-info__content-tr
+                %th.basic-user-info__content-th
+                  %span 郵便番号
+                  %span.user-info-hissu 必須
+                %td.basic-user-info__content-td
+                  .users-table-space
+                    %span.margin-space15
+                      %input{class: "basic-userpostal-input"}
+                    %span.margin-space15
+                      %button{class: "basic-userpostal-btn"} 住所を自動入力
+                    %span.margin-space15.usernasic-postal
+                      = link_to "https://www.post.japanpost.jp/zipcode/index.html" do
+                        %label 郵便番号を検索
+                        = fa_icon "edit", class: "userbasic-postal-icon"
+
+              %tr
+                %th.basic-user-info__content-th
+                  %p 都道府県
+                %td.basic-user-info__content-td
+                  .users-table-space-shorter
+                    .users-table-space-top__prefecture 東京都
+
+              %tr
+                %th.basic-user-info__content-th
+                  .users-table-space-shorter-bottom
+                    %span 住所1
+                    %span.user-info-hissu 必須
+                %td.basic-user-info__content-td
+                  .users-table-space-shorter-bottom
+                    %input{class: "basic-address-input"}
+
+              %tr.basic-user-info__content-tr
+                %th.basic-user-info__content-th
+                  .users-table-space-shorter-bottom
+                    %p 住所2
+                %td.basic-user-info__content-td
+                  .users-table-space-shorter-bottom
+                    %input{class: "basic-address-input"}
+
+              %tr.basic-user-info__content-tr
+                %th.basic-user-info__content-th
+                  %span 電話番号
+                  %span.user-info-hissu 必須
+                %td.basic-user-info__content-td
+                  .users-table-space
+                    %span.margin-space15
+                      %input{type: :tel, maxlength: "12", class: "basic-user-phonenumber-input"}
+
+              %tr
+                %th.basic-user-info__content-th
+                %td.basic-user-info__content-td
+                  .users-table-space.usesr-basic-info-bottom
+                    %button{class: "user-basicinfo-btn"} 確認する
+
+.footer it will be grabbed form Mr.T

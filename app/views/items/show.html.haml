@@ -1,0 +1,903 @@
+%body.fashion_ec_sample
+  %script{ src: "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"}
+  %script{ src: "https://code.jquery.com/jquery-3.3.1.min.js"}
+  %script{:src => "/assets/jquery.color.js", :type => "text/javascript"}
+
+  = render partial: 'shared/header-notice'
+
+- if user_signed_in?
+  = render partial: 'shared/header-logged-in'
+- else
+  = render partial: 'shared/header-log-in'
+
+#zozotown
+  #wrapper
+    #headNavi
+    #body.clearfix
+      #content
+        %article#goods
+          #goodMainArea.clearfix
+            #goodsLeft
+              .innerLeft
+                #photoGallery
+                  #zoomContainer
+                    = image_tag ""
+                  %ul#photoMain.hasZoom
+                    %li.list-item
+                      = image_tag "https://c.imgz.jp/442/34183442/34183442B_33_D_500.jpg"
+                      .loupe
+                    %li
+                      = image_tag "https://c.imgz.jp/442/34183442/34183442B_1_D_500.jpg"
+                      .loupe
+                    %li
+                      = image_tag "https://c.imgz.jp/442/34183442/34183442B_8_D_500.jpg"
+                      .loupe
+                    %li
+                      = image_tag "https://c.imgz.jp/442/34183442/34183442B_163_D_500.jpg"
+                      .loupe
+                  %ul.prevNextCtrl
+                    %li#btnPrev
+                      = fa_icon ("angle-left")
+                    %li#btnNext
+                      = fa_icon ("angle-right")
+                  %p#photoCaption インディゴブルー H185/58kg / B90 / W77 / H90 / 着用サイズ：XL
+                  /アイテムミニ画像
+                  %ul#photoThimb
+                    %li.current
+                      #div
+                        %span#goodsdiv
+                          = image_tag "https://c.imgz.jp/442/34183442/34183442B_33_D_500.jpg", width: "35px", heigth: "42px"
+                        %p インディゴブルー
+                        %span.imCaption インディゴブルー H185/58kg / B90 / W77 / H90 / 着用サイズ：XL
+                    %li
+                      #div
+                        %span#goodsdiv
+                          = image_tag "https://c.imgz.jp/442/34183442/34183442B_1_D_500.jpg", width: "35px", heigth: "42px"
+                      %p ホワイト
+                      %span.imCaption ホワイト H185/58kg / B90 / W77 / H90 / 着用サイズ：XL
+                    %li#did_57522375
+                      #div
+                        %span#goodsdiv
+                          = image_tag "https://c.imgz.jp/442/34183442/34183442B_8_D_500.jpg", width: "35px", heigth: "42px"
+                      %p ブラック
+                      %span.imCaption ブラック H185/58kg / B90 / W77 / H90 / 着用サイズ：XL
+                    %li#did_57522375
+                      #div
+                        %span#goodsdiv
+                          = image_tag "https://c.imgz.jp/442/34183442/34183442B_163_D_500.jpg", width: "35px", heigth: "42px"
+                      %p グリーン
+                      %span.imCaption ブラック H185/58kg / B90 / W77 / H90 / 着用サイズ：XL
+
+                #zozoReviewStatus.section
+                  .tit.clearfix
+                    %p.h.clearfix
+                      = fa_icon("user-secret")
+                      ZOZOスタッフ着用レビュー (1件）
+                  .container
+                    .zozoStaff.indexMedia
+                      .indexItem.feedMedia.clearfix
+                        %a.feedLink
+                          %figure.feedFigur
+                            .feedThumbnail
+                              .responsive.responsive3by4
+                                = image_tag "http://cdn.wimg.jp/coordinate/xikrn3/20180906131505988/20180906131505988_276.jpg", width:"147px", height:"187px"
+                          %div
+                            .feedMeta
+                              %span 173cm / 普段のサイズ：M
+                            .feedH
+                              %span.softWrap L /
+                              %span.softWrap グリーン系その他
+                        %table.statusTbl
+                          %tbody
+                            %tr
+                              %th 厚み
+                              %td
+                                %ul.lows.clearfix.thickness.mast2
+                                  %li.colm.min 薄い
+                                  %li.colm.cnt.cnt0.val0
+                                    %i
+                                  %li.colm.cnt.cnt1.val0.active
+                                    %i
+                                  %li.colm.cnt.cnt2.val0
+                                    %i
+                                  %li.colm.cnt.cnt3.val0
+                                    %i
+                                  %li.colm.cnt.cnt4.val0
+                                    %i
+                                  %li.colm.max 厚い
+                            %tr
+                              %th 柔らかさ
+                              %td
+                                %ul.lows.clearfix.thickness.mast2
+                                  %li.colm.min ハード
+                                  %li.colm.cnt.cnt0.val0
+                                    %i
+                                  %li.colm.cnt.cnt1.val0
+                                    %i
+                                  %li.colm.cnt.cnt2.val0
+                                    %i
+                                  %li.colm.cnt.cnt3.val0.active
+                                    %i
+                                  %li.colm.cnt.cnt4.val0
+                                    %i
+                                  %li.colm.max 柔らかい
+
+                  %span.info ※個人の感想を表示しています。
+                #use_coordinate.section
+                  .tit.clearfix
+                    %p.h ショップスタッフ・ユーザーのコーディネート
+                  .data
+                    %ul.clearfix
+                      %li
+                        %a
+                          = image_tag "http://cdn.wimg.jp/coordinate/9djlpm/20181118135925438/20181118135925438_500.jpg"
+                        %p.txt 168cm / M
+                      %li
+                        %a
+                          = image_tag "http://cdn.wimg.jp/coordinate/1o548p/20181115094709235/20181115094709235_500.jpg"
+                        %p.txt 175cm / L
+                      %li
+                        %a
+                          = image_tag "http://cdn.wimg.jp/coordinate/9djlpm/20181118135925438/20181118135925438_125.jpg"
+                        %p.txt 168cm / M
+                      %li
+                        %a
+                          = image_tag "http://cdn.wimg.jp/coordinate/1o548p/20181115094709235/20181115094709235_125.jpg"
+                        %p.txt 175cm / L
+
+                #snap_description
+                #getRecommendRelation.section
+                  %h3 関連アイテム
+                  %ul.pickupList
+                    %li
+                      .listInner
+                        .img
+                          %a
+                            = image_tag "https://c.imgz.jp/874/36940874/36940874B_21_D_215.jpg"
+                        .label EMMA CLOTHES
+                        .price
+                          ¥14,040
+                          %span.tax 税込
+                    %li
+                      .listInner
+                        .img
+                          %a
+                            = image_tag "https://c.imgz.jp/624/29046624/29046624B_156_D_215.jpg"
+                        .label EMMA CLOTHES
+                        .price
+                          ¥11,664
+                          %span.tax 税込
+                    %li
+                      .listInner
+                        .img
+                          %a
+                            = image_tag "https://c.imgz.jp/874/36940874/36940874B_21_D_215.jpg"
+                        .label EMMA CLOTHES
+                        .price
+                          ¥14,040
+                          %span.tax 税込
+                    %li
+                      .listInner
+                        .img
+                          %a
+                            = image_tag "https://c.imgz.jp/624/29046624/29046624B_156_D_215.jpg"
+                        .label EMMA CLOTHES
+                        .price
+                          ¥11,664
+                          %span.tax 税込
+                    %li
+                      .listInner
+                        .img
+                          %a
+                            = image_tag "https://c.imgz.jp/874/36940874/36940874B_21_D_215.jpg"
+                        .label EMMA CLOTHES
+                        .price
+                          ¥14,040
+                          %span.tax 税込
+                    %li
+                      .listInner
+                        .img
+                          %a
+                            = image_tag "https://c.imgz.jp/624/29046624/29046624B_156_D_215.jpg"
+                        .label EMMA CLOTHES
+                        .price
+                          ¥11,664
+                          %span.tax 税込
+                .clearfix.contentWrap.section
+                  #goodsTopics
+                    .tit.clearfix
+                      .h 関連ショップニュース
+                    .container
+                      %ul
+                        %li
+                          %a
+                            =image_tag "https://o.imgz.jp/shoptopics/2031/873565.jpg"
+                            %p.txt Happy New Year
+                  #goodsFashionNews
+                    .tit.clearfix
+                      .h 関連ファッションまとめ
+                    .container
+                      .feedMedia
+                        %a.feedLink.clearfix
+                          .feedFigure
+                            =image_tag "https://o.imgz.jp/fashionnews/108230/master_130_1.jpg"
+                          .feedContent
+                            .feedH シャツもパーカもニットも！今買うべき「ゆるめトップス」を紹介！
+                            .feedMeta FINEBOYS
+                      .feedMedia
+                        %a.feedLink
+                          =image_tag "https://o.imgz.jp/fashionnews/108003/master_130_1.jpg"
+                          .feedContent
+                            .feedH WEAR主催コンテスト！第1回「WEARセンバツ」に選ばれた36名をご紹介
+                            .feedMeta WEAR
+
+            #goodsRight
+              .innerRight
+                #exShippingNotice
+                  .txt
+                    この商品は、即日配送なら
+                    %span 最短明後日の午前中
+                    にお届けできます
+                  %p.link
+                    お届け日指定について
+                .infoBlock
+                  #item-intro
+                    %ul.nameList
+                      %li
+                        ショップ：
+                        %a EMMA CLOTHES
+                      %li
+                        ブランド：
+                        %a EMMA CLOTHES
+                    %h1 ギルダン USA ビッグシルエット ロングスリーブプルオーバークルースウェット(裏起毛)
+                    %a.link#reviewAnchor
+                      1件の着用レビュー
+                    .clearfix.goods-price-container
+                      .goods-price
+                        ¥3,996
+                        %small 税込
+                    .promotion-container
+                      .promotion-header
+                        %p.promotion-h.text-premium
+                          %b ZOZOARIGATOメンバーなら今すぐ30%OFF
+                          =link_to "詳細", 'http://zozo.jp/zozoarigato/default.html',class: "textPremium m-l-sm text-2xs link"
+                      .goods-promotion-price-container
+                        .goods-price-group.premium-price-group
+                          .goods-price-group-item.price-before ¥2,996
+                          %p.premium-price.text-premium
+                            ¥2,098
+                            %small.text-premium 税込
+                          %p.m-t-xs.textNote ※ARIGATO価格での購入にはクレジットカードが必要となります。
+                  .premium-tabcontainer
+                    .premium-tab-lists.clearfix
+                      .premium-tab-list-item.active
+                        %a.premium-tab-list-item-link ARIGATO価格
+                      .premium-tab-list-item.link
+                        %a.premium-tab-list-item-link 通常価格
+                  .cartBlock.clearfix
+                    .blockMain
+                      %dl.clearfix
+                        %dt
+                          %span.img
+                            = image_tag "https://c.imgz.jp/442/34183442/34183442B_33_D_500.jpg"
+                          %span.txt インディゴブルー
+                        %dd
+                          %ul
+                            %li.clearfix
+                              .cartbox
+                                .stock
+                                  %p S / 在庫あり
+                                  %P.zozosize Sサイズ担当
+                                .cart
+                                  %button.btn
+                                    = fa_icon ("shopping-cart")
+                                    カートに入れる
+                                .bkmk
+                                  %button.btn
+                                    = fa_icon("gratipay")
+                            %li.clearfix
+                              .cartbox
+                                .stock
+                                  %p M / 在庫あり
+                                  %P.zozosize Mサイズ担当
+                                .cart
+                                  %button.btn
+                                    = fa_icon ("shopping-cart")
+                                    カートに入れる
+                                .bkmk
+                                  %button.btn
+                                    = fa_icon("gratipay")
+                            %li.clearfix
+                              .cartbox
+                                .stock
+                                  %p L / 在庫あり
+                                  %P.zozosize Lサイズ担当
+                                .cart
+                                  %button.btn
+                                    = fa_icon ("shopping-cart")
+                                    カートに入れる
+                                .bkmk
+                                  %button.btn
+                                    = fa_icon("gratipay")
+                      %dl.clearfix
+                        %dt
+                          %span.img
+                            = image_tag "https://c.imgz.jp/442/34183442/34183442B_1_D_500.jpg"
+                          %span.txt ホワイト
+                        %dd
+                          %ul
+                            %li.clearfix
+                              .cartbox
+                                .stock
+                                  %p S / 在庫あり
+                                  %P.zozosize Sサイズ担当
+                                .cart
+                                  %button.btn
+                                    = fa_icon ("shopping-cart")
+                                    カートに入れる
+                                .bkmk
+                                  %button.btn
+                                    = fa_icon("gratipay")
+                            %li.clearfix
+                              .cartbox
+                                .stock
+                                  %p M / 在庫あり
+                                  %P.zozosize Mサイズ担当
+                                .cart
+                                  %button.btn
+                                    = fa_icon ("shopping-cart")
+                                    カートに入れる
+                                .bkmk
+                                  %button.btn
+                                    = fa_icon("gratipay")
+                            %li.clearfix
+                              .cartbox
+                                .stock
+                                  %p L / 在庫あり
+                                  %P.zozosize Lサイズ担当
+                                .cart
+                                  %button.btn
+                                    = fa_icon ("shopping-cart")
+                                    カートに入れる
+                                .bkmk
+                                  %button.btn
+                                    = fa_icon("gratipay")
+                  .tabContainer
+                    .detailBlock
+                      #swConditionTab
+                        .tab
+                          %ul.clearfix
+                            %li.current
+                              %a アイテム説明
+                            %li.link
+                              %a サイズ詳細
+
+                      #tabItemInfo
+                        .innerBox
+                          .contbox
+                            %div
+                              %h5 【GILDAN ギルダン】
+                            %div
+                              北米マーケットシェアNO.1の実績を誇るTシャツメーカー。
+                              ギルダンの製品は、テキスタイル・エコロジー国際共同体が定める人体への有害物質が含まれていないことを保証した
+                              「エコテックススタンダード100」の認証による安全性と信頼性に優れた製品として広く認知されている。
+
+                        .itemDetailInfo
+                          .contbox
+                            %dl
+                              %dt
+                                性別タイプ
+                                %span :
+                              %dd
+                                %a.link メンズ
+                              %dt
+                                カテゴリ
+                                %span :
+                              %dd
+                                %ul.lineNavi.clearfix
+                                  %li
+                                    %a.link トップス
+                                    %span ＜
+                                  %li
+                                    %a.link スウェット
+                              %dt
+                                素材
+                                %span :
+                              %dd
+                                コットン50%, ポリエステル50%
+                              %dt
+                                即日配達
+                                %span :
+                              %dd.exShippingInfolink
+                                %span
+                                  %a.link 即日配達
+                                  可
+                              %dt
+                                送料
+                                %span :
+                              %dd
+                                購入金額に関わらず一律200円
+                                %a.link 詳細
+                              %dt
+                                ギフト
+                                %span :
+                              %dd
+                                %span.giftOver
+                                  %a.link ラッピング
+                                  可
+                              %dt
+                                問い合わせ番号
+                                %span :
+                              %dd
+                                34183442（ZOZO）
+                              %dd
+                                EMlc519（店舗)
+                        .blockBottom
+                          .detail_link
+                            %a.link 返品の詳細
+                            %span.lines l
+                            %a.link ポイントの詳細
+                      #tabSizeInfo.display-none
+                        #itemSize
+                          #tblItemSize
+                            %table.noScrollTbl
+                              %thead
+                                %tr
+                                  %th サイズ
+                                  %th.dataName 着丈
+                                  %th.dataName 肩幅
+                                  %th.dataName 身幅
+                                  %th.dataName そで丈
+                              %tbody
+                                %tr.specDetail
+                                  %th
+                                    M
+                                    %p.zozosize(M)
+                                  %td 65
+                                  %td 54
+                                  %td 56
+                                  %td 60.5
+                                %tr.specDetail
+                                  %th
+                                    L
+                                    %p.zozosize(L)
+                                  %td 70
+                                  %td 57
+                                  %td 59
+                                  %td 60.5
+                                %tr.specDetail
+                                  %th
+                                    XL
+                                    %p.zozosize(XL)
+                                  %td 71.5
+                                  %td 66
+                                  %td 67
+                                  %td 60.5
+                          %p.bottomText ※ZOZOTOWN独自の方法により採寸しております。
+                          %p.zozosizeText ※（）内の表示はZOZOTOWN独自の基準で振り分けたサイズです。ブランド表記サイズとは異なりますのでご注意ください。
+                          %p.link
+                            %a
+                              サイズガイド
+                              = fa_icon("th-large")
+                  #snsBtn
+                    %ul#social.clear-fix
+                      %li.mailbutton
+                        %a
+                          = fa_icon("envelope")
+                      %li.twitter
+                        %a
+                          = fa_icon("twitter")
+                      %li.facebook
+                        %a
+                          = fa_icon("facebook-f")
+                      %li.google
+                        %a
+                          = fa_icon("google-plus")
+                  .goodsAddFavBtn
+                    %p.txt このブランド「EMMA CLOTHES」はお好きですか？
+                    %p.brand
+                      %a.addFavBrand
+                        %span.rearrival
+                        = fa_icon("heart")
+                        このブランドをお気に入りに登録
+          #getRecommendViewed.section.item_show_control
+            .tit.clearfix
+              %p.h このアイテムを見ている人は、こんなアイテムも見ています
+            .container
+              .data
+                .firstData
+                  %ul.fasList.clearfix
+                    %li
+                      .img
+                        %a
+                          = image_tag "https://c.imgz.jp/828/35967828/35967828B_2_D_215.jpg"
+                      %p.shopname EMMA CLOTHES
+                      %p.priceSale
+                        ¥3,996
+                        %span.tax 税込
+                        %span.off 44%OFF
+                    %li
+                      .img
+                        %a
+                          = image_tag "https://c.imgz.jp/828/35967828/35967828B_2_D_215.jpg"
+                      %p.shopname EMMA CLOTHES
+                      %p.priceSale
+                        ¥3,996
+                        %span.tax 税込
+                        %span.off 44%OFF
+                    %li
+                      .img
+                        %a
+                          = image_tag "https://c.imgz.jp/828/35967828/35967828B_2_D_215.jpg"
+                      %p.shopname EMMA CLOTHES
+                      %p.priceSale
+                        ¥3,996
+                        %span.tax 税込
+                        %span.off 44%OFF
+                    %li
+                      .img
+                        %a
+                          = image_tag "https://c.imgz.jp/828/35967828/35967828B_2_D_215.jpg"
+                      %p.shopname EMMA CLOTHES
+                      %p.priceSale
+                        ¥3,996
+                        %span.tax 税込
+                        %span.off 44%OFF
+                    %li
+                      .img
+                        %a
+                          = image_tag "https://c.imgz.jp/828/35967828/35967828B_2_D_215.jpg"
+                      %p.shopname EMMA CLOTHES
+                      %p.priceSale
+                        ¥3,996
+                        %span.tax 税込
+                        %span.off 44%OFF
+                    %li
+                      .img
+                        %a
+                          = image_tag "https://c.imgz.jp/828/35967828/35967828B_2_D_215.jpg"
+                      %p.shopname EMMA CLOTHES
+                      %p.priceSale
+                        ¥3,996
+                        %span.tax 税込
+                        %span.off 44%OFF
+
+                .nextData
+                  %ul.fasList.clearfix
+                    %li
+                      .img
+                        %a
+                          = image_tag "https://c.imgz.jp/572/37521572/37521572B_21_D_215.jpg"
+                      %p.shopname EMMA CLOTHES
+                      %p.priceSale
+                        ¥3,996
+                        %span.tax 税込
+                        %span.off 44%OFF
+            %p.trigger
+              %a
+                もっと見る
+                = fa_icon("angle-down")
+          #getRecommendByScore.section.item_show_control
+            .tit.clearfix
+              %p.h このアイテムを見ている人におすすめ
+            .container
+              .data
+                .firstData
+                  %ul.fasList.clearfix
+                    %li
+                      .img
+                        %a
+                          = image_tag "https://c.imgz.jp/794/36191794/36191794B_8_D_215.jpg"
+                      %p.shopname EMMA CLOTHES
+                      %p.priceSale
+                        ¥3,996
+                        %span.tax 税込
+                        %span.off 44%OFF
+                    %li
+                      .img
+                        %a
+                          = image_tag "https://c.imgz.jp/794/36191794/36191794B_8_D_215.jpg"
+                      %p.shopname EMMA CLOTHES
+                      %p.priceSale
+                        ¥3,996
+                        %span.tax 税込
+                        %span.off 44%OFF
+                    %li
+                      .img
+                        %a
+                          = image_tag "https://c.imgz.jp/794/36191794/36191794B_8_D_215.jpg"
+                      %p.shopname EMMA CLOTHES
+                      %p.priceSale
+                        ¥3,996
+                        %span.tax 税込
+                        %span.off 44%OFF
+                    %li
+                      .img
+                        %a
+                          = image_tag "https://c.imgz.jp/794/36191794/36191794B_8_D_215.jpg"
+                      %p.shopname EMMA CLOTHES
+                      %p.priceSale
+                        ¥3,996
+                        %span.tax 税込
+                        %span.off 44%OFF
+                    %li
+                      .img
+                        %a
+                          = image_tag "https://c.imgz.jp/794/36191794/36191794B_8_D_215.jpg"
+                      %p.shopname EMMA CLOTHES
+                      %p.priceSale
+                        ¥3,996
+                        %span.tax 税込
+                        %span.off 44%OFF
+                    %li
+                      .img
+                        %a
+                          = image_tag "https://c.imgz.jp/794/36191794/36191794B_8_D_215.jpg"
+                      %p.shopname EMMA CLOTHES
+                      %p.priceSale
+                        ¥3,996
+                        %span.tax 税込
+                        %span.off 44%OFF
+                .nextData
+                  %ul.fasList.clearfix
+                    %li
+                      .img
+                        %a
+                          = image_tag "https://c.imgz.jp/615/28917615/28917615B_16_D_215.jpg"
+                      %p.shopname EMMA CLOTHES
+                      %p.priceSale
+                        ¥3,996
+                        %span.tax 税込
+                        %span.off 44%OFF
+            %p.trigger
+              %a
+                もっと見る
+                = fa_icon("angle-down")
+
+          #getGoodsRanking.section.item_show_control
+            .tit.clearfix
+              %p.h 人気のスウェットランキグ
+            .container
+              .data
+                .firstData
+                  %ul.fasList.clearfix
+                    %li
+                      .img
+                        %a
+                          = image_tag "https://c.imgz.jp/374/35255374/35255374B_16_D_125.jpg"
+                      %p.rank
+                        %span.iconSet.iconSet1 1
+                      %p.shopname EMMA CLOTHES
+                      %p.priceSale
+                        ¥3,996
+                        %span.tax 税込
+                        %span.off 44%OFF
+                    %li
+                      .img
+                        %a
+                          = image_tag "https://c.imgz.jp/948/35545948/35545948B_18_d_125.jpg"
+                      %p.rank
+                        %span.iconSet.iconSet2 2
+                      %p.shopname EMMA CLOTHES
+                      %p.priceSale
+                        ¥3,996
+                        %span.tax 税込
+                        %span.off 44%OFF
+                    %li
+                      .img
+                        %a
+                          = image_tag "https://c.imgz.jp/306/26486306/26486306B_18_D_125.jpg"
+                      %p.rank
+                        %span.iconSet.iconSet3 3
+                      %p.shopname EMMA CLOTHES
+                      %p.priceSale
+                        ¥3,996
+                        %span.tax 税込
+                        %span.off 44%OFF
+                .nextData
+                  %ul.fasList.clearfix
+                    %li
+                      .img
+                        %a
+                          = image_tag "https://c.imgz.jp/615/28917615/28917615B_16_D_215.jpg"
+                      %p.rank
+                        %span.iconSet 7
+                      %p.shopname EMMA CLOTHES
+                      %p.priceSale
+                        ¥3,996
+                        %span.tax 税込
+                        %span.off 44%OFF
+            %p.trigger
+              %a
+                もっと見る
+                = fa_icon("angle-down")
+            %p.moreLink
+              %a.link スウェットランキング一覧
+
+          #history_item.section.item_show_control
+            .tit.clearfix
+              .h 最近チェックしたアイテム
+            .container
+              .data
+                %ul.clearfix
+                  %li
+                    .img
+                      %a
+                        = image_tag "https://c.imgz.jp/667/37954667/37954667B_35_d_215.jpg"
+                  %li
+                    .img
+                      %a
+                        = image_tag "https://c.imgz.jp/968/33002968/33002968B_18_D_500.jpg"
+                  %li
+                    .img
+                      %a
+                        = image_tag "https://c.imgz.jp/968/33002968/33002968B_b_14_500.jpg"
+                  %li
+                    .img
+                      %a
+                        = image_tag "https://c.imgz.jp/667/37954667/37954667B_35_d_215.jpg"
+                  %li
+                    .img
+                      %a
+                        = image_tag "https://c.imgz.jp/968/33002968/33002968B_18_D_500.jpg"
+                  %li
+                    .img
+                      %a
+                        = image_tag "https://c.imgz.jp/968/33002968/33002968B_b_14_500.jpg"
+                  %li
+                    .img
+                      %a
+                        = image_tag "https://c.imgz.jp/667/37954667/37954667B_35_d_215.jpg"
+                  %li
+                    .img
+                      %a
+                        = image_tag "https://c.imgz.jp/968/33002968/33002968B_18_D_500.jpg"
+                  %li
+                    .img
+                      %a
+                        = image_tag "https://c.imgz.jp/968/33002968/33002968B_b_14_500.jpg"
+                  %li
+                    .img
+                      %a
+                        = image_tag "https://c.imgz.jp/667/37954667/37954667B_35_d_215.jpg"
+                  %li
+                    .img
+                      %a
+                        = image_tag "https://c.imgz.jp/968/33002968/33002968B_18_D_500.jpg"
+                  %li
+                    .img
+                      %a
+                        = image_tag "https://c.imgz.jp/615/28917615/28917615B_16_D_215.jpg"
+                  %li
+                    .img
+                      %a
+                        = image_tag "https://c.imgz.jp/615/28917615/28917615B_16_D_215.jpg"
+
+              .nav
+                .prev
+                  = fa_icon("angle-left")
+                .next
+                  = fa_icon("angle-right")
+
+          #keywordBlock.section
+            %h3 このアイテムのキーワード
+            %ul.tagLink
+              %li
+                %a 長袖
+              %li
+                %a 無地
+
+          #other_shop_item.section
+            .tit.clearfix
+              .h 他のショップのスウェットを見る
+            .container
+              .data
+                %ul
+                  %li
+                    %a CHANEL
+                  %li
+                    %a NIKE
+                  %li
+                    %a LOUIS VUITTON
+                  %li
+                    %a ETRO
+                  %li
+                    %a COARCH
+                  %li
+                    %a GUCCI
+          %section#about.section
+            .sectionHeader
+              %h2 ZOZOTOWN（ゾゾタウン）のご紹介
+            .txt
+              %p ZOZOTOWNはEMMA CLOTHES（エマ クローズ）のスウェットなど、人気ブランドのアイテムを多数取り揃えるファッション通販サイトです。スウェットなど、7154ブランドの最新アイテムをオンラインでご購入いただけます。
+
+
+.fancybox-overlay.fancybox-overlay-fixed
+  .fancybox-outer
+    .fancybox-inner
+      .fancybox-iframe
+        #detail.clearfix
+          .detailphoto
+            %article
+              .photo
+                = image_tag "http://cdn.wimg.jp/coordinate/9djlpm/20181118135925438/20181118135925438_500.jpg"
+              .meta
+                %p.viewcount
+                  %span.vc 130 view
+                  %span.dd ZOZOTOWNでの閲覧数
+                #snsBtn
+                  %ul.social
+                    %li.twitter
+                      %a
+                        = fa_icon("twitter")
+                    %li.facebook
+                      %a
+                        = fa_icon("facebook-f")
+                    %li.google
+                      %a
+                        = fa_icon("google-plus")
+          .content
+            .detailinfo
+              %article
+                .staffinfo
+                  .prof
+                    %ul
+                      %li.primg
+                        %a
+                          = image_tag "http://cdn.wimg.jp/profile/9djlpm/20181002124945465_80.jpg"
+                      %li.sinfo
+                        %p.shop WEARISTA
+                        %P.name
+                          %a
+                            %span Ryo
+                            = fa_icon("share-square")
+                        %P.tall
+                          身長
+                          %span 175cm
+                        %p.poweard
+                          %a
+                            = fa_icon("weixin")
+                            %span フォローする
+                .codeitem
+                  %h2.ttl
+                    コーディネートアイテム
+                    %span (2アイテム)
+                  %ul.clearfix
+                    %li
+                      .img
+                        %a
+                          = image_tag "https://c.imgz.jp/442/34183442/34183442B_33_D_500.jpg"
+                      %p.brandname ブランド：EMMA CLOTHES
+                      %p.size
+                        着用サイズ：
+                        %span M
+                      %p.price.discount<
+                        ¥4,795
+                        %span.tax> 税込
+                        %span.rate 20%OFF
+
+                    %li.clear
+                      .img
+                        %a
+                          = image_tag "https://c.imgz.jp/139/28919139/28919139B_9_D_215.jpg"
+                      %p.brandname ブランド：EMMA CLOTHES
+                      %p.size
+                        着用サイズ：
+                        %span M
+                      %p.price
+                        ¥4,795
+                        %span.tax> 税込
+                        %span.rate 在庫なし
+                  .nots
+                    ※上記商品以外は、備品もしくはスタッフ私物となります。
+
+        %a.fancybox-nav.fancybox-prev
+          %i.fa.fa-angle-left
+        %a.fancybox-nav.fancybox-next
+          %i.fa.fa-angle-right
+        .fancybox-item.fancybox-close
+          %i.fa.fa-times
+
+
+
+

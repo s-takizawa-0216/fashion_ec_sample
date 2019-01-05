@@ -20,6 +20,7 @@
 - has_many :trades
 - has_many :favshops
 - has_many :favblands
+- has_one :user_detail
 
 
 ## shippings table
@@ -197,3 +198,20 @@
 ### Association
 - belongs_to :stock
 
+## user_details_table
+
+|Column|Type|Options|
+|------|----|-------|
+|family_name|string|null: false|
+|first_name|string|null: false|
+|family_name_kana|string|null: false|
+|first_name_kana|string|null: false|
+|prefecture|stringr|null: false|
+|address1|stringr|null: false|
+|address2|stringr|null: false|
+|phonenumber|stringr|null: false|
+|user_id|integer|null: false|
+
+
+### Association
+- belongs_to: user

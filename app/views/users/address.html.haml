@@ -1,0 +1,99 @@
+= render "/shared/header-logged-in.html.haml"
+.sign-up__breadcrumbs breadcrumbs will be set here
+
+.user-info-main
+  .user-info-main__header
+    %span
+      = fa_icon "users", class: "user-info-icon"
+    %span ZOZOID
+    %span 様の登録情報
+
+  .user-info-main__body.clearfix
+
+    = render "/users/shared/sidebar.html.haml"
+
+    .user-info-main__body-right
+      .body-right__top
+        .body-right__top-inside
+          .body-right__top-inside__header
+            .body-right__top-inside__header-index お届け先の追加
+          .body-right__top-inside__content
+            %table
+              %tr.basic-user-info__content-tr
+                %th.basic-user-info__content-th
+                  %span 種別
+                  %span.user-info-hissu 必須
+                %td.basic-user-info__content-td
+                  .users-table-space
+                    %select{class: "type-of-place"}
+                      %option{value: 1} 勤務先・職場
+                      %option{value: 2} 友人・知人宅
+                      %option{value: 3} 実家
+                      %option{value: 4} その他
+
+              %tr.basic-user-info__content-tr
+                %th.basic-user-info__content-th
+                  %span お名前
+                  %span.user-info-hissu 必須
+                %td.basic-user-info__content-td
+                  .users-table-space
+                    %p
+                      %input{placeholder: "例）山田太郎",class: "additional-address-name"}
+
+              %tr.basic-user-info__content-tr
+                %th.basic-user-info__content-th
+                  %span 郵便番号
+                  %span.user-info-hissu 必須
+                %td.basic-user-info__content-td
+                  .users-table-space
+                    %span.margin-space15
+                      %input{class: "basic-userpostal-input"}
+                    %span.margin-space15
+                      %button{class: "basic-userpostal-btn"} 住所を自動入力
+                    %span.margin-space15.usernasic-postal
+                      = link_to "https://www.post.japanpost.jp/zipcode/index.html" do
+                        %label 郵便番号を検索
+                        = fa_icon "edit", class: "userbasic-postal-icon"
+
+              %tr
+                %th.basic-user-info__content-th
+                  %span 郵便番号
+                  %span.user-info-hissu 必須
+                %td.basic-user-info__content-td
+                  .users-table-space-shorter
+                    .users-table-space-top__prefecture.postal-additional-msg 郵便番号を入力し、「住所自動入力」をクリックしてください
+
+              %tr
+                %th.basic-user-info__content-th
+                  .users-table-space-shorter-bottom
+                    %span 住所1
+                    %span.user-info-hissu 必須
+                %td.basic-user-info__content-td
+                  .users-table-space-shorter-bottom
+                    %input{placeholder: "市町村,番地など　例）千葉市美浜区中瀬2-6", class: "basic-address-input"}
+
+              %tr.basic-user-info__content-tr
+                %th.basic-user-info__content-th
+                  .users-table-space-shorter-bottom
+                    %p 住所2
+                %td.basic-user-info__content-td
+                  .users-table-space-shorter-bottom
+                    %input{placeholder: "建物名など　例）マリブウエスト16F", class: "basic-address-input"}
+
+              %tr.basic-user-info__content-tr
+                %th.basic-user-info__content-th
+                  %span 電話番号
+                  %span.user-info-hissu 必須
+                %td.basic-user-info__content-td
+                  .users-table-space
+                    %span.margin-space15
+                      %input{type: :tel, maxlength: "12", class: "basic-user-phonenumber-input"}
+
+              %tr
+                %th.basic-user-info__content-th
+                %td.basic-user-info__content-td
+                  .usesr-basic-info-bottom
+                    %button{class: "user-basicinfo-btn"} 確認する
+
+.footer it will be grabbed form Mr.T
+

@@ -1,0 +1,87 @@
+.body-right__top{
+  border-radius: 4px;
+  background: #f0f0f0;
+  border: 1px solid #dcdcdc;
+  margin-bottom: 30px;
+
+  &-inside{
+    margin: 36px 48px 40px 48px;
+
+    &__header{
+      border-bottom: 1px solid #dcdcdc;
+
+      &-index{
+        font-size: 18px;
+        margin-bottom: 5px;
+      }
+    }
+
+    &__content{
+      position: static;
+      height: 100%;
+
+      &-tr{
+      border-bottom: 1px solid #dcdcdc;
+      }
+
+      &-th{
+        width: 160px;
+        font-size: 15px;
+        color: #808080;
+      }
+
+      &-td{
+        width: 460px;
+        font-size: 13px;
+      }
+
+      &-td-email{
+        width: 460px;
+        font-size: 13px;
+        padding: 20px 0;
+      }
+
+      &-td-password{
+        width: 460px;
+        font-size: 13px;
+        padding: 20px 0;
+      }
+
+      .user-info-change-btn{
+        padding: 3px 12px;
+        border-radius: 3px;
+        font-size: 13px;
+        border: 1px solid #007ebe;
+        background-color: transparent;
+     }
+
+     .security-msg {
+      margin-left: 15px;
+      font-size: 11px;
+      color: #808080;
+     }
+    }
+
+    .user-page-additional-address{
+      padding-top: 10px;
+      font-size: 13px;
+
+      &-msg{
+        margin-bottom: 15px;
+        color: #808080;
+      }
+
+      a{
+        color: #007ebe;
+      }
+
+      a:hover{
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.users-table-space{
+  padding: 20px 0;
+}

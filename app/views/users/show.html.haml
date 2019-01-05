@@ -1,0 +1,88 @@
+= render "/shared/header-logged-in.html.haml"
+.sign-up__breadcrumbs breadcrumbs will be set here
+
+.user-info-main
+  .user-info-main__header
+    %span
+      = fa_icon "users", class: "user-info-icon"
+    %span ZOZOID
+    %span 様の登録情報
+
+  .user-info-main__body.clearfix
+
+    = render "/users/shared/sidebar.html.haml"
+
+    .user-info-main__body-right
+      .body-right__top#basic-userinfo
+        .body-right__top-inside
+          .body-right__top-inside__header
+            .body-right__top-inside__header-index 会員情報登録
+          .body-right__top-inside__content
+            %table
+              %tr.body-right__top-inside__content-tr
+                %th.body-right__top-inside__content-th 基本情報
+                %td.body-right__top-inside__content-td
+                  .users-table-space
+                    %p 
+                      %span 苗字
+                      %span 名前
+                      %span (カタカナシメイ)
+                    %p 性別
+                    %p
+                      %span 2000
+                      %span 年
+                      %span 3
+                      %span 月
+                      %span 12
+                      %span 日
+                    %p 
+                      %span 〒
+                      %span 2224444
+                    %p 東京都渋谷区渋谷1-1
+                    %p 00011112222
+                %td
+                  .user-info-change-btn
+                    = link_to "変更"
+              %tr.body-right__top-inside__content-tr
+                %th.body-right__top-inside__content-th 
+                  %p メールアドレス
+                  %p (ZOZO ID)
+                %td.body-right__top-inside__content-td-email
+                  %p aa@aaaaaaa
+                %td
+                  .user-info-change-btn
+                    = link_to "変更"
+              %tr.body-right__top-inside__content-tr
+                %th.body-right__top-inside__content-th パスワード
+                %td.body-right__top-inside__content-td-password
+                  %p
+                    %span ***********
+                    %span.security-msg ※セキュリティのためパスワードは非表示となっています。
+                %td
+                  .user-info-change-btn
+                    = link_to "変更"
+
+      .body-right__top#additonal-address
+        .body-right__top-inside
+          .body-right__top-inside__header
+            .body-right__top-inside__header-index お届け先の変更・追加
+          .body-right__top-inside__content
+            %table
+              %tr
+                %td.user-page-additional-address
+                  %p.user-page-additional-address-msg 追加したお届け先はありません。
+                  %p
+                    = link_to "お届け先を追加する。"
+
+      .body-right__top#alter-credit-card
+        .body-right__top-inside
+          .body-right__top-inside__header
+            .body-right__top-inside__header-index クレジットカードの変更
+          .body-right__top-inside__content
+            %table
+              %tr
+                %td.user-page-additional-address
+                  %p.user-page-additional-address-msg クレジットカードの登録はありません。
+                  %p.user-page-additional-address-msg ※新規カードの登録は、商品購入時に可能です。
+
+.footer it will be grabbed form Mr.T

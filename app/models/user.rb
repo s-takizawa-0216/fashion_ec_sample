@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i[google_oauth2]
 
+  has_one :user_detail
+  
   validates :email, :password, :postal_code, presence: true
 
   def self.find_omniauth(auth)

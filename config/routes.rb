@@ -11,11 +11,10 @@ Rails.application.routes.draw do
 
   resources :items, only: [:new, :create]
 
-  resources :users, only: [:show, :edit, :email, :password_edit, :address, :credit] do
+  resources :users, only: [:show, :edit, :email, :password_edit, :address] do
     get 'email', to: 'users#email', as: :email
     get 'password_edit', to: 'users#password_edit', as: :password_edit
     get 'address', to: 'users#address', as: :address
-    get 'credit', to: 'users#credit', as: :credit
   end
 
   resources :trades, only: [:index, :order, :confirmation, :done_transaction] do

@@ -63,7 +63,7 @@
 - belongs_to :category
 - belongs_to :shop
 - belongs_to :item
-- belongs_to :bland
+- belongs_to :brand
 - belongs_to :cordinate
 
 ## shops_table
@@ -162,7 +162,7 @@
 - has_many :items
 - has_many :trades
 - has_many :sizes
-- has_many :colors
+- belongs_to :color
 
 
 ## credit_cards_table
@@ -199,7 +199,7 @@
 
 
 ### Association
-- belongs_to :stock
+- has_many :stocks
 
 ## user_details_table
 

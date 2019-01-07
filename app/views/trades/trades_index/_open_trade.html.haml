@@ -1,0 +1,29 @@
+%tr.cart-main__middle__left__item-space
+  %td.cart-main__middle__left__item-space-image
+    = image_tag "#{open_trade.stock.item.images.first.image}", class: "in-cart-item-image"
+  %td.cart-main__middle__left__item-space-detail
+    %p.in-cart-item-p 
+      = open_trade.stock.item.shop.name
+    %p.in-cart-item-p 
+      = open_trade.stock.item.brand.name
+    %p.in-cart-item-p #{open_trade.stock.item.parent_category.name}/#{open_trade.stock.item.child_category.name}
+    %p.in-cart-item-p 
+      = open_trade.stock.item.name
+    %p.in-cart-item-p 
+      = open_trade.stock.color.name
+    %p.in-cart-item-p 
+      = open_trade.stock.size.size
+    %p.in-cart-item-p-no-retutn 返品交換対象外
+  %td.cart-main__middle__left__item-space-price ¥10,000
+  %td.cart-main__middle__left__item-space-count-item
+    /在庫数2以上の時はマイナスボタンありをif文で条件分岐
+    .cart-main__middle__left__item-space-count-item__box.clearfix
+      %button{class: "cart-main__middle__left__item-space-count-item__box-btn-minus", id: "minus"} -
+      %input{type: :text, class: "cart-main__middle__left__item-space-count-item__box-number", value: "2", id: "number"} 
+      %button{class: "cart-main__middle__left__item-space-count-item__box-btn-plus", id: "plus"} +
+    / 在庫数一の時はマイナスボタンなしをif文で条件分岐
+    / .cart-main__middle__left__item-space-count-item__box.clearfix
+    /   %input{type: :text,class: "cart-main__middle__left__item-space-count-item__box-num-1", value: "1" }
+    /   %button{class: "cart-main__middle__left__item-space-count-item__box-num-1-plus"} +
+  %td.cart-main__middle__left__item-space-delete-btn
+    = link_to "消去"

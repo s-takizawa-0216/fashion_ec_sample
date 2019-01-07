@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_05_110038) do
+ActiveRecord::Schema.define(version: 2019_01_07_101730) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -98,11 +98,11 @@ ActiveRecord::Schema.define(version: 2019_01_05_110038) do
 
   create_table "trades", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "status", null: false
-    t.bigint "item_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_trades_on_item_id"
+    t.bigint "stock_id"
+    t.index ["stock_id"], name: "index_trades_on_stock_id"
     t.index ["user_id"], name: "index_trades_on_user_id"
   end
 
@@ -150,7 +150,7 @@ ActiveRecord::Schema.define(version: 2019_01_05_110038) do
   add_foreign_key "stocks", "colors"
   add_foreign_key "stocks", "items"
   add_foreign_key "stocks", "sizes"
-  add_foreign_key "trades", "items"
+  add_foreign_key "trades", "stocks"
   add_foreign_key "trades", "users"
   add_foreign_key "user_details", "users"
 end

@@ -58,7 +58,7 @@
 |bland_id|references|null:false, foreign_key: true|
 
 ### Association
-- has_many :trades
+- has_many :stocks
 - has_many :images
 - belongs_to :category
 - belongs_to :shop
@@ -136,7 +136,7 @@
 
 ### Association
 - belongs_to :user
-- belongs_to :item
+- belongs_to :stock
 
 ## images_table
 
@@ -159,7 +159,8 @@
 
 
 ### Association
-- has_many :itens
+- has_many :items
+- has_many :trades
 - has_many :sizes
 - has_many :colors
 

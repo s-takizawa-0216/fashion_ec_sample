@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     get 'address', to: 'users#address', as: :address
   end
 
-  resources :trades, only: [:index, :order, :confirmation, :done_transaction] do
+  resources :trades, only: [:index, :edit, :destroy, :order, :confirmation, :done_transaction] do
     get   'order',       to: 'trades#order',      as: :order
     get   'confirmation',       to: 'trades#confirmation',      as: :confirmation
     get   'done_transaction',       to: 'trades#done_transaction',      as: :done_transaction

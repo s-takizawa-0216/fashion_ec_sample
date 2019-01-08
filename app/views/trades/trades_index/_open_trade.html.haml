@@ -14,7 +14,7 @@
     %p.in-cart-item-p 
       = open_trade.stock.size.size
     %p.in-cart-item-p-no-retutn 返品交換対象外
-  %td.cart-main__middle__left__item-space-price ¥10,000
+  %td.cart-main__middle__left__item-space-price ¥#{open_trade.stock.item.price}
   %td.cart-main__middle__left__item-space-count-item
     /在庫数2以上の時はマイナスボタンありをif文で条件分岐
     .cart-main__middle__left__item-space-count-item__box.clearfix

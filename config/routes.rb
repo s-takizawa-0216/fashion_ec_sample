@@ -21,4 +21,5 @@ Rails.application.routes.draw do
     get   'confirmation',       to: 'trades#confirmation',      as: :confirmation
     get   'done_transaction',       to: 'trades#done_transaction',      as: :done_transaction
   end
+  resources :stocks, only: [:index]
 end

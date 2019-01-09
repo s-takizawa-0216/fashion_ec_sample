@@ -26,6 +26,13 @@ ActiveRecord::Schema.define(version: 2019_01_05_110038) do
     t.datetime "updated_at", null: false
   end
 
+
+  create_table "colors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "credit_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "number", null: false
     t.integer "expire_month", null: false
@@ -70,6 +77,24 @@ ActiveRecord::Schema.define(version: 2019_01_05_110038) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "sizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "size", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "stocks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "item_id"
+    t.bigint "size_id"
+    t.bigint "color_id"
+    t.integer "count", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["color_id"], name: "index_stocks_on_color_id"
+    t.index ["item_id"], name: "index_stocks_on_item_id"
+    t.index ["size_id"], name: "index_stocks_on_size_id"
   end
 
   create_table "trades", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -123,6 +148,9 @@ ActiveRecord::Schema.define(version: 2019_01_05_110038) do
   add_foreign_key "items", "categories", column: "child_category_id"
   add_foreign_key "items", "categories", column: "parent_category_id"
   add_foreign_key "items", "shops"
+  add_foreign_key "stocks", "colors"
+  add_foreign_key "stocks", "items"
+  add_foreign_key "stocks", "sizes"
   add_foreign_key "trades", "items"
   add_foreign_key "trades", "users"
   add_foreign_key "user_details", "users"

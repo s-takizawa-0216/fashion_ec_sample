@@ -1,6 +1,6 @@
 class StocksController < ApplicationController
   def index
-    # user = User.find(id: current_user.id)
-    # binding.pry
+    shop = Shop.find(1)
+    @items = shop.items
   end
 end

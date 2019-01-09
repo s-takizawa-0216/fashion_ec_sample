@@ -26,54 +26,26 @@
               %th.iconCell 編集
               %th.iconCell 削除
           %tbody
-            %tr.specDetail
-              %th.itemName アイテムA
-              %td GOUCH
-              %td S
-              %td ワインレッド
-              %td 100
-              %td.iconBtn.iconEdit
-                %a
-                = fa_icon("edit")
-              %td.iconBtn
-                %a
-                = fa_icon("trash")
-            %tr.specDetail
-              %th.itemName アイテムB
-              %td ETRO
-              %td M
-              %td モスキーグリーン
-              %td 20
-              %td.iconBtn.iconEdit
-                %a
-                = fa_icon("edit")
-              %td.iconBtn
-                %a
-                = fa_icon("trash")
-            %tr.specDetail
-              %th.itemName アイテムC
-              %td New Yorker
-              %td L
-              %td ブラック
-              %td 30
-              %td.iconBtn.iconEdit
-                %a
-                  = fa_icon("edit")
-              %td.iconBtn
-                %a
-                  = fa_icon("trash")
-            %tr.specDetail
-              %th.itemName アイテムE
-              %td SHANEL
-              %td XL
-              %td シャンパンゴールド
-              %td 10
-              %td.iconBtn.iconEdit
-                %a
-                  = fa_icon("edit")
-              %td.iconBtn
-                %a.iconBtn
-                  = fa_icon("trash")
+            - @items.each do |item|
+              - item.stocks.each do |stock|
+                %tr.specDetail
+                  %th.itemName
+                    = item.name
+                  %td
+                    = item.brand.name
+                  %td
+                    = stock.size.size
+                  %td
+                    = stock.color.name
+                  %td
+                    = stock.count
+                  %td.iconBtn.iconEdit
+                    %a
+                    = fa_icon("edit")
+                  %td.iconBtn
+                    %a
+                    = fa_icon("trash")
+
 
 .AddStack-overlay.AddStack-overlay-fixed
   .AddStack-outer

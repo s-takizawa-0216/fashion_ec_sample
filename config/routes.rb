@@ -9,9 +9,13 @@ Rails.application.routes.draw do
 
   root "items#index"
 
-  resources :items, only: [:new, :create]
 
-  
+
+  resources :items, only: [:new, :create ,:cordinate , :prefecture] do
+    get 'cordination' , to: 'items#cordination', on: :collection
+    get 'prefecture' , to: 'items#prefecture' , on: :collection
+  end
+
   resources :trades, only: [:index, :order, :confirmation, :done_transaction] do
     get   'order',       to: 'trades#order',      as: :order
     get   'confirmation',       to: 'trades#confirmation',      as: :confirmation

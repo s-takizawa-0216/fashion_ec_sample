@@ -443,11 +443,12 @@
       font-size: 15px;
 
       &-span{
-        padding-left: 100px;
+        padding-left: 165px;
       }
     }
     
     &-zozoarigato{
+      width: 400px;
       margin-left: 300px;
       padding-top: 30px;
       font-size: 15px;
@@ -568,4 +569,9 @@
 
 .selected{
   background-color: #f6f6f6;
+}
+
+.v{
+  position: relative;
+  top: 25px;
 }

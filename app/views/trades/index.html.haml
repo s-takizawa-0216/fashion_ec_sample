@@ -102,11 +102,11 @@
 
     .cart-main__middle__sum-payment
       %p.cart-main__middle__sum-payment-price
-        %span 商品合計
-        %span.cart-main__middle__sum-payment-price-span  ¥8,000
+        %span.v 商品合計
+        %span.cart-main__middle__sum-payment-price-span ¥#{@items_sum}
       %p.cart-main__middle__sum-payment-zozoarigato 
         %span ZOZOARIGATO価格
-        %span.cart-main__middle__sum-payment-zozoarigato-span  ¥7,000
+        %span.cart-main__middle__sum-payment-zozoarigato-span  ¥#{@sum_arigato.floor}
       %p.cart-main__middle__sum-payment-limit
         %span.cart-main__middle__sum-payment-limit-bold ツケ払いできます。
         %span お支払いは

@@ -5,7 +5,7 @@
     %p.in-cart-item-p 
       = open_trade.stock.item.shop.name
     %p.in-cart-item-p 
-      = open_trade.stock.item.brand.name
+      = open_trade.stock.item.brand.name 
     %p.in-cart-item-p #{open_trade.stock.item.parent_category.name}/#{open_trade.stock.item.child_category.name}
     %p.in-cart-item-p 
       = open_trade.stock.item.name
@@ -28,4 +28,4 @@
     /   %input{type: :text,class: "cart-main__middle__left__item-space-count-item__box-num-1", value: "1" }
     /   %button{class: "cart-main__middle__left__item-space-count-item__box-num-1-plus"} +
   %td.cart-main__middle__left__item-space-delete-btn
-    = link_to "消去",trade_destroy_item_url(open_trade),method: :delete
+    = link_to "消去",trade_erace_item_url(open_trade),method: :post

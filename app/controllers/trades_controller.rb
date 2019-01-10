@@ -8,6 +8,12 @@ class TradesController < ApplicationController
     @sum_arigato = @items_sum*0.9
   end
 
+  def create
+    @trade = Trade.new(create_trade)
+    @trade.save
+    redirect_to trades_path
+  end
+
   def minus_count
     trade = Trade.find(params[:trade_id])
     count_items = trade.update(count: trade.count-1)
@@ -22,9 +28,15 @@ class TradesController < ApplicationController
     redirect_to trades_path
   end
 
-  def destroy_item
+  def erace_item
     trade = Trade.find(params[:trade_id])
-    trade.destroy
+    erace_from_cart = trade.update(status: 1)
+    redirect_to trades_path
+  end
+
+  def return_to_cart
+    trade = Trade.find(params[:trade_id])
+    count_items = trade.update(status: 0)
     redirect_to trades_path
   end
 
@@ -36,6 +48,8 @@ class TradesController < ApplicationController
 
   def done_transaction
   end
+
+  private
 
 end
 

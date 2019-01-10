@@ -16,10 +16,13 @@ Rails.application.routes.draw do
     get 'address', to: 'users#address', as: :address
   end
 
-  resources :trades, only: [:index, :edit, :destroy, :order, :confirmation, :done_transaction] do
-    get   'order',       to: 'trades#order',      as: :order
-    get   'confirmation',       to: 'trades#confirmation',      as: :confirmation
-    get   'done_transaction',       to: 'trades#done_transaction',      as: :done_transaction
+  resources :trades, only: [:index, :plus_count, :minus_count, :destroy_item, :order, :confirmation, :done_transaction] do
+    post  'plus_count/:trade_id',     to: 'trades#plus_count',      as: :plus_count
+    post  'minus_count/:trade_id',     to: 'trades#minus_count',      as: :minus_count
+    delete  'destroy_item/:trade_id',     to: 'trades#destroy_item',      as: :destroy_item
+    get   'order',            to: 'trades#order',             as: :order
+    get   'confirmation',     to: 'trades#confirmation',      as: :confirmation
+    get   'done_transaction', to: 'trades#done_transaction',  as: :done_transaction
   end
   resources :stocks, only: [:index]
 end

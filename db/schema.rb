@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_29_022639) do
+ActiveRecord::Schema.define(version: 2019_01_05_110038) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -24,6 +24,24 @@ ActiveRecord::Schema.define(version: 2018_12_29_022639) do
     t.integer "parent_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+
+  create_table "colors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "credit_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "number", null: false
+    t.integer "expire_month", null: false
+    t.integer "expire_day", null: false
+    t.integer "security_code", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_credit_cards_on_user_id"
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -61,6 +79,24 @@ ActiveRecord::Schema.define(version: 2018_12_29_022639) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "size", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "stocks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "item_id"
+    t.bigint "size_id"
+    t.bigint "color_id"
+    t.integer "count", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["color_id"], name: "index_stocks_on_color_id"
+    t.index ["item_id"], name: "index_stocks_on_item_id"
+    t.index ["size_id"], name: "index_stocks_on_size_id"
+  end
+
   create_table "trades", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "status", null: false
     t.bigint "item_id"
@@ -69,6 +105,21 @@ ActiveRecord::Schema.define(version: 2018_12_29_022639) do
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_trades_on_item_id"
     t.index ["user_id"], name: "index_trades_on_user_id"
+  end
+
+  create_table "user_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "family_name", null: false
+    t.string "first_name", null: false
+    t.string "family_name_kana", null: false
+    t.string "first_name_kana", null: false
+    t.string "prefecture", null: false
+    t.string "address1", null: false
+    t.string "address2", null: false
+    t.string "phonenumber", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_details_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -91,11 +142,16 @@ ActiveRecord::Schema.define(version: 2018_12_29_022639) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "credit_cards", "users"
   add_foreign_key "images", "items"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories", column: "child_category_id"
   add_foreign_key "items", "categories", column: "parent_category_id"
   add_foreign_key "items", "shops"
+  add_foreign_key "stocks", "colors"
+  add_foreign_key "stocks", "items"
+  add_foreign_key "stocks", "sizes"
   add_foreign_key "trades", "items"
   add_foreign_key "trades", "users"
+  add_foreign_key "user_details", "users"
 end

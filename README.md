@@ -20,6 +20,7 @@
 - has_many :trades
 - has_many :favshops
 - has_many :favblands
+- has_one :user_detail
 
 
 ## shippings table
@@ -35,6 +36,7 @@
 |phone_number|integer|null: false|
 |shpping_way|string|null: false|
 |payment_method|string|null: false|
+|user_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -80,7 +82,7 @@
 |------|----|-------|
 |name|string|null: false|
 |depth|integer|null: false|
-|parent_id|integer|null: false|
+|parent_id|references|null: false|
 
 
 ### Association
@@ -169,6 +171,7 @@
 |expire_month|integer|null: false|
 |expire_year|integer|null: false|
 |security_code|integer|null: false|
+|user_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -197,9 +200,20 @@
 ### Association
 - belongs_to :stock
 
+## user_details_table
+
+|Column|Type|Options|
+|------|----|-------|
+|family_name|string|null: false|
+|first_name|string|null: false|
+|family_name_kana|string|null: false|
+|first_name_kana|string|null: false|
+|prefecture|stringr|null: false|
+|address1|stringr|null: false|
+|address2|stringr|null: false|
+|phonenumber|stringr|null: false|
+|user_id|references|null: false|
 
 
-
-
-
-
+### Association
+- belongs_to: user

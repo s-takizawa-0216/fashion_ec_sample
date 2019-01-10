@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  
+
   def index
   end
 
@@ -24,6 +24,9 @@ class ItemsController < ApplicationController
   end
 
   def cart
+  end
+
+  def prefecture
   end
 
   private

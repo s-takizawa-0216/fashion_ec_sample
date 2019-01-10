@@ -6,6 +6,8 @@
   %script{ src: "https://code.jquery.com/jquery-3.3.1.min.js"}
   %script{:src => "/assets/jquery.color.js", :type => "text/javascript"}
   %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/jquery-color/2.1.2/jquery.color.js"}
+  %script{:src => "http://code.jquery.com/ui/1.10.3/jquery-ui.min.js", :type => "text/javascript"}
+  %link{:href => "http://code.jquery.com/ui/1.10.3/themes/cupertino/jquery-ui.min.css", :rel => "stylesheet", :type => "text/css"}/
   %link{:crossorigin => "anonymous", :href => "https://use.fontawesome.com/releases/v5.6.3/css/all.css", :integrity => "sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/", :rel => "stylesheet"}/
 
   = render partial: 'shared/header-notice'
@@ -28,7 +30,6 @@
         =link_to 'キッズ' , '#' , id: 'tab-kids-js'
       .header__content__list-news
         = link_to 'ZOZOTOWNからのお知らせ'
-
 
 
 .main#main__contents
@@ -1594,98 +1595,5 @@
                   %p LINE@ZOZOTOWN
                   %span LINEから便利でお得な情報を配信
 
-.footer
-  .footer__inner.clearfix
-    .footer__zozo
-      %ul
-        %li
-          = link_to 'ZOZOTOWN' ,'#'
-        %li
-          = link_to 'ZOZOUSED' , '#'
-        %li
-          = link_to 'WEAR(ウェア）' , '#'
-
-    .footer__category__shop
-      %ul
-        %li
-          = link_to 'カテゴリー一覧' , '#'
-        %li
-          = link_to 'ブランド一覧' , '#'
-        %li
-          = link_to 'ショップ一覧' , '#'
-        %li
-          = link_to 'ランキング一覧' , '#'
-        %li
-          = link_to 'こだわり検索' , '#'
-      %ul
-        %li
-          = link_to 'ショップニュース一覧' , '#'
-        %li
-          = link_to 'コーディネイト一覧' , '#'
-        %li
-          = link_to 'ファッションまとめ一覧' , '#'
-        %li
-          = link_to '注目キーワード一覧' , '#'
-
-    .footer__zozocard
-      %ul
-        %li
-          = link_to 'ZOZOCARD'
-        %li
-          = link_to 'メールマガジン'
-
-    .footer__help
-      %ul
-        %li
-          = link_to 'HELP'
-        %li
-          = link_to '初めての方へ'
-    .footer__sns
-      %ul
-        %li
-          = link_to 'iPhoneアプリ'
-        %li
-          = link_to 'Androidアプリ'
-        %li
-          = link_to '＃' do
-            %i.fab.fa-twitter
-            %span Twitter
-        %li
-          = link_to '#' do
-            %i.fab.fa-facebook-f
-            %span facebook
-        %li
-          = link_to '#' do
-            %i.fab.fa-instagram
-            %span instagram
-
-  .footer__information.clearfix
-    %ul
-      %li
-        = link_to '#' do
-          %span コーポレートサイト
-          %i.fas.fa-external-link-alt
-      %li
-        = link_to '#' do
-          %span 会社概要
-          %i.fas.fa-external-link-alt
-      %li
-        = link_to '#' do
-          %span IR情報
-          %i.fas.fa-external-link-alt
-      %li
-        = link_to '#' do
-          %span 採用情報
-          %i.fas.fa-external-link-alt
-      %li
-        = link_to '利用規約'
-      %li
-        = link_to 'プライバシーポリシー'
-      %li
-        = link_to '特定商取引法に基づく表示・古物営業法に基づく表示'
-
-  .footer__last.clearfix
-    %span ©️ZOZO , inc.
-    = image_tag '/assets/zozocom_banner_pc.png' , width: '308' , height: '58'
-
+= render partial: 'shared/footer'
 

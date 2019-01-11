@@ -40,7 +40,12 @@ class TradesController < ApplicationController
   end
 
   def add_credit_card
-    @credit_card = CreditCard.new
+    @credit_card = CreditCard.new(credit_card_params)
+    if @credit_card.save
+      redirect_to confirmation_trades_path
+    else
+      redirect_to confirmation_trades_path
+    end
   end
 
   def confirmation
@@ -51,6 +56,10 @@ class TradesController < ApplicationController
   end
 
   private
+
+  def credit_card_params
+    params.require(:credit_card).permit(:number, :expire_month, :expire_day, :security_code).merge(user_id: current_user.id)
+  end
 
 end
 

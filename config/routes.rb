@@ -16,14 +16,14 @@ Rails.application.routes.draw do
     get 'address', to: 'users#address', as: :address
   end
 
-  resources :trades, only: [:index, :plus_count, :minus_count, :destroy_item, :order, :confirmation, :done_transaction] do
+  resources :trades, only: [:index, :plus_count, :minus_count, :destroy_item, :order, :add_credit_card, :confirmation, :done_transaction] do
     post  'plus_count/:trade_id',     to: 'trades#plus_count',      as: :plus_count
     post  'minus_count/:trade_id',     to: 'trades#minus_count',      as: :minus_count
     post  'erace_item/:trade_id',     to: 'trades#erace_item',      as: :erace_item
     post  'return_to_cart/:trade_id',     to: 'trades#return_to_cart',      as: :return_to_cart
     get   'order',            to: 'trades#order',             as: :order, on: :collection
     post  'add_credit_card',     to: 'trades#add_credit_card', as: :add_credit_card, on: :collection
-    get   'confirmation',     to: 'trades#confirmation',      as: :confirmation
+    get   'confirmation',     to: 'trades#confirmation',      as: :confirmation, on: :collection
     get   'done_transaction', to: 'trades#done_transaction',  as: :done_transaction
   end
   resources :stocks, only: [:index]

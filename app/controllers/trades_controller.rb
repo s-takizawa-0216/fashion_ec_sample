@@ -8,12 +8,6 @@ class TradesController < ApplicationController
     @sum_arigato = @items_sum*0.9
   end
 
-  def create
-    @trade = Trade.new(create_trade)
-    @trade.save
-    redirect_to trades_path
-  end
-
   def minus_count
     trade = Trade.find(params[:trade_id])
     count_items = trade.update(count: trade.count-1)
@@ -41,10 +35,17 @@ class TradesController < ApplicationController
   end
 
   def order
+    @user_detail = UserDetail.new
+  end
+
+  def add_userinfo
+    @user_detail = User_detail.new
+    redirect_to order_trades_path
   end
 
   def confirmation
   end
+
 
   def done_transaction
   end

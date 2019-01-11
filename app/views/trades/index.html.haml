@@ -26,12 +26,12 @@
         %button{class: "cart-main__middle__right-tab__facebook", id: "facebooktab"} Google
       .cart-main__middle__right-tab-zozo
         .cart-main__middle__right__zozobox
-          .cart-main__middle__right__zozobox-msg ログインしてレジに進む
-          -if user_signed_in?
+          -unless user_signed_in?
+            .cart-main__middle__right__zozobox-msg ログインしてレジに進む
             %input{type: "text", placeholder: "メールアドレスまたはZOZOID", class: "cart-main__middle__right__zozobox-input", value: current_user.email }
             %input{type: "password", placeholder: "パスワード", class: "cart-main__middle__right__zozobox-input"}
-          = link_to "ID・パスワードを忘れた方パスワードを忘れた方" do
-            .forget-email-box ID・パスワードを忘れた方
+            = link_to "ID・パスワードを忘れた方パスワードを忘れた方" do
+              .forget-email-box ID・パスワードを忘れた方
           %button{class: "cart-main__middle__right__zozobox-arigato-transaction-btn"}
             %p.arigato-price-msg ARIGATO価格
             %p.confirm-arigato-price ¥#{@sum_arigato.floor}
@@ -58,7 +58,8 @@
               %span 通常価格
               %span ¥#{@items_sum}
               %span で購入する
-            %button{class: "cart-main__middle__right__footer__open-next-to-register"} レジ進むへ
+            = link_to order_trades_path do
+              .cart-main__middle__right__footer__open-next-to-register  レジ進むへ
             .cart-main__middle__right__footer__open-wrapping.clearfix
               %input{type: :checkbox, class: "cart-main__middle__right__footer__open-wrapping-checkbox"}
               .cart-main__middle__right__footer__open-wrapping-middle

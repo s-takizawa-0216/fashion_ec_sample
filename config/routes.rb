@@ -21,7 +21,8 @@ Rails.application.routes.draw do
     post  'minus_count/:trade_id',     to: 'trades#minus_count',      as: :minus_count
     post  'erace_item/:trade_id',     to: 'trades#erace_item',      as: :erace_item
     post  'return_to_cart/:trade_id',     to: 'trades#return_to_cart',      as: :return_to_cart
-    get   'order',            to: 'trades#order',             as: :order
+    get   'order',            to: 'trades#order',             as: :order, on: :collection
+    post  'add_userinfo',     to: 'trades#add_userinfo',      as: :user_info, on: :collection
     get   'confirmation',     to: 'trades#confirmation',      as: :confirmation
     get   'done_transaction', to: 'trades#done_transaction',  as: :done_transaction
   end

@@ -206,7 +206,7 @@
                     %option{value: 4}24回払い
                     %option{value: 5}ボーナス払い
               .new-address-additional__header.new-address-confirm.clearfix
-                %input{type: :checkbox, class: "new-address-additional__header-check",id: "new-creditcard-check"}
+                %input{type: :checkbox, class: "new-address-additional__header-check",id: "comfirm_this_card", checked: false}
                   .new-address-additional__header-msg  このクレジットカード情報を登録する
 
 
@@ -261,12 +261,15 @@
 
     .order-main__right#order-right
       .order-main__right__content
-        = f.submit "次に進む",class: "order-main__right__content__tonext-btn"
+        = link_to confirmation_trades_path do
+          .order-main__right__content__tonext-btn.link-btn_to-confirmation#link-btn 次に進む
+        = f.submit "次に進む",class: "order-main__right__content__tonext-btn", id: "add_credit_card"
         .order-main__right__content__info-box
           %p
             %span.margin-space140 商品合計
             %span ¥
-            %span 1,080
+            %span 
+              = @items_sum
           %p
             %span.margin-space170 送料
             %span ¥
@@ -279,7 +282,8 @@
           %span.order-main__right__content__summary-top 合計
           %span.order-main__right__content__summary-middle.margin-space110 (税込)
           %span.order-main__right__content__summary-bottom ¥
-          %span.order-main__right__content__summary-bottom 1,400
+          %span.order-main__right__content__summary-bottom 
+            = @include_fee 
 
   .order-main__footer#footer-top
     .order-main__footer-box

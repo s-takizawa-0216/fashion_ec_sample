@@ -91,3 +91,17 @@ $(function(){
   });
 });
 
+//次に進むボタンのsubmitかlinkかの変更
+$(function(){
+  $('input#comfirm_this_card').click(function(){
+  var check = $(this).prop('checked');
+    if(check == true){
+      $('#add_credit_card').show();
+      $('#link-btn ').hide();
+    }else{
+      $('#link-btn ').show();
+      $('#add_credit_card').hide();
+    }
+  });
+});
+

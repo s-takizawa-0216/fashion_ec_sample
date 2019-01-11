@@ -12,15 +12,16 @@
         %td.confirm-table__index お届け先
         %td.confirm-table__middle
           %p.confirm-table__info
-            %span 開沼 諒
+            %span #{@user.family_name}#{@user.first_name}
             %span 様
           %p.confirm-table__info
             %span 住所:
-            %span 〒000-000
-            %span 東京都渋谷区渋谷1-1
+            %span 〒#{current_user.postal_code}
+            %span #{@user.address1}#{@user.address2}
           %p.confirm-table__info
             %span 電話：
-            %span 09000000000
+            %span
+              = @user.phonenumber
         %td.receive-add
           .confirm-item__box-top-btn
             = link_to "変更", order_trades_path
@@ -44,7 +45,7 @@
         %td.confirm-table__index 支払い方法
         %td.confirm-table__middle
           %span.confirm-table__info クレジットカード
-          %span.confirm-table__info ＊＊＊＊＊＊＊＊＊0000
+          %span.confirm-table__info ＊＊＊＊＊＊＊＊#{@credit_card.number.slice(8..11)}
           %span.confirm-table__info (一括払い)
         %td.confirm-table__index.payment-add ¥0
         %td.payment-add 
@@ -82,59 +83,41 @@
             %li.side-by-side-li
               .confirm-item__box-top-btn
                 = link_to "変更", order_trades_path
-        .confirm-item__box-shipping.clearfix
+        
+        =render partial: "/trades/trades_confirmation/open_trade.html.haml", collection: @open_trade
         .confirm-item__box-item.clearfix
-          %ul.side-by-side-ul.confirm-top-marign
-            %li.side-by-side-li
-              .confirm-item__box-item__index 商品
-            %li.side-by-side-li
-              .confirm-item__box-item__image
-                = image_tag 'https://img4.zozo.jp/goodsimages/24834970/24834970B_156_D.jpg',height: "85px", width: "70px"
-            %li.side-by-side-li
-              .confirm-item__box-item__info
-                %p ショップ名
-                %p ブランド名
-                %p 親カテゴリー/子カテゴリー
-                %p カラー
-                %p サイズ
-                %p 
-                  %span 数量：
-                  %span 1
-            %li.side-by-side-li
-              .confirm-item__box-item__price ¥1,000
-            %li.side-by-side-li
-              .confirm-item__box-top-btn.confirm-item-zone
-                = link_to "変更", trades_path
+
         .confirm-item__box-shipping.clearfix
           %ul.side-by-side-ul.confirm-top-marign
             %li.side-by-side-li
               .confirm-item__box-shipping__index 送料
             %li.side-by-side-li
-              .confirm-item__box-shipping__price ¥200
+              .confirm-item__box-shipping__price ¥320
 
   .confirm-main__right
-    .confirm-main__right__top
-      %button{class: "confirm-main__right__top-btn"}注文を確定する
+    = form_tag(done_transaction_trades_path, method: :post) do
+      .confirm-main__right__top
+        %button{type: :submit, class: "confirm-main__right__top-btn"}注文を確定する
     .confirm-main__right__info
       %span.confirm-main__right__info-msg 商品合計
-      %span.confirm-main__right__info-price ¥972
+      %span.confirm-main__right__info-price ¥#{@items_sum}
     .confirm-main__right__detail 
       .confirm-main__right__detail__head
       .confirm-main__right__detail__top
       .confirm-main__right__detail__bottom
         %span.confirm-main__right__detail__bottom-msg 品代
-        %span.confirm-main__right__detail__bottom-price ¥972
+        %span.confirm-main__right__detail__bottom-price ¥#{@items_sum}
     .confirm-main__right__shipping
       %span.confirm-main__right__shipping-msg 送料
       %span.confirm-main__right__shipping-add (指定なし：2〜5日以内に発送)
-      %span.confirm-main__right__shipping-price ¥200
+      %span.confirm-main__right__shipping-price ¥320
     .confirm-main__right__extra-fee
       %span.confirm-main__right__extra-fee-msg 支払い手数料
       %span.confirm-main__right__extra-fee-price ¥0
-    .confirm-main__right__sum
+    .confirm-main__right__sum.include-fee_head-bar
       %span.confirm-main__right__sum-msg 合計
       %span.confirm-main__right__sum-add (税込)
-      %span.confirm-main__right__sum-price ¥1,172
+      %span.confirm-main__right__sum-price ¥#{@include_fee}
     .confirm-main__right__bottom
       %p.gray ※送料は一律￥200です。
       %p ご注文完了前に必ずサイズ・カラー・価格・数量の

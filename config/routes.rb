@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     get   'order',            to: 'trades#order',             as: :order, on: :collection
     post  'add_credit_card',     to: 'trades#add_credit_card', as: :add_credit_card, on: :collection
     get   'confirmation',     to: 'trades#confirmation',      as: :confirmation, on: :collection
-    get   'done_transaction', to: 'trades#done_transaction',  as: :done_transaction
+    post   'done_transaction', to: 'trades#done_transaction',  as: :done_transaction, on: :collection
   end
   resources :stocks, only: [:index]
 end

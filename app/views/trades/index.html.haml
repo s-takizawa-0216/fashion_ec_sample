@@ -14,8 +14,6 @@
     .cart-main__content__noitem-msg カートに商品は入っていません
     = link_to "ショピングを続ける", root_path, class: "continue-shopping-btn"
 
-
-
 / カートにアイテムがある時 if文で条件文分岐
 -if @open_trade.present?
   .cart-main__middle
@@ -29,13 +27,14 @@
       .cart-main__middle__right-tab-zozo
         .cart-main__middle__right__zozobox
           .cart-main__middle__right__zozobox-msg ログインしてレジに進む
-          %input{type: "text", placeholder: "メールアドレスまたはZOZOID", class: "cart-main__middle__right__zozobox-input"}
-          %input{type: "text", placeholder: "パスワード", class: "cart-main__middle__right__zozobox-input"}
+          -if user_signed_in?
+            %input{type: "text", placeholder: "メールアドレスまたはZOZOID", class: "cart-main__middle__right__zozobox-input", value: current_user.email }
+            %input{type: "password", placeholder: "パスワード", class: "cart-main__middle__right__zozobox-input"}
           = link_to "ID・パスワードを忘れた方パスワードを忘れた方" do
             .forget-email-box ID・パスワードを忘れた方
           %button{class: "cart-main__middle__right__zozobox-arigato-transaction-btn"}
             %p.arigato-price-msg ARIGATO価格
-            %p.confirm-arigato-price ¥4,000で購入する
+            %p.confirm-arigato-price ¥#{@sum_arigato.floor}
           .cart-main__middle__right__zozobox-only-creditcard-msg お支払いはクレジットカードのみとなります。
           %p.cart-main__middle__right__zozobox-zozoarigato-info-up ※ZOZOARIGATO価格での購入にはZOZOARIGATO
           %p.cart-main__middle__right__zozobox-zozoarigato-info-bottom
@@ -47,8 +46,8 @@
           .cart-main__middle__right__footer__usual
             %button#register-btn{class: "cart-main__middle__right__footer__usual-price-box"} 
               %span 通常価格
-              %span ¥4,000
-              %span 通常価格
+              %span ¥#{@items_sum}
+              %span で購入する
               %span 
                 = fa_icon "angle-down", class: "usual-price-arrow"
             .cart-main__middle__right__footer__usual-continue-shopping
@@ -57,7 +56,7 @@
           .cart-main__middle__right__footer__open#open-register
             .cart-main__middle__right__footer__open-confirm-price
               %span 通常価格
-              %span ¥4,000
+              %span ¥#{@items_sum}
               %span で購入する
             %button{class: "cart-main__middle__right__footer__open-next-to-register"} レジ進むへ
             .cart-main__middle__right__footer__open-wrapping.clearfix

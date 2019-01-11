@@ -18,11 +18,16 @@
   %td.cart-main__middle__left__item-space-count-item
     /在庫数2以上の時はマイナスボタンありをif文で条件分岐
     .cart-main__middle__left__item-space-count-item__box.clearfix
-      = form_tag(trade_minus_count_url(open_trade),method: :post) do
-        %button{type: :submit, class: "cart-main__middle__left__item-space-count-item__box-btn-minus", id: "minus"} -
-      %input{type: :text, class: "cart-main__middle__left__item-space-count-item__box-number", value: "#{open_trade.count}", id: "number"} 
-      = form_tag(trade_plus_count_url(open_trade),method: :post) do
-        %button{type: :submit, class: "cart-main__middle__left__item-space-count-item__box-btn-plus", id: "minus"} +
+      -if open_trade.count >= 1
+        = form_tag(trade_minus_count_url(open_trade),method: :post) do
+          %button{type: :submit, class: "cart-main__middle__left__item-space-count-item__box-btn-minus", id: "minus"} -
+        %input{type: :text, class: "cart-main__middle__left__item-space-count-item__box-number", value: "#{open_trade.count}", id: "number"} 
+        = form_tag(trade_plus_count_url(open_trade),method: :post) do
+          %button{type: :submit, class: "cart-main__middle__left__item-space-count-item__box-btn-plus", id: "minus"} +
+      -else
+        %input{type: :text, class: "cart-main__middle__left__item-space-count-item__box-number", value: "#{open_trade.count}", id: "number"} 
+        = form_tag(trade_plus_count_url(open_trade),method: :post) do
+          %button{type: :submit, class: "cart-main__middle__left__item-space-count-item__box-btn-plus", id: "minus"} +
     / 在庫数一の時はマイナスボタンなしをif文で条件分岐
     / .cart-main__middle__left__item-space-count-item__box.clearfix
     /   %input{type: :text,class: "cart-main__middle__left__item-space-count-item__box-num-1", value: "1" }

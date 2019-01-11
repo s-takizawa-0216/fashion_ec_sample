@@ -53,67 +53,42 @@
       .AddStack-iframe
         #detail
           %h2 在庫情報の登録
-          %form.AddStackForm
-            .form-group
-              %label.mainLabel アイテム名
-              %span.form-require 必須
-              .radioBox.clearfix
-                .radioSelect
-                  %input{type:"radio"}
-                  %label アイテム１
-                .radioSelect
-                  %input{type:"radio"}
-                  %label アイテム２
-                .radioSelect
-                  %input{type:"radio"}
-                  %label アイテム３
-                .radioSelect
-                  %input{type:"radio"}
-                  %label アイテム4
-                .radioSelect
-                  %input{type:"radio"}
-                  %label アイテム5
-                .radioSelect
-                  %input{type:"radio"}
-                  %label アイテム6
+          .AddStackForm
+            = form_for @stock do |f|
+              .form-group
+                %label.mainLabel アイテム名
+                %span.form-require 必須
+                .radioBox.clearfix
+                  - @items.each do |item|
+                    .radioSelect
+                      = f.radio_button :item_id, "#{item.id}"
+                      = f.label :item_id, "#{item.name}", value: "#{item.id}"
 
-            .form-group
-              %label.mainLabel サイズ
-              %span.form-require 必須
-              %br.clearBoth
-              .selectBox
-                %select
-                  %option ---
-                  %option XS
-                  %option S
-                  %option M
-                  %option L
-                  %option XL
-                  %option XXL
+              .form-group
+                %label.mainLabel サイズ
+                %span.form-require 必須
+                %br.clearBoth
+                .selectBox
+                  = f.select :size_id , Size.all.map{|size|[size.size, size.id]}
 
 
-            .form-group
-              %label.mainLabel カラー
-              %span.form-require 必須
-              %br.clearBoth
-              .selectBox
-                %select
-                  %option ---
-                  %option ブラック
-                  %option ホワイト
-                  %option グレー
-                  %option レッド
-                  %option ネイビー
-                  %option グリーン
 
-            .form-group
-              %label.mainLabel 個数
-              %span.form-require 必須
-              .clearBoth
-              %input{type:"number", class: "input-default", min: "0"}
+              .form-group
+                %label.mainLabel カラー
+                %span.form-require 必須
+                %br.clearBoth
+                .selectBox
+                  = f.select :color_id, Color.all.map{|color|[color.name, color.id]}
 
-            %button{type:"submit",class: "submitBtn"}
-              登録する
+
+              .form-group
+                %label.mainLabel 個数
+                %span.form-require 必須
+                .clearBoth
+                = f.number_field :count, class: "input-default", min: "0"
+
+              = f.submit "登録する", class: "submitBtn"
       .AddStack-item.AddStack-close
         %i.fa.fa-times
+
 

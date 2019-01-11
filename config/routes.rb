@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     post  'erace_item/:trade_id',     to: 'trades#erace_item',      as: :erace_item
     post  'return_to_cart/:trade_id',     to: 'trades#return_to_cart',      as: :return_to_cart
     get   'order',            to: 'trades#order',             as: :order, on: :collection
-    post  'add_userinfo',     to: 'trades#add_userinfo',      as: :user_info, on: :collection
+    post  'add_credit_card',     to: 'trades#add_credit_card', as: :add_credit_card, on: :collection
     get   'confirmation',     to: 'trades#confirmation',      as: :confirmation
     get   'done_transaction', to: 'trades#done_transaction',  as: :done_transaction
   end

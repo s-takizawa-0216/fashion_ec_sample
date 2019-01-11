@@ -2,16 +2,16 @@
   %td.cart-main__middle__left__item-space-image
     = image_tag "#{open_trade.stock.item.images.first.image}", class: "in-cart-item-image"
   %td.cart-main__middle__left__item-space-detail
-    %p.in-cart-item-p 
+    %p.in-cart-item-p
       = open_trade.stock.item.shop.name
-    %p.in-cart-item-p 
+    %p.in-cart-item-p
       = open_trade.stock.item.brand.name 
     %p.in-cart-item-p #{open_trade.stock.item.parent_category.name}/#{open_trade.stock.item.child_category.name}
-    %p.in-cart-item-p 
+    %p.in-cart-item-p
       = open_trade.stock.item.name
-    %p.in-cart-item-p 
+    %p.in-cart-item-p
       = open_trade.stock.color.name
-    %p.in-cart-item-p 
+    %p.in-cart-item-p
       = open_trade.stock.size.size
     %p.in-cart-item-p-no-retutn 返品交換対象外
     -if open_trade.count == open_trade.stock.count-1

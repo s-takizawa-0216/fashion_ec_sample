@@ -35,12 +35,12 @@ class TradesController < ApplicationController
   end
 
   def order
-    @user_detail = UserDetail.new
+    @user = UserDetail.find_by(user_id: current_user.id)
+    @credit_card = CreditCard.new
   end
 
-  def add_userinfo
-    @user_detail = User_detail.new
-    redirect_to order_trades_path
+  def add_credit_card
+    @credit_card = CreditCard.new
   end
 
   def confirmation

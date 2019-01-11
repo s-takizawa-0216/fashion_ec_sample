@@ -87,6 +87,13 @@
                 .clearBoth
                 = f.number_field :count, class: "input-default", min: "0"
 
+              .form-group
+                %label.mainLabel イメージ
+                %span.form-require.BKgray 任意
+                .clearBoth
+                .ImgPreview
+                = f.file_field :image
+
               = f.submit "登録する", class: "submitBtn"
       .AddStack-item.AddStack-close
         %i.fa.fa-times

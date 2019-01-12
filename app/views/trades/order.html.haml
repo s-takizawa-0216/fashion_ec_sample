@@ -147,7 +147,7 @@
           .new-address-additional
             .new-address-additional__header.clearfix.unchecked#creditcard-header
               %input{type: :checkbox, class: "new-address-additional__header-check",id: "creditcard-check"}
-                .new-address-additional__header-msg.margin-space40 クレジットーカード
+                .new-address-additional__header-msg.margin-space40 クレジットカード
                 .new-address-additional__header-msg.margin-space135 10ポイント還元
                 .new-address-additional__header-msg ¥0
 
@@ -269,6 +269,12 @@
 
 
     .order-main__right#order-right
+      -unless @user.present? || @user_credit_card.present?
+        .order-main__right__content__tonext-btn.shipping-creditcard-msg
+          -unless @user.present?
+            .p 先にお届け先を登録してください
+          -unless @user_credit_card.present?
+            .p 先にクレジットカードを追加してください
       .order-main__right__content
         = link_to confirmation_trades_path do
           .order-main__right__content__tonext-btn.link-btn_to-confirmation#link-btn 次に進むリンク
@@ -292,7 +298,7 @@
           %span.order-main__right__content__summary-middle.margin-space110 (税込)
           %span.order-main__right__content__summary-bottom ¥
           %span.order-main__right__content__summary-bottom 
-            = @include_fee 
+            = @include_fee
 
   .order-main__footer#footer-top
     .order-main__footer-box

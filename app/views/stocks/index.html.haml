@@ -23,6 +23,7 @@
               %th.sizeCell サイズ
               %th.colorCell カラー
               %th.countCell 個数
+              %th.iconCell イメージ
               %th.iconCell 編集
               %th.iconCell 削除
           %tbody
@@ -39,6 +40,12 @@
                     = stock.color.name
                   %td
                     = stock.count
+                  %td.iconBtn.iconIMG
+                    = fa_icon("image")
+                    - if stock.image.blank?
+                      = image_tag("http://lib.city.koshigaya.saitama.jp/wp-content/uploads/2015/08/noimage_300-207x300.png")
+                    - else
+                      = image_tag("#{stock.image}")
                   %td.iconBtn.iconEdit
                     %a
                     = fa_icon("edit")
@@ -47,10 +54,10 @@
                     = fa_icon("trash")
 
 
-.AddStack-overlay.AddStack-overlay-fixed
-  .AddStack-outer
-    .AddStack-inner
-      .AddStack-iframe
+.AddStack-overlay.modal-overlay.modal-overlay-fixed
+  .modal-outer
+    .modal-inner
+      .modal-iframe
         #detail
           %h2 在庫情報の登録
           .AddStackForm
@@ -95,7 +102,15 @@
                 = f.file_field :image
 
               = f.submit "登録する", class: "submitBtn"
-      .AddStack-item.AddStack-close
+      .modal-item.modal-close
         %i.fa.fa-times
 
+.imagePreview-overlay.modal-overlay.modal-overlay-fixed
+  .modal-outer
+    .modal-inner
+      .image-iframe
+        .stockDetailPix
+          = image_tag("http://lib.city.koshigaya.saitama.jp/wp-content/uploads/2015/08/noimage_300-207x300.png")
 
+        .modal-item.modal-close.image-close
+          %i.fa.fa-times

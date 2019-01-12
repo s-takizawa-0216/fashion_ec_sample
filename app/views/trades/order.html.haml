@@ -39,39 +39,36 @@
               %input{type: :checkbox, class: "new-address-additional__header-check", id: "new-address-check"}
                 .new-address-additional__header-msg 新しいお届け先を追加
 
-            .new-address-additional__body#new-address
-              .new-address-additional__body-box
-                %p.new-address-additional__body-box-msg
-                  %span.margin-space100 種別
-                  %span 
-                    %select{class: "address-genre"}
-                      %option{value: 1}勤務先・職場
-                      %option{value: 2}友人・知人宅
-                      %option{value: 3}実家
-                      %option{value: 4}その他
-                %p.new-address-additional__body-box-msg
-                  %span.margin-space85 お名前
-                  %span 
-                    %input{type: :text,class: "address-name", placeholder: " 姓 名（全角）"}
-                %p.new-address-additional__body-box-msg
-                  %span.margin-space70 郵便番号
-                  %span 
-                    %input{type: :text,class: "address-name", placeholder: " 例) 2617127"}
-                %p.new-address-additional__body-box-msg
-                  %span.margin-space70 都道府県
-                  %span.prefecture-msg 郵便番号を入力してください
-                %p.new-address-additional__body-box-msg
-                  %span.margin-space85 住所1
-                  %span 
-                    %input{type: :text,class: "address-name", placeholder: " 市区町村、番地など"}
-                %p.new-address-additional__body-box-msg
-                  %span.margin-space85 住所2
-                  %span 
-                    %input{type: :text,class: "address-name", placeholder: " 建物名など（任意）"}
-                %p.new-address-additional__body-box-msg
-                  %span.margin-space65 電話番号
-                  %span 
-                    %input{type: :text,class: "address-name", placeholder: " 例）09012345678"}
+            = fields_for(@shiping_info, url: add_shipping_info_trades_path, html: {method: :post}) do |i|
+              .new-address-additional__body#new-address
+                .new-address-additional__body-box
+                  %p.new-address-additional__body-box-msg
+                    %span.margin-space100 種別
+                    %span 
+                      = i.select :genre, [["勤務先・職場職場",1],["友人・知人卓",2],["実家", 3],["その他",4]],{},class: "address-genre"
+                  %p.new-address-additional__body-box-msg
+                    %span.margin-space85 お名前
+                    %span 
+                      = i.text_field :name, class: "address-name", placeholder: " 姓 名（全角）"
+                  %p.new-address-additional__body-box-msg
+                    %span.margin-space70 郵便番号
+                    %span 
+                      = i.text_field :postal_code, class: "address-name", placeholder: " 例) 2617127"
+                  %p.new-address-additional__body-box-msg
+                    %span.margin-space70 都道府県
+                    %span.prefecture-msg 郵便番号を入力してください
+                  %p.new-address-additional__body-box-msg
+                    %span.margin-space85 住所1
+                    %span 
+                      %input{type: :text,class: "address-name", placeholder: " 市区町村、番地など"}
+                  %p.new-address-additional__body-box-msg
+                    %span.margin-space85 住所2
+                    %span 
+                      %input{type: :text,class: "address-name", placeholder: " 建物名など（任意）"}
+                  %p.new-address-additional__body-box-msg
+                    %span.margin-space65 電話番号
+                    %span 
+                      %input{type: :text,class: "address-name", placeholder: " 例）09012345678"}
 
       .order-main__body__item-space.clearfix
         .order-main__body__item-space__index 

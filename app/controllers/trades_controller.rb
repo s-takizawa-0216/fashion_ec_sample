@@ -50,12 +50,20 @@ class TradesController < ApplicationController
     @items_sum = @open_trade.sum{|trade|trade[:total]}
     # 送料込みの値段
     @include_fee = @items_sum+320
-    #ユーザー情報の取得
+    # ユーザー情報の取得
     @user = UserDetail.find_by(user_id: current_user.id)
     # クレジットカード情報の作成
     @credit_card = CreditCard.new
+    # 配送先情報の追加
+    @shipping_info = Shipping.new
   end
 
+  def add_shipping_info
+    @shipping_info = Shipping.new
+    @shipping_info.save
+    redirect_to root_path
+  end
+  
   def add_credit_card
     # クレジットカード情報の生成
     @credit_card = CreditCard.new(credit_card_params)

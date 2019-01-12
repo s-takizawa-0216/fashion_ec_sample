@@ -27,15 +27,13 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|genere|string|null: false|
+|genere|integer|null: false|
 |name|string|null: false|
 |postal_code|integer|null: false|
 |prefecture|string|null: false|
 |address1|string|null: false|
 |address2|string||
-|phone_number|integer|null: false|
-|shpping_way|string|null: false|
-|payment_method|string|null: false|
+|phonenumber|integer|null: false|
 |user_id|references|foreign_key: true|
 
 ### Association

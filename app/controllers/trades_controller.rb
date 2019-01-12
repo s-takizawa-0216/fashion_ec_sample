@@ -82,7 +82,9 @@ class TradesController < ApplicationController
 
 
   def done_transaction
+    # カート内にあるアイテムの取得
     trade = Trade.where(status: 0, user_id: current_user.id)
+    # Tradesテーブルのstatusを購入済に更新
     done_transaction = trade.update(status: 3)
   end
 

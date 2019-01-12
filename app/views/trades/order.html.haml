@@ -1,4 +1,4 @@
-= form_for(@credit_card, url: add_credit_card_trades_path, html: {method: :post}) do |f|
+= form_for(@credit_card, url: add_credit_card_trades_path, html: {method: :post, class: "h-adr"}) do |f|
   .order-main.clearfix
     .order-main__header.clearfix
       .order-main__header__left
@@ -44,6 +44,7 @@
                 .new-address-additional__body-box
                   %p.new-address-additional__body-box-msg
                     %span.margin-space100 種別
+                    %span.p-country-name{:style => "display:none;"} Japan
                     %span 
                       = i.select :genre, [["勤務先・職場職場",1],["友人・知人卓",2],["実家", 3],["その他",4]],{},class: "address-genre"
                   %p.new-address-additional__body-box-msg
@@ -53,12 +54,12 @@
                   %p.new-address-additional__body-box-msg
                     %span.margin-space70 郵便番号
                     %span 
-                      = i.text_field :postal_code, maxlength: "8", size: "10", class: "address-name", placeholder: " 例) 2617127"
+                      = i.text_field :postal_code, maxlength: "8", size: "8", class: "p-postal-code address-name", placeholder: " 例) 2617127"
                   %p.new-address-additional__body-box-msg
                     %span.margin-space70 都道府県
                     %span
                       %p
-                        = i.text_field :prefecture, class: "address-name", collection: JpPrefecture::Prefecture.all, :value_method => :name
+                        = i.text_field :prefecture, class: "p-region p-locality p-street-address p-extended-address  address-name"
                       %p.prefecture-msg 郵便番号を入力してください
                   %p.new-address-additional__body-box-msg
                     %span.margin-space85 住所1

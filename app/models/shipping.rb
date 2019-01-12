@@ -2,6 +2,6 @@ class Shipping < ApplicationRecord
 
   belongs_to :user
 
-  validates :number, :expire_month, :expire_day, :user_id, presence: true
+  validates :genre, :name, :postal_code, :prefecture, :address1, :phonenumber, :user_id, presence: true
 end
 

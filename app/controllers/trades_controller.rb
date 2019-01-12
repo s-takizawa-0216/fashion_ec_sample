@@ -60,17 +60,16 @@ class TradesController < ApplicationController
     @shipping_info = Shipping.new
   end
 
-  
+
   def add_user_info
     # クレジットカード情報の追加
     @credit_card = CreditCard.new(credit_card_params)
     # 配送先情報の追加
     @shipping_info = Shipping.new(shipping_info_params)
-    if @credit_card.save
+    # DBへの追加と条件分岐
+    if @credit_card.save && @shipping_info.save
       redirect_to confirmation_trades_path
-    elsif @shipping_info.save
-      redirect_to confirmation_trades_path
-    elsif @credit_card.save && @shipping_info.save
+    elsif @credit_card.save || @shipping_info.save
       redirect_to confirmation_trades_path
     else
       redirect_to order_trades_path

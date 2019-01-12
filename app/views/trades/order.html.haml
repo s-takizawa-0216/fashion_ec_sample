@@ -158,16 +158,16 @@
                 .new-address-additional__header-msg.margin-space40 
                   %span カード番号下4桁
                   -if @user_credit_card.present?
-                    %span #{@user_credit_card.number}
+                    %span.creca-msg #{@user_credit_card.number.slice(-4..-1)}
                 .new-address-additional__header-msg 
                   %span 期限
                   -if @user_credit_card.present?
-                    %span #{@user_credit_card.expire_day}#{@user_credit_card.expire_month}
+                    %span.creca-msg #{@user_credit_card.expire_day}/#{@user_credit_card.expire_month}
               .new-address-additional__header.clearfix#usual-card-num1
                 .new-address-additional__header-msg.margin-space67 セキュリティコード
                 .new-address-additional__header-msg 
                   %p
-                    %input{type: :password, placeholder: "半角数字のみ", class: "credit-numbers", style: "font-size: 13px" , value: "#{@user_credit_card.security_code}"}
+                    %input{type: :password, placeholder: "半角数字のみ", class: "credit-numbers", style: "font-size: 13px"}
                   %p.security-msg#popup-cursor1 セキュリティコードについて
               .new-address-additional__header.clearfix#usual-card-num2
                 .new-address-additional__header-msg.margin-space115.make-space-box-right 支払い回数

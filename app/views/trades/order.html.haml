@@ -154,7 +154,7 @@
             .no-function-box#new-creditcard
               .new-address-additional__header.clearfix
                 .new-address-additional__header-msg.margin-space110 カード番号
-                %input{type: :checkbox, class: "new-address-additional__header-check", id: "nomal-card"}
+                %input{type: :checkbox, class: "new-address-additional__header-check", id: "nomal-card", checked: false}
                 .new-address-additional__header-msg.margin-space40 
                   %span カード番号下4桁
                   -if @user_credit_card.present?
@@ -179,7 +179,7 @@
                     %option{value: 4}24回払い
                     %option{value: 5}ボーナス払い
               .new-address-additional__header.clearfix.new-address-confirm#erasable-creditcard
-                %input{type: :checkbox, class: "new-address-additional__header-check",id: "new-creditcard-check"}
+                %input{type: :checkbox, class: "new-address-additional__header-check",id: "new-creditcard-check", checked: false}
                   .new-address-additional__header-msg#new-creditcard-top 新しいカードを追加
 
             .no-function-box#new-creditcard-info
@@ -187,12 +187,12 @@
                 = image_tag "https://zozo.jp/_cart/order/img/card_company.gif", class: "genere-cards"
               .new-address-additional__header.clearfix
                 .new-address-additional__header-msg.margin-space130 カード番号
-                = f.text_field :number, placeholder: "半角数字のみ(ハイフンなし)", require: true, class: "credit-numbers"
+                = f.text_field :number, placeholder: "半角数字のみ(ハイフンなし)", required: true, class: "credit-numbers"
               .new-address-additional__header.clearfix
                 .new-address-additional__header-msg.margin-space67 セキュリティコード
                 .new-address-additional__header-msg 
                   %p
-                    = f.text_field :security_code, placeholder: "半角数字のみ", require: true, class: "credit-numbers"
+                    = f.text_field :security_code, placeholder: "半角数字のみ", required: true, class: "credit-numbers"
                   %p.security-msg#popup-cursor2 セキュリティコードについて
               .new-address-additional__header.clearfix
                 .new-address-additional__header-msg.margin-space130.make-space-box-right 有効期限

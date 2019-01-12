@@ -71,6 +71,7 @@ $(function(){
 
 $(function(){
   $('#nomal-card').click(function(){
+
     $('#new-creditcard-info').hide();
     $('#usual-card-num1').show();
     $('#usual-card-num2').show();
@@ -81,12 +82,14 @@ $(function(){
 // セキュリティーコードとは？の表示
 $(function(){
   $('#popup-cursor1,#popup-cursor2').mouseover(function(){
+
     $('#popup-image').show();
   });
 });
 
 $(function(){
   $('#popup-cursor1,#popup-cursor2').mouseleave(function(){
+
     $('#popup-image').hide();
   });
 });
@@ -94,6 +97,7 @@ $(function(){
 // チェックボックス(お届け先）のチェック1つのみ
 $(function(){
   $('input#hide-new-address').click(function(){
+
     var check = $(this).prop('checked');
     if(check == true){
       $('input#new-address-check').prop('checked',false)
@@ -103,6 +107,7 @@ $(function(){
 
 $(function(){
   $('input#new-address-check').click(function(){
+
     var check = $(this).prop('checked');
     if(check == true){
       $('input#hide-new-address').prop('checked',false)
@@ -113,6 +118,7 @@ $(function(){
 // チェックボックス(配送方法)のチェック1つのみ
 $(function(){
   $('input#hide-new-delivery').click(function(){
+
     var check = $(this).prop('checked');
     if(check == true){
       $('input#new-delivery-check').prop('checked',false)
@@ -123,6 +129,7 @@ $(function(){
 
 $(function(){
   $('input#new-delivery-check').click(function(){
+
     var check = $(this).prop('checked');
     if(check == true){
       $('input#hide-new-delivery').prop('checked',false)
@@ -133,6 +140,7 @@ $(function(){
 
 $(function(){
   $('input#date-new-delivery-check').click(function(){
+
     var check = $(this).prop('checked');
     if(check == true){
       $('input#hide-new-delivery').prop('checked',false)
@@ -144,6 +152,7 @@ $(function(){
 // チェックボックス(お支払い方法)のチェック1つのみ
 $(function(){
   $('input#haunt_pay').click(function(){
+
     var check = $(this).prop('checked');
     if(check == true){
       $('input#zozocard-check').prop('checked',false)
@@ -160,6 +169,7 @@ $(function(){
 
 $(function(){
   $('input#zozocard-check').click(function(){
+
     var check = $(this).prop('checked');
     if(check == true){
       $('input#haunt_pay').prop('checked',false)
@@ -176,6 +186,7 @@ $(function(){
 
 $(function(){
   $('input#creditcard-check').click(function(){
+
     var check = $(this).prop('checked');
     if(check == true){
       $('input#haunt_pay').prop('checked',false)
@@ -189,6 +200,7 @@ $(function(){
 
 $(function(){
   $('input#cash_on_delivery').click(function(){
+
     var check = $(this).prop('checked');
     if(check == true){
       $('input#haunt_pay').prop('checked',false)
@@ -205,6 +217,7 @@ $(function(){
 
 $(function(){
   $('input#line_pay').click(function(){
+
     var check = $(this).prop('checked');
     if(check == true){
       $('input#haunt_pay').prop('checked',false)
@@ -221,6 +234,7 @@ $(function(){
 
 $(function(){
   $('input#convinence').click(function(){
+
     var check = $(this).prop('checked');
     if(check == true){
       $('input#haunt_pay').prop('checked',false)
@@ -235,9 +249,29 @@ $(function(){
   });
 });
 
+$(function(){
+  $('input#nomal-card').click(function(){
+
+    var check = $(this).prop('checked');
+    if(check == true){
+      $('input#new-creditcard-check').prop('checked', false);
+      $('input#comfirm_this_card').prop('checked', false);
+    }
+  });
+  
+  $('input#new-creditcard-check').click(function(){
+
+    var check = $(this).prop('checked');
+    if(check == true){
+      $('input#nomal-card').prop('checked', false);
+    }
+  });
+});
+
 //支払い方法チェックボックス変更によるクレジットカード追加画面の表示・非表示
 $(function(){
   $('input#haunt_pay').click(function(){
+
     var check = $(this).prop('checked');
     if(check == true){
       $('#new-creditcard').hide();
@@ -251,6 +285,7 @@ $(function(){
 
 $(function(){
   $('input#zozocard-check').click(function(){
+
     var check = $(this).prop('checked');
     if(check == true){
       $('#new-creditcard').hide();
@@ -264,6 +299,7 @@ $(function(){
 
 $(function(){
   $('input#cash_on_delivery').click(function(){
+
     var check = $(this).prop('checked');
     if(check == true){
       $('#new-creditcard').hide();
@@ -277,6 +313,7 @@ $(function(){
 
 $(function(){
   $('input#line_pay').click(function(){
+
     var check = $(this).prop('checked');
     if(check == true){
       $('#new-creditcard').hide();
@@ -290,6 +327,7 @@ $(function(){
 
 $(function(){
   $('input#convinence').click(function(){
+
     var check = $(this).prop('checked');
     if(check == true){
       $('#new-creditcard').hide();
@@ -301,42 +339,56 @@ $(function(){
   });
 });
 
-// 次に進むボタンのsubmitかlinkかの変更(クレジットカード)
-$(function(){
-  $('input#comfirm_this_card').click(function(){
-  var check = $(this).prop('checked');
-    if(check == true){
-      $('#add_credit_card').show();
-      $('#link-btn ').hide();
-    }else{
-      $('#link-btn ').show();
-      $('#add_credit_card').hide();
-    }
-  });
-});
-
 // 次に進むボタンのsubmitかlinkかの変更(新しい配送先)
 $(function(){
   $('input#new-address-check').click(function(){
+
   var check = $(this).prop('checked');
     if(check == true){
       $('#add_credit_card').show();
       $('#link-btn ').hide();
     }else{
-      $('#link-btn ').show();
+      $('#link-btn').show();
       $('#add_credit_card').hide();
     }
   });
 });
 
-// 次に進むボタンのsubmitかlinkかの変更(該当箇所チェックでリンクに戻すパターン)
+// 次に進むボタンのsubmitかlinkかの変更(クレジットカード)
 $(function(){
-  $('input#new-address-check, input#comfirm_this_card, input#hide-new-address, input#haunt_pay, input#zozocard-check, input#cash_on_delivery, input#line_pay, input#convinence').click(function(){
-  var check = $('input#hide-new-address, input#haunt_pay, input#zozocard-check, input#cash_on_delivery, input#line_pay, input#convinence').prop('checked');
+  $('input#comfirm_this_card').click(function(){
+
+  var check = $(this).prop('checked');
+    if(check == true){
+      $('#add_credit_card').show();
+      $('#link-btn ').hide();
+    }else{
+      $('#link-btn').show();
+      $('#add_credit_card').hide();
+    }
+  });
+});
+
+// チェックボックス(お届け先)リンクに戻す
+$(function(){
+  $('input#hide-new-address').click(function(){
+  var check = $(this).prop('checked');
+  var check2 = $('input#comfirm_this_card').prop('checked');
+    if(check == true && check2 != true){
+      $('#link-btn').show();
+      $('#add_credit_card').hide();
+    }
+  });
+});
+
+// チェックボックス(支払い方法)リンクに戻す
+$(function(){
+  $('input#haunt_pay, input#zozocard-check, input#nomal-card, input#cash_on_delivery, input#line_pay, input#convinence').click(function(){
+
+  var check = $(this).prop('checked');
   var check2 = $('input#new-address-check').prop('checked');
-  var check3 = $('input#comfirm_this_card').prop('checked');
-    if(check == true && check2 == false && check3 == false){
-      $('#link-btn ').show();
+    if(check == true && check2 != true){
+      $('#link-btn').show();
       $('#add_credit_card').hide();
     }
   });

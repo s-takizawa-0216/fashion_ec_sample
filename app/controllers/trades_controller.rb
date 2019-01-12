@@ -75,7 +75,7 @@ class TradesController < ApplicationController
 
   def confirmation
     #ユーザー情報お取得
-    @user = UserDetail.find_by(user_id: current_user.id)
+    @user = Shipping.find_by(user_id: current_user.id)
     #クレジットカード情報の取得
     @credit_card = CreditCard.find_by(user_id: current_user.id)
     #カート内アイテムの取得

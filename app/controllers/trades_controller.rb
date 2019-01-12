@@ -102,5 +102,8 @@ class TradesController < ApplicationController
     params.require(:credit_card).permit(:number, :expire_month, :expire_day, :security_code).merge(user_id: current_user.id)
   end
 
+  def shipping_info_params
+    params.require(:shipping).permit(:genre, :name, :postal_code, :prefecture)
+  end
 end
 

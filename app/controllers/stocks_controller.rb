@@ -10,7 +10,16 @@ class StocksController < ApplicationController
     if @stock.save
       redirect_to stocks_path
     else
-      render :new
+      render :index
+    end
+  end
+
+  def destroy
+    stock = Stock.find(params[:id])
+    if stock.delete
+      redirect_to stocks_path
+    else
+      render :index
     end
   end
 

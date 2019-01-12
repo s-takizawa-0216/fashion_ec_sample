@@ -282,10 +282,12 @@
 
       &-arigato-transaction-btn{
         width: 260px;
-        height: 65px;
+        height: 55px;
         background: #c49a44;
         color: #fff;
         border-radius: 5px;
+        text-align: center;
+        padding-top: 10px;
 
         .arigato-price-msg{
           font-size: 14px;

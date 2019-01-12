@@ -372,6 +372,7 @@ $(function(){
 // チェックボックス(お届け先)リンクに戻す
 $(function(){
   $('input#hide-new-address').click(function(){
+
   var check = $(this).prop('checked');
   var check2 = $('input#comfirm_this_card').prop('checked');
     if(check == true && check2 != true){
@@ -393,4 +394,52 @@ $(function(){
     }
   });
 });
+
+// 届け先追加のrequired属性
+$(function(){
+  $('#new-address-check').click(function(){
+
+  var check = $(this).prop('checked');
+    if(check == true){
+      $('.required').prop('required', true);
+    }else{
+      $('.required').prop('required', false);
+    }
+  });
+});
+
+$(function(){
+  $('#hide-new-address').click(function(){
+
+  var check = $(this).prop('checked');
+    if(check == true){
+      $('.required').prop('required', false);
+    }
+  });
+});
+
+// クレジットカード追加のrequred属性
+$(function(){
+  $('#comfirm_this_card').click(function(){
+
+  var check = $(this).prop('checked');
+    if(check == true){
+      $('.required2').prop('required', true);
+    }else{
+      $('.required2').prop('required', false);
+    }
+  });
+});
+
+$(function(){
+  $('input#haunt_pay, input#zozocard-check, input#nomal-card, input#cash_on_delivery, input#line_pay, input#convinence').click(function(){
+
+  var check = $(this).prop('checked');
+    if(check == true){
+      $('.required2').prop('required', false);
+    }
+  });
+});
+
+
 

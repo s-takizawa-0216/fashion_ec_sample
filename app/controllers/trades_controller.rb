@@ -51,23 +51,22 @@ class TradesController < ApplicationController
     # 送料込みの値段
     @include_fee = @items_sum+320
     # ユーザー情報の取得
-    @user = UserDetail.find_by(user_id: current_user.id)
+    @user = Shipping.find_by(user_id: current_user.id)
+    #クレジットカード情報の取得
+    @user_credit_card = CreditCard.find_by(user_id: current_user.id)
     # クレジットカード情報の作成
     @credit_card = CreditCard.new
     # 配送先情報の追加
     @shipping_info = Shipping.new
   end
 
-  def add_shipping_info
-    @shipping_info = Shipping.new
-    @shipping_info.save
-    redirect_to root_path
-  end
   
-  def add_credit_card
-    # クレジットカード情報の生成
+  def add_user_info
+    # クレジットカード情報の追加
     @credit_card = CreditCard.new(credit_card_params)
-    if @credit_card.save
+    # 配送先情報の追加
+    @shipping_info = Shipping.new(shipping_info_params)
+    if @credit_card.save && @shipping_info.save
       redirect_to confirmation_trades_path
     else
       redirect_to order_trades_path
@@ -103,7 +102,7 @@ class TradesController < ApplicationController
   end
 
   def shipping_info_params
-    params.require(:shipping).permit(:genre, :name, :postal_code, :prefecture)
+    params.require(:shipping).permit(:genre, :name, :postal_code, :prefecture, :address1, :address2, :phonenumber).merge(user_id: current_user.id)
   end
 end
 

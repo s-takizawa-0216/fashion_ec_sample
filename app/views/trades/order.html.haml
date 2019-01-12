@@ -1,4 +1,4 @@
-= form_for(@credit_card, url: add_credit_card_trades_path, html: {method: :post, class: "h-adr"}) do |f|
+= form_for(@credit_card, url: add_user_info_trades_path, html: {method: :post, class: "h-adr"}) do |f|
   .order-main.clearfix
     .order-main__header.clearfix
       .order-main__header__left
@@ -12,41 +12,42 @@
         .order-main__body__item-space__index 
           %p.order-main__body__item-space__index-msg  お届け先
         .order-main__body__item-space__detail
-          .order-main__body__item-space__detail-box.clearfix
-            %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left", id: "hide-new-address"}
-            .order-main__body__item-space__detail-box__right#hide-address
-              %p
-                %span
-                  = @user.family_name
-                %span 
-                  = @user.first_name
-                %span 様
-              %p
-                %span 〒
-                %span 
-                  = current_user.postal_code
-                %span.ship-on-day 即日発送可能
-              %p
-                %span 住所：
-                %span #{@user.prefecture}#{@user.address1}#{@user.address2}
-              %p
-                %span 電話：
-                %span
-                  = @user.phonenumber
+          -if @user.present?
+            .order-main__body__item-space__detail-box.clearfix
+              %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left", id: "hide-new-address"}
+              .order-main__body__item-space__detail-box__right#hide-address
+                %p
+                  %span
+                    = @user.name
+                  %span 様
+                %p
+                  %span 〒
+                  %span 
+                    = @user.postal_code
+                  %span.ship-on-day 即日発送可能
+                %p
+                  %span 住所：
+                  %span #{@user.prefecture}#{@user.address1}#{@user.address2}
+                %p
+                  %span 電話：
+                  %span
+                    = @user.phonenumber
 
           .new-address-additional
             .new-address-additional__header.clearfix.unchecked#address-header
-              %input{type: :checkbox, class: "new-address-additional__header-check", id: "new-address-check"}
-                .new-address-additional__header-msg 新しいお届け先を追加
+              %input{type: :checkbox, class: "new-address-additional__header-check", id: "new-address-check", checked: false}
+                .new-address-additional__header-msg 
+                  %span 新しいお届け先を追加
+                  %span.neccesary-check-info (追加する場合は必ずチェックをつけてください)
 
-            = fields_for(@shiping_info, url: add_shipping_info_trades_path, html: {method: :post}) do |i|
+            = fields_for(@shipping_info, html: {method: :post}) do |i|
               .new-address-additional__body#new-address
                 .new-address-additional__body-box
                   %p.new-address-additional__body-box-msg
                     %span.margin-space100 種別
                     %span.p-country-name{:style => "display:none;"} Japan
                     %span 
-                      = i.select :genre, [["勤務先・職場職場",1],["友人・知人卓",2],["実家", 3],["その他",4]],{},class: "address-genre"
+                      = i.select :genre, [["勤務先・職場職場",1],["友人・知人卓",2],["実家", 3],["その他",4]],{},class: "address-genre",require: false
                   %p.new-address-additional__body-box-msg
                     %span.margin-space85 お名前
                     %span 
@@ -63,7 +64,7 @@
                   %p.new-address-additional__body-box-msg
                     %span.margin-space85 住所1
                     %span 
-                      = i.text_field :address1, name: "pref02", class: "p-locality p-street-address p-extended-address address-name", placeholder: " 市区町村、番地など"
+                      = i.text_field :address1, class: "p-locality p-street-address p-extended-address address-name", placeholder: " 市区町村、番地など"
                   %p.new-address-additional__body-box-msg
                     %span.margin-space85 住所2
                     %span 
@@ -109,7 +110,7 @@
 
           .new-address-additional
             .new-address-additional__header.clearfix.unchecked#date-delivery-header
-              %input{type: :checkbox, class: "new-address-additional__header-check",id: "date-new-delivery-check"}
+              %input{type: :checkbox, class: "new-address-additional__header-check", id: "date-new-delivery-check"}
                 .new-address-additional__header-msg.margin-space70 即日発送
                 .new-address-additional__header-msg.make-span-bold.make-span-red 最短 
                 .new-address-additional__header-msg.make-span-bold ◯月◯日（◯）
@@ -128,7 +129,7 @@
           %p
         .order-main__body__item-space__detail
           .order-main__body__item-space__detail-box.clearfix
-            %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left"}
+            %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left", id: "haunt_pay"}
             .order-main__body__item-space__detail-box__right.make-space-box-right
               %p
                 %span ツケ払い
@@ -136,7 +137,7 @@
                 %span.margin-space130 10ポイント還元
                 %span ¥324
           .order-main__body__item-space__detail-box.clearfix
-            %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left"}
+            %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left", id: "zozocard-check"}
             .order-main__body__item-space__detail-box__right.make-space-box-right
               %p
                 %span.margin-space90 ZOZOCARD
@@ -154,8 +155,14 @@
               .new-address-additional__header.clearfix
                 .new-address-additional__header-msg.margin-space110 カード番号
                 %input{type: :checkbox, class: "new-address-additional__header-check", id: "nomal-card"}
-                .new-address-additional__header-msg.margin-space40 カード番号下4桁
-                .new-address-additional__header-msg 期限
+                .new-address-additional__header-msg.margin-space40 
+                  %span カード番号下4桁
+                  -if @user_credit_card.present?
+                    %span #{@user_credit_card.number}
+                .new-address-additional__header-msg 
+                  %span 期限
+                  -if @user_credit_card.present?
+                    %span #{@user_credit_card.expire_day}#{@user_credit_card.expire_month}
               .new-address-additional__header.clearfix#usual-card-num1
                 .new-address-additional__header-msg.margin-space67 セキュリティコード
                 .new-address-additional__header-msg 
@@ -207,7 +214,9 @@
                     %option{value: 5}ボーナス払い
               .new-address-additional__header.new-address-confirm.clearfix
                 %input{type: :checkbox, class: "new-address-additional__header-check",id: "comfirm_this_card", checked: false}
-                  .new-address-additional__header-msg  このクレジットカード情報を登録する
+                  .new-address-additional__header-msg  
+                    %span このクレジットカード情報を登録する
+                    %span.neccesary-check-info (必ずここにチェックを入れてください)
 
 
 
@@ -219,7 +228,7 @@
                   %span をご確認ください。
 
           .order-main__body__item-space__detail-box.clearfix
-            %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left"}
+            %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left", id: "cash_on_delivery"}
             .order-main__body__item-space__detail-box__right.make-space-box-right
               %p
                 %span.margin-space115 代金引換
@@ -227,7 +236,7 @@
                 %span ¥324
 
           .order-main__body__item-space__detail-box.clearfix
-            %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left"}
+            %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left", id: "line_pay"}
             .order-main__body__item-space__detail-box__right.make-space-box-right
               %p
                 %span.margin-space115 LINE Pay
@@ -235,7 +244,7 @@
                 %span ¥0
 
           .order-main__body__item-space__detail-box.clearfix
-            %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left"}
+            %input{type: :checkbox, class: "order-main__body__item-space__detail-box__left", id: "convinence"}
             .order-main__body__item-space__detail-box__right.make-space-box-right
               %p
                 %span.margin-space115 コンビニ
@@ -262,8 +271,8 @@
     .order-main__right#order-right
       .order-main__right__content
         = link_to confirmation_trades_path do
-          .order-main__right__content__tonext-btn.link-btn_to-confirmation#link-btn 次に進む
-        = f.submit "次に進む",class: "order-main__right__content__tonext-btn", id: "add_credit_card"
+          .order-main__right__content__tonext-btn.link-btn_to-confirmation#link-btn 次に進むリンク
+        = f.submit "次に進むSUBMIT",class: "order-main__right__content__tonext-btn", id: "add_credit_card"
         .order-main__right__content__info-box
           %p
             %span.margin-space140 商品合計

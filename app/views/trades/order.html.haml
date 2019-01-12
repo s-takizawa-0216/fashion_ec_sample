@@ -53,14 +53,17 @@
                   %p.new-address-additional__body-box-msg
                     %span.margin-space70 郵便番号
                     %span 
-                      = i.text_field :postal_code, class: "address-name", placeholder: " 例) 2617127"
+                      = i.text_field :postal_code, maxlength: "8", size: "10", class: "address-name", placeholder: " 例) 2617127"
                   %p.new-address-additional__body-box-msg
                     %span.margin-space70 都道府県
-                    %span.prefecture-msg 郵便番号を入力してください
+                    %span
+                      %p
+                        = i.text_field :prefecture, class: "address-name", collection: JpPrefecture::Prefecture.all, :value_method => :name
+                      %p.prefecture-msg 郵便番号を入力してください
                   %p.new-address-additional__body-box-msg
                     %span.margin-space85 住所1
                     %span 
-                      %input{type: :text,class: "address-name", placeholder: " 市区町村、番地など"}
+                      = i.text_field :address1, name: "pref02", class: "address-name", placeholder: " 市区町村、番地など"
                   %p.new-address-additional__body-box-msg
                     %span.margin-space85 住所2
                     %span 

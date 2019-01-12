@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_one :user_detail
   has_one :credit_card
+  has_one :shipping
   
   validates :email, :password, :postal_code, presence: true
 

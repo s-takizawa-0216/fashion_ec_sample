@@ -42,10 +42,7 @@
                     = stock.count
                   %td.iconBtn.iconIMG
                     = fa_icon("image")
-                    - if stock.image.blank?
-                      = image_tag("http://lib.city.koshigaya.saitama.jp/wp-content/uploads/2015/08/noimage_300-207x300.png")
-                    - else
-                      = image_tag("#{stock.image}")
+                    = image_tag("#{stock.image}")
                   %td.iconBtn.iconEdit
                     %a
                     = fa_icon("edit")
@@ -110,6 +107,8 @@
     .modal-inner
       .image-iframe
         .stockDetailPix
+          = image_tag("")
+        .noImage
           = image_tag("http://lib.city.koshigaya.saitama.jp/wp-content/uploads/2015/08/noimage_300-207x300.png")
 
         .modal-item.modal-close.image-close

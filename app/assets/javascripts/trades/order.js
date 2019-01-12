@@ -1,4 +1,4 @@
-// 住所追加項目
+// 住所追加項目のスタイル変更
 $(function(){
   $('#new-address-check').click(function(){
 
@@ -16,7 +16,7 @@ $(function(){
   });
 });
 
-// 発送方法選択項目
+// 発送方法選択項目のスタイル変更
 $(function(){
   $('#new-delivery-check').click(function(){
 
@@ -49,7 +49,7 @@ $(function(){
   });
 });
 
-// クレジットカードの選択
+// クレジットカードの選択スタイル変更
 $(function(){
   $('#creditcard-check').click(function(){
 
@@ -78,7 +78,7 @@ $(function(){
   });
 });
 
-// セキュリティーコードとは？
+// セキュリティーコードとは？の表示
 $(function(){
   $('#popup-cursor1,#popup-cursor2').mouseover(function(){
     $('#popup-image').show();
@@ -91,7 +91,7 @@ $(function(){
   });
 });
 
-//チェックボックス（お届け先）
+// チェックボックス(お届け先）のチェック1つのみ
 $(function(){
   $('input#hide-new-address').click(function(){
     var check = $(this).prop('checked');
@@ -110,7 +110,7 @@ $(function(){
   });
 });
 
-//配送方法のチェックボックス
+// チェックボックス(配送方法)のチェック1つのみ
 $(function(){
   $('input#hide-new-delivery').click(function(){
     var check = $(this).prop('checked');
@@ -141,7 +141,7 @@ $(function(){
   });
 });
 
-//お支払い方法
+// チェックボックス(お支払い方法)のチェック1つのみ
 $(function(){
   $('input#haunt_pay').click(function(){
     var check = $(this).prop('checked');
@@ -235,7 +235,7 @@ $(function(){
   });
 });
 
-//払い方法選択でのクレジットカード画面の表示・非表示
+//支払い方法チェックボックス変更によるクレジットカード追加画面の表示・非表示
 $(function(){
   $('input#haunt_pay').click(function(){
     var check = $(this).prop('checked');
@@ -329,11 +329,13 @@ $(function(){
   });
 });
 
-// 次に進むボタンのsubmitかlinkかの変更( 該当箇所チュエックでリンクに戻すパターン)
+// 次に進むボタンのsubmitかlinkかの変更(該当箇所チェックでリンクに戻すパターン)
 $(function(){
-  $('input#hide-new-address, input#haunt_pay, input#zozocard-check, input#cash_on_delivery, input#line_pay, input#convinence').click(function(){
-  var check = $(this).prop('checked');
-    if(check == true){
+  $('input#new-address-check, input#comfirm_this_card, input#hide-new-address, input#haunt_pay, input#zozocard-check, input#cash_on_delivery, input#line_pay, input#convinence').click(function(){
+  var check = $('input#hide-new-address, input#haunt_pay, input#zozocard-check, input#cash_on_delivery, input#line_pay, input#convinence').prop('checked');
+  var check2 = $('input#new-address-check').prop('checked');
+  var check3 = $('input#comfirm_this_card').prop('checked');
+    if(check == true && check2 == false && check3 == false){
       $('#link-btn ').show();
       $('#add_credit_card').hide();
     }

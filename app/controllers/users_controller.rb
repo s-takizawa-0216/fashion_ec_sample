@@ -1,18 +1,26 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :check_user_detail, only: [:edit]
 
   def new
-    @user_detail =UserDtail.new
+    @user_detail =UserDetail.new
   end
 
-  def create
-    @user_detail =UserDtail.new(user_detail_parasm)
+  def create_info
+    @user_detail =UserDetail.new(user_detail_parasm)
   end
 
   def show
     user = User.find(params[:id])
     @user = UserDetail.find_by(user_id: user.id)
     @shipping = Shipping.order('created_at': :desc).find_by(user_id: current_user.id)
+  end
+
+  def check_user_detail
+    user = UserDetail.find_by(user_id: current_user.id)
+    unless user.present?
+      redirect_to user_path
+    end
   end
 
   def edit

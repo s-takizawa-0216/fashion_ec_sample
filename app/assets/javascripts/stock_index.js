@@ -21,3 +21,13 @@ $(function(){
   })
 })
 
+$(function(){
+  $(".iconDelete a").click(function(){
+    if(!confirm('本当に削除しもよろしいですか？')){
+      return false;
+    }else{
+      location.href = 'index.html'
+    }
+  });
+});
+

@@ -3,13 +3,13 @@
     <div class="modal-inner">
       <div class="modal-iframe">
         <div id="detail">
-          <h2>在庫情報の編集</h2>
+          <h2>在庫情報の登録</h2>
           <div class="AddStackForm">
             <%= form_for @stock do |f| %>
 
               <%= render partial: "form", locals: {f: f, items: @items} %>
 
-              <%= f.submit "更新する", class: "submitBtn" %>
+              <%= f.submit "登録する", class: "submitBtn" %>
             <% end %>
           </div>
         </div>

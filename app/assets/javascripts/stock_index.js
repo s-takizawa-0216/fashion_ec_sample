@@ -1,14 +1,14 @@
 $(function(){
   var modal = $(".AddStack-overlay");
 
-  modal.hide()
-  $("#stockIndexBody").find("#addStock button").on("click", function(){
-    modal.show();
-  })
+  // modal.hide()
+  // $("#stockIndexBody").find("#addStock button").on("click", function(){
+  //   modal.show();
+  // })
 
-  $(".modal-close").on("click", function(){
-    modal.hide();
-  })
+  // $(".modal-close").on("click", function(){
+  //   modal.hide();
+  // })
 
 })
 

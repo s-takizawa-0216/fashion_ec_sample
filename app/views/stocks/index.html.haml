@@ -12,8 +12,9 @@
   .mainContent
     #stockInfo
       #addStock
-        %button.addBtn
-          %a 追加
+
+        = link_to new_stock_path, remote: true do
+          %button.addBtn 追加
       #tblStockInfo
         %table
           %thead
@@ -50,56 +51,7 @@
                     = link_to stock_path(stock), method: :delete do
                       = fa_icon("trash")
 
-.AddStack-overlay.modal-overlay.modal-overlay-fixed
-  .modal-outer
-    .modal-inner
-      .modal-iframe
-        #detail
-          %h2 在庫情報の登録
-          .AddStackForm
-            = form_for @stock do |f|
-              .form-group
-                %label.mainLabel アイテム名
-                %span.form-require 必須
-                .radioBox.clearfix
-                  - @items.each do |item|
-                    .radioSelect
-                      = f.radio_button :item_id, "#{item.id}"
-                      = f.label :item_id, "#{item.name}", value: "#{item.id}"
 
-              .form-group
-                %label.mainLabel サイズ
-                %span.form-require 必須
-                %br.clearBoth
-                .selectBox
-                  = f.select :size_id , Size.all.map{|size|[size.size, size.id]}
-
-
-
-              .form-group
-                %label.mainLabel カラー
-                %span.form-require 必須
-                %br.clearBoth
-                .selectBox
-                  = f.select :color_id, Color.all.map{|color|[color.name, color.id]}
-
-
-              .form-group
-                %label.mainLabel 個数
-                %span.form-require 必須
-                .clearBoth
-                = f.number_field :count, class: "input-default", min: "0"
-
-              .form-group
-                %label.mainLabel イメージ
-                %span.form-require.BKgray 任意
-                .clearBoth
-                .ImgPreview
-                = f.file_field :image
-
-              = f.submit "登録する", class: "submitBtn"
-      .modal-item.modal-close
-        %i.fa.fa-times
 
 .imagePreview-overlay.modal-overlay.modal-overlay-fixed
   .modal-outer
@@ -113,4 +65,4 @@
         .modal-item.modal-close.image-close
           %i.fa.fa-times
 
-#edit-modal
+#Stock-modal

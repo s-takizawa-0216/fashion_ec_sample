@@ -28,7 +28,7 @@
                   %td.basic-user-info__content-td
                     .users-table-space
                       %p
-                        = f.password_field :current_password, autocomplete: "current-password", class: "basic-userpasswprd-input", required: true
+                        = f.password_field :current_password, autocomplete: "current-password", class: "basic-userpasswprd-input",maxlength: 12, minlength: 6, required: true
 
                 %tr.basic-user-info__content-tr
                   %th.basic-user-info__content-th2
@@ -37,9 +37,9 @@
                   %td.basic-user-info__content-td
                     .users-table-space
                       %p.basic-userpasswprd-input-space
-                        = f.password_field :password, autocomplete: "new-password", placeholder: "半角英数混合6〜12文字",class: "basic-userpasswprd-input", required: true
+                        = f.password_field :password, autocomplete: "new-password", placeholder: "半角英数混合6〜12文字",class: "basic-userpasswprd-input", maxlength: 12, minlength: 6, required: true
                       %p
-                        = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "確認のため再度入力してください",class: "basic-userpasswprd-input", required: true
+                        = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "確認のため再度入力してください",class: "basic-userpasswprd-input", maxlength: 12, minlength: 6, required: true
                       %p.basic-useremail-input-msg ※ZOZOIDとは違う文字列で、半角大文字、小文字を正しく入力してください。
 
                 %tr

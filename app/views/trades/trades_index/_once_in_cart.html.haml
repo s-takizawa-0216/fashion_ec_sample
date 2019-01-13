@@ -1,0 +1,8 @@
+= form_tag(trade_return_to_cart_url(once_in_cart),method: :post) do
+  %li.side-by-side-li.cart-main__checked-item__line__li
+    =image_tag "#{once_in_cart.stock.item.images.first.image}", class: "cart-main__checked-item__line__li-image"
+    .cart-main__checked-item__line__li-item-name 
+      = once_in_cart.stock.item.name
+    %span.cart-main__checked-item__line__li-item-price ¥#{once_in_cart.stock.item.price}
+    %span.cart-main__checked-item__line__li-tax-include 税込
+    %button{type: :submit, class: "add-to-cart-btn"} カートに入れる

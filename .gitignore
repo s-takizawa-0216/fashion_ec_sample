@@ -30,6 +30,7 @@ config/secrets.yml
 
 /public/uploads
 
+
 app/assets/images/31652942_165_D_500.jpg
 
 app/assets/images/24939097B_8_D_215.jpg

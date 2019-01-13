@@ -56,6 +56,7 @@
                   %td.new-user-detail-td
                     .user-info-change-btn
                       = link_to "追加", new_user_path
+
               %tr.body-right__top-inside__content-tr
                 %th.body-right__top-inside__content-th
                   %p メールアドレス
@@ -66,6 +67,7 @@
                 %td
                   .user-info-change-btn
                     = link_to "変更", user_email_path(current_user.id)
+
               %tr.body-right__top-inside__content-tr
                 %th.body-right__top-inside__content-th パスワード
                 %td.body-right__top-inside__content-td-password
@@ -105,6 +107,7 @@
                           %span 電話：
                           %span
                             = @shipping.phonenumber
+
               %tr
                 %td.user-page-additional-address
                   -unless @shipping.present?
@@ -127,4 +130,4 @@
                   %p.user-page-additional-address-msg クレジットカードの登録はありません。
                   %p.user-page-additional-address-msg ※新規カードの登録は、商品購入時に可能です。
 
-.footer it will be grabbed form Mr.T
+= render "/shared/footer.html.haml"

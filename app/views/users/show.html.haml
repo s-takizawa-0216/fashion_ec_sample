@@ -31,20 +31,20 @@
                           = @user.first_name
                         %span (#{@user.family_name_kana}#{@user.first_name_kana})
                       %p 
-                        = current_user.gender
+                        = @user.gender
                       %p
                         %span 
-                          = current_user.birth_year
+                          = @user.birth_year
                         %span 年
                         %span
-                          = current_user.birth_month
+                          = @user.birth_month
                         %span 月
                         %span
-                          = current_user.birth_day
+                          = @user.birth_day
                         %span 日
                       %p 
                         %span 〒
-                        %span #{current_user.postal_code.to_s[0..2]}-#{current_user.postal_code.to_s[3..6]}
+                        %span #{@user.postal_code.to_s[0..2]}-#{@user.postal_code.to_s[3..6]}
                       %p #{@user.address1}#{@user.address2}
                       %p
                         = @user.phonenumber

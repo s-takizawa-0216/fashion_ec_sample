@@ -2,9 +2,11 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def new
+    @user_detail =UserDtail.new
   end
 
   def create
+    @user_detail =UserDtail.new(user_detail_parasm)
   end
 
   def show
@@ -31,7 +33,7 @@ class UsersController < ApplicationController
   private
 
     def user_detail_parasm
-      params.require(:user_detail).permit(:family_name, :first_name, :family_name_kana, :first_name_kana, :refecture, :address1, :address2, :phonenumber).merge(user_id: current_user.id)
+      params.require(:user_detail).permit(:family_name, :first_name, :family_name_kana, :first_name_kana, :prefecture, :address1, :address2, :phonenumber, :gender, :birth_year, :birth_month, :birth_day, :postal_code).merge(user_id: current_user.id)
     end
 
 end

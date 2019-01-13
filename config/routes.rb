@@ -18,12 +18,11 @@ Rails.application.routes.draw do
   end
 
 
-  resources :users, only: [:new, :create_info, :show, :edit, :update_info, :email, :update_email, :password_edit, :address] do
+  resources :users, only: [:new, :create_info, :show, :edit, :update_info, :email, :update_email, :address] do
     post 'create_info',   to: 'users#create_info',   as: :create_info, on: :collection
     patch 'update_info',  to: 'users#update_info',   as: :update_info, on: :collection
     get 'email',          to: 'users#email',         as: :email
     patch 'update_email', to: 'users#update_email',  as: :update_email
-    get 'password_edit',  to: 'users#password_edit', as: :password_edit
     get 'address',        to: 'users#address',       as: :address
   end
 

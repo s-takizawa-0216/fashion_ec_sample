@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   end
 
   def update_info
-    # 基本情報編集のDBへの追加
+    # 基本情報編集のDBへの更新
     @user_detail = UserDetail.find_by(user_id: current_user.id)
     @user_detail.update(update_user_detail_params)
     if @user_detail.save
@@ -47,9 +47,10 @@ class UsersController < ApplicationController
   end
 
   def update_email
-    # メールアドレスの変更をDBに保存
+    # メールアドレスの変更をDBに更新
     @user = User.find(params[:user_id])
     @user.update_columns(email: "#{params[:user]["email"]}")
+    redirect_to user_path(current_user.id)
   end
 
   def password_edit

@@ -1,7 +1,9 @@
 class StocksController < ApplicationController
 
+  before_action :check_shop, only: [:index]
   before_action :set_shop, only: [:index, :new, :edit]
   before_action :set_stock, only: [:destroy, :edit, :update]
+
 
   def index
   end
@@ -44,9 +46,13 @@ class StocksController < ApplicationController
     params.require(:stock).permit(:item_id, :color_id, :size_id, :count, :image)
   end
 
+  def check_shop
+    redirect_to root_path unless current_user.shop.present?
+  end
+
   def set_shop
-    shop = Shop.find(1)
-    @items = shop.items
+    @shop = Shop.find(current_user.shop.id)
+    @items = @shop.items
   end
 
   def set_stock

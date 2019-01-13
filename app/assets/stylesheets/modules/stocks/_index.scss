@@ -50,6 +50,13 @@
           }
         }
       }
+      .shopName{
+        float: right;
+        padding:5px 15px 0 0;
+        color: #FFF;
+        font-size: 18px;
+        line-height: 1.5;
+      }
     }
   }
   .mainContent{
@@ -219,7 +226,7 @@
 
   &-iframe{
     width: 850px;
-    height: 650px;
+    min-height: 250px;
     margin: 0 auto;
     position: fixed;
     top: 78px;

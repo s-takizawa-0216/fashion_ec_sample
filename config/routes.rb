@@ -22,4 +22,5 @@ Rails.application.routes.draw do
     get   'done_transaction',       to: 'trades#done_transaction',      as: :done_transaction
   end
   resources :stocks, except: [:show]
+  resources :shops, only: [:new, :create]
 end

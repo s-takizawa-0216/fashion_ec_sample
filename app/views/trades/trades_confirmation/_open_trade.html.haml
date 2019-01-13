@@ -7,16 +7,19 @@
       = image_tag "#{open_trade.stock.item.images.first.image}", height: "85px", width: "70px"
   %li.side-by-side-li
     .confirm-item__box-item__info
-      %p 
+      %p
         = open_trade.stock.item.shop.name
-      %p 
-        = open_trade.stock.item.brand.name
+      -if Brand.where(id: open_trade.stock.item.brand_id).present?
+        %p
+          = open_trade.stock.item.brand.name
       %p #{open_trade.stock.item.parent_category.name}/#{open_trade.stock.item.child_category.name}
-      %p 
-        = open_trade.stock.color.name
-      %p 
-        = open_trade.stock.size.size
-      %p 
+      -if Size.where(id: open_trade.stock.color_id).present?
+        %p
+          = open_trade.stock.color.name
+      -if Size.where(id: open_trade.stock.size_id).present?
+        %p
+          = open_trade.stock.size.size
+      %p
         %span 数量：
         %span
           = open_trade.count

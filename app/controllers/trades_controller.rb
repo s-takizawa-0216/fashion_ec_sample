@@ -35,6 +35,7 @@ class TradesController < ApplicationController
     # カートからアイテムを消去
     trade = Trade.find(params[:trade_id])
     erace_from_cart = trade.update(status: 1)
+    flatten_count = trade.update(count: 1)
     redirect_to trades_path
   end
 
@@ -98,7 +99,6 @@ class TradesController < ApplicationController
     #カート内アイテムの取得
     @open_trade = Trade.where(status: 0, user_id: current_user.id)
     # 合計金額の計算
-    @open_trade = Trade.where(status: 0, user_id: current_user.id)
     @items_sum = @open_trade.sum{|trade|trade[:total]}
     # 送料込みの値段
     @include_fee = @items_sum+320
@@ -108,17 +108,17 @@ class TradesController < ApplicationController
     # カート内にあるアイテムの取得
     trade = Trade.where(status: 0, user_id: current_user.id)
     # Tradesテーブルのstatusを購入済に更新
-    done_transaction = trade.update(status: 3)
+    done_transaction = trade.update(status: 2)
   end
 
   private
 
-  def credit_card_params
-    params.require(:credit_card).permit(:number, :expire_month, :expire_day, :security_code).merge(user_id: current_user.id)
-  end
+    def credit_card_params
+      params.require(:credit_card).permit(:number, :expire_month, :expire_day, :security_code).merge(user_id: current_user.id)
+    end
 
-  def shipping_info_params
-    params.require(:shipping).permit(:genre, :name, :postal_code, :prefecture, :address1, :address2, :phonenumber).merge(user_id: current_user.id)
-  end
+    def shipping_info_params
+      params.require(:shipping).permit(:genre, :name, :postal_code, :prefecture, :address1, :address2, :phonenumber).merge(user_id: current_user.id)
+    end
 end
 

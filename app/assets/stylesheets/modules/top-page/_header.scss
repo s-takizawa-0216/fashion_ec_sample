@@ -20,7 +20,7 @@
   height: 51px;
   background-color:#2d2d2d;
   position: relative;
-  z-index: 2;
+  z-index: 10;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -184,6 +184,28 @@
             width: 50px;
             line-height: 50px;
             text-align: center;
+          }
+
+        &__li-cog {
+          width: auto;
+          display: inline-block;
+          float: right;
+        }
+
+          &__cog-js {
+            width: 50px;
+            line-height: 50px;
+            text-align: center;
+
+             >span {
+
+              >a {
+
+                >i {
+                  color:#ffffff;
+                }
+              }
+             }
           }
 }
 

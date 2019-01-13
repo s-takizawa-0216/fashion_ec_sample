@@ -8,7 +8,15 @@ Rails.application.routes.draw do
   end
 
   root "items#index"
-  resources :items, only: [:new, :create, :show]
+
+
+
+
+  resources :items, only: [:new, :create ,:cordinate , :prefecture ,:show] do
+    get 'cordination' , to: 'items#cordination', on: :collection
+    get 'prefecture' , to: 'items#prefecture' , on: :collection
+  end
+
 
   resources :users, only: [:show, :edit, :email, :password_edit, :address] do
     get 'email', to: 'users#email', as: :email

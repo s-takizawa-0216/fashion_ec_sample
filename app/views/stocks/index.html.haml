@@ -44,12 +44,11 @@
                     = fa_icon("image")
                     = image_tag("#{stock.image}")
                   %td.iconBtn.iconEdit
-                    %a
+                    = link_to edit_stock_path(stock), remote: true do
                       = fa_icon("edit")
                   %td.iconBtn
                     = link_to stock_path(stock), method: :delete do
                       = fa_icon("trash")
-
 
 .AddStack-overlay.modal-overlay.modal-overlay-fixed
   .modal-outer
@@ -113,3 +112,5 @@
 
         .modal-item.modal-close.image-close
           %i.fa.fa-times
+
+#edit-modal

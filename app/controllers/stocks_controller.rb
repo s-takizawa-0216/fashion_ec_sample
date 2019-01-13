@@ -23,6 +23,21 @@ class StocksController < ApplicationController
     end
   end
 
+  def edit
+    @stock = Stock.find(params[:id])
+    shop = Shop.find(1)
+    @items = shop.items
+  end
+
+  def update
+    stock = Stock.find(params[:id])
+    if stock.update(stock_params)
+      redirect_to stocks_path
+    else
+      render :index
+    end
+  end
+
   private
 
   def stock_params

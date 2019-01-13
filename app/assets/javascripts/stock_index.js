@@ -10,10 +10,6 @@ $(function(){
     modal.hide();
   })
 
-  $("#tblStockInfo .iconEdit").on("click", function(){
-    modal.show();
-  })
-
 })
 
 
@@ -38,5 +34,5 @@ $(function(){
   $(".modal-close").on("click", function(){
     modal.hide();
   })
-
 })
+

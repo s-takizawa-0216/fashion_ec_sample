@@ -1,0 +1,5 @@
+$('#edit-modal').html("<%= escape_javascript(render 'edit') %>");
+
+$('.modal-close').on("click", function(){
+  $('.AddStack-overlay').hide();
+});

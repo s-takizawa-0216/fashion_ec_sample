@@ -27,7 +27,7 @@
                       = link_to 'ユーザー情報の編集' , "#", class: "header__right__popup__text"
                   %ul.header__right__popup__bottom
                     %li.header__right__popup__top
-                      = link_to '登録情報' , "#" , class: "header__right__popup__text1"
+                      = link_to '登録情報' , user_path("#{current_user.id}"), class: "header__right__popup__text1"
                     %li.header__right__popup__top
                       = link_to '注文履歴・発送状況' , "#" ,class: "header__right__popup__text1"
                     %li.header__right__popup__top

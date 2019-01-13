@@ -7,7 +7,12 @@ class UsersController < ApplicationController
   end
 
   def create_info
-    @user_detail =UserDetail.new(user_detail_parasm)
+    @user_detail =UserDetail.new(user_detail_params)
+    if @user_detail.save
+      redirect_to user_path(current_user.id)
+    else
+      redirect_to new_user_path
+    end
   end
 
   def show
@@ -40,7 +45,7 @@ class UsersController < ApplicationController
 
   private
 
-    def user_detail_parasm
+    def user_detail_params
       params.require(:user_detail).permit(:family_name, :first_name, :family_name_kana, :first_name_kana, :prefecture, :address1, :address2, :phonenumber, :gender, :birth_year, :birth_month, :birth_day, :postal_code).merge(user_id: current_user.id)
     end
 

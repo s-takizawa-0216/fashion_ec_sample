@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_13_145948) do
+ActiveRecord::Schema.define(version: 2019_01_13_162116) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -134,10 +134,10 @@ ActiveRecord::Schema.define(version: 2019_01_13_145948) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "gender", null: false
-    t.integer "birth_year", null: false
-    t.integer "birth_month", null: false
-    t.integer "birth_day", null: false
+    t.string "gender"
+    t.string "birth_year"
+    t.string "birth_month"
+    t.string "birth_day"
     t.integer "postal_code", null: false
     t.index ["user_id"], name: "index_user_details_on_user_id"
   end

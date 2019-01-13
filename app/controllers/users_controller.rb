@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    # 基本情報h編集画面
+    # 基本情報編集画面
     @user_detail = UserDetail.find_by(user_id: current_user.id)
   end
 
@@ -42,6 +42,14 @@ class UsersController < ApplicationController
   end
 
   def email
+    # メーリアドレスの変更
+    @user = User.find(params[:user_id])
+  end
+
+  def update_email
+    # メールアドレスの変更をDBに保存
+    @user = User.find(params[:user_id])
+    @user.update_columns(email: "#{params[:user]["email"]}")
   end
 
   def password_edit

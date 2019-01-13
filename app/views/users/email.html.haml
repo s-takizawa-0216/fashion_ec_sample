@@ -12,30 +12,31 @@
 
     = render "/users/shared/sidebar.html.haml"
 
-    .user-info-main__body-right
-      .body-right__top
-        .body-right__top-inside
-          .body-right__top-inside__header
-            .body-right__top-inside__header-index 
-              %p メールアドレスの変更
-              %p.user-basic-email-msg 変更するメールアドレスを入力し、確認メールを送信してください。
+    = form_for(@user, url: user_update_email_path, html: {method: :patch}) do |f|
+      .user-info-main__body-right
+        .body-right__top
+          .body-right__top-inside
+            .body-right__top-inside__header
+              .body-right__top-inside__header-index 
+                %p メールアドレスの変更
+                %p.user-basic-email-msg 変更するメールアドレスを入力し、確認メールを送信してください。
 
-          .body-right__top-inside__content
-            %table
-              %tr.basic-user-info__content-tr
-                %th.basic-user-info__content-th
-                  %span メールアドレス
-                %td.basic-user-info__content-td
-                  .users-table-space
-                    %p
-                      %input{placeholder: "例）ZOZO2020＠zozotown.jp",class: "basic-useremail-input"}
-                    %p.basic-useremail-input-msg ※zozo.jpからドメイン着信許可の設定をしてください。
+            .body-right__top-inside__content
+              %table
+                %tr.basic-user-info__content-tr
+                  %th.basic-user-info__content-th
+                    %span メールアドレス
+                  %td.basic-user-info__content-td
+                    .users-table-space
+                      %p
+                        =f.email_field :email, placeholder: "例）ZOZO2020＠zozotown.jp",class: "basic-useremail-input", required: true
+                      %p.basic-useremail-input-msg ※zozo.jpからドメイン着信許可の設定をしてください。
 
-              %tr
-                %th.basic-user-info__content-th
-                %td.basic-user-info__content-td
-                  .users-table-space.usesr-basic-info-bottom
-                    %button{class: "user-basicinfo-btn"} 確認する
+                %tr
+                  %th.basic-user-info__content-th
+                  %td.basic-user-info__content-td
+                    .users-table-space.usesr-basic-info-bottom
+                      = f.submit "確認する", class: "user-basicinfo-btn"
 
-.footer it will be grabbed form Mr.T
+= render "/shared/footer.html.haml"
 

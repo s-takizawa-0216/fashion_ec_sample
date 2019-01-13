@@ -25,15 +25,15 @@
                   %td.body-right__top-inside__content-td
                     .users-table-space
                       %p
-                        %span 
+                        %span
                           = @user.family_name
                         %span
                           = @user.first_name
                         %span (#{@user.family_name_kana}#{@user.first_name_kana})
-                      %p 
+                      %p
                         = @user.gender
                       %p
-                        %span 
+                        %span
                           = @user.birth_year
                         %span 年
                         %span
@@ -57,7 +57,7 @@
                     .user-info-change-btn
                       = link_to "追加", new_user_path
               %tr.body-right__top-inside__content-tr
-                %th.body-right__top-inside__content-th 
+                %th.body-right__top-inside__content-th
                   %p メールアドレス
                   %p (ZOZO ID)
                 %td.body-right__top-inside__content-td-email
@@ -65,7 +65,7 @@
                     = current_user.email
                 %td
                   .user-info-change-btn
-                    = link_to "変更"
+                    = link_to "変更", user_email_path(current_user.id)
               %tr.body-right__top-inside__content-tr
                 %th.body-right__top-inside__content-th パスワード
                 %td.body-right__top-inside__content-td-password
@@ -83,7 +83,7 @@
           .body-right__top-inside__content
             %table
               %tr
-                .order-main__body__item-space__index 
+                .order-main__body__item-space__index
                   %p.order-main__body__item-space__index-msg  お届け先
                 .order-main__body__item-space__detail
                   -if @shipping.present?

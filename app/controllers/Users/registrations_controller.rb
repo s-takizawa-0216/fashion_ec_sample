@@ -45,7 +45,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   protected
-  
+
   def sns_new
     @user = User.new(sns_params)
   end

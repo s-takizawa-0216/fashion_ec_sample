@@ -152,32 +152,33 @@
                 .new-address-additional__header-msg ¥0
 
             .no-function-box#new-creditcard
-              .new-address-additional__header.clearfix
-                .new-address-additional__header-msg.margin-space110 カード番号
-                %input{type: :checkbox, class: "new-address-additional__header-check", id: "nomal-card", checked: false}
-                .new-address-additional__header-msg.margin-space40 
-                  %span カード番号下4桁
-                  -if @user_credit_card.present?
-                    %span.creca-msg #{@user_credit_card.number.slice(-4..-1)}
-                .new-address-additional__header-msg 
-                  %span 期限
-                  -if @user_credit_card.present?
-                    %span.creca-msg #{@user_credit_card.expire_day}/#{@user_credit_card.expire_month}
-              .new-address-additional__header.clearfix#usual-card-num1
-                .new-address-additional__header-msg.margin-space67 セキュリティコード
-                .new-address-additional__header-msg 
-                  %p
-                    %input{type: :password, placeholder: "半角数字のみ", class: "credit-numbers", style: "font-size: 13px"}
-                  %p.security-msg#popup-cursor1 セキュリティコードについて
-              .new-address-additional__header.clearfix#usual-card-num2
-                .new-address-additional__header-msg.margin-space115.make-space-box-right 支払い回数
-                .new-address-additional__header-msg.make-space-box-right
-                  %select{class: "credit-numbers"}
-                    %option{value: 1}一括払い
-                    %option{value: 2}2回払い
-                    %option{value: 3}3回払い
-                    %option{value: 4}24回払い
-                    %option{value: 5}ボーナス払い
+              -if @user_credit_card.present?
+                .new-address-additional__header.clearfix
+                  .new-address-additional__header-msg.margin-space110 カード番号
+                  %input{type: :checkbox, class: "new-address-additional__header-check", id: "nomal-card", checked: false}
+                  .new-address-additional__header-msg.margin-space40 
+                    %span カード番号下4桁
+                    -if @user_credit_card.present?
+                      %span.creca-msg #{@user_credit_card.number.slice(-4..-1)}
+                  .new-address-additional__header-msg 
+                    %span 期限
+                    -if @user_credit_card.present?
+                      %span.creca-msg #{@user_credit_card.expire_day}/#{@user_credit_card.expire_month}
+                .new-address-additional__header.clearfix#usual-card-num1
+                  .new-address-additional__header-msg.margin-space67 セキュリティコード
+                  .new-address-additional__header-msg 
+                    %p
+                      %input{type: :password, placeholder: "半角数字のみ", class: "credit-numbers", style: "font-size: 13px"}
+                    %p.security-msg#popup-cursor1 セキュリティコードについて
+                .new-address-additional__header.clearfix#usual-card-num2
+                  .new-address-additional__header-msg.margin-space115.make-space-box-right 支払い回数
+                  .new-address-additional__header-msg.make-space-box-right
+                    %select{class: "credit-numbers"}
+                      %option{value: 1}一括払い
+                      %option{value: 2}2回払い
+                      %option{value: 3}3回払い
+                      %option{value: 4}24回払い
+                      %option{value: 5}ボーナス払い
               .new-address-additional__header.clearfix.new-address-confirm#erasable-creditcard
                 %input{type: :checkbox, class: "new-address-additional__header-check",id: "new-creditcard-check", checked: false}
                   .new-address-additional__header-msg#new-creditcard-top 新しいカードを追加
@@ -187,7 +188,7 @@
                 = image_tag "https://zozo.jp/_cart/order/img/card_company.gif", class: "genere-cards"
               .new-address-additional__header.clearfix
                 .new-address-additional__header-msg.margin-space130 カード番号
-                = f.text_field :number, placeholder: "半角数字のみ(ハイフンなし)", class: "credit-numbers required2", required: false
+                = f.text_field :number, placeholder: "半角数字のみ(ハイフンなし)", class: "credit-numbers required2", maxlength: 12, minimumlength: 11, required: false
               .new-address-additional__header.clearfix
                 .new-address-additional__header-msg.margin-space67 セキュリティコード
                 .new-address-additional__header-msg 
@@ -269,15 +270,17 @@
 
 
     .order-main__right#order-right
-      -unless @user.present? || @user_credit_card.present?
+      -unless @user.present? && @user_credit_card.present?
         .order-main__right__content__tonext-btn.shipping-creditcard-msg
           -unless @user.present?
-            .p 先にお届け先を登録してください
+            .p お届け先を登録して進ん でください
           -unless @user_credit_card.present?
-            .p 先にクレジットカードを追加してください
+            .p クレジットカードを追加して進んでください
+
       .order-main__right__content
-        = link_to confirmation_trades_path do
-          .order-main__right__content__tonext-btn.link-btn_to-confirmation#link-btn 次に進むリンク
+        -if @user.present? && @user_credit_card.present?
+          = link_to confirmation_trades_path do
+            .order-main__right__content__tonext-btn.link-btn_to-confirmation#link-btn 次に進むリンク
         = f.submit "次に進むSUBMIT",class: "order-main__right__content__tonext-btn", id: "add_credit_card"
         .order-main__right__content__info-box
           %p

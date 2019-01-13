@@ -1,5 +1,6 @@
 class TradesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index]
+  before_action :user_info_return, only: [:confirmation]
 
   def index
     # カートにあるアイテム
@@ -62,6 +63,10 @@ class TradesController < ApplicationController
 
 
   def add_user_info
+    # ユーザー情報の取得
+    @user = Shipping.find_by(user_id: current_user.id)
+    #クレジットカード情報の取得
+    @user_credit_card = CreditCard.find_by(user_id: current_user.id)
     # クレジットカード情報の追加
     @credit_card = CreditCard.new(credit_card_params)
     # 配送先情報の追加
@@ -71,7 +76,16 @@ class TradesController < ApplicationController
       redirect_to confirmation_trades_path
     elsif @credit_card.save || @shipping_info.save
       redirect_to confirmation_trades_path
-    else
+    end
+  end
+
+  def user_info_return
+    # ユーザー情報の取得
+    @user = Shipping.find_by(user_id: current_user.id)
+    #クレジットカード情報の取得
+    @user_credit_card = CreditCard.find_by(user_id: current_user.id)
+    # 購入ページに遷移する際にユーザー情報と届け先情報がない場合は、登録ページへリダイレクト
+    unless @user.present? && @user_credit_card.present?
       redirect_to order_trades_path
     end
   end
@@ -89,6 +103,7 @@ class TradesController < ApplicationController
     # 送料込みの値段
     @include_fee = @items_sum+320
   end
+
 
 
   def done_transaction

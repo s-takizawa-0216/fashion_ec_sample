@@ -53,9 +53,6 @@ class UsersController < ApplicationController
     redirect_to user_path(current_user.id)
   end
 
-  def password_edit
-  end
-
   def address
   end
 

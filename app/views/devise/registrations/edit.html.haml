@@ -1,36 +1,51 @@
-%h2
-  Edit #{resource_name.to_s.humanize}
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    %div
-      Currently waiting confirmation for: #{resource.unconfirmed_email}
-  .field
-    = f.label :password
-    %i (leave blank if you don't want to change it)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-    - if @minimum_password_length
-      %br/
-      %em
-        = @minimum_password_length
-        characters minimum
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
-    = f.label :current_password
-    %i (we need your current password to confirm your changes)
-    %br/
-    = f.password_field :current_password, autocomplete: "current-password"
-  .actions
-    = f.submit "Update"
-%h3 Cancel my account
-%p
-  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-= link_to "Back", :back
+= render "/shared/header-logged-in.html.haml"
+.sign-up__breadcrumbs breadcrumbs will be set here
+
+.user-info-main
+  .user-info-main__header
+    %span
+      = fa_icon "users", class: "user-info-icon"
+    %span ZOZOID
+    %span 様の登録情報
+
+  .user-info-main__body.clearfix
+
+    = render "/users/shared/sidebar.html.haml"
+
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+      .user-info-main__body-right
+        = f.email_field :email, autofocus: true, autocomplete: "email", type: :hidden, required: true
+        .body-right__top
+          .body-right__top-inside
+            .body-right__top-inside__header
+              .body-right__top-inside__header-index パスワードの変更
+            .body-right__top-inside__content
+              %table
+                %tr.basic-user-info__content-tr
+                  %th.basic-user-info__content-th2
+                    %span 現在のパスワード
+                    %span.user-info-hissu 必須
+                  %td.basic-user-info__content-td
+                    .users-table-space
+                      %p
+                        = f.password_field :current_password, autocomplete: "current-password", class: "basic-userpasswprd-input", required: true
+
+                %tr.basic-user-info__content-tr
+                  %th.basic-user-info__content-th2
+                    %span 新しいパスワード
+                    %span.user-info-hissu 必須
+                  %td.basic-user-info__content-td
+                    .users-table-space
+                      %p.basic-userpasswprd-input-space
+                        = f.password_field :password, autocomplete: "new-password", placeholder: "半角英数混合6〜12文字",class: "basic-userpasswprd-input", required: true
+                      %p
+                        = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "確認のため再度入力してください",class: "basic-userpasswprd-input", required: true
+                      %p.basic-useremail-input-msg ※ZOZOIDとは違う文字列で、半角大文字、小文字を正しく入力してください。
+
+                %tr
+                  %th.basic-user-info__content-th
+                  %td.basic-user-info__content-td
+                    .usesr-basic-info-bottom
+                      = f.submit "確認する", class: "user-basicinfo-btn"
+
+= render "/shared/footer.html.haml"

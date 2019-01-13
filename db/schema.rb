@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_05_110038) do
+ActiveRecord::Schema.define(version: 2019_01_12_091950) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 2019_01_05_110038) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
 
   create_table "colors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -73,6 +72,20 @@ ActiveRecord::Schema.define(version: 2019_01_05_110038) do
     t.index ["shop_id"], name: "index_items_on_shop_id"
   end
 
+  create_table "shippings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "genre", null: false
+    t.string "name", null: false
+    t.integer "postal_code", null: false
+    t.string "prefecture", null: false
+    t.string "address1", null: false
+    t.string "address2"
+    t.integer "phonenumber", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_shippings_on_user_id"
+  end
+
   create_table "shops", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -99,11 +112,13 @@ ActiveRecord::Schema.define(version: 2019_01_05_110038) do
 
   create_table "trades", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "status", null: false
-    t.bigint "item_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_trades_on_item_id"
+    t.bigint "stock_id"
+    t.integer "count", null: false
+    t.integer "total", null: false
+    t.index ["stock_id"], name: "index_trades_on_stock_id"
     t.index ["user_id"], name: "index_trades_on_user_id"
   end
 
@@ -148,10 +163,11 @@ ActiveRecord::Schema.define(version: 2019_01_05_110038) do
   add_foreign_key "items", "categories", column: "child_category_id"
   add_foreign_key "items", "categories", column: "parent_category_id"
   add_foreign_key "items", "shops"
+  add_foreign_key "shippings", "users"
   add_foreign_key "stocks", "colors"
   add_foreign_key "stocks", "items"
   add_foreign_key "stocks", "sizes"
-  add_foreign_key "trades", "items"
+  add_foreign_key "trades", "stocks"
   add_foreign_key "trades", "users"
   add_foreign_key "user_details", "users"
 end

@@ -1,0 +1,602 @@
+%head
+
+%body
+  %script{ src: "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"}
+  %script{:src => "http://code.jquery.com/jquery-1.9.1.min.js", :type => "text/javascript"}
+  %script{:src => "http://code.jquery.com/ui/1.10.3/jquery-ui.min.js", :type => "text/javascript"}
+  %link{:href => "http://code.jquery.com/ui/1.10.3/themes/cupertino/jquery-ui.min.css", :rel => "stylesheet", :type => "text/css"}/
+  %link{:crossorigin => "anonymous", :href => "https://use.fontawesome.com/releases/v5.6.3/css/all.css", :integrity => "sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/", :rel => "stylesheet"}/
+
+
+  = render partial: 'shared/header-notice'
+
+  - if user_signed_in?
+    = render partial: 'shared/header-logged-in'
+  - else
+    = render partial: 'shared/header-log-in'
+
+  .breadCrumb
+
+.main__cordination.clearfix
+  .left__cordination
+
+    %section
+      .left__cordination__target-item
+        %h2 対象商品
+        %span 100000
+        %label 件
+
+    %section.left__cordination__size.clearfix
+      .left__cordination__inner
+        = fa_icon ('user-circle')
+        %h2 あなたサイズ
+        %p 対象カテゴリーを選択するとあなたに最適なサイズの商品で絞り込めます
+      .left__cordination__box
+        .left__cordination__slide 使用できません。
+
+    .left__cordination__search
+      %section.left__cordination__gender
+        %h2 性別
+        %ul
+          %li.clearfix#basic-color
+            = link_to '#' do
+              %span メンズ
+              = fa_icon ('times-circle')
+          %li
+            = link_to '#' do
+              %span レディース
+          %li
+            = link_to '#' do
+              %span キッズ
+              = fa_icon ('chevron-right')
+
+      %section.left__cordination__price
+        %h2 価格タイプ
+        %ul
+          %li
+            = link_to '#' do
+              %span 通常価格
+          %li
+            = link_to '#' do
+              %label セール価格
+
+      %section.left__cordination__bland
+        %h2 ブランド
+        %ul
+          %li
+            = link_to '#' do
+              %span お気に入りブランド
+              = fa_icon ('chevron-right')
+          %p ブランドを選択する
+
+      %section.left__cordination__shop
+        %h2 ショップ
+        %p ショップを選択する
+
+      %section
+        %h2 カテゴリー
+        %ul.left__content__list-category
+          %li#category-js-show
+            = link_to '#' do
+              %label トップス
+              = fa_icon 'chevron-right', id:'chevron-right'
+              #category-js-hide
+                %ul
+                  %li
+                    = link_to 'Tシャツ/カットソー' , '#'
+                  %li
+                    = link_to 'シャツ/ブラウス', '#'
+                  %li
+                    = link_to 'ポロシャツ', '#'
+                  %li
+                    = link_to 'ニット/セーター', '#'
+                  %li
+                    = link_to 'ベスト', '#'
+                  %li
+                    = link_to 'パーカー', '#'
+                  %li
+                    = link_to 'スウェット', '#'
+                  %li
+                    = link_to 'カーディガン', '#'
+                  %li
+                    = link_to 'アンサンブル', '#'
+                  %li
+                    = link_to 'ジャージ', '#'
+                  %li
+                    = link_to 'タンクトップ', '#'
+                  %li
+                    = link_to 'キャミソール', '#'
+                  %li
+                    = link_to 'チューブトップ', '#'
+                  %li
+                    = link_to 'その他トップス', '#'
+
+          %li#category-js-show-outer
+            = link_to '#' do
+              %label ジャケット/アウター
+              = fa_icon 'chevron-right', id:'chevron-right'
+              #category-js-hide-outer
+                %ul
+                  %li
+                    = link_to 'テーラードジャケット' , '#'
+                  %li
+                    = link_to 'ノーカラージャケット', '#'
+                  %li
+                    = link_to 'デニムジャケット', '#'
+                  %li
+                    = link_to 'ライダースジャケット', '#'
+                  %li
+                    = link_to 'ブルゾン', '#'
+                  %li
+                    = link_to 'カバーオール', '#'
+                  %li
+                    = link_to 'ミリタリージャケット', '#'
+                  %li
+                    = link_to 'MA1', '#'
+                  %li
+                    = link_to 'ダウンベスト', '#'
+                  %li
+                    = link_to 'ダウンジャケット/コート', '#'
+                  %li
+                    = link_to 'ダッフルコート', '#'
+                  %li
+                    = link_to 'モッズコート', '#'
+                  %li
+                    = link_to 'ピーコート', '#'
+                  %li
+                    = link_to 'ステンカラーコート', '#'
+                  %li
+                    = link_to 'トレンチコート', '#'
+                  %li
+                    = link_to 'チェスターコート', '#'
+                  %li
+                    = link_to 'ムートンコート', '#'
+                  %li
+                    = link_to 'ナイロンジャケット', '#'
+                  %li
+                    = link_to 'マウンテンパーカー', '#'
+                  %li
+                    = link_to 'スタジャン', '#'
+                  %li
+                    = link_to 'スカジャン', '#'
+                  %li
+                    = link_to 'ポンチョ', '#'
+                  %li
+                    = link_to 'その他アウター', '#'
+
+          %li#category-js-show-pant
+            = link_to '#' do
+              %lavel パンツ
+              = fa_icon 'chevron-right', id:'chevron-right'
+              #category-js-hide-pant
+                %ul
+                  %li
+                    = link_to 'デニムパンツ' , '#'
+                  %li
+                    = link_to 'カーゴパンツ', '#'
+                  %li
+                    = link_to 'チノパンツ', '#'
+                  %li
+                    = link_to 'スラックス', '#'
+                  %li
+                    = link_to 'パンツ', '#'
+
+          %li
+            = link_to '#' do
+              %lavel オールインワン
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel スカート
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel ワンピース
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel スーツ/ネクタイ
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel バッグ
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel シューズ
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel ファッション雑貨
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel 財布/小物
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel 時計
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel ヘアアクセサリー
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel アクセサリー
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel アンダーウェア
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel レッグウェア
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel 帽子
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel インテリア
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel 食器/キッチン
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel 雑貨/ホビー/スポーツ
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel コスメ/ヘルスケア
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel 音楽/本・雑誌
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel 水着/着物・浴衣
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel マタニティ/ベビー
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel その他
+              = fa_icon 'chevron-right', id:'chevron-right'
+
+      %section.left__cordination__user
+        %h2 ユーザータイプ
+        %p 公認ユーザー
+
+      %section.left__cordination__user
+        %h2 身長
+        .left__cordination__slider
+          .left__cordination__slider__inner
+            .left__cordination__slider__bar#slider
+              .left__cordination__slider__control#slider
+                %input#min{:readonly => "readonly", :size => "3", :type => "text"}/
+                %span.left__cordination__slider__text cm
+                %input#max{:readonly => "readonly", :size => "3", :type => "text"}/
+                %span.left__cordination__slider__text cm
+      %ul.left__cordination__slider__button.clearfix
+        %li.left__cordination__slider__button__clear clear
+        %li.left__cordination__slider__button__ok ok
+
+      %section.left__cordination__user
+        %h2 価格
+        .left__cordination__slider
+          .left__cordination__slider__inner
+            .left__cordination__slider__bar#slider-price
+              .left__cordination__slider__control#slider-price
+                %input#min-price{:readonly => "readonly", :size => "3", :type => "text"}/
+                %span.left__cordination__slider__text cm
+                %input#max-price{:readonly => "readonly", :size => "3", :type => "text"}/
+                %span.left__cordination__slider__text cm
+      %ul.left__cordination__slider__button
+        %li.left__cordination__slider__button__clear clear
+        %li.left__cordination__slider__button__ok ok
+
+      %section.left__cordination__color
+        %h2 カラー
+        %ul
+          %li#color-white
+            %span
+            = link_to '#' do
+              %label
+          %li#color-black
+            %span
+            = link_to '#' do
+              %label
+          %li#color-gray
+            %span
+            = link_to '#' do
+              %label
+          %li#color-blown
+            %span
+            = link_to '#' do
+              %labe#color-blackl
+          %li#color-beige
+            %span
+            = link_to '#' do
+              %label
+          %li#color-green
+            %span
+            = link_to '#' do
+              %label
+          %li#color-blue
+            %span
+            = link_to '#' do
+              %label
+          %li#color-purple
+            %span
+            = link_to '#' do
+              %label
+          %li#color-yellow
+            %span
+            = link_to '#' do
+              %label
+          %li#color-pink
+            %span
+            = link_to '#' do
+              %label
+          %li#color-red
+            %span
+            = link_to '#' do
+              %label
+          %li#color-orange
+            %span
+            = link_to '#' do
+              %label
+          %li#color-silver
+            %span
+            = link_to '#' do
+              %label
+          %li#color-gold
+            %span
+            = link_to '#' do
+              %label
+          %li
+            = link_to '#' do
+              .left__cordination__color__other
+                .left__cordination__color__other__red
+                .left__cordination__color__other__green
+                .left__cordination__color__other__yellow
+                .left__cordination__color__other__blue
+
+      %section.left__cordination__gift
+        %h2 ギフトラッピング
+        = link_to '#' do
+          %p ラッピング対応商品
+
+      %section.left__cordination__coupon
+        %h2 クーポン
+        = link_to '#' do
+          %p クーポン対応商品
+
+
+  .right__cordination
+    .right__cordination__top
+      %h1 メンズの商品を使ったコーディネイト
+
+    .right__cordination__tab
+      %ul
+        %li#new-item
+          = link_to '#'  do
+            %span 新品
+            %label 50000件
+        %li#old-item
+          = link_to '#'  do
+            %span 古着
+            %label 50000件
+        %li#cordination-item
+          = link_to '#'  do
+            %span コーデ
+
+    .right__cordination__menu.clearfix
+      %ul.clearfix
+      %li#reserve-js
+        = link_to '#' do
+          %span 在庫商品＋予約商品
+          = fa_icon ('angle-down')
+        %ul.right__cordination__menu__inner#reserve-js-hide
+          %li
+            = link_to '在庫商品＋予約商品' , '#'
+          %li
+            = link_to '在庫商品' , '#'
+          %li
+            = link_to '予約商品' , '#'
+
+      %li#stock-js
+        = link_to '#' do
+          %span 在庫あり
+          = fa_icon ('angle-down')
+        %ul.right__cordination__menu__inner#stock-js-hide
+          %li
+            = link_to '在庫あり' , '#'
+          %li
+            = link_to '在庫なし含む' , '#'
+
+
+      %li#popular-js
+        = link_to '#' do
+          %span アイテム人気順
+          = fa_icon ('angle-down')
+        %ul.right__cordination__menu__inner#popular-js-hide
+          %li
+            = link_to '人気順' , '#'
+          %li
+            = link_to '新着順' , '#'
+          %li
+            = link_to '価格が安い順' , '#'
+          %li
+            = link_to '価格が高い順' , '#'
+          %li
+            = link_to 'コーデ新着順' , '#'
+          %li
+            = link_to 'コーデ人気順' , '#'
+
+
+
+    .right__cordination__main.clearfix
+      %ul
+        %li
+          .right__cordination__main__item#show1
+            = link_to '#' do
+              = image_tag '/assets/20160829224529293_276.jpg', width: '215' , height:'287'
+          .right__cordination__main__info
+            .right__cordination__main__subimage
+              = link_to '#' do
+                = image_tag '/assets/31242481_8_D_125.jpg' , width: '60' , height:'70'
+            .right__cordination__main__rightmain
+              %p.right__cordination__main__blandname zozo
+              %p.right__cordination__main__price
+                ¥2000
+                %span 税込
+              %p.right__cordination__main__category 採寸ボディスーツ
+              %p.right__cordination__main__model H165 / 着用:FREE
+
+          .right__cordination__hide#hide1
+            .right__cordination__hide__container
+              %ul
+                %li.clearfix
+                  = link_to '#' do
+                    = image_tag '/assets/20161004130913756_276.jpg' , width: '33' ,height:'40'
+                  .right__cordination__hide__subitem
+                    %p.right__cordination__hide__subcategory トップス
+                    %p.right__cordination__hide__subprice
+                      ¥1000
+                      %span 税込
+
+                %li.clearfix
+                  = link_to '#' do
+                    = image_tag '/assets/20161004130913756_276.jpg' , width: '33' ,height:'40'
+                  .right__cordination__hide__subitem
+                    %p.right__cordination__hide__subcategory トップス
+                    %p.right__cordination__hide__subprice
+                      ¥1000
+                      %span 税込
+
+                %li.clearfix
+                  = link_to '#' do
+                    = image_tag '/assets/20161004130913756_276.jpg' , width: '33' ,height:'40'
+                  .right__cordination__hide__subitem
+                    %p.right__cordination__hide__subcategory トップス
+                    %p.right__cordination__hide__subprice
+                      ¥1000
+                      %span 税込
+
+          %li
+            .right__cordination__main__item#show2
+              = link_to '#' do
+                = image_tag '/assets/20160829224529293_276.jpg', width: '215' , height:'287'
+            .right__cordination__main__info
+              .right__cordination__main__subimage
+                = link_to '#' do
+                  = image_tag '/assets/31242481_8_D_125.jpg' , width: '60' , height:'70'
+              .right__cordination__main__rightmain
+                %p.right__cordination__main__blandname zozo
+                %p.right__cordination__main__price
+                  ¥2000
+                  %span 税込
+                %p.right__cordination__main__category 採寸ボディスーツ
+                %p.right__cordination__main__model H165 / 着用:FREE
+
+            .right__cordination__hide#hide2
+              .right__cordination__hide__container
+                %ul
+                  %li.clearfix
+                    = link_to '#' do
+                      = image_tag '/assets/20161004130913756_276.jpg' , width: '33' ,height:'40'
+                    .right__cordination__hide__subitem
+                      %p.right__cordination__hide__subcategory トップス
+                      %p.right__cordination__hide__subprice
+                        ¥1000
+                        %span 税込
+
+                  %li.clearfix
+                    = link_to '#' do
+                      = image_tag '/assets/20161004130913756_276.jpg' , width: '33' ,height:'40'
+                    .right__cordination__hide__subitem
+                      %p.right__cordination__hide__subcategory トップス
+                      %p.right__cordination__hide__subprice
+                        ¥1000
+                        %span 税込
+
+                  %li.clearfix
+                    = link_to '#' do
+                      = image_tag '/assets/20161004130913756_276.jpg' , width: '33' ,height:'40'
+                    .right__cordination__hide__subitem
+                      %p.right__cordination__hide__subcategory トップス
+                      %p.right__cordination__hide__subprice
+                        ¥1000
+                        %span 税込
+
+          %li
+            .right__cordination__main__item#show3
+              = link_to '#' do
+                = image_tag '/assets/20160829224529293_276.jpg', width: '215' , height:'287'
+            .right__cordination__main__info
+              .right__cordination__main__subimage
+                = link_to '#' do
+                  = image_tag '/assets/31242481_8_D_125.jpg' , width: '60' , height:'70'
+              .right__cordination__main__rightmain
+                %p.right__cordination__main__blandname zozo
+                %p.right__cordination__main__price
+                  ¥2000
+                  %span 税込
+                %p.right__cordination__main__category 採寸ボディスーツ
+                %p.right__cordination__main__model H165 / 着用:FREE
+
+
+            .right__cordination__hide#hide3
+              .right__cordination__hide__container
+                %ul
+                  %li.clearfix
+                    = link_to '#' do
+                      = image_tag '/assets/20161004130913756_276.jpg' , width: '33' ,height:'40'
+                    .right__cordination__hide__subitem
+                      %p.right__cordination__hide__subcategory トップス
+                      %p.right__cordination__hide__subprice
+                        ¥1000
+                        %span 税込
+
+                  %li.clearfix
+                    = link_to '#' do
+                      = image_tag '/assets/20161004130913756_276.jpg' , width: '33' ,height:'40'
+                    .right__cordination__hide__subitem
+                      %p.right__cordination__hide__subcategory トップス
+                      %p.right__cordination__hide__subprice
+                        ¥1000
+                        %span 税込
+
+                  %li.clearfix
+                    = link_to '#' do
+                      = image_tag '/assets/20161004130913756_276.jpg' , width: '33' ,height:'40'
+                    .right__cordination__hide__subitem
+                      %p.right__cordination__hide__subcategory トップス
+                      %p.right__cordination__hide__subprice
+                        ¥1000
+                        %span 税込
+
+.scroll__box#scroll-js
+  .scroll__box__inner
+    = fa_icon ('angle-double-up')
+    %span scroll
+
+
+= render partial: 'shared/footer'
+
+
+
+
+
+
+
+
+

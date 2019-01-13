@@ -159,6 +159,7 @@
           width: 81px;
 
           &-number{
+          position: relative;
           text-align: center;
           width: 23px;
           height: 22px;
@@ -281,10 +282,12 @@
 
       &-arigato-transaction-btn{
         width: 260px;
-        height: 65px;
+        height: 55px;
         background: #c49a44;
         color: #fff;
         border-radius: 5px;
+        text-align: center;
+        padding-top: 10px;
 
         .arigato-price-msg{
           font-size: 14px;
@@ -386,9 +389,11 @@
         }
 
         &-next-to-register{
+          text-align: center;
+          padding-top: 10px;
           font-size: 17px;
           width: 260px;
-          height: 45px;
+          height: 35px;
           display: block;
           margin: 15px auto 10px;
           border-radius: 5px;
@@ -443,11 +448,12 @@
       font-size: 15px;
 
       &-span{
-        padding-left: 100px;
+        padding-left: 165px;
       }
     }
     
     &-zozoarigato{
+      width: 400px;
       margin-left: 300px;
       padding-top: 30px;
       font-size: 15px;
@@ -568,4 +574,23 @@
 
 .selected{
   background-color: #f6f6f6;
+}
+
+.v{
+  position: relative;
+  top: 25px;
+}
+
+.minus_box{
+  opacity: 0;
+}
+
+.last_one_msg{
+  color: #fff;
+  text-align: center;
+  background: #e73656;
+  width: 60px;
+  height: 18px;
+  border-radius: 4px;
+  font-size: 12px;
 }

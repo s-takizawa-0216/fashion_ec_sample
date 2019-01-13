@@ -13,4 +13,5 @@ class User < ApplicationRecord
   def self.find_omniauth(auth)
     self.where(provider: auth.provider, uid: auth.uid).first
   end
+
 end

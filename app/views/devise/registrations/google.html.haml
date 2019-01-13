@@ -8,7 +8,7 @@
         %li.side-by-side-li
           =fa_icon "users", class: "users-icon"
         %li.side-by-side-li.resistration-new-member-msg Googleでログイン
- 
+
     .sign-up__main__middle
       .user-resistration-form.clearfix
         = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
@@ -63,6 +63,6 @@
               %li.sale_and_coupon.sns-coupon セールやクーポンなどのお得な情報を受け取る
 
           = f.submit "会員登録を完了する", class: "sns-resistration-btn"
-            
+
 
   .sign-up__footer

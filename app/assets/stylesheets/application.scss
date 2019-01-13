@@ -15,6 +15,8 @@
 @import "modules/trades/order";
 @import "modules/trades/confirmation";
 @import "modules/trades/doneTransaction.scss";
+@import "modules/items/cordination.scss";
+@import "modules/prefecture.scss";
 @import "modules/stocks/index";
 @import "modules/items/show";
 @import "modules/users/shared.scss";
@@ -23,3 +25,4 @@
 @import "modules/users/email.scss";
 @import "modules/users/password_edit.scss";
 @import "modules/users/address.scss";
+

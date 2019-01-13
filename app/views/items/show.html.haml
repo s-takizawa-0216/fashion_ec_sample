@@ -4,15 +4,12 @@
   %script{:src => "/assets/jquery.color.js", :type => "text/javascript"}
   %script{:src => "http://code.jquery.com/ui/1.10.3/jquery-ui.min.js", :type => "text/javascript"}
 
-
   = render partial: 'shared/header-notice'
 
 - if user_signed_in?
   = render partial: 'shared/header-logged-in'
 - else
   = render partial: 'shared/header-log-in'
-
-
 
 #zozotown
   #wrapper
@@ -28,16 +25,16 @@
                     = image_tag ""
                   %ul#photoMain.hasZoom
                     %li.list-item
-                      = image_tag "#{@item.images.first.image}"
+                      = image_tag "https://c.imgz.jp/442/34183442/34183442B_33_D_500.jpg"
                       .loupe
                     %li
-                      = image_tag "#{@item.images.second.image}"
+                      = image_tag "https://c.imgz.jp/442/34183442/34183442B_1_D_500.jpg"
                       .loupe
                     %li
-                      = image_tag "#{@item.images.third.image}"
+                      = image_tag "https://c.imgz.jp/442/34183442/34183442B_8_D_500.jpg"
                       .loupe
                     %li
-                      = image_tag "#{@item.images.fourth.image}"
+                      = image_tag "https://c.imgz.jp/442/34183442/34183442B_163_D_500.jpg"
                       .loupe
                   %ul.prevNextCtrl
                     %li#btnPrev
@@ -50,25 +47,25 @@
                     %li.current
                       #div
                         %span#goodsdiv
-                          = image_tag "#{@item.images.first.image}", width: "35px", heigth: "42px"
+                          = image_tag "https://c.imgz.jp/442/34183442/34183442B_33_D_500.jpg", width: "35px", heigth: "42px"
                         %p インディゴブルー
                         %span.imCaption インディゴブルー H185/58kg / B90 / W77 / H90 / 着用サイズ：XL
                     %li
                       #div
                         %span#goodsdiv
-                          = image_tag "#{@item.images.second.image}", width: "35px", heigth: "42px"
+                          = image_tag "https://c.imgz.jp/442/34183442/34183442B_1_D_500.jpg", width: "35px", heigth: "42px"
                       %p ホワイト
                       %span.imCaption ホワイト H185/58kg / B90 / W77 / H90 / 着用サイズ：XL
                     %li#did_57522375
                       #div
                         %span#goodsdiv
-                          = image_tag "#{@item.images.third.image}", width: "35px", heigth: "42px"
+                          = image_tag "https://c.imgz.jp/442/34183442/34183442B_8_D_500.jpg", width: "35px", heigth: "42px"
                       %p ブラック
                       %span.imCaption ブラック H185/58kg / B90 / W77 / H90 / 着用サイズ：XL
                     %li#did_57522375
                       #div
                         %span#goodsdiv
-                          = image_tag "#{@item.images.fourth.image}", width: "35px", heigth: "42px"
+                          = image_tag "https://c.imgz.jp/442/34183442/34183442B_163_D_500.jpg", width: "35px", heigth: "42px"
                       %p グリーン
                       %span.imCaption ブラック H185/58kg / B90 / W77 / H90 / 着用サイズ：XL
 

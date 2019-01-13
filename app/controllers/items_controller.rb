@@ -29,6 +29,9 @@ class ItemsController < ApplicationController
   def cart
   end
 
+  def prefecture
+  end
+
   private
 
   def create_params

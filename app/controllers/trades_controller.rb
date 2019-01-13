@@ -52,9 +52,9 @@ class TradesController < ApplicationController
     # 送料込みの値段
     @include_fee = @items_sum+320
     # ユーザー情報の取得
-    @user = Shipping.find_by(user_id: current_user.id)
+    @user = Shipping.order('created_at': :desc).find_by(user_id: current_user.id)
     #クレジットカード情報の取得
-    @user_credit_card = CreditCard.find_by(user_id: current_user.id)
+    @user_credit_card = CreditCard.order('created_at': :desc).find_by(user_id: current_user.id)
     # クレジットカード情報の作成
     @credit_card = CreditCard.new
     # 配送先情報の追加
@@ -91,10 +91,10 @@ class TradesController < ApplicationController
   end
 
   def confirmation
-    #ユーザー情報お取得
-    @user = Shipping.find_by(user_id: current_user.id)
-    #クレジットカード情報の取得
-    @credit_card = CreditCard.find_by(user_id: current_user.id)
+    #最新のユーザー情報の取得
+    @user = Shipping.order('created_at': :desc).find_by(user_id: current_user.id)
+    #最新のクレジットカード情報の取得
+    @credit_card = CreditCard.order('created_at': :desc).find_by(user_id: current_user.id)
     #カート内アイテムの取得
     @open_trade = Trade.where(status: 0, user_id: current_user.id)
     # 合計金額の計算

@@ -129,7 +129,7 @@ class UsersController < ApplicationController
     end
 
     def check_user_shipping_edit
-      # 基本情報未登録ユーザーは編集面面への遷移ができない
+      # お届け先情報未登録ユーザーは編集面面への遷移ができない
       user = Shipping.find_by(user_id: current_user.id)
       unless user.present?
         redirect_to user_path(current_user.id)

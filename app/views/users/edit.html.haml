@@ -12,7 +12,7 @@
 
     = render "/users/shared/sidebar.html.haml"
 
-    = form_for(@user_detail, url: create_info_users_path, html: {method: :post, class: "h-adr"}) do |f|
+    = form_for(@user_detail, url: update_info_users_path, html: {method: :patch, class: "h-adr"}) do |f|
       .user-info-main__body-right
         .body-right__top
           .body-right__top-inside

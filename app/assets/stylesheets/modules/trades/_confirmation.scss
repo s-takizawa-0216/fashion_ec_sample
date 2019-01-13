@@ -248,9 +248,11 @@
   }
   &__sum{
     margin-top: 10px;
+    border-top: 1px solid lightgray;
+    padding-top: 10px;
+    font-size: 18px;
     &-msg{
-      padding-left: 30px;
-      font-size: 14px;
+      padding-left: 20px;
     }
     &-add{
       font-size: 11px;
@@ -265,4 +267,3 @@
     font-size: 11px;
   }
 }
-

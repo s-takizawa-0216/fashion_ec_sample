@@ -18,13 +18,15 @@ Rails.application.routes.draw do
   end
 
 
-  resources :users, only: [:new, :create_info, :show, :edit, :update_info, :email, :update_email, :shipping, :shipping_new] do
+  resources :users, only: [:new, :create_info, :show, :edit, :update_info, :email, :update_email, :shipping, :shipping_new, :shipping_edit, :shipping_update] do
     post  'create_info',   to: 'users#create_info',   as: :create_info, on: :collection
     patch 'update_info',   to: 'users#update_info',   as: :update_info, on: :collection
     get   'email',         to: 'users#email',         as: :email
     patch 'update_email',  to: 'users#update_email',  as: :update_email
     get   'shipping',      to: 'users#shipping',      as: :shipping, on: :collection
     post  'shipping_new',  to: 'users#shipping_new',  as: :shipping_new, on: :collection
+    get  'shipping_edit',  to: 'users#shipping_edit',  as: :shipping_edit, on: :collection
+    patch  'shipping_update',  to: 'users#shipping_update',  as: :shipping_update, on: :collection
   end
 
   resources :trades, only: [:index, :plus_count, :minus_count, :destroy_item, :order, :add_credit_card, :confirmation, :done_transaction] do

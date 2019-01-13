@@ -80,7 +80,7 @@
                   %td.basic-user-info__content-td
                     .users-table-space
                       %span.margin-space15
-                        = f.text_field :postal_code, maxlength: 8, size: "8", class: "p-postal-code basic-userpostal-input required", placeholder: " 例) 2617127",required: true
+                        = f.text_field :postal_code, maxlength: 8, size: "8", class: "p-postal-code basic-userpostal-input", placeholder: " 例) 2617127",required: true
                       %span.margin-space15
                         %button{class: "basic-userpostal-btn", disabled: true} 住所を自動入力
                       %span.margin-space15.usernasic-postal
@@ -94,7 +94,7 @@
                   %td.basic-user-info__content-td
                     .users-table-space-shorter
                       %input{class: "p-region postal-input-pref", disabled: "disabled", placeholder: "郵便番号を入力してください"}
-                      = f.text_field :prefecture, type: :hidden, class: "p-region postal-input-pref required", required: true
+                      = f.text_field :prefecture, type: :hidden, class: "p-region postal-input-pref", required: true
 
                 %tr
                   %th.basic-user-info__content-th

@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :check_user_detail_edit, only: [:edit]
   before_action :check_user_detail_new, only: [:new]
+  before_action :check_user_shipping_edit, only: [:shipping_edit]
+  before_action :check_user_shipping_new, only: [:shipping]
 
   def new
     # 基本情報登録画面
@@ -54,11 +56,34 @@ class UsersController < ApplicationController
   end
 
   def shipping
+    # お届け先と登録画面
     @shipping = Shipping.new
   end
 
-  def shiping_new
+  def shipping_new
+    # 新規届け先のDBへの追加
     @shipping = Shipping.new(shipping_info_params)
+    if @shipping.save
+      redirect_to user_path(current_user.id)
+    else
+      redirect_to shipping_users_path
+    end
+  end
+
+  def shipping_edit
+    # お届け先編集画面
+    @shipping = Shipping.order('created_at': :desc).find_by(user_id: current_user.id)
+  end
+
+  def shipping_update
+    # お届け先の変更をDBに更新
+    @shipping = Shipping.order('created_at': :desc).find_by(user_id: current_user.id)
+    @shipping.update(update_shipping_info_params)
+    if @shipping.save
+      redirect_to user_path(current_user.id)
+    else
+      redirect_to shipping_edit_users_path
+    end
   end
 
   private
@@ -75,6 +100,10 @@ class UsersController < ApplicationController
       params.require(:shipping).permit(:genre, :name, :postal_code, :prefecture, :address1, :address2, :phonenumber).merge(user_id: current_user.id)
     end
 
+    def update_shipping_info_params
+      params.require(:shipping).permit(:genre, :name, :postal_code, :prefecture, :address1, :address2, :phonenumber)
+    end
+
     def check_user_detail_new
       # 基本情報登録済みユーザーは登録面面への遷移ができない
       user = UserDetail.find_by(user_id: current_user.id)
@@ -88,6 +117,22 @@ class UsersController < ApplicationController
       user = UserDetail.find_by(user_id: current_user.id)
       unless user.present?
         redirect_to user_path
+      end
+    end
+
+    def check_user_shipping_new
+      # お届け先登録済みユーザーは登録面面への遷移ができない
+      user = Shipping.find_by(user_id: current_user.id)
+      if user.present?
+        redirect_to user_path(current_user.id)
+      end
+    end
+
+    def check_user_shipping_edit
+      # 基本情報未登録ユーザーは編集面面への遷移ができない
+      user = Shipping.find_by(user_id: current_user.id)
+      unless user.present?
+        redirect_to user_path(current_user.id)
       end
     end
 

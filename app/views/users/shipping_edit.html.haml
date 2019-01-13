@@ -12,12 +12,12 @@
 
     = render "/users/shared/sidebar.html.haml"
 
-    = form_for(@shipping, url: shipping_new_users_path, html: {method: :post, class: "h-adr"}) do |f|
+    = form_for(@shipping, url: shipping_update_users_path, html: {method: :patch, class: "h-adr"}) do |f|
       .user-info-main__body-right
         .body-right__top
           .body-right__top-inside
             .body-right__top-inside__header
-              .body-right__top-inside__header-index お届け先の登録
+              .body-right__top-inside__header-index お届け先の変更
             .body-right__top-inside__content
               %table
                 %tr.basic-user-info__content-tr

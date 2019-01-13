@@ -111,7 +111,7 @@
                     %p.user-page-additional-address-msg 追加したお届け先はありません。
                   -if @shipping.present?
                     %p
-                      = link_to "お届け先を変更する"
+                      = link_to "お届け先を変更する", shipping_edit_users_path
                   -unless @shipping.present?
                     %p
                       = link_to "お届け先を追加する", shipping_users_path

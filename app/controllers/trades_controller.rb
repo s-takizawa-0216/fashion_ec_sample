@@ -104,8 +104,6 @@ class TradesController < ApplicationController
     @include_fee = @items_sum+320
   end
 
-
-
   def done_transaction
     # カート内にあるアイテムの取得
     trade = Trade.where(status: 0, user_id: current_user.id)

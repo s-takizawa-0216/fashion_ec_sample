@@ -51,16 +51,16 @@
                   %p.new-address-additional__body-box-msg
                     %span.margin-space85 お名前
                     %span 
-                      = i.text_field :name, class: "address-name required", placeholder: " 姓 名（全角）",required: false
+                      = i.text_field :name, class: "address-name required", placeholder: " 姓 名（全角）",  required: false
                   %p.new-address-additional__body-box-msg
                     %span.margin-space70 郵便番号
                     %span 
-                      = i.text_field :postal_code, maxlength: "8", size: "8", class: "p-postal-code address-name required", placeholder: " 例) 2617127",required: false
+                      = i.text_field :postal_code, maxlength: 8, size: "8", class: "p-postal-code address-name required", placeholder: " 例) 2617127",required: false
                   %p.new-address-additional__body-box-msg
                     %span.margin-space70 都道府県
                     %span
-                      %input{class: "p-region postal-input-pref", disabled: "disabled"}
-                      = i.text_field :prefecture, type: :hidden, class: "p-region postal-input-pref required", placeholder: "郵便番号を入力してください",required: false
+                      %input{class: "p-region postal-input-pref", disabled: "disabled", placeholder: "郵便番号を入力してください"}
+                      = i.text_field :prefecture, type: :hidden, class: "p-region postal-input-pref required", required: false
                   %p.new-address-additional__body-box-msg
                     %span.margin-space85 住所1
                     %span 
@@ -72,7 +72,7 @@
                   %p.new-address-additional__body-box-msg
                     %span.margin-space65 電話番号
                     %span
-                      = i.text_field :phonenumber, class: "address-name required", placeholder: " 例）09012345678",required: false
+                      = i.text_field :phonenumber, class: "address-name required", placeholder: " 例）09012345678",maxlength: 11, required: false
 
       .order-main__body__item-space.clearfix
         .order-main__body__item-space__index 
@@ -168,7 +168,7 @@
                   .new-address-additional__header-msg.margin-space67 セキュリティコード
                   .new-address-additional__header-msg 
                     %p
-                      %input{type: :password, placeholder: "半角数字のみ", class: "credit-numbers", style: "font-size: 13px"}
+                      %input{type: :password, placeholder: "半角数字のみ", class: "credit-numbers", style: "font-size: 13px", maxlength: 4, minlength: 3}
                     %p.security-msg#popup-cursor1 セキュリティコードについて
                 .new-address-additional__header.clearfix#usual-card-num2
                   .new-address-additional__header-msg.margin-space115.make-space-box-right 支払い回数
@@ -188,12 +188,12 @@
                 = image_tag "https://zozo.jp/_cart/order/img/card_company.gif", class: "genere-cards"
               .new-address-additional__header.clearfix
                 .new-address-additional__header-msg.margin-space130 カード番号
-                = f.text_field :number, placeholder: "半角数字のみ(ハイフンなし)", class: "credit-numbers required2", maxlength: 12, minimumlength: 11, required: false
+                = f.text_field :number, placeholder: "半角数字のみ(ハイフンなし)", class: "credit-numbers required2", maxlength: 16, minlength: 14, required: false
               .new-address-additional__header.clearfix
                 .new-address-additional__header-msg.margin-space67 セキュリティコード
                 .new-address-additional__header-msg 
                   %p
-                    = f.text_field :security_code, placeholder: "半角数字のみ", class: "credit-numbers required2", required: false
+                    = f.password_field :security_code, placeholder: "半角数字のみ", class: "credit-numbers required2", maxlength: 4, minlength: 3, required: false
                   %p.security-msg#popup-cursor2 セキュリティコードについて
               .new-address-additional__header.clearfix
                 .new-address-additional__header-msg.margin-space130.make-space-box-right 有効期限

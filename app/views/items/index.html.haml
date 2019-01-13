@@ -17,8 +17,6 @@
   - else
     = render partial: 'shared/header-log-in'
 
-
-
 .header__content.clearfix
   .header__content__box
     %ul.header__content__ul
@@ -576,6 +574,9 @@
                   ¥#{item.price}
                   %span 税込
                   %span 40%OFF
+
+          %p.zozo-item
+            = link_to 'ランキング一覧' , '#'
 
         %section.right__content__coordination
           %h2

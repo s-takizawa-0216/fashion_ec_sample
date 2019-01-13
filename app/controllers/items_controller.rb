@@ -21,6 +21,8 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @popular_item = Item.find(params[:id])
+    impressionist(@popular_item, nil, :unique => [:session_hash])
   end
 
   def new

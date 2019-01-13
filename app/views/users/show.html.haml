@@ -21,34 +21,48 @@
             %table
               %tr.body-right__top-inside__content-tr
                 %th.body-right__top-inside__content-th 基本情報
-                %td.body-right__top-inside__content-td
-                  .users-table-space
-                    %p 
-                      %span 苗字
-                      %span 名前
-                      %span (カタカナシメイ)
-                    %p 性別
-                    %p
-                      %span 2000
-                      %span 年
-                      %span 3
-                      %span 月
-                      %span 12
-                      %span 日
-                    %p 
-                      %span 〒
-                      %span 2224444
-                    %p 東京都渋谷区渋谷1-1
-                    %p 00011112222
-                %td
-                  .user-info-change-btn
-                    = link_to "変更"
+                -if @user.present?
+                  %td.body-right__top-inside__content-td
+                    .users-table-space
+                      %p
+                        %span 
+                          = @user.family_name
+                        %span
+                          = @user.first_name
+                        %span (#{@user.family_name_kana}#{@user.first_name_kana})
+                      %p 
+                        = current_user.gender
+                      %p
+                        %span 
+                          = current_user.birth_year
+                        %span 年
+                        %span
+                          = current_user.birth_month
+                        %span 月
+                        %span
+                          = current_user.birth_day
+                        %span 日
+                      %p 
+                        %span 〒
+                        %span #{current_user.postal_code.to_s[0..2]}-#{current_user.postal_code.to_s[3..6]}
+                      %p #{@user.address1}#{@user.address2}
+                      %p
+                        = @user.phonenumber
+                  %td
+                    .user-info-change-btn
+                      = link_to "変更", edit_user_path
+                -unless @user.present?
+                  %td.body-right__top-inside__content-td
+                  %td.new-user-detail-td
+                    .user-info-change-btn
+                      = link_to "追加", new_user_path
               %tr.body-right__top-inside__content-tr
                 %th.body-right__top-inside__content-th 
                   %p メールアドレス
                   %p (ZOZO ID)
                 %td.body-right__top-inside__content-td-email
-                  %p aa@aaaaaaa
+                  %p
+                    = current_user.email
                 %td
                   .user-info-change-btn
                     = link_to "変更"
@@ -69,10 +83,38 @@
           .body-right__top-inside__content
             %table
               %tr
+                .order-main__body__item-space__index 
+                  %p.order-main__body__item-space__index-msg  お届け先
+                .order-main__body__item-space__detail
+                  -if @shipping.present?
+                    .order-main__body__item-space__detail-box.clearfix
+                      .order-main__body__item-space__detail-box__right#hide-address
+                        %p
+                          %span
+                            = @shipping.name
+                          %span 様
+                        %p
+                          %span 〒
+                          %span 
+                            = @shipping.postal_code
+                          %span.ship-on-day 即日発送可能
+                        %p
+                          %span 住所：
+                          %span #{@shipping.prefecture}#{@shipping.address1}#{@shipping.address2}
+                        %p
+                          %span 電話：
+                          %span
+                            = @shipping.phonenumber
+              %tr
                 %td.user-page-additional-address
-                  %p.user-page-additional-address-msg 追加したお届け先はありません。
-                  %p
-                    = link_to "お届け先を追加する。"
+                  -unless @shipping.present?
+                    %p.user-page-additional-address-msg 追加したお届け先はありません。
+                  -if @shipping.present?
+                    %p
+                      = link_to "お届け先を変更する"
+                  -unless @shipping.present?
+                    %p
+                      = link_to "お届け先を追加する"
 
       .body-right__top#alter-credit-card
         .body-right__top-inside

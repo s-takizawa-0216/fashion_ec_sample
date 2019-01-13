@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   end
 
 
-  resources :users, only: [:show, :edit, :email, :password_edit, :address] do
+  resources :users, only: [:new, :create, :show, :edit, :update, :email, :password_edit, :address] do
     get 'email', to: 'users#email', as: :email
     get 'password_edit', to: 'users#password_edit', as: :password_edit
     get 'address', to: 'users#address', as: :address

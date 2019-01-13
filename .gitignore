@@ -28,6 +28,7 @@
 
 config/secrets.yml
 
+/public/uploads
 
 app/assets/images/31652942_165_D_500.jpg
 

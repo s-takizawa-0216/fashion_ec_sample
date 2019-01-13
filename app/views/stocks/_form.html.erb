@@ -1,0 +1,45 @@
+<div class="form-group">
+  <label class="mainLabel">アイテム名</label>
+  <span class="form-require">必須</span>
+  <div class="radioBox clearfix">
+    <% items.each do |item| %>
+      <div class="radioSelect">
+        <%= f.radio_button :item_id, "#{item.id}" %>
+        <%= f.label :item_id, "#{item.name}", value: "#{item.id}" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="mainLabel">サイズ</label>
+  <span class="form-require">必須</span>
+  <br class="clearBoth"/>
+  <div class="selectBox">
+    <%= f.select :size_id , Size.all.map{|size|[size.size, size.id]} %>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="mainLabel">カラー</label>
+  <span class="form-require">必須</span>
+  <br class="clearBoth"/>
+  <div class="selectBox">
+    <%= f.select :color_id, Color.all.map{|color|[color.name, color.id]} %>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="mainLabel">個数</label>
+  <span class="form-require">必須</span>
+  <div class="clearBoth"></div>
+  <%= f.number_field :count, class: "input-default", min: "0" %>
+</div>
+
+<div class="form-group">
+  <label class="mainLabel">イメージ</label>
+  <span class="form-require BKgray">任意</span>
+  <div class="clearBoth"></div>
+  <div class="ImgPreview"></div>
+  <%= f.file_field :image %>
+</div>

@@ -284,71 +284,37 @@
                   .fav__box__button
                     = link_to '詳しくはこちら ' , '#'
 
+
+
       %section
         %h2 ブランド
         %ol.left__content__list-bland
+      - @brand_rank1.zip(@number1).each do |brand , number|
+        %li
+          %span#rank1 #{number}
+          = link_to '#' do
+            #{brand.name}
+
+      - @brand_rank2.zip(@number2).each do |brand , number|
+        %li
+          %span#rank2 #{number}
+          = link_to '#' do
+            #{brand.name}
+
+      - @brand_rank3.zip(@number3).each do |brand , number|
+        %li
+          %span#rank3 #{number}
+          = link_to '#' do
+            #{brand.name}
+
+        - @brand_other_rank.zip(@brand_other_number_4_20).each do |brand , number|
           %li
-            %span#rank1 1
-            = link_to 'nanouniverse', '#'
-          %li
-            %span#rank2 2
-            = link_to 'nanouniverse' , '#'
-          %li
-            %span#rank3 3
-            = link_to 'nanouniverse' , '#'
-          %li
-            %span#rank-other 4
-            = link_to 'nanouniverse' , '#'
-          %li
-            %span#rank-other 5
-            = link_to 'nanouniverse' , '#'
-          %li
-            %span#rank-other 6
-            = link_to 'nanouniverse' , '#'
-          %li
-            %span#rank-other 7
-            = link_to 'nanouniverse' , '#'
-          %li
-            %span#rank-other 8
-            = link_to 'nanouniverse' , '#'
-          %li
-            %span#rank-other 9
-            = link_to 'nanouniverse' , '#'
-          %li
-            %span#rank-other 10
-            = link_to 'nanouniverse' , '#'
-          %li
-            %span#rank-other 11
-            = link_to 'nanouniverse' , '#'
-          %li
-            %span#rank-other 12
-            = link_to 'nanouniverse' , '#'
-          %li
-            %span#rank-other 13
-            = link_to 'nanouniverse' , '#'
-          %li
-            %span#rank-other 14
-            = link_to 'nanouniverse' , '#'
-          %li
-            %span#rank-other 15
-            = link_to 'nanouniverse' , '#'
-          %li
-            %span#rank-other 16
-            = link_to 'nanouniverse' , '#'
-          %li
-            %span#rank-other 17
-            = link_to 'nanouniverse' , '#'
-          %li
-            %span#rank-other 18
-            = link_to 'nanouniverse' , '#'
-          %li
-            %span#rank-other 19
-            = link_to 'nanouniverse' , '#'
-          %li
-            %span#rank-other 20
-            = link_to 'nanouniverse' , '#'
-          %li
-            = link_to 'ブランド一覧' , '#' , id: 'shop_bland-all'
+            %span#rank-other #{number}
+            = link_to '#' do
+              #{brand.name}
+
+        %li
+          = link_to 'ブランド一覧' , '#' , id: 'shop_bland-all'
 
       %section
         %h2 ショップ
@@ -453,46 +419,24 @@
           %li
             = link_to '採用情報一覧' , '#' , id: 'category-all'
 
-
-
     .right__content.clearfix
       .right__content__top
         %section
           %ul.clearfix
+          - @zozo.each do |item|
             %li
-              = link_to '#' do
-                = image_tag "/assets/31652942_165_D_500.jpg", width: '171' , height:'205'
+              = link_to "items/#{item.id}" do
+                = image_tag "#{item.images.first.image}", width: '171' , height:'205'
               .right__content__price-box
                 .right__content__bland-name
-                  ZOZO
+                  zozo
                 .right__content__price
-                  ¥ #{4500}
-                  %small.right__content__tax
-                    %span 税込
-            %li
-              = link_to '#' do
-                = image_tag "/assets/31652942_165_D_500.jpg", width: '171' , height:'205'
-              .right__content__price-box
-                .right__content__bland-name
-                  ZOZO
-                .right__content__price
-                  ¥ #{4500}
+                  ¥ #{item.price}
                   %small.right__content__tax
                     %span 税込
 
-            %li
-              = link_to '#' do
-                = image_tag "/assets/31652942_165_D_500.jpg", width: '171' , height:'205'
-              .right__content__price-box
-                .right__content__bland-name
-                  ZOZO
-                .right__content__price
-                  ¥ #{4500}
-                  %small.right__content__tax
-                    %span 税込
-
-              .zozo-item
-                = link_to 'ZOZOアイテム一覧' , '#'
+          .zozo-item
+            = link_to 'ZOZOアイテム一覧' , '#'
 
         %section.right__content__coupon
           %h2 クーポン対象アイテム
@@ -571,313 +515,68 @@
           %p.zozo-item
             = link_to 'クーポン対象アイテム一覧' , '#'
 
-
         %section.right__content__ranking
           %h2 人気アイテムランキング
           .right__content__ranking__content.clearfix
-            %ul
-              %li
-                %p.right__content__ranking__content-rank1
-                  %span
-                    %label 1
-                  = link_to '#' do
-                    = image_tag "/assets/35255289B_8_D_215.jpg", width: '171' , height:'205'
-                  %p.right__content__coupon__text
-                    URBAN RESEARCH
-                  %p.right__content__coupon__price
-                    ¥30000
-                    %span 税込
-                    %span 40%OFF
+          %ul
+          - @rank1.zip(@number1).each do |item, number|
+            %li
+              %p.right__content__ranking__content-rank1
+                %span
+                  %label #{number}
+                = link_to "items/#{item.id}" do
+                  = image_tag "#{item.images.first.image}", width: '171' , height:'205'
+                %p.right__content__coupon__text
+                  #{item.brand.name}
+                %p.right__content__coupon__price
+                  ¥#{item.price}
+                  %span 税込
+                  %span 40%OFF
 
-              %li
-                %p.right__content__ranking__content-rank2
-                  %span
-                    %label 2
-                  = link_to '#' do
-                    = image_tag "/assets/35255289B_8_D_215.jpg", width: '171' , height:'205'
-                  %p.right__content__coupon__text
-                    URBAN RESEARCH
-                  %p.right__content__coupon__price
-                    ¥30000
-                    %span 税込
-                    %span 40%OFF
+          - @rank2.zip(@number2).each do |item, number|
+            %li
+              %p.right__content__ranking__content-rank2
+                %span
+                  %label #{number}
+                = link_to "items/#{item.id}" do
+                  = image_tag "#{item.images.first.image}", width: '171' , height:'205'
+                %p.right__content__coupon__text
+                  #{item.brand.name}
+                %p.right__content__coupon__price
+                  ¥#{item.price}
+                  %span 税込
+                  %span 40%OFF
 
-              %li
-                %p.right__content__ranking__content-rank3
-                  %span
-                    %label 3
-                  = link_to '#' do
-                    = image_tag "/assets/35255289B_8_D_215.jpg", width: '171' , height:'205'
-                  %p.right__content__coupon__text
-                    URBAN RESEARCH
-                  %p.right__content__coupon__price
-                    ¥30000
-                    %span 税込
-                    %span 40%OFF
+          - @rank3.zip(@number3).each do |item, number|
+            %li
+              %p.right__content__ranking__content-rank3
+                %span
+                  %label #{number}
+                = link_to "items/#{item.id}" do
+                  = image_tag "#{item.images.first.image}", width: '171' , height:'205'
+                %p.right__content__coupon__text
+                  #{item.brand.name}
+                %p.right__content__coupon__price
+                  ¥#{item.price}
+                  %span 税込
+                  %span 40%OFF
 
-              %li.rank
-                %p.right__content__ranking__content-rank-other
-                  %span
-                    %label 4
-                  = link_to '#' do
-                    = image_tag "/assets/35255289B_8_D_215.jpg", width: '125' , height:'150'
-                  %p.right__content__coupon__text
-                    URBAN RESEARCH
-                  %p.right__content__coupon__price
-                    ¥30000
-                    %span 税込
-                    %span 40%OFF
+          - @other_most_viewd.zip(@number4_23).each do |item, number|
+            %li.rank
+              %p.right__content__ranking__content-rank-other
+                %span
+                  %label #{number}
+                = link_to "items/#{item.id}" do
+                  = image_tag "#{item.images.first.image}", width: '125' , height:'150'
+                %p.right__content__coupon__text
+                  #{item.brand.name}
+                %p.right__content__coupon__price
+                  ¥#{item.price}
+                  %span 税込
+                  %span 40%OFF
 
-              %li.rank
-                %p.right__content__ranking__content-rank-other
-                  %span
-                    %label 5
-                  = link_to '#' do
-                    = image_tag "/assets/35255289B_8_D_215.jpg", width: '125' , height:'150'
-                  %p.right__content__coupon__text
-                    URBAN RESEARCH
-                  %p.right__content__coupon__price
-                    ¥30000
-                    %span 税込
-                    %span 40%OFF
-
-              %li.rank
-                %p.right__content__ranking__content-rank-other
-                  %span
-                    %label 6
-                  = link_to '#' do
-                    = image_tag "/assets/35255289B_8_D_215.jpg", width: '125' , height:'150'
-                  %p.right__content__coupon__text
-                    URBAN RESEARCH
-                  %p.right__content__coupon__price
-                    ¥30000
-                    %span 税込
-                    %span 40%OFF
-
-              %li.rank
-                %p.right__content__ranking__content-rank-other
-                  %span
-                    %label 7
-                  = link_to '#' do
-                    = image_tag "/assets/35255289B_8_D_215.jpg", width: '125' , height:'150'
-                  %p.right__content__coupon__text
-                    URBAN RESEARCH
-                  %p.right__content__coupon__price
-                    ¥30000
-                    %span 税込
-                    %span 40%OFF
-
-
-              %li.rank
-                %p.right__content__ranking__content-rank-other
-                  %span
-                    %label 8
-                  = link_to '#' do
-                    = image_tag "/assets/35255289B_8_D_215.jpg", width: '125' , height:'150'
-                  %p.right__content__coupon__text
-                    URBAN RESEARCH
-                  %p.right__content__coupon__price
-                    ¥30000
-                    %span 税込
-                    %span 40%OFF
-
-              %li.rank
-                %p.right__content__ranking__content-rank-other
-                  %span
-                    %label 9
-                  = link_to '#' do
-                    = image_tag "/assets/35255289B_8_D_215.jpg", width: '125' , height:'150'
-                  %p.right__content__coupon__text
-                    URBAN RESEARCH
-                  %p.right__content__coupon__price
-                    ¥30000
-                    %span 税込
-                    %span 40%OFF
-
-              %li.rank
-                %p.right__content__ranking__content-rank-other
-                  %span
-                    %label 10
-                  = link_to '#' do
-                    = image_tag "/assets/35255289B_8_D_215.jpg", width: '125' , height:'150'
-                  %p.right__content__coupon__text
-                    URBAN RESEARCH
-                  %p.right__content__coupon__price
-                    ¥30000
-                    %span 税込
-                    %span 40%OFF
-
-              %li.rank
-                %p.right__content__ranking__content-rank-other
-                  %span
-                    %label 11
-                  = link_to '#' do
-                    = image_tag "/assets/35255289B_8_D_215.jpg", width: '125' , height:'150'
-                  %p.right__content__coupon__text
-                    URBAN RESEARCH
-                  %p.right__content__coupon__price
-                    ¥30000
-                    %span 税込
-                    %span 40%OFF
-
-
-              %li.rank
-                %p.right__content__ranking__content-rank-other
-                  %span
-                    %label 12
-                  = link_to '#' do
-                    = image_tag "/assets/35255289B_8_D_215.jpg", width: '125' , height:'150'
-                  %p.right__content__coupon__text
-                    URBAN RESEARCH
-                  %p.right__content__coupon__price
-                    ¥30000
-                    %span 税込
-                    %span 40%OFF
-
-              %li.rank
-                %p.right__content__ranking__content-rank-other
-                  %span
-                    %label 13
-                  = link_to '#' do
-                    = image_tag "/assets/35255289B_8_D_215.jpg", width: '125' , height:'150'
-                  %p.right__content__coupon__text
-                    URBAN RESEARCH
-                  %p.right__content__coupon__price
-                    ¥30000
-                    %span 税込
-                    %span 40%OFF
-
-              %li.rank
-                %p.right__content__ranking__content-rank-other
-                  %span
-                    %label 14
-                  = link_to '#' do
-                    = image_tag "/assets/35255289B_8_D_215.jpg", width: '125' , height:'150'
-                  %p.right__content__coupon__text
-                    URBAN RESEARCH
-                  %p.right__content__coupon__price
-                    ¥30000
-                    %span 税込
-                    %span 40%OFF
-
-              %li.rank
-                %p.right__content__ranking__content-rank-other
-                  %span
-                    %label 15
-                  = link_to '#' do
-                    = image_tag "/assets/35255289B_8_D_215.jpg", width: '125' , height:'150'
-                  %p.right__content__coupon__text
-                    URBAN RESEARCH
-                  %p.right__content__coupon__price
-                    ¥30000
-                    %span 税込
-                    %span 40%OFF
-
-
-              %li.rank
-                %p.right__content__ranking__content-rank-other
-                  %span
-                    %label 16
-                  = link_to '#' do
-                    = image_tag "/assets/35255289B_8_D_215.jpg", width: '125' , height:'150'
-                  %p.right__content__coupon__text
-                    URBAN RESEARCH
-                  %p.right__content__coupon__price
-                    ¥30000
-                    %span 税込
-                    %span 40%OFF
-
-              %li.rank
-                %p.right__content__ranking__content-rank-other
-                  %span
-                    %label 17
-                  = link_to '#' do
-                    = image_tag "/assets/35255289B_8_D_215.jpg", width: '125' , height:'150'
-                  %p.right__content__coupon__text
-                    URBAN RESEARCH
-                  %p.right__content__coupon__price
-                    ¥30000
-                    %span 税込
-                    %span 40%OFF
-
-              %li.rank
-                %p.right__content__ranking__content-rank-other
-                  %span
-                    %label 18
-                  = link_to '#' do
-                    = image_tag "/assets/35255289B_8_D_215.jpg", width: '125' , height:'150'
-                  %p.right__content__coupon__text
-                    URBAN RESEARCH
-                  %p.right__content__coupon__price
-                    ¥30000
-                    %span 税込
-                    %span 40%OFF
-
-              %li.rank
-                %p.right__content__ranking__content-rank-other
-                  %span
-                    %label 19
-                  = link_to '#' do
-                    = image_tag "/assets/35255289B_8_D_215.jpg", width: '125' , height:'150'
-                  %p.right__content__coupon__text
-                    URBAN RESEARCH
-                  %p.right__content__coupon__price
-                    ¥30000
-                    %span 税込
-                    %span 40%OFF
-
-              %li.rank
-                %p.right__content__ranking__content-rank-other
-                  %span
-                    %label 20
-                  = link_to '#' do
-                    = image_tag "/assets/35255289B_8_D_215.jpg", width: '125' , height:'150'
-                  %p.right__content__coupon__text
-                    URBAN RESEARCH
-                  %p.right__content__coupon__price
-                    ¥30000
-                    %span 税込
-                    %span 40%OFF
-
-              %li.rank
-                %p.right__content__ranking__content-rank-other
-                  %span
-                    %label 21
-                  = link_to '#' do
-                    = image_tag "/assets/35255289B_8_D_215.jpg", width: '125' , height:'150'
-                  %p.right__content__coupon__text
-                    URBAN RESEARCH
-                  %p.right__content__coupon__price
-                    ¥30000
-                    %span 税込
-                    %span 40%OFF
-
-              %li.rank
-                %p.right__content__ranking__content-rank-other
-                  %span
-                    %label 22
-                  = link_to '#' do
-                    = image_tag "/assets/35255289B_8_D_215.jpg", width: '125' , height:'150'
-                  %p.right__content__coupon__text
-                    URBAN RESEARCH
-                  %p.right__content__coupon__price
-                    ¥30000
-                    %span 税込
-                    %span 40%OFF
-
-              %li.rank
-                %p.right__content__ranking__content-rank-other
-                  %span
-                    %label 23
-                  = link_to '#' do
-                    = image_tag "/assets/35255289B_8_D_215.jpg", width: '125' , height:'150'
-                  %p.right__content__coupon__text
-                    URBAN RESEARCH
-                  %p.right__content__coupon__price
-                    ¥30000
-                    %span 税込
-                    %span 40%OFF
-
+          %p.zozo-item
+            = link_to 'ランキング一覧' , '#'
 
         %section.right__content__coordination
           %h2

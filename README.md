@@ -27,15 +27,13 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|genere|string|null: false|
+|genere|integer|null: false|
 |name|string|null: false|
 |postal_code|integer|null: false|
 |prefecture|string|null: false|
 |address1|string|null: false|
 |address2|string||
-|phone_number|integer|null: false|
-|shpping_way|string|null: false|
-|payment_method|string|null: false|
+|phonenumber|integer|null: false|
 |user_id|references|foreign_key: true|
 
 ### Association
@@ -58,12 +56,12 @@
 |bland_id|references|null:false, foreign_key: true|
 
 ### Association
-- has_many :trades
+- has_many :stocks
 - has_many :images
 - belongs_to :category
 - belongs_to :shop
 - belongs_to :item
-- belongs_to :bland
+- belongs_to :brand
 - belongs_to :cordinate
 
 ## shops_table
@@ -136,7 +134,7 @@
 
 ### Association
 - belongs_to :user
-- belongs_to :item
+- belongs_to :stock
 
 ## images_table
 
@@ -159,9 +157,10 @@
 
 
 ### Association
-- has_many :itens
+- has_many :items
+- has_many :trades
 - has_many :sizes
-- has_many :colors
+- belongs_to :color
 
 
 ## credit_cards_table
@@ -198,7 +197,7 @@
 
 
 ### Association
-- belongs_to :stock
+- has_many :stocks
 
 ## user_details_table
 

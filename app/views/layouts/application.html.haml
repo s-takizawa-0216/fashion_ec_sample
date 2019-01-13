@@ -7,6 +7,6 @@
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-
   %body
+    %script{:charset => "UTF-8", :src => "https://yubinbango.github.io/yubinbango/yubinbango.js"}
     = yield

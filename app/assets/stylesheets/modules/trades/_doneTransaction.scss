@@ -1,17 +1,18 @@
 .done-main{
+  box-shadow: 0px 0px 6px 3px #2bd1af;
   border-radius: 25px;
   background-color: gray;
-  width: 600px;
-  height: 350px;
+  width: 800px;
   margin: 50px auto 20px;
   &__header{
     padding-top: 50px;
     padding-bottom: 50px;
     background-color: lightgray;
-    color: #fff;
+    color: black;
     font-size: 25px;
     text-align: center;
     font-weight: bold;
+    opacity: 0.5;
   } 
   &__footer{
     padding-top: 80px;
@@ -19,5 +20,21 @@
     font-size: 35px;
     text-align: center;
     font-weight: bold;
+    opacity: 0.6;
+    &-msg{
+      color: bold;
+    }
+    &-msg:hover{
+      font-size: 40px;
+    }
+    .zozo-shop-icon1{
+      font-size: 30px;
+      margin-right: 300px;
+      color: black;
+    }
+    .zozo-shop-icon2{
+      font-size: 30px;
+      color: black;
+    }
   }
 }

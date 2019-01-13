@@ -1,19 +1,4 @@
 $(function(){
-  var modal = $(".AddStack-overlay");
-
-  // modal.hide()
-  // $("#stockIndexBody").find("#addStock button").on("click", function(){
-  //   modal.show();
-  // })
-
-  // $(".modal-close").on("click", function(){
-  //   modal.hide();
-  // })
-
-})
-
-
-$(function(){
   var modal = $(".imagePreview-overlay");
   var mainImage = $(".stockDetailPix img")
   var noImage = modal.find(".noImage img").attr("src");

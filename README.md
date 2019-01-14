@@ -18,8 +18,9 @@
 ### Association
 - has_one :credit_card
 - has_many :trades
-- has_many :favshops
-- has_many :favblands
+- has_many :fav_shops
+- has_many :fav_blands
+- has_many :fav_items
 - has_one :user_detail
 
 
@@ -96,6 +97,7 @@
 
 ### Association
 - has_many :items
+- has_many :fav_shops
 
 
 ## cordinates_table
@@ -160,6 +162,7 @@
 - has_many :items
 - has_many :trades
 - has_many :sizes
+- has_many :fav_items
 - belongs_to :color
 
 
@@ -189,6 +192,18 @@
 |------|----|-------|
 |brand_id|references|foreign_key: true|
 |user_id|references|foreign_key: true|
+
+### Association
+- belongs_to :user
+
+## fav_stocks_table
+|Column|Type|Options|
+|------|----|-------|
+|stock_id|references|foreign_key: true|
+|user_id|references|foreign_key: true|
+
+### Association
+- belongs_to :user
 
 ## colors_table
 |Column|Type|Options|

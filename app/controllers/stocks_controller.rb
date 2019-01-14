@@ -4,7 +4,6 @@ class StocksController < ApplicationController
   before_action :set_shop, only: [:index, :new, :edit]
   before_action :set_stock, only: [:destroy, :edit, :update]
 
-
   def index
   end
 

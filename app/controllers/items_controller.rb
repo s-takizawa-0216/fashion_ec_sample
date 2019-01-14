@@ -30,6 +30,7 @@ class ItemsController < ApplicationController
     @brand = Brand.all
     @shop = Shop.all
     @parent_category = Category.where(depth: 0)
+    @color = Color.all
     # アイテムの生成
     @item = Item.new
     @item.images.build
@@ -58,7 +59,7 @@ class ItemsController < ApplicationController
   private
 
     def create_params
-      params.require(:item).permit(:name, :discription, :gender, :price, :material, :origin, :delivery_days, :wrapping, :shop_id, :brand_id, :parent_category_id, :child_category_id, images_attributes: [:image])
+      params.require(:item).permit(:name, :discription, :gender, :price, :material, :origin, :delivery_days, :wrapping, :shop_id, :brand_id, :parent_category_id, :child_category_id, images_attributes: [:image, :color_id , :discription])
     end
 
 end

@@ -14,7 +14,7 @@
 
     = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
       .user-info-main__body-right
-        = f.email_field :email, autofocus: true, autocomplete: "email", type: :hidden, required: true
+        = f.email_field :email, autofocus: true, autocomplete: "email", type: :hidden
         .body-right__top
           .body-right__top-inside
             .body-right__top-inside__header

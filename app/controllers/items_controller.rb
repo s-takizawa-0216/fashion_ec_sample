@@ -45,9 +45,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  def cart
-  end
-
   def prefecture
   end
 

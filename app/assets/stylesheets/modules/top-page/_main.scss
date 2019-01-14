@@ -275,11 +275,21 @@
         &__list-bland {
           margin: 5px 0 0;
           padding: 0;
+        }
 
           >li {
            margin-top:8px;
            font-size: 13px;
+           list-style: none;
 
+             >span {
+             }
+
+              >a {
+              color: #646464;
+              padding: 0 2px 8px 5px;
+              }
+           }
 
             #rank1 {
               border-radius: 50%;
@@ -326,18 +336,13 @@
               font-size: 11px;
             }
 
-              >a {
-              color: #646464;
-              padding: 0 2px 8px 5px;
-              }
+
 
             #shop_bland-all {
               float: right;;
               color:#007ebe;
               margin-top: 5px;
             }
-          }
-        }
 
             &__image {
               padding: 22px 0 12px;
@@ -406,10 +411,12 @@
       border-bottom: solid 1px #ebebeb;
 
       >ul {
+      }
 
         >li {
           float: left;
           margin-right: 15px;
+          list-style: none;
 
         // &:hover {
         //   opacity: 0.7;
@@ -430,7 +437,6 @@
             }
           }
         }
-      }
     }
   }
 

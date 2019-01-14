@@ -1,0 +1,22 @@
+<div class="AddStack-overlay modal-overlay modal-overlay-fixed">
+  <div class="modal-outer">
+    <div class="modal-inner">
+      <div class="modal-iframe">
+        <div id="detail">
+          <h2>在庫情報の編集</h2>
+          <div class="AddStackForm">
+            <%= form_for @stock do |f| %>
+
+              <%= render partial: "form", locals: {f: f, items: @items} %>
+
+              <%= f.submit "更新する", class: "submitBtn" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="modal-item modal-close">
+        <i class="fa fa-times"></i>
+      </div>
+    </div>
+  </div>
+</div>

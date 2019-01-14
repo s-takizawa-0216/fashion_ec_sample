@@ -1,0 +1,16 @@
+.AddShop-overlay.modal-overlay.modal-overlay-fixed
+  .modal-outer
+    .modal-inner
+      .modal-iframe
+        #detail
+          %h2 ショップの登録
+          .AddStackForm
+            = form_for @shop do |f|
+
+              .form-group
+                %label.mainLabel ショップ名
+                %span.form-require 必須
+                .clearBoth
+                = f.text_field :name, class: "input-default", require: true
+
+              = f.submit "登録する", class: "submitBtn"

@@ -28,7 +28,7 @@ class ItemsController < ApplicationController
   def new
     # 選択欄での必要項目の取得
     @brand = Brand.all
-    @shop = Shop.all
+    @shop = Shop.where(user_id: current_user.id)
     @parent_category = Category.where(depth: 0)
     @color = Color.all
     # アイテムの生成

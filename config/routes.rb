@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     patch  'shipping_update',  to: 'users#shipping_update',  as: :shipping_update, on: :collection
   end
 
-  resources :trades, only: [:index, :plus_count, :minus_count, :destroy_item, :order, :add_credit_card, :confirmation, :done_transaction] do
+  resources :trades, only: [:index, :plus_count, :minus_count, :destroy_item, :order, :add_credit_card, :confirmation, :done_transaction, :create] do
     post  'plus_count/:trade_id',     to: 'trades#plus_count',        as: :plus_count
     post  'minus_count/:trade_id',    to: 'trades#minus_count',       as: :minus_count
     post  'erace_item/:trade_id',     to: 'trades#erace_item',        as: :erace_item

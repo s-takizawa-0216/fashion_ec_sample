@@ -716,6 +716,7 @@
                 padding-right: 5px;
               }
             }
+            .btn:hover{opacity: 0.8;}
             .span{
               border: 1px #555 solid;
               background: #555;
@@ -726,12 +727,11 @@
             .btn{
               border: none;
               background: none;
-              .fa{
-                font-size: 40px;
-                color: #BBB;
-              }
             }
-
+            .fa{
+              font-size: 40px;
+              color: #BBB;
+            }
           }
         }
       }

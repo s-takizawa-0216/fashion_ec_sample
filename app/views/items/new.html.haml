@@ -122,7 +122,7 @@
               .disc-hissu__hissu 必須
           = f.select :parent_category_id, @parent_category.map{|parent_category|[parent_category.name, parent_category.id]}, {prompt: "カテゴリー1を選択"}, {required: true}
 
-          = f.select :child_category_id, @tops_category.map{|tops_category|[tops_category.name, tops_category.id]}, {prompt: "カテゴリー2を選択"}, {class: "tops"}
+          = f.select :child_category_id, @tops_category.map{|tops_category|[tops_category.name, tops_category.id]}, {prompt: "カテゴリー2を選択"}, required: true
 
           / = f.select :child_category_id, @jackets_category.map{|jackets_category|[jackets_category.name, jackets_category.id]}, {prompt: "カテゴリー2を選択"}, {class: "jackets"}
 

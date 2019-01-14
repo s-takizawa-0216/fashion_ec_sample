@@ -31,7 +31,6 @@ class ItemsController < ApplicationController
     @brand = Brand.all
     @shop = Shop.all
     @parent_category = Category.where(depth: 0)
-   @child_category = Category.where(depth: 1, parent_id: "%#{params[:formData]}%")
   end
 
   def create

@@ -1,6 +1,6 @@
 $(function () {
   $('select#item_parent_category_id').change(function() {
-    
+
     var r = $(this).val();
     if(r == 1){
       $('#item_child_category_id.tops').css("display", "block");

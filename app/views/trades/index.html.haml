@@ -8,13 +8,13 @@
     .cart-main__header__right
       = image_tag "/images/cart-info_step1.jpg"
 
-  / カートに何も入っていない時　if文で条件文分岐
+  / カートに何も入っていない時
 -unless @open_trade.present?
   .cart-main__content
     .cart-main__content__noitem-msg カートに商品は入っていません
     = link_to "ショピングを続ける", root_path, class: "continue-shopping-btn"
 
-/ カートにアイテムがある時 if文で条件文分岐
+/ カートにアイテムがある時
 -if @open_trade.present?
   .cart-main__middle
     %table.cart-main__middle__left

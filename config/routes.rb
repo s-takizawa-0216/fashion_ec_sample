@@ -12,9 +12,10 @@ Rails.application.routes.draw do
 
 
 
-  resources :items, only: [:new, :create ,:cordinate , :prefecture ,:show] do
+  resources :items, only: [:new, :create ,:cordinate , :prefecture ,:show, :search] do
     get 'cordination' , to: 'items#cordination', on: :collection
     get 'prefecture' , to: 'items#prefecture' , on: :collection
+    get 'search_category' , to: 'items#search_category' , on: :collection
   end
 
 

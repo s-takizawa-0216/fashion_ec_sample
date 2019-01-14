@@ -31,11 +31,7 @@ class ItemsController < ApplicationController
     @brand = Brand.all
     @shop = Shop.all
     @parent_category = Category.where(depth: 0)
-    @child_category = Category.where(depth: 1)
-    respond_to do |format|
-     format.html
-     format.json
-   end
+   @child_category = Category.where(depth: 1, parent_id: "%#{params[:formData]}%")
   end
 
   def create
@@ -51,6 +47,13 @@ class ItemsController < ApplicationController
   end
 
   def prefecture
+  end
+
+  def search_category
+    # 商品出品ページのカテゴリー選択ajax通信
+    respond_to do |format|
+        format.json {render 'new', json: @child_category = Category.where(parent_id: params[:parent_id])}
+    end
   end
 
   private

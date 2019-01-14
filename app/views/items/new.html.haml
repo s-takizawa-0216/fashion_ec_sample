@@ -121,12 +121,9 @@
             %li.side-by-side-li
               .disc-hissu__hissu 必須
           = f.select :parent_category_id, @parent_category.map{|parent_category|[parent_category.name, parent_category.id]}, {prompt: "カテゴリー1を選択"}, {required: true}
+          .appendcategory-zone
+          = f.select :child_category_id, [],prompt: "カテゴリー2を選択", required: true
 
-          = f.select :child_category_id, @child_category.map{|child_category|[child_category.name, child_category.id]}, {prompt: "カテゴリー2を選択"}, required: true
-
-          / = f.select :child_category_id, @jackets_category.map{|jackets_category|[jackets_category.name, jackets_category.id]}, {prompt: "カテゴリー2を選択"}, {class: "jackets"}
-
-          / = f.select :child_category_id, @pants_category.map{|pants_category|[pants_category.name, pants_category.id]}, {prompt: "カテゴリー2を選択"}, {class: "pants"}
 
       .item-new-main__selection.clearfix
         .item-new-main__selection-msg

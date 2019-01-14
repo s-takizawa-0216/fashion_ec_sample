@@ -9,4 +9,6 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :images
   validates :name, :discription, :price, :delivery_days, :wrapping, presence: true
 
+  enum delivery_days: [:不可, :可], _prefix: true
+  enum wrapping: [:不可, :可], _prefix: true
 end

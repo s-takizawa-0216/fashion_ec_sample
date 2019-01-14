@@ -4,6 +4,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
+    @arigatoPrice = (@item.price * 0.7).round
   end
 
   def new

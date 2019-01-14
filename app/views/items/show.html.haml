@@ -246,16 +246,19 @@
                     %ul.nameList
                       %li
                         ショップ：
-                        %a EMMA CLOTHES
+                        %a
+                          = @item.shop.name
                       %li
                         ブランド：
-                        %a EMMA CLOTHES
-                    %h1 ギルダン USA ビッグシルエット ロングスリーブプルオーバークルースウェット(裏起毛)
+                        %a
+                          = @item.brand.name
+                    %h1
+                      = @item.name
                     %a.link#reviewAnchor
                       1件の着用レビュー
                     .clearfix.goods-price-container
                       .goods-price
-                        ¥3,996
+                        ¥#{@item.price}
                         %small 税込
                     .promotion-container
                       .promotion-header
@@ -264,9 +267,10 @@
                           =link_to "詳細", 'http://zozo.jp/zozoarigato/default.html',class: "textPremium m-l-sm text-2xs link"
                       .goods-promotion-price-container
                         .goods-price-group.premium-price-group
-                          .goods-price-group-item.price-before ¥2,996
+                          .goods-price-group-item.price-before
+                            ¥#{@item.price}
                           %p.premium-price.text-premium
-                            ¥2,098
+                            ¥#{@arigatoPrice}
                             %small.text-premium 税込
                           %p.m-t-xs.textNote ※ARIGATO価格での購入にはクレジットカードが必要となります。
                   .premium-tabcontainer
@@ -390,29 +394,37 @@
                                 性別タイプ
                                 %span :
                               %dd
-                                %a.link メンズ
+                                %a.link
+                                  = @item.gender
                               %dt
                                 カテゴリ
                                 %span :
                               %dd
                                 %ul.lineNavi.clearfix
                                   %li
-                                    %a.link トップス
+                                    %a.link
+                                      = @item.parent_category.name
                                     %span ＜
                                   %li
-                                    %a.link スウェット
+                                    %a.link
+                                      = @item.child_category.name
                               %dt
                                 素材
                                 %span :
                               %dd
-                                コットン50%, ポリエステル50%
+                                = @item.material
+                              %dt
+                                原産国
+                                %span :
+                              %dd
+                                = @item.origin
                               %dt
                                 即日配達
                                 %span :
                               %dd.exShippingInfolink
                                 %span
                                   %a.link 即日配達
-                                  可
+                                  = @item.delivery_days
                               %dt
                                 送料
                                 %span :
@@ -425,7 +437,7 @@
                               %dd
                                 %span.giftOver
                                   %a.link ラッピング
-                                  可
+                                  = @item.wrapping
                               %dt
                                 問い合わせ番号
                                 %span :

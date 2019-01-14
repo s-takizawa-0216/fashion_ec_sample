@@ -183,25 +183,16 @@
                   margin: 0;
                   text-align: center;
                 }
+              img{
+                width: 35px;
+                height: 42px;
+              }
               img:hover{opacity: 0.8;}
               }
 
               .current{
-                z-index: 2;
-                %div{
-                  width: 35px;
-                  span{
-                    display: block;
-                    background: #ffffff;
-                    font-size: 10px;
-                    line-height: 1.2;
-                    margin: 0;
-                    text-align: center;
-                  }
-                  img{
-                    border: solid 3px #878787;
-                    margin: -3px;
-                  }
+                img{
+                  border: solid 3px #878787;
                 }
               }
             }

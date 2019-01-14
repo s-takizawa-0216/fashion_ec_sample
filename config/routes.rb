@@ -39,5 +39,6 @@ Rails.application.routes.draw do
     get   'confirmation',             to: 'trades#confirmation',      as: :confirmation, on: :collection
     post  'done_transaction',         to: 'trades#done_transaction',  as: :done_transaction, on: :collection
   end
-  resources :stocks, only: [:index]
+  resources :stocks, except: [:show]
+  resources :shops, only: [:new, :create]
 end

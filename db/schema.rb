@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_12_091950) do
+ActiveRecord::Schema.define(version: 2019_01_13_193004) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -51,6 +51,32 @@ ActiveRecord::Schema.define(version: 2019_01_12_091950) do
     t.index ["item_id"], name: "index_images_on_item_id"
   end
 
+  create_table "impressions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "impressionable_type"
+    t.integer "impressionable_id"
+    t.integer "user_id"
+    t.string "controller_name"
+    t.string "action_name"
+    t.string "view_name"
+    t.string "request_hash"
+    t.string "ip_address"
+    t.string "session_hash"
+    t.text "message"
+    t.text "referrer"
+    t.text "params"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["controller_name", "action_name", "ip_address"], name: "controlleraction_ip_index"
+    t.index ["controller_name", "action_name", "request_hash"], name: "controlleraction_request_index"
+    t.index ["controller_name", "action_name", "session_hash"], name: "controlleraction_session_index"
+    t.index ["impressionable_type", "impressionable_id", "ip_address"], name: "poly_ip_index"
+    t.index ["impressionable_type", "impressionable_id", "params"], name: "poly_params_request_index", length: { params: 255 }
+    t.index ["impressionable_type", "impressionable_id", "request_hash"], name: "poly_request_index"
+    t.index ["impressionable_type", "impressionable_id", "session_hash"], name: "poly_session_index"
+    t.index ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index", length: { message: 255 }
+    t.index ["user_id"], name: "index_impressions_on_user_id"
+  end
+
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "discription", null: false
@@ -66,6 +92,8 @@ ActiveRecord::Schema.define(version: 2019_01_12_091950) do
     t.bigint "child_category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "impressions_count"
+    t.integer "coupon"
     t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["child_category_id"], name: "index_items_on_child_category_id"
     t.index ["parent_category_id"], name: "index_items_on_parent_category_id"
@@ -79,7 +107,7 @@ ActiveRecord::Schema.define(version: 2019_01_12_091950) do
     t.string "prefecture", null: false
     t.string "address1", null: false
     t.string "address2"
-    t.integer "phonenumber", null: false
+    t.text "phonenumber", null: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -90,6 +118,8 @@ ActiveRecord::Schema.define(version: 2019_01_12_091950) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_shops_on_user_id"
   end
 
   create_table "sizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -105,6 +135,7 @@ ActiveRecord::Schema.define(version: 2019_01_12_091950) do
     t.integer "count", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
     t.index ["color_id"], name: "index_stocks_on_color_id"
     t.index ["item_id"], name: "index_stocks_on_item_id"
     t.index ["size_id"], name: "index_stocks_on_size_id"
@@ -129,11 +160,16 @@ ActiveRecord::Schema.define(version: 2019_01_12_091950) do
     t.string "first_name_kana", null: false
     t.string "prefecture", null: false
     t.string "address1", null: false
-    t.string "address2", null: false
-    t.string "phonenumber", null: false
+    t.string "address2"
+    t.text "phonenumber", null: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "gender"
+    t.string "birth_year"
+    t.string "birth_month"
+    t.string "birth_day"
+    t.integer "postal_code", null: false
     t.index ["user_id"], name: "index_user_details_on_user_id"
   end
 
@@ -163,6 +199,7 @@ ActiveRecord::Schema.define(version: 2019_01_12_091950) do
   add_foreign_key "items", "categories", column: "child_category_id"
   add_foreign_key "items", "categories", column: "parent_category_id"
   add_foreign_key "items", "shops"
+  add_foreign_key "shops", "users"
   add_foreign_key "shippings", "users"
   add_foreign_key "stocks", "colors"
   add_foreign_key "stocks", "items"

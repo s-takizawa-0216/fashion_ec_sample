@@ -45,14 +45,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   protected
-  
-  def sns_new
-    @user = User.new(sns_params)
-  end
 
-  def sns_params
-    params.require(:user).permit(:password, :email, :gender, :birth_year, :birth_month, :birth_day, :postal_code, :mail_magazine, :provider, :uid)
-  end
+    def sns_new
+      @user = User.new(sns_params)
+    end
+
+    def sns_params
+      params.require(:user).permit(:password, :email, :gender, :birth_year, :birth_month, :birth_day, :postal_code, :mail_magazine, :provider, :uid)
+    end
   # def sns_params
 
   #   params.require(:user).permit(:email, :password, :provider, :uid)
@@ -68,9 +68,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
   # end
 
-  def after_sign_up_path_for(resource)
-    user_resistration_done_signup_path
-  end
+    def after_sign_up_path_for(resource)
+      user_resistration_done_signup_path
+    end
+
+    def after_update_path_for(resource)
+      user_path(current_user.id)
+    end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)

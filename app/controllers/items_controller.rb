@@ -31,9 +31,11 @@ class ItemsController < ApplicationController
     @brand = Brand.all
     @shop = Shop.all
     @parent_category = Category.where(depth: 0)
-    @tops_category = Category.where(parent_id: 1)
-    @jackets_category = Category.where(parent_id: 5)
-    @pants_category = Category.where(parent_id: 9)
+    @child_category = Category.where(depth: 1)
+    respond_to do |format|
+     format.html
+     format.json
+   end
   end
 
   def create

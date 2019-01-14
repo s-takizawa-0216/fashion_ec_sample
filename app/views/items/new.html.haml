@@ -121,8 +121,8 @@
             %li.side-by-side-li
               .disc-hissu__hissu 必須
           = f.select :parent_category_id, @parent_category.map{|parent_category|[parent_category.name, parent_category.id]}, {prompt: "カテゴリー1を選択"}, {required: true}
-          .appendcategory-zone
-          = f.select :child_category_id, [],prompt: "カテゴリー2を選択", required: true
+
+          = f.select :child_category_id, {}, {prompt: "カテゴリー2を選択"}, {required: true}
 
 
       .item-new-main__selection.clearfix

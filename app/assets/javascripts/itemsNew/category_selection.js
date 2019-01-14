@@ -1,7 +1,8 @@
+// 商品出品のカテゴリー選択
 $(function () {
   $('select#item_parent_category_id').change(function() {
-    $("select#item_child_category_id option").remove();
-    $("select#item_child_category_id").append($("<option>").text("カテゴリー2を選択"));
+    $("select#item_child_category_id").show();
+    $("select#item_child_category_id option").next().remove();
       var input = $(this).val();
 
     $.ajax({
@@ -12,8 +13,9 @@ $(function () {
     })
 
     .done(function(data){
-      $(data).each(function appendCategory(id, name){
-      $("select#item_child_category_id").append($("<option>").val(name["id"]).text(name["name"]));
+      $(data).each(function appendCategory(id, category){
+
+      $("select#item_child_category_id").append($("<option>").val(category["id"]).text(category["name"]));
       });
     })
   });

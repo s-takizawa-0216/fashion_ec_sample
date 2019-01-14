@@ -26,14 +26,17 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new
-    @item.images.build
+    # 選択欄での必要項目の取得
     @brand = Brand.all
     @shop = Shop.all
     @parent_category = Category.where(depth: 0)
+    # アイテムの生成
+    @item = Item.new
+    @item.images.build
   end
 
   def create
+    # アイテムのDBへの保存
     @item = Item.new(create_params)
     if @item.save
       redirect_to root_path

@@ -1,0 +1,97 @@
+= render "/shared/header-logged-in.html.haml"
+.sign-up__breadcrumbs breadcrumbs will be set here
+
+.user-info-main
+  .user-info-main__header
+    %span
+      = fa_icon "users", class: "user-info-icon"
+    %span ZOZOID
+    %span 様の登録情報
+
+  .user-info-main__body.clearfix
+
+    = render "/users/shared/sidebar2.html.haml"
+
+    = form_for(@shipping, url: shipping_update_users_path, html: {method: :patch, class: "h-adr"}) do |f|
+      .user-info-main__body-right
+        .body-right__top
+          .body-right__top-inside
+            .body-right__top-inside__header
+              .body-right__top-inside__header-index お届け先の変更
+            .body-right__top-inside__content
+              %table
+                %tr.basic-user-info__content-tr
+                  %th.basic-user-info__content-th
+                    %span.p-country-name{:style => "display:none;"} Japan
+                    %span 種別
+                    %span.user-info-hissu 必須
+                  %td.basic-user-info__content-td
+                    .users-table-space
+                      = f.select :genre,[["勤務先・職場職場",1],["友人・知人卓",2],["実家", 3],["その他",4]],{}, class: "type-of-place"
+
+                %tr.basic-user-info__content-tr
+                  %th.basic-user-info__content-th
+                    %span お名前
+                    %span.user-info-hissu 必須
+                  %td.basic-user-info__content-td
+                    .users-table-space
+                      %p
+                        = f.text_field :name, placeholder: "例）山田太郎", class: "additional-address-name", required: true
+
+                %tr.basic-user-info__content-tr
+                  %th.basic-user-info__content-th
+                    %span 郵便番号
+                    %span.user-info-hissu 必須
+                  %td.basic-user-info__content-td
+                    .users-table-space
+                      %span.margin-space15
+                        = f.text_field :postal_code, maxlength: 8, size: "8", class: "p-postal-code basic-userpostal-input", placeholder: " 例) 2617127",required: true
+                      %span.margin-space15
+                        %button{class: "basic-userpostal-btn", disabled: true} 住所を自動入力
+                      %span.margin-space15.usernasic-postal
+                        = link_to "https://www.post.japanpost.jp/zipcode/index.html" do
+                          %label 郵便番号を検索
+                          = fa_icon "edit", class: "userbasic-postal-icon"
+
+                %tr
+                  %th.basic-user-info__content-th
+                    %span 都道府県
+                    %span.user-info-hissu 必須
+                  %td.basic-user-info__content-td
+                    .users-table-space-shorter
+                      %input{class: "p-region postal-input-pref", disabled: "disabled", placeholder: "郵便番号を入力してください"}
+                      = f.text_field :prefecture, type: :hidden, class: "p-region postal-input-pref", required: true
+
+                %tr
+                  %th.basic-user-info__content-th
+                    .users-table-space-shorter-bottom
+                      %span 住所1
+                      %span.user-info-hissu 必須
+                  %td.basic-user-info__content-td
+                    .users-table-space-shorter-bottom
+                      = f.text_field :address1, class: "p-locality p-street-address p-extended-address basic-address-input", placeholder: "市町村,番地など 例）千葉市美浜区中瀬2-6", required: true
+
+                %tr.basic-user-info__content-tr
+                  %th.basic-user-info__content-th
+                    .users-table-space-shorter-bottom
+                      %p 住所2
+                  %td.basic-user-info__content-td
+                    .users-table-space-shorter-bottom
+                      = f.text_field :address2, placeholder: "建物名など 例）マリブウエスト16F", class: "basic-address-input"
+
+                %tr.basic-user-info__content-tr
+                  %th.basic-user-info__content-th
+                    %span 電話番号
+                    %span.user-info-hissu 必須
+                  %td.basic-user-info__content-td
+                    .users-table-space
+                      %span.margin-space15
+                        = f.telephone_field :phonenumber, class: "basic-user-phonenumber-input",placeholder: " 例）09012345678", maxlength: 11, required: true
+
+                %tr
+                  %th.basic-user-info__content-th
+                  %td.basic-user-info__content-td
+                    .usesr-basic-info-bottom
+                      =f.submit "確認する", class: "user-basicinfo-btn"
+
+= render "/shared/footer.html.haml"

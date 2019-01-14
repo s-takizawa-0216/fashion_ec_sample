@@ -24,6 +24,10 @@
                   #zoomContainer
                     = image_tag ""
                   %ul#photoMain.hasZoom
+                    - @item.images.each do |image|
+                      %li.list-item
+                        = image_tag "#{image.image.file.file}"
+                        .loupe
                     %li.list-item
                       = image_tag "https://c.imgz.jp/442/34183442/34183442B_33_D_500.jpg"
                       .loupe
@@ -41,9 +45,11 @@
                       = fa_icon ("angle-left")
                     %li#btnNext
                       = fa_icon ("angle-right")
-                  %p#photoCaption インディゴブルー H185/58kg / B90 / W77 / H90 / 着用サイズ：XL
+                  %p#photoCaption
+                  / インディゴブルー H185/58kg / B90 / W77 / H90 / 着用サイズ：XL
                   /アイテムミニ画像
                   %ul#photoThimb
+                    = render partial: "/items/items_show/item_image_line", collection: @item_image_line
                     %li.current
                       #div
                         %span#goodsdiv

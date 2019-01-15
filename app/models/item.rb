@@ -7,11 +7,10 @@ class Item < ApplicationRecord
   belongs_to :brand
 
   has_many :stocks
-  has_many :images
+  has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images
 
   validates :name, :discription, :price, :delivery_days, :wrapping, :shop_id, :parent_category_id, :child_category_id, presence: true
-  has_many :images, dependent: :destroy
   has_many :stocks, dependent: :destroy
 
 

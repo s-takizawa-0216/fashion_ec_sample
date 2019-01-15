@@ -2,11 +2,22 @@
 $(function () {
   var num = 0;
   $("form").change('input[type="file"]', function(e) {
+
     $(this).data("click", ++num);
     var click = $(this).data("click");
+
     $('#preview-box').hide();
+    $('#preview-box1').hide();
+    $('#preview-box2').hide();
+    $('#preview-box3').hide();
+    $('#preview-box4').hide();
+    $('#preview-box5').hide();
+    $('#preview-box6').hide();
+    $('#preview-box7').hide();
+    $('#preview-box8').hide();
 
     times = e.target.files.length;
+
       for (var i = 0; i < times; i++) {
         if(click == 1){
           var file = e.target.files[i],
@@ -60,30 +71,32 @@ $(function () {
         return false;
       }
 
-  reader.onload = (function(file) {
-    return function(e) {
+    reader.onload = (function(file) {
+      return function(e) {
 
-      $preview.append($('<img>').attr({
-        src: e.target.result,
-        width: "150px",
-        height:"180px",
-      }));
-    };
-  })(file);
+        $preview.append($('<img>').attr({
+          src: e.target.result,
+          width: "150px",
+          height:"180px",
+        }));
+      };
+    })(file);
 
     if (file){
         reader.readAsDataURL(file);
     }
-
   });
 });
 
 //画像追加ボタンでフォームの追加
 $(function () {
   var num = 0;
+
   $('#add_image').click(function() {
+
     $(this).data("click", ++num);
     var click = $(this).data("click");
+
     var html =`
       <div class="newitem-preview__box" id="image_box">
         <ul style="display: flex">
@@ -122,6 +135,8 @@ $(function () {
     if(click == 8){
       $("#image_box").append(html);
       $("#add_image").hide();
+      $('#item_images_attributes_8_image').addClass('images_attributes');
+
     }else if(click < 9){
       $("#image_box").append(html);
       $('#item_images_attributes_'+click+'_image').addClass('images_attributes');

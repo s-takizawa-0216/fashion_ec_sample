@@ -1,16 +1,64 @@
 // 商品出品の画像プレビュー
 $(function () {
-  $('input#item_images_attributes_0_image').change('input[type="file"]', function(e) {
+  var num = 0;
+  $("form").change('input[type="file"]', function(e) {
+    $(this).data("click", ++num);
+    var click = $(this).data("click");
     $('#preview-box').hide();
 
-      var file = e.target.files[0],
-          reader = new FileReader(),
-          $preview = $("#preview")
-          t = this;
+    times = e.target.files.length;
+      for (var i = 0; i < times; i++) {
+        if(click == 1){
+          var file = e.target.files[i],
+              reader = new FileReader(),
+              $preview = $('.preview-zone')
+              t = this;
+        }else if(click == 2){
+          var file = e.target.files[i],
+              reader = new FileReader(),
+              $preview = $('.preview-zone1')
+              t = this;
+        }else if(click == 3){
+          var file = e.target.files[i],
+              reader = new FileReader(),
+              $preview = $('.preview-zone2')
+              t = this;
+        }else if(click == 4){
+          var file = e.target.files[i],
+              reader = new FileReader(),
+              $preview = $('.preview-zone3')
+              t = this;
+        }else if(click == 5){
+          var file = e.target.files[i],
+              reader = new FileReader(),
+              $preview = $('.preview-zone4')
+              t = this;
+        }else if(click == 6){
+          var file = e.target.files[i],
+              reader = new FileReader(),
+              $preview = $('.preview-zone5')
+              t = this;
+        }else if(click == 7){
+          var file = e.target.files[i],
+              reader = new FileReader(),
+              $preview = $('.preview-zone6')
+              t = this;
+        }else if(click == 8){
+          var file = e.target.files[i],
+              reader = new FileReader(),
+              $preview = $('.preview-zone7')
+              t = this;
+        }else if(click == 9){
+          var file = e.target.files[i],
+              reader = new FileReader(),
+              $preview = $('.preview-zone8')
+              t = this;
+        }
+      }
 
-    if(file.type.indexOf("image") < 0){
-      return false;
-    }
+      if(file.type.indexOf("image") < 0){
+        return false;
+      }
 
   reader.onload = (function(file) {
     return function(e) {
@@ -19,7 +67,6 @@ $(function () {
         src: e.target.result,
         width: "150px",
         height:"180px",
-        class: "#preview",
       }));
     };
   })(file);
@@ -27,27 +74,28 @@ $(function () {
     if (file){
         reader.readAsDataURL(file);
     }
+
   });
 });
 
 //画像追加ボタンでフォームの追加
 $(function () {
-  var num = 1;
+  var num = 0;
   $('#add_image').click(function() {
     $(this).data("click", ++num);
     var click = $(this).data("click");
     var html =`
       <div class="newitem-preview__box" id="image_box">
         <ul style="display: flex">
-          <div class="newitem-preview__box-msg">${click}</div>
-          <div class="newitem-preview__box-preview" id="preview-box">
+          <div class="newitem-preview__box-msg">${click+1}</div>
+          <div class="newitem-preview__box-preview" id="preview-box${click}">
             <p>
               <i style="padding-left: 10px" class="fa fa-image"></i>
             </p>
             <p style="margin: 7px">ここをクリックして画像を選択してください</p>
-              <input type="file" required="required" name="item[images_attributes][${click}][image]" id="item_images_attributes_0_image">
+              <input type="file" required="required" name="item[images_attributes][${click}][image]" id="item_images_attributes_${click}_image">
           </div>
-          <div class="preview-zone" id="preview"></div>
+          <div class="preview-zone${click}" id="preview"></div>
           <div class="newitem-preview__box-color">
             <p class="color-msg">※カラーがある場合は選択してください</p>
             <p>
@@ -71,11 +119,13 @@ $(function () {
         </ul>
       </div>`
 
-    if(click == 9){
+    if(click == 8){
       $("#image_box").append(html);
       $("#add_image").hide();
-    }else if(click < 10){
+    }else if(click < 9){
       $("#image_box").append(html);
+      $('#item_images_attributes_'+click+'_image').addClass('images_attributes');
+
     }
   });
 });

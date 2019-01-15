@@ -19,7 +19,7 @@ $(function () {
         src: e.target.result,
         width: "150px",
         height:"180px",
-        class: ".preview-zone",
+        class: "#preview",
       }));
     };
   })(file);
@@ -45,13 +45,13 @@ $(function () {
               <i style="padding-left: 10px" class="fa fa-image"></i>
             </p>
             <p style="margin: 7px">ここをクリックして画像を選択してください</p>
-              <input type="file" required="required" name="item[images_attributes][${click-1}][image]" id="item_images_attributes_0_image">
+              <input type="file" required="required" name="item[images_attributes][${click}][image]" id="item_images_attributes_0_image">
           </div>
           <div class="preview-zone" id="preview"></div>
           <div class="newitem-preview__box-color">
             <p class="color-msg">※カラーがある場合は選択してください</p>
             <p>
-              <select class="select-style" name="item[images_attributes][${click-1}][color_id]" id="item_images_attributes_0_color_id">
+              <select class="select-style" name="item[images_attributes][${click}][color_id]" id="item_images_attributes_0_color_id">
                 <option value="">選択してください</option>
                 <option value="1">ホワイト</option>
                 <option value="2">ブラック</option>

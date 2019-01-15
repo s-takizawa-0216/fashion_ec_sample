@@ -14,7 +14,6 @@ $(function () {
 
   reader.onload = (function(file) {
     return function(e) {
-          console.log(file);
 
       $preview.append($('<img>').attr({
         src: e.target.result,
@@ -32,7 +31,6 @@ $(function () {
 });
 
 //画像追加ボタンでフォームの追加
-// クーポン適用価格の表示
 $(function () {
   var num = 1;
   $('#add_image').click(function() {
@@ -47,13 +45,13 @@ $(function () {
               <i style="padding-left: 10px" class="fa fa-image"></i>
             </p>
             <p style="margin: 7px">ここをクリックして画像を選択してください</p>
-              <input type="file" required="required" name="item[images_attributes][${click}][image]" id="item_images_attributes_0_image">
+              <input type="file" required="required" name="item[images_attributes][${click-1}][image]" id="item_images_attributes_0_image">
           </div>
           <div class="preview-zone" id="preview"></div>
           <div class="newitem-preview__box-color">
             <p class="color-msg">※カラーがある場合は選択してください</p>
             <p>
-              <select class="select-style" name="item[images_attributes][0][color_id]" id="item_images_attributes_0_color_id">
+              <select class="select-style" name="item[images_attributes][${click-1}][color_id]" id="item_images_attributes_0_color_id">
                 <option value="">選択してください</option>
                 <option value="1">ホワイト</option>
                 <option value="2">ブラック</option>
@@ -68,7 +66,7 @@ $(function () {
             </p>
           </div>
           <div class="newitem-preview__box-text">
-            <textarea placeholder="画像に関する説明がある場合はここに書いてください" class="item-text" style="resize: none" name="item[images_attributes][0][discription]" id="item_images_attributes_0_discription"></textarea>
+            <textarea placeholder="画像に関する説明がある場合はここに書いてください" class="item-text" style="resize: none" name="item[images_attributes][${click}][discription]" id="item_images_attributes_0_discription"></textarea>
           </div>
         </ul>
       </div>`

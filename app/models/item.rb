@@ -13,5 +13,4 @@ class Item < ApplicationRecord
   validates :name, :discription, :price, :delivery_days, :wrapping, :shop_id, :parent_category_id, :child_category_id, presence: true
   has_many :stocks, dependent: :destroy
 
-
 end

@@ -113,29 +113,30 @@
               %span
                 %input#calc{class: "coupon-price", disabled: true}
 
-  .newitem-preview
+  .newitem-preview.clearfix
     .newitem-preview__header
       .newitem-preview__header-msg
         %span 画像登録
         %span.hiss 必須
 
-    = f.fields_for :images do |image|
-      .newitem-preview__box#image_box
-        %ul{style: "display: flex"}
-          .newitem-preview__box-msg 1
-          .newitem-preview__box-preview#preview-box
-            %p
-              = fa_icon "image",{style: "padding-left: 10px"}
-            %p{style: "margin: 7px"} ここをクリックして画像を選択してください
-            = image.file_field :image,  type: "file", required: true
-          .preview-zone#preview
+      .item-appends#image_box
+        .newitem-preview__box
+          = f.fields_for :images do |image|
+            %ul{style: "display: flex"}
+              .newitem-preview__box-msg 1
+              .newitem-preview__box-preview#preview-box
+                %p
+                  = fa_icon "image",{style: "padding-left: 10px"}
+                %p{style: "margin: 7px"} ここをクリックして画像を選択してください
+                = image.file_field :image,  type: "file", required: true
+              .preview-zone#preview
 
-          .newitem-preview__box-color
-            %p.color-msg ※カラーがある場合は選択してください
-            %p
-              = image.select :color_id, @color.map{|color|[color.name, color.id]},{}, {prompt: "選択してください"}, class: "select-style"
-          .newitem-preview__box-text
-            = image.text_area :discription, placeholder: "画像に関する説明がある場合はここに書いてください", class: "item-text", style: "resize: none"
+              .newitem-preview__box-color
+                %p.color-msg ※カラーがある場合は選択してください
+                %p
+                  = image.select :color_id, @color.map{|color|[color.name, color.id]}, {prompt: "選択してください"}, class: "select-style"
+              .newitem-preview__box-text
+                = image.text_area :discription, placeholder: "画像に関する説明がある場合はここに書いてください", class: "item-text", style: "resize: none"
 
       .newitem-preview__footer
         %span

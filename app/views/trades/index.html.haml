@@ -120,7 +120,7 @@
   .cart-main__checked-item.clearfix
     .cart-main__checked-item-msg 以前カートに入れたアイテム
     %ul.side-by-side-ul.cart-main__checked-item__line.clearfix
-      = render partial:'/trades/trades_index/once_in_cart.html.haml', collection: @once_in_cart
+      = render partial:'/trades/trades_index/once_in_cart', collection: @once_in_cart
 
 .order-main__footer
   .order-main__footer-box

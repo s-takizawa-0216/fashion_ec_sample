@@ -106,10 +106,12 @@
       height: 180px;
       background: rgba(#f5f5f5, 0.8);
     }
+
     &-color{
       margin: 40px 0 0 40px;
     }
   }
+
   &__footer{
     margin-right: 100px;
     opacity: 0.8;
@@ -177,7 +179,7 @@
   display: none;
 }
 
-input[type="checkbox" i]#item_wrapping{
+input[type="checkbox" i]#item_wrapping, input[type="checkbox" i]#item_delivery_days{
   transform: scale(1.5);
 }
 

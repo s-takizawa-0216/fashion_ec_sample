@@ -88,7 +88,7 @@
             %p
               %span 即日配送可否
               %span
-                = f.check_box :delivery_days, checkedvalue: 1, uncheckedvalue: 0, style: "margin-left: 20px"
+                = f.check_box :delivery_days, checkedvalue: 1, uncheckedvalue: 0, style: "margin-left: 40px"
               %span.wrapping-msg ※即日配送が可能な場合はチェックしてください
 
         .zozoshop__right-container-box
@@ -105,7 +105,7 @@
             %span クーポン割引率
             %span.hiss 必須
           .zozoshop__right-container-box-tag
-            = f.select :coupon, [["適用しない","0"],["10%", "0.9"],["20%","0.8"],["30%","0.7"],["40%","0.6"],["50%","0.5"],["60%","0.4"]], {prompt: "選択してください"}, class: "select-style"
+            = f.select :coupon, [["適用しない","0"],["10%", "0.9"],["20%","0.8"],["30%","0.7"],["40%","0.6"],["50%","0.5"],["60%","0.4"]], {prompt: "選択してください"}, class: "select-style", required: true
           .zozoshop__right-container-box-tag
             %P.coupon-price-msg{style: "color: gray"} ※適用時の価格
             %p{style: "margin-left: 20px"}
@@ -118,6 +118,7 @@
       .newitem-preview__header-msg
         %span 画像登録
         %span.hiss 必須
+        %span.wrapping-msg{style: "font-size: 18px"} ※9枚まで登録できます
 
       .item-appends#image_box
         .newitem-preview__box
@@ -129,7 +130,7 @@
                   = fa_icon "image",{style: "padding-left: 10px"}
                 %p{style: "margin: 7px"} ここをクリックして画像を選択してください
                 = image.file_field :image,  type: "file", required: true
-              .preview-zone#preview
+              .preview-zone
 
               .newitem-preview__box-color
                 %p.color-msg ※カラーがある場合は選択してください

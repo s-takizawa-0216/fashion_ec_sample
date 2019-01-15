@@ -1,20 +1,20 @@
 // 商品出品の画像プレビュー
 $(function () {
   var num = 0;
-  $("form").change('input[type="file"]', function(e) {
+  $('form').on('change', 'input[type="file"]', function(e) {
 
     $(this).data("click", ++num);
     var click = $(this).data("click");
 
-    $('#preview-box').hide();
-    $('#preview-box1').hide();
-    $('#preview-box2').hide();
-    $('#preview-box3').hide();
-    $('#preview-box4').hide();
-    $('#preview-box5').hide();
-    $('#preview-box6').hide();
-    $('#preview-box7').hide();
-    $('#preview-box8').hide();
+      $('#preview-box').hide();
+      $('#preview-box1').hide();
+      $('#preview-box2').hide();
+      $('#preview-box3').hide();
+      $('#preview-box4').hide();
+      $('#preview-box5').hide();
+      $('#preview-box6').hide();
+      $('#preview-box7').hide();
+      $('#preview-box8').hide();
 
     times = e.target.files.length;
 
@@ -108,7 +108,7 @@ $(function () {
             <p style="margin: 7px">ここをクリックして画像を選択してください</p>
               <input type="file" required="required" name="item[images_attributes][${click}][image]" id="item_images_attributes_${click}_image">
           </div>
-          <div class="preview-zone${click}" id="preview"></div>
+          <div class="preview-zone${click}"></div>
           <div class="newitem-preview__box-color">
             <p class="color-msg">※カラーがある場合は選択してください</p>
             <p>

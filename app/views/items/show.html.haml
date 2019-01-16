@@ -289,7 +289,7 @@
                     .blockMain
 
                       - @item.images.each do |image|
-                        -if image.color.present?
+                        -if image.color.present? && Stock.where(item_id: image.item_id, color_id: image.color_id).present?
                           %dl.clearfix
                             %dt
                               %span.img
@@ -305,12 +305,15 @@
                                         %p #{stock.size.size} / 在庫あり
                                         %P.zozosize #{stock.size.size}サイズ担当
                                       .cart
-                                        = form_for [@item, @trade], url: trades_path(@item), method: :post do |f|
-                                          = f.hidden_field :stock_id, value: "#{stock.id}"
-                                          = f.hidden_field :total, value: "#{stock.item.price}"
-                                          = button_tag type: 'submit', class: 'btn' do
-                                            .i.fa.fa-shopping-cart
-                                            カートへ入れる
+                                        - if stock.count == 0
+                                          %p.soldout 完売しました
+                                        - else
+                                          = form_for [@item, @trade], url: trades_path(@item), method: :post do |f|
+                                            = f.hidden_field :stock_id, value: "#{stock.id}"
+                                            = f.hidden_field :total, value: "#{stock.item.price}"
+                                            = button_tag type: 'submit', class: 'btn' do
+                                              .i.fa.fa-shopping-cart
+                                              カートへ入れる
 
                                       .bkmk
                                         %button.btn

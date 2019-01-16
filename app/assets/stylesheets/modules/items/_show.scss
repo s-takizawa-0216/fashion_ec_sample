@@ -701,6 +701,12 @@
             width: 175px;
             text-align: left;
             padding: 15px 5px 14px 0;
+            .soldout{
+              text-align: center;
+              display: block;
+              padding: 5px 0 6px 0;
+              color: #808080;
+            }
             .btn{
               color: #ffffff;
               background-color: #c49a44;

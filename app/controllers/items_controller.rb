@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :check_stocks, only: [:show]
 
   before_action :authenticate_user!, except: [:index, :show]
   before_action :check_shop_user, only: [:new]
@@ -24,8 +25,12 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @arigatoPrice = (@item.price * 0.7).round
+    @item_image_line = @item.images
+    @trade = Trade.new
     @popular_item = Item.find(params[:id])
     impressionist(@popular_item, nil, :unique => [:session_hash])
+
   end
 
   def new
@@ -70,6 +75,11 @@ class ItemsController < ApplicationController
       unless current_user.shop.present?
         redirect_to root_path
       end
+    end
+
+    def check_stocks
+      @item = Item.find(params[:id])
+      redirect_to root_path unless @item.stocks.present?
     end
 
 end

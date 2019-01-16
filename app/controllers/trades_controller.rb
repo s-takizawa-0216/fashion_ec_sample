@@ -101,6 +101,16 @@ class TradesController < ApplicationController
     done_transaction = trade.update(status: 2)
   end
 
+  def create
+    trade = Trade.new(trade_params)
+    if trade.save
+      redirect_to trades_path
+    else
+      render "items/show"
+    end
+
+  end
+
   private
 
     def credit_card_params
@@ -109,6 +119,10 @@ class TradesController < ApplicationController
 
     def shipping_info_params
       params.require(:shipping).permit(:genre, :name, :postal_code, :prefecture, :address1, :address2, :phonenumber).merge(user_id: current_user.id)
+    end
+
+    def trade_params
+      params.require(:trade).permit(:stock_id, :total).merge(status: 0, user_id: current_user.id, count: 1)
     end
 
     def user_info_return
@@ -123,4 +137,3 @@ class TradesController < ApplicationController
     end
 
 end
-

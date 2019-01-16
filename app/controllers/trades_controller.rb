@@ -1,7 +1,8 @@
 class TradesController < ApplicationController
 
   before_action :authenticate_user!, except: [:index]
-  before_action :user_info_return, only: [:confirmation, :arigato_confirmation]
+  before_action :user_info_return, only: [:confirmation]
+  before_action :check_arigato, only: [:index]
 
   def index
     # カート画面
@@ -42,23 +43,22 @@ class TradesController < ApplicationController
     redirect_to trades_path
   end
 
+  def arigato_update
+    trade = Trade.where(status: 0, user_id: current_user.id)
+    trade.update(status: 2)
+    redirect_to order_trades_path
+  end
+
   def order
     #通常価格での購入時の音届け先・配送先・支払い方法登録ページ
     @open_trade = Trade.where(status: 0, user_id: current_user.id)
     @items_sum = @open_trade.sum{|trade|trade[:total]}
     @include_fee = @items_sum+320
-    @user = Shipping.order('created_at': :desc).find_by(user_id: current_user.id)
-    @user_credit_card = CreditCard.order('created_at': :desc).find_by(user_id: current_user.id)
-    @credit_card = CreditCard.new
-    @shipping_info = Shipping.new
-  end
 
-  def arigato_order
-    # ARIGATO価格での購入時の音届け先・配送先・支払い方法登録ページ
-    @open_trade = Trade.where(status: 0, user_id: current_user.id)
-    @items_sum = @open_trade.sum{|trade|trade[:total]}
-    @sum_arigato = @items_sum*0.9
-    @include_fee = @sum_arigato+320
+    @arigato_trade = Trade.where(status: 2, user_id: current_user.id)
+    @arigato_sum = @arigato_trade.sum{|trade|trade[:total]}*0.9
+    @arigato_fee = @arigato_sum+320
+
     @user = Shipping.order('created_at': :desc).find_by(user_id: current_user.id)
     @user_credit_card = CreditCard.order('created_at': :desc).find_by(user_id: current_user.id)
     @credit_card = CreditCard.new
@@ -79,20 +79,6 @@ class TradesController < ApplicationController
     end
   end
 
-  def arigato_add_user_info
-    # ARIGATO価格での購入時の音届け先・配送先・支払い方法登録
-    @user = Shipping.find_by(user_id: current_user.id)
-    @user_credit_card = CreditCard.find_by(user_id: current_user.id)
-    @credit_card = CreditCard.new(credit_card_params)
-    @shipping_info = Shipping.new(shipping_info_params)
-
-    if @credit_card.save && @shipping_info.save
-      redirect_to arigato_confirmation_trades_path
-    elsif @credit_card.save || @shipping_info.save
-      redirect_to arigato_confirmation_trades_path
-    end
-  end
-
   def confirmation
     # 通常価格での購入時の注文内容確認ページ
     @user = Shipping.order('created_at': :desc).find_by(user_id: current_user.id)
@@ -100,38 +86,30 @@ class TradesController < ApplicationController
     @open_trade = Trade.where(status: 0, user_id: current_user.id)
     @items_sum = @open_trade.sum{|trade|trade[:total]}
     @include_fee = @items_sum+320
-  end
 
-    def arigato_confirmation
-    # ARIGATO価格での購入時の注文内容確認ページ
-    @user = Shipping.order('created_at': :desc).find_by(user_id: current_user.id)
-    @credit_card = CreditCard.order('created_at': :desc).find_by(user_id: current_user.id)
-    @open_trade = Trade.where(status: 0, user_id: current_user.id)
-    @items_sum = @open_trade.sum{|trade|trade[:total]}
-    @sum_arigato = @items_sum*0.9
-    @include_fee = @sum_arigato+320
+    @arigato_trade = Trade.where(status: 2, user_id: current_user.id)
+    @arigato_sum = @arigato_trade.sum{|trade|trade[:total]}*0.9
+    @arigato_fee = @arigato_sum+320
   end
 
   def done_transaction
     # 通常価格での購入完了
     trade = Trade.where(status: 0, user_id: current_user.id)
+    arigato_trade = Trade.where(status: 2, user_id: current_user.id)
 
-    done_transaction = trade.update(status: 2)
+    if trade.present?
 
-    trade.each do |i|
-      i.stock.update(count: i.stock.count-i.count)
-    end
-  end
+      trade.each do |i|
+        i.update(status: 3)
+        i.stock.update(count: i.stock.count-i.count)
+      end
 
-  def arigato_done_transaction
-    # ARIGATO価格での購入完了
-    trade = Trade.where(status: 0, user_id: current_user.id)
-    @items_sum = trade.sum{|trade|trade[:total]}
-    @sum_arigato = @items_sum*0.9
-    done_transaction = trade.update(status: 2, total: @sum_arigato.floor)
+    elsif arigato_trade.present?
 
-    trade.each do |i|
-      i.stock.update(count: i.stock.count-i.count)
+      arigato_trade.each do |i|
+        i.update(status: 3, total: i.total*0.9)
+        i.stock.update(count: i.stock.count-i.count)
+      end
     end
   end
 
@@ -168,4 +146,17 @@ class TradesController < ApplicationController
       end
     end
 
+    def check_arigato
+      # tradeのstatusが2のtradeがある場合、カート画面に入る前に、0へ変更
+      arigato_trade = Trade.where(status: 2, user_id: current_user.id)
+
+      if arigato_trade.present?
+
+        arigato_trade.each do |i|
+          i.update(status: 0)
+        end
+
+        redirect_to trades_path
+      end
+    end
 end

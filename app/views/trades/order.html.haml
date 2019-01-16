@@ -286,8 +286,13 @@
           %p
             %span.margin-space140 商品合計
             %span ¥
-            %span
-              = @items_sum
+            -if @open_trade.present?
+              %span
+                = @items_sum
+
+            -if @arigato_trade.present?
+              %span
+                = @arigato_sum.floor
           %p
             %span.margin-space170 送料
             %span ¥
@@ -300,8 +305,12 @@
           %span.order-main__right__content__summary-top 合計
           %span.order-main__right__content__summary-middle.margin-space50 (税込)
           %span.order-main__right__content__summary-bottom ¥
-          %span.order-main__right__content__summary-bottom
-            = @include_fee
+          -if @open_trade.present?
+            %span.order-main__right__content__summary-bottom
+              = @include_fee
+          -if @arigato_trade.present?
+            %span.order-main__right__content__summary-bottom
+              = @arigato_fee.floor
 
   .order-main__footer#footer-top
     .order-main__footer-box

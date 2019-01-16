@@ -1,6 +1,7 @@
 %tr.cart-main__middle__left__item-space
   %td.cart-main__middle__left__item-space-image
-    = image_tag "#{open_trade.stock.item.images.first.image}", class: "in-cart-item-image"
+    = link_to item_path(open_trade.stock.item.id) do
+      = image_tag "#{open_trade.stock.item.images.first.image}", class: "in-cart-item-image"
   %td.cart-main__middle__left__item-space-detail
     %p.in-cart-item-p
       = open_trade.stock.item.shop.name

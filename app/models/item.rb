@@ -17,4 +17,6 @@ class Item < ApplicationRecord
   has_many :stocks, dependent: :destroy
 
 
+  enum delivery_days: [:不可, :可], _prefix: true
+  enum wrapping: [:不可, :可], _prefix: true
 end

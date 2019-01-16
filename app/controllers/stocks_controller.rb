@@ -1,5 +1,5 @@
 class StocksController < ApplicationController
-
+  before_action :authenticate_user!, only: [:index]
   before_action :check_shop, only: [:index]
   before_action :set_shop, only: [:index, :new, :edit]
   before_action :set_stock, only: [:destroy, :edit, :update]

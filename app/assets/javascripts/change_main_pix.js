@@ -1,7 +1,8 @@
 $(function(){
   function photoChange(target){
     var photoList = $('#photoGallery').find("#photoMain li");
-    var photoLine = $('#photoGallery').find("#photoThimb li")
+    var photoLine = $('#photoGallery').find("#photoThimb li");
+    var mainCaption = $('#photoGallery #photoCaption')
     var thimb = [];
     var current = 0;
     var btnPrev = $('#btnPrev')
@@ -14,6 +15,10 @@ $(function(){
 
     function click_close(){
       $(photoList[current]).stop().fadeOut(0)
+    }
+
+    function change_caption(text){
+      mainCaption.text(text);
     }
 
     function clickTn(num){
@@ -31,6 +36,8 @@ $(function(){
           clickTn(index);
           photoLine.removeClass('current');
           $(ele).addClass('current');
+          caption = $(ele).find('.imCaption').text()
+          change_caption(caption)
         })
       });
     };
@@ -42,6 +49,8 @@ $(function(){
       btnNext.off('click');
       $(photoList[current]).stop().fadeIn(0, checkControl);
       $(photoLine[current]).addClass('current');
+      caption = $(photoLine[current]).find('.imCaption').text()
+      change_caption(caption)
     };
 
     function slide_close(){

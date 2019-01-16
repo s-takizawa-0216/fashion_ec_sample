@@ -1,4 +1,4 @@
-= form_for(@credit_card, url: add_user_info_trades_path, html: {method: :post, class: "h-adr"}) do |f|
+= form_for(@credit_card, url: arigato_add_user_info_trades_path, html: {method: :post, class: "h-adr"}) do |f|
   .order-main.clearfix
     .order-main__header.clearfix
       .order-main__header__left
@@ -36,7 +36,7 @@
           .new-address-additional
             .new-address-additional__header.clearfix.unchecked#address-header
               %input{type: :checkbox, class: "new-address-additional__header-check", id: "new-address-check", checked: false}
-                .new-address-additional__header-msg
+                .new-address-additional__header-msg 
                   %span 新しいお届け先を追加
                   %span.neccesary-check-info (追加する場合は必ずチェックをつけてください)
 
@@ -279,15 +279,16 @@
 
       .order-main__right__content
         -if @user.present? && @user_credit_card.present?
-          = link_to confirmation_trades_path do
+          = link_to arigato_confirmation_trades_path do
             .order-main__right__content__tonext-btn.link-btn_to-confirmation#link-btn 次に進む
         = f.submit "次に進む",class: "order-main__right__content__tonext-btn", id: "add_credit_card"
         .order-main__right__content__info-box
+          %p{style: "color: red"} ARIGATO価格適用
           %p
             %span.margin-space140 商品合計
             %span ¥
             %span
-              = @items_sum
+              = @sum_arigato.floor
           %p
             %span.margin-space170 送料
             %span ¥
@@ -301,7 +302,7 @@
           %span.order-main__right__content__summary-middle.margin-space50 (税込)
           %span.order-main__right__content__summary-bottom ¥
           %span.order-main__right__content__summary-bottom
-            = @include_fee
+            = @include_fee.floor
 
   .order-main__footer#footer-top
     .order-main__footer-box

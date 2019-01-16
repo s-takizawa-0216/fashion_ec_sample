@@ -1,0 +1,148 @@
+.order-main.clearfix
+  .order-main__header.clearfix
+    .order-main__header__left
+      .order-main__header__left__zozo-logo ZOZOTOWN
+      .order-main__header__left__msg 注文内容の確認
+    .order-main__header__right
+      = image_tag "https://zozo.jp/_cart/order/img/step_02.gif"
+
+  .order-main__body
+    %table.confirm-table
+      %tr
+        %td.confirm-table__index お届け先
+        %td.confirm-table__middle
+          %p.confirm-table__info
+            %span 
+              = @user.name
+            %span 様
+          %p.confirm-table__info
+            %span 住所:
+            %span 〒#{current_user.postal_code}
+            %span #{@user.address1}#{@user.address2}
+          %p.confirm-table__info
+            %span 電話：
+            %span
+              = @user.phonenumber
+        %td.receive-add
+          .confirm-item__box-top-btn
+            = link_to "変更", order_trades_path
+      %tr
+        %td
+        %td.clearfix.confirm-table__background-receive-btn
+          %ul.side-by-side-ul.clearfix
+            %li.side-by-side-li.confirm-table__receive-image
+              = image_tag "https://img4.zozo.jp/pc/_cart/locker_cart/ico_cnv.png", width: "50px", height: "50px"
+            %li.side-by-side-li.confirm-table__background-receive
+              %p.confirm-table__receive 24時間いつでも・どこでもお受け取り可能
+              %p.confirm-table__info 店舗・ロッカーお受け取りなら、ご都合のいい時間・場所で
+              %p.confirm-table__info
+                %span お受け取り可能です。
+                %span 詳細
+        %td.confirm-table__background-receive-btn
+          %button{class: "shop-selection-btn"}店舗選択
+
+    %table.confirm-table-ex
+      %tr
+        %td.confirm-table__index 支払い方法
+        %td.confirm-table__middle
+          %span.confirm-table__info クレジットカード
+          %span.confirm-table__info ＊＊＊＊＊＊＊＊#{@credit_card.number.slice(8..11)}
+          %span.confirm-table__info (一括払い)
+        %td.confirm-table__index.payment-add ¥0
+        %td.payment-add 
+          .confirm-item__box-top-btn
+            = link_to "変更", order_trades_path
+      %tr
+
+    %table.confirm-table-ex
+      %tr
+        %td.confirm-table__index.arigato-add ARIGATO応援先
+        %td.confirm-table__index 今回のご注文ではご利用いただけません。
+
+    %table.confirm-table-ex
+      %tr
+        %td.confirm-table__index.arigato-add ZOZOポイント
+        %td.confirm-table__index ご利用可能ポイント：0ポイント / 今回の還元ポイント : 0ポイント
+
+    .confirm-item
+      .confirm-item__header お届け商品
+      .confirm-item__box
+        .confirm-item__box-top.clearfix
+          %ul.side-by-side-ul.confirm-top-marign
+            %li.side-by-side-li 
+              .confirm-item__box-top__index お届け日
+            %li.side-by-side-li
+              .confirm-item__box-top__info
+                %p 指定なし：2〜5日以内に発送 
+                %p.gray 日時指定：日時を選択してください。
+                %p.gray
+                  %span 即日配送：※今回のご注文では選択できません。
+                  %span
+                    =fa_icon "exclamation", id: "exclamation"
+            %li.side-by-side-li
+              .confirm-item__box-top__price ¥0
+            %li.side-by-side-li
+              .confirm-item__box-top-btn
+                = link_to "変更", order_trades_path
+
+        =render partial: "/trades/trades_confirmation/open_trade.html.haml", collection: @open_trade
+        .confirm-item__box-item.clearfix
+
+        .confirm-item__box-shipping.clearfix
+          %ul.side-by-side-ul.confirm-top-marign
+            %li.side-by-side-li
+              .confirm-item__box-shipping__index 送料
+            %li.side-by-side-li
+              .confirm-item__box-shipping__price ¥320
+
+  .confirm-main__right
+    = form_tag(arigato_done_transaction_trades_path, method: :post) do
+      .confirm-main__right__top
+        %button{type: :submit, class: "confirm-main__right__top-btn"}注文を確定する
+    .confirm-main__right__info
+      %p.confirm-main__right__info-msg{style: "color: red"} ARIGATO価格適用
+      %p
+        %span.confirm-main__right__info-msg 商品合計
+        %span.confirm-main__right__info-price ¥#{@sum_arigato.floor}
+
+    .confirm-main__right__detail
+      .confirm-main__right__detail__head
+      .confirm-main__right__detail__top
+      .confirm-main__right__detail__bottom
+        %span.confirm-main__right__detail__bottom-msg 品代
+        %span.confirm-main__right__detail__bottom-price ¥#{@sum_arigato.floor}
+
+    .confirm-main__right__shipping
+      %span.confirm-main__right__shipping-msg 送料
+      %span.confirm-main__right__shipping-add (指定なし：2〜5日以内に発送)
+      %span.confirm-main__right__shipping-price ¥320
+
+    .confirm-main__right__extra-fee
+      %span.confirm-main__right__extra-fee-msg 支払い手数料
+      %span.confirm-main__right__extra-fee-price ¥0
+
+    .confirm-main__right__sum.include-fee_head-bar
+      %span.confirm-main__right__sum-msg 合計
+      %span.confirm-main__right__sum-add (税込)
+      %span.confirm-main__right__sum-price ¥#{@include_fee.floor}
+
+    .confirm-main__right__bottom
+      %p.gray ※送料は一律￥200です。
+      %p ご注文完了前に必ずサイズ・カラー・価格・数量の
+      %p ご確認をお願いいたします。
+      %p 一部商品や、商品状態により注文取消し・返品
+      %p をお受けできない場合がございます。
+      %p
+        = link_to "返品について"
+
+.order-main__footer#footer-top
+  .order-main__footer-box
+    %ul.side-by-side-ul.order-main__footer-box-ul.clearfix
+      %li.side-by-side-li.order-main__footer-box-li-right コーポレイトサイト
+      %li.side-by-side-li.order-main__footer-box-li-both 会社概要
+      %li.side-by-side-li.order-main__footer-box-li-both IR情報
+      %li.side-by-side-li.order-main__footer-box-li-both 採用情報
+      %li.side-by-side-li.order-main__footer-box-li-both 利用規約
+      %li.side-by-side-li.order-main__footer-box-li-both プライバシーポリシー
+      %li.side-by-side-li.order-main__footer-box-li-left 特定商取引法に基づく表示・古物営業法に基づく表示
+  .order-main__footer-bottom ©ZOZO,Inc

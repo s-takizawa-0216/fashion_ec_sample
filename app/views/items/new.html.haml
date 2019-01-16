@@ -109,20 +109,24 @@
           %ul.side-by-side-ul.disc-hissu
             %li.side-by-side-li
               .disc-hissu__disc ブランド名
-          = f.select :brand_id, @brand.map{|brand|[brand.name, brand.id]}, include_blank: true
+            %li.side-by-side-li
+              .disc-hissu__hissu 必須
+          = f.select :brand_id, @brand.map{|brand|[brand.name, brand.id]}, {}, include_blank: true, required: true
 
       .item-new-main__selection.clearfix
         .item-new-main__selection-msg
           %ul.side-by-side-ul.disc-hissu
             %li.side-by-side-li
               .disc-hissu__disc カテゴリー
-          = f.select :parent_category_id, @parent_category.map{|parent_category|[parent_category.name, parent_category.id]}, prompt: "カテゴリー1を選択"
+            %li.side-by-side-li
+              .disc-hissu__hissu 必須
+          = f.select :parent_category_id, @parent_category.map{|parent_category|[parent_category.name, parent_category.id]}, {prompt: "カテゴリー1を選択"}, {required: true}
 
-          = f.select :child_category_id, @tops_category.map{|tops_category|[tops_category.name, tops_category.id]}, {prompt: "カテゴリー2を選択"}, {class: "tops"}
+          = f.select :child_category_id, @tops_category.map{|tops_category|[tops_category.name, tops_category.id]}, {prompt: "カテゴリー2を選択"}, required: true
 
-          = f.select :child_category_id, @jackets_category.map{|jackets_category|[jackets_category.name, jackets_category.id]}, {prompt: "カテゴリー2を選択"}, {class: "jackets"}
+          / = f.select :child_category_id, @jackets_category.map{|jackets_category|[jackets_category.name, jackets_category.id]}, {prompt: "カテゴリー2を選択"}, {class: "jackets"}
 
-          = f.select :child_category_id, @pants_category.map{|pants_category|[pants_category.name, pants_category.id]}, {prompt: "カテゴリー2を選択"}, {class: "pants"}
+          / = f.select :child_category_id, @pants_category.map{|pants_category|[pants_category.name, pants_category.id]}, {prompt: "カテゴリー2を選択"}, {class: "pants"}
 
       .item-new-main__selection.clearfix
         .item-new-main__selection-msg

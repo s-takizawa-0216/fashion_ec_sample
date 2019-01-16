@@ -27,6 +27,7 @@ $(function () {
     var int = Math.floor(calc);
 
     $("#item_price").val(int_price)
+
     if(calc > 0){
     $("input#calc").val(int);
     }

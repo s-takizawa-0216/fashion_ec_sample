@@ -20,7 +20,7 @@
 - has_many :trades
 - has_many :fav_shops
 - has_many :fav_blands
-- has_many :fav_items
+- has_many :fav_stocks
 - has_one :user_detail
 
 
@@ -162,7 +162,7 @@
 - has_many :items
 - has_many :trades
 - has_many :sizes
-- has_many :fav_items
+- has_many :fav_stocks
 - belongs_to :color
 
 
@@ -204,6 +204,7 @@
 
 ### Association
 - belongs_to :user
+- belongs_to :stock
 
 ## colors_table
 |Column|Type|Options|

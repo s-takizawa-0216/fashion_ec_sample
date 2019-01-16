@@ -258,7 +258,7 @@ $(function(){
       $('input#comfirm_this_card').prop('checked', false);
     }
   });
-  
+
   $('input#new-creditcard-check').click(function(){
 
     var check = $(this).prop('checked');

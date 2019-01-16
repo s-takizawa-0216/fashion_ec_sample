@@ -1,17 +1,24 @@
 $(function(){
   function photoChange(target){
     var photoList = $('#photoGallery').find("#photoMain li");
+    var photoLine = $('#photoGallery').find("#photoThimb li");
+    var mainCaption = $('#photoGallery #photoCaption')
     var thimb = [];
     var current = 0;
     var btnPrev = $('#btnPrev')
     var btnNext = $('#btnNext')
 
+
     function click_open(){
-      $(photoList[current]).stop().fadeIn(10, checkControl)
+      $(photoList[current]).stop().fadeIn(0, checkControl)
     }
 
     function click_close(){
       $(photoList[current]).stop().fadeOut(0)
+    }
+
+    function change_caption(text){
+      mainCaption.text(text);
     }
 
     function clickTn(num){
@@ -23,10 +30,14 @@ $(function(){
     };
 
     function init(){
-      $('#photoGallery').find("#photoThimb li").each(function(index){
+      photoLine.each(function(index, ele){
         thimb[index] = $($(this).find('img'));
         $($(this).find('div')).on('click', function(){
           clickTn(index);
+          photoLine.removeClass('current');
+          $(ele).addClass('current');
+          caption = $(ele).find('.imCaption').text()
+          change_caption(caption)
         })
       });
     };
@@ -37,10 +48,14 @@ $(function(){
       btnPrev.off('click');
       btnNext.off('click');
       $(photoList[current]).stop().fadeIn(0, checkControl);
+      $(photoLine[current]).addClass('current');
+      caption = $(photoLine[current]).find('.imCaption').text()
+      change_caption(caption)
     };
 
     function slide_close(){
-      $(photoList).stop().fadeOut(0)
+      $(photoList).stop().fadeOut(0);
+      $(photoLine).removeClass('current');
     }
 
     function clickControl(type){

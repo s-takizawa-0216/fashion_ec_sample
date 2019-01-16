@@ -1,4 +1,5 @@
 class TradesController < ApplicationController
+
   before_action :authenticate_user!, except: [:index]
   before_action :user_info_return, only: [:confirmation]
 
@@ -80,17 +81,6 @@ class TradesController < ApplicationController
     end
   end
 
-  def user_info_return
-    # ユーザー情報の取得
-    @user = Shipping.find_by(user_id: current_user.id)
-    #クレジットカード情報の取得
-    @user_credit_card = CreditCard.find_by(user_id: current_user.id)
-    # 購入ページに遷移する際にユーザー情報と届け先情報がない場合は、登録ページへリダイレクト
-    unless @user.present? && @user_credit_card.present?
-      redirect_to order_trades_path
-    end
-  end
-
   def confirmation
     #最新のユーザー情報の取得
     @user = Shipping.order('created_at': :desc).find_by(user_id: current_user.id)
@@ -111,6 +101,16 @@ class TradesController < ApplicationController
     done_transaction = trade.update(status: 2)
   end
 
+  def create
+    trade = Trade.new(trade_params)
+    if trade.save
+      redirect_to trades_path
+    else
+      render "items/show"
+    end
+
+  end
+
   private
 
     def credit_card_params
@@ -120,5 +120,20 @@ class TradesController < ApplicationController
     def shipping_info_params
       params.require(:shipping).permit(:genre, :name, :postal_code, :prefecture, :address1, :address2, :phonenumber).merge(user_id: current_user.id)
     end
-end
 
+    def trade_params
+      params.require(:trade).permit(:stock_id, :total).merge(status: 0, user_id: current_user.id, count: 1)
+    end
+
+    def user_info_return
+      # ユーザー情報の取得
+      @user = Shipping.find_by(user_id: current_user.id)
+      #クレジットカード情報の取得
+      @user_credit_card = CreditCard.find_by(user_id: current_user.id)
+      # 購入ページに遷移する際にユーザー情報と届け先情報がない場合は、登録ページへリダイレクト
+      unless @user.present? && @user_credit_card.present?
+        redirect_to order_trades_path
+      end
+    end
+
+end

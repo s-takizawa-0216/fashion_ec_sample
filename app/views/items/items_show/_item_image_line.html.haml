@@ -1,0 +1,10 @@
+%li
+  #div
+    %span#goodsdiv
+      = image_tag "#{item_image_line.image}"
+    - if item_image_line.color.present?
+      %p
+        = item_image_line.color.name
+    - if item_image_line.discription.present?
+      %span.imCaption
+        = item_image_line.discription

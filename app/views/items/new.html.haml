@@ -105,7 +105,7 @@
             %span クーポン割引率
             %span.hiss 必須
           .zozoshop__right-container-box-tag
-            = f.select :coupon, [["適用しない","0"],["10%", "0.9"],["20%","0.8"],["30%","0.7"],["40%","0.6"],["50%","0.5"],["60%","0.4"]], {prompt: "選択してください"}, class: "select-style", required: true
+            = f.select :coupon, [["適用しない","1"],["10%", "0.9"],["20%","0.8"],["30%","0.7"],["40%","0.6"],["50%","0.5"],["60%","0.4"]], {prompt: "選択してください"}, class: "select-style", required: true
           .zozoshop__right-container-box-tag
             %P.coupon-price-msg{style: "color: gray"} ※適用時の価格
             %p{style: "margin-left: 20px"}
@@ -143,4 +143,4 @@
         %span
           %button{type: "button", id: "add_image"} 画像を追加する場合はクリック
         %span
-          = f.submit "出品する", class: "button-style"
+          = f.submit "在庫管理に進む", class: "button-style"

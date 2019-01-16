@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+
   before_action :authenticate_user!, except: [:index, :show]
   before_action :check_shop_user, only: [:new]
 
@@ -42,7 +43,7 @@ class ItemsController < ApplicationController
     # アイテムのDBへの保存
     @item = Item.new(create_params)
     if @item.save
-      redirect_to root_path
+      redirect_to stocks_path
     else
       redirect_to new_item_path
     end

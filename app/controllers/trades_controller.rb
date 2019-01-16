@@ -1,4 +1,5 @@
 class TradesController < ApplicationController
+
   before_action :authenticate_user!, except: [:index]
   before_action :user_info_return, only: [:confirmation]
 

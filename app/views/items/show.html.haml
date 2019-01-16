@@ -36,12 +36,17 @@
                     %li
                       = image_tag "https://c.imgz.jp/442/34183442/34183442B_163_D_500.jpg"
                       .loupe
+                    - @item.images.each do |image|
+                      %li.list-item
+                        = image_tag "#{image.image}"
+                        .loupe
                   %ul.prevNextCtrl
                     %li#btnPrev
                       = fa_icon ("angle-left")
                     %li#btnNext
                       = fa_icon ("angle-right")
-                  %p#photoCaption インディゴブルー H185/58kg / B90 / W77 / H90 / 着用サイズ：XL
+                  %p#photoCaption
+                    インディゴブルー H185/58kg / B90 / W77 / H90 / 着用サイズ：XL
                   /アイテムミニ画像
                   %ul#photoThimb
                     %li.current
@@ -56,18 +61,19 @@
                           = image_tag "https://c.imgz.jp/442/34183442/34183442B_1_D_500.jpg", width: "35px", heigth: "42px"
                       %p ホワイト
                       %span.imCaption ホワイト H185/58kg / B90 / W77 / H90 / 着用サイズ：XL
-                    %li#did_57522375
+                    %li
                       #div
                         %span#goodsdiv
                           = image_tag "https://c.imgz.jp/442/34183442/34183442B_8_D_500.jpg", width: "35px", heigth: "42px"
                       %p ブラック
                       %span.imCaption ブラック H185/58kg / B90 / W77 / H90 / 着用サイズ：XL
-                    %li#did_57522375
+                    %li
                       #div
                         %span#goodsdiv
                           = image_tag "https://c.imgz.jp/442/34183442/34183442B_163_D_500.jpg", width: "35px", heigth: "42px"
                       %p グリーン
-                      %span.imCaption ブラック H185/58kg / B90 / W77 / H90 / 着用サイズ：XL
+                      %span.imCaption グリーン H185/58kg / B90 / W77 / H90 / 着用サイズ：XL
+                    = render partial: "/items/items_show/item_image_line", collection: @item_image_line
 
                 #zozoReviewStatus.section
                   .tit.clearfix
@@ -246,16 +252,19 @@
                     %ul.nameList
                       %li
                         ショップ：
-                        %a EMMA CLOTHES
+                        %a
+                          = @item.shop.name
                       %li
                         ブランド：
-                        %a EMMA CLOTHES
-                    %h1 ギルダン USA ビッグシルエット ロングスリーブプルオーバークルースウェット(裏起毛)
+                        %a
+                          = @item.brand.name
+                    %h1
+                      = @item.name
                     %a.link#reviewAnchor
                       1件の着用レビュー
                     .clearfix.goods-price-container
                       .goods-price
-                        ¥3,996
+                        ¥#{@item.price}
                         %small 税込
                     .promotion-container
                       .promotion-header
@@ -264,9 +273,10 @@
                           =link_to "詳細", 'http://zozo.jp/zozoarigato/default.html',class: "textPremium m-l-sm text-2xs link"
                       .goods-promotion-price-container
                         .goods-price-group.premium-price-group
-                          .goods-price-group-item.price-before ¥2,996
+                          .goods-price-group-item.price-before
+                            ¥#{@item.price}
                           %p.premium-price.text-premium
-                            ¥2,098
+                            ¥#{@arigatoPrice}
                             %small.text-premium 税込
                           %p.m-t-xs.textNote ※ARIGATO価格での購入にはクレジットカードが必要となります。
                   .premium-tabcontainer
@@ -277,92 +287,38 @@
                         %a.premium-tab-list-item-link 通常価格
                   .cartBlock.clearfix
                     .blockMain
-                      %dl.clearfix
-                        %dt
-                          %span.img
-                            = image_tag "https://c.imgz.jp/442/34183442/34183442B_33_D_500.jpg"
-                          %span.txt インディゴブルー
-                        %dd
-                          %ul
-                            %li.clearfix
-                              .cartbox
-                                .stock
-                                  %p S / 在庫あり
-                                  %P.zozosize Sサイズ担当
-                                .cart
-                                  %button.btn
-                                    = fa_icon ("shopping-cart")
-                                    カートに入れる
-                                .bkmk
-                                  %button.btn
-                                    = fa_icon("gratipay")
-                            %li.clearfix
-                              .cartbox
-                                .stock
-                                  %p M / 在庫あり
-                                  %P.zozosize Mサイズ担当
-                                .cart
-                                  %button.btn
-                                    = fa_icon ("shopping-cart")
-                                    カートに入れる
-                                .bkmk
-                                  %button.btn
-                                    = fa_icon("gratipay")
-                            %li.clearfix
-                              .cartbox
-                                .stock
-                                  %p L / 在庫あり
-                                  %P.zozosize Lサイズ担当
-                                .cart
-                                  %button.btn
-                                    = fa_icon ("shopping-cart")
-                                    カートに入れる
-                                .bkmk
-                                  %button.btn
-                                    = fa_icon("gratipay")
-                      %dl.clearfix
-                        %dt
-                          %span.img
-                            = image_tag "https://c.imgz.jp/442/34183442/34183442B_1_D_500.jpg"
-                          %span.txt ホワイト
-                        %dd
-                          %ul
-                            %li.clearfix
-                              .cartbox
-                                .stock
-                                  %p S / 在庫あり
-                                  %P.zozosize Sサイズ担当
-                                .cart
-                                  %button.btn
-                                    = fa_icon ("shopping-cart")
-                                    カートに入れる
-                                .bkmk
-                                  %button.btn
-                                    = fa_icon("gratipay")
-                            %li.clearfix
-                              .cartbox
-                                .stock
-                                  %p M / 在庫あり
-                                  %P.zozosize Mサイズ担当
-                                .cart
-                                  %button.btn
-                                    = fa_icon ("shopping-cart")
-                                    カートに入れる
-                                .bkmk
-                                  %button.btn
-                                    = fa_icon("gratipay")
-                            %li.clearfix
-                              .cartbox
-                                .stock
-                                  %p L / 在庫あり
-                                  %P.zozosize Lサイズ担当
-                                .cart
-                                  %button.btn
-                                    = fa_icon ("shopping-cart")
-                                    カートに入れる
-                                .bkmk
-                                  %button.btn
-                                    = fa_icon("gratipay")
+
+                      - @item.images.each do |image|
+                        -if image.color.present? && Stock.where(item_id: image.item_id, color_id: image.color_id).present?
+                          %dl.clearfix
+                            %dt
+                              %span.img
+                                = image_tag "#{image.image}"
+                              %span.txt
+                                = image.color.name
+                            %dd
+                              %ul
+                                - Stock.where(item_id: image.item_id, color_id: image.color_id).each do |stock|
+                                  %li.clearfix
+                                    .cartbox
+                                      .stock
+                                        %p #{stock.size.size} / 在庫あり
+                                        %P.zozosize #{stock.size.size}サイズ担当
+                                      .cart
+                                        - if stock.count == 0
+                                          %p.soldout 完売しました
+                                        - else
+                                          = form_for [@item, @trade], url: trades_path(@item), method: :post do |f|
+                                            = f.hidden_field :stock_id, value: "#{stock.id}"
+                                            = f.hidden_field :total, value: "#{stock.item.price}"
+                                            = button_tag type: 'submit', class: 'btn' do
+                                              .i.fa.fa-shopping-cart
+                                              カートへ入れる
+
+                                      .bkmk
+                                        %button.btn
+                                          = fa_icon("gratipay")
+
                   .tabContainer
                     .detailBlock
                       #swConditionTab
@@ -390,29 +346,37 @@
                                 性別タイプ
                                 %span :
                               %dd
-                                %a.link メンズ
+                                %a.link
+                                  = @item.gender
                               %dt
                                 カテゴリ
                                 %span :
                               %dd
                                 %ul.lineNavi.clearfix
                                   %li
-                                    %a.link トップス
+                                    %a.link
+                                      = @item.parent_category.name
                                     %span ＜
                                   %li
-                                    %a.link スウェット
+                                    %a.link
+                                      = @item.child_category.name
                               %dt
                                 素材
                                 %span :
                               %dd
-                                コットン50%, ポリエステル50%
+                                = @item.material
+                              %dt
+                                原産国
+                                %span :
+                              %dd
+                                = @item.origin
                               %dt
                                 即日配達
                                 %span :
                               %dd.exShippingInfolink
                                 %span
                                   %a.link 即日配達
-                                  可
+                                  = @item.delivery_days
                               %dt
                                 送料
                                 %span :
@@ -425,7 +389,7 @@
                               %dd
                                 %span.giftOver
                                   %a.link ラッピング
-                                  可
+                                  = @item.wrapping
                               %dt
                                 問い合わせ番号
                                 %span :

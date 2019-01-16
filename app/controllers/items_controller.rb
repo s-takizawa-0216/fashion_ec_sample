@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :check_stocks, only: [:show]
 
   def index
     @item = Item.order("created_at DESC")
@@ -21,8 +22,12 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @arigatoPrice = (@item.price * 0.7).round
+    @item_image_line = @item.images
+    @trade = Trade.new
     @popular_item = Item.find(params[:id])
     impressionist(@popular_item, nil, :unique => [:session_hash])
+
   end
 
   def new
@@ -53,8 +58,13 @@ class ItemsController < ApplicationController
 
   private
 
-    def create_params
-      params.require(:item).permit(:name, :discription, :gender, :price, :material, :origin, :delivery_days, :wrapping, :shop_id, :brand_id, :parent_category_id, :child_category_id, images_attributes: [:image])
-    end
+  def create_params
+    params.require(:item).permit(:name, :discription, :gender, :price, :material, :origin, :delivery_days, :wrapping, :shop_id, :brand_id, :parent_category_id, :child_category_id, images_attributes: [:image])
+  end
+
+  def check_stocks
+    @item = Item.find(params[:id])
+    redirect_to root_path unless @item.stocks.present?
+  end
 
 end

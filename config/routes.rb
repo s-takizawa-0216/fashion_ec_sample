@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations', omniauth_callbacks: "users/omniauth_callbacks"}
 
   devise_scope :user do
@@ -9,12 +10,10 @@ Rails.application.routes.draw do
 
   root "items#index"
 
-
-
-
-  resources :items, only: [:new, :create ,:cordinate , :prefecture ,:show] do
+  resources :items, only: [:new, :create ,:cordinate , :prefecture ,:show, :search_category] do
     get 'cordination' , to: 'items#cordination', on: :collection
     get 'prefecture' , to: 'items#prefecture' , on: :collection
+    get 'search_category' , to: 'items#search_category' , on: :collection
   end
 
 

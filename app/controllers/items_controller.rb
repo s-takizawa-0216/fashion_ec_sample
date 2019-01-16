@@ -1,6 +1,9 @@
 class ItemsController < ApplicationController
   before_action :check_stocks, only: [:show]
 
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :check_shop_user, only: [:new]
+
   def index
     @item = Item.order("created_at DESC")
     @zozo = @item.where(shop_id: '1').limit(3)
@@ -31,40 +34,52 @@ class ItemsController < ApplicationController
   end
 
   def new
+    # 選択欄での必要項目の取得
+    @brand = Brand.all
+    @shop = Shop.where(user_id: current_user.id)
+    @parent_category = Category.where(depth: 0)
+    @color = Color.all
+    # アイテムの生成
     @item = Item.new
     @item.images.build
-    @brand = Brand.all
-    @shop = Shop.all
-    @parent_category = Category.where(depth: 0)
-    @tops_category = Category.where(parent_id: 1)
-    @jackets_category = Category.where(parent_id: 5)
-    @pants_category = Category.where(parent_id: 9)
   end
 
   def create
+    # アイテムのDBへの保存
     @item = Item.new(create_params)
     if @item.save
-      redirect_to root_path
+      redirect_to stocks_path
     else
       redirect_to new_item_path
     end
   end
 
-  def cart
+  def prefecture
   end
 
-  def prefecture
+  def search_category
+    # 商品出品ページのカテゴリー選択ajax通信
+    respond_to do |format|
+        format.json {render 'new', json: @child_category = Category.where(parent_id: params[:parent_id])}
+    end
   end
 
   private
 
-  def create_params
-    params.require(:item).permit(:name, :discription, :gender, :price, :material, :origin, :delivery_days, :wrapping, :shop_id, :brand_id, :parent_category_id, :child_category_id, images_attributes: [:image])
-  end
+    def create_params
+      params.require(:item).permit(:name, :discription, :gender, :price, :material, :origin, :delivery_days, :wrapping, :shop_id, :brand_id, :parent_category_id, :child_category_id, :coupon, images_attributes: [:image, :color_id , :discription])
+    end
 
-  def check_stocks
-    @item = Item.find(params[:id])
-    redirect_to root_path unless @item.stocks.present?
-  end
+    def check_shop_user
+      # 商品出品ページに進む際、current_userがショップ登録をしているか確認
+      unless current_user.shop.present?
+        redirect_to root_path
+      end
+    end
+
+    def check_stocks
+      @item = Item.find(params[:id])
+      redirect_to root_path unless @item.stocks.present?
+    end
 
 end

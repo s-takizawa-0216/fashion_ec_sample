@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_14_113040) do
+ActiveRecord::Schema.define(version: 2019_01_15_071535) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 2019_01_14_113040) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "impressions_count"
-    t.integer "coupon"
+    t.decimal "coupon", precision: 2, scale: 1
     t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["child_category_id"], name: "index_items_on_child_category_id"
     t.index ["parent_category_id"], name: "index_items_on_parent_category_id"

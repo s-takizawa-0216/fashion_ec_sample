@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :check_shop_user, only: [:new]
 
   def index
     @item = Item.order("created_at DESC")
@@ -60,6 +62,13 @@ class ItemsController < ApplicationController
 
     def create_params
       params.require(:item).permit(:name, :discription, :gender, :price, :material, :origin, :delivery_days, :wrapping, :shop_id, :brand_id, :parent_category_id, :child_category_id, :coupon, images_attributes: [:image, :color_id , :discription])
+    end
+
+    def check_shop_user
+      # 商品出品ページに進む際、current_userがショップ登録をしているか確認
+      unless current_user.shop.present?
+        redirect_to root_path
+      end
     end
 
 end

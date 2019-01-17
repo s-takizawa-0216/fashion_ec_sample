@@ -2,32 +2,28 @@ class TradesController < ApplicationController
 
   before_action :authenticate_user!, except: [:index]
   before_action :user_info_return, only: [:confirmation]
+  before_action :check_arigato, only: [:index]
 
   def index
-    # カートにあるアイテム
+    # カート画面
     @open_trade = Trade.where(status: 0, user_id: current_user.id)
-    # 以前カートに入ったアイテム
     @once_in_cart = Trade.where(status: 1, user_id: current_user.id)
-    # 合計金額
     @items_sum = @open_trade.sum{|trade|trade[:total]}
-    # ARIGATO価格
     @sum_arigato = @items_sum*0.9
   end
 
   def minus_count
-    # 購入数のマイナス
+    # カート内アイテムの購入数マイナス
     trade = Trade.find(params[:trade_id])
     count_items = trade.update(count: trade.count-1)
-    # 合計金額の修正
     total_price = trade.update(total: trade.stock.item.price*trade.count)
     redirect_to trades_path
   end
 
   def plus_count
-    # 購入数のプラス
+    # カート内画面の購入数のプラス
     trade = Trade.find(params[:trade_id])
     count_items = trade.update(count: trade.count+1)
-    # 合計金額の修正
     total_price = trade.update(total: trade.stock.item.price*trade.count)
     redirect_to trades_path
   end
@@ -47,33 +43,35 @@ class TradesController < ApplicationController
     redirect_to trades_path
   end
 
+  def arigato_update
+    trade = Trade.where(status: 0, user_id: current_user.id)
+    trade.update(status: 2)
+    redirect_to order_trades_path
+  end
+
   def order
-    # 合計金額の計算
+    #通常価格での購入時の音届け先・配送先・支払い方法登録ページ
     @open_trade = Trade.where(status: 0, user_id: current_user.id)
     @items_sum = @open_trade.sum{|trade|trade[:total]}
-    # 送料込みの値段
     @include_fee = @items_sum+320
-    # ユーザー情報の取得
+
+    @arigato_trade = Trade.where(status: 2, user_id: current_user.id)
+    @arigato_sum = @arigato_trade.sum{|trade|trade[:total]}*0.9
+    @arigato_fee = @arigato_sum+320
+
     @user = Shipping.order('created_at': :desc).find_by(user_id: current_user.id)
-    #クレジットカード情報の取得
     @user_credit_card = CreditCard.order('created_at': :desc).find_by(user_id: current_user.id)
-    # クレジットカード情報の作成
     @credit_card = CreditCard.new
-    # 配送先情報の追加
     @shipping_info = Shipping.new
   end
 
-
   def add_user_info
-    # ユーザー情報の取得
+    # 通常価格での購入時の音届け先・配送先・支払い方法登録
     @user = Shipping.find_by(user_id: current_user.id)
-    #クレジットカード情報の取得
     @user_credit_card = CreditCard.find_by(user_id: current_user.id)
-    # クレジットカード情報の追加
     @credit_card = CreditCard.new(credit_card_params)
-    # 配送先情報の追加
     @shipping_info = Shipping.new(shipping_info_params)
-    # DBへの追加と条件分岐
+
     if @credit_card.save && @shipping_info.save
       redirect_to confirmation_trades_path
     elsif @credit_card.save || @shipping_info.save
@@ -82,23 +80,37 @@ class TradesController < ApplicationController
   end
 
   def confirmation
-    #最新のユーザー情報の取得
+    # 通常価格での購入時の注文内容確認ページ
     @user = Shipping.order('created_at': :desc).find_by(user_id: current_user.id)
-    #最新のクレジットカード情報の取得
     @credit_card = CreditCard.order('created_at': :desc).find_by(user_id: current_user.id)
-    #カート内アイテムの取得
     @open_trade = Trade.where(status: 0, user_id: current_user.id)
-    # 合計金額の計算
     @items_sum = @open_trade.sum{|trade|trade[:total]}
-    # 送料込みの値段
     @include_fee = @items_sum+320
+
+    @arigato_trade = Trade.where(status: 2, user_id: current_user.id)
+    @arigato_sum = @arigato_trade.sum{|trade|trade[:total]}*0.9
+    @arigato_fee = @arigato_sum+320
   end
 
   def done_transaction
-    # カート内にあるアイテムの取得
+    # 通常価格での購入完了
     trade = Trade.where(status: 0, user_id: current_user.id)
-    # Tradesテーブルのstatusを購入済に更新
-    done_transaction = trade.update(status: 2)
+    arigato_trade = Trade.where(status: 2, user_id: current_user.id)
+
+    if trade.present?
+
+      trade.each do |i|
+        i.update(status: 3)
+        i.stock.update(count: i.stock.count-i.count)
+      end
+
+    elsif arigato_trade.present?
+
+      arigato_trade.each do |i|
+        i.update(status: 3, total: i.total*0.9)
+        i.stock.update(count: i.stock.count-i.count)
+      end
+    end
   end
 
   def create
@@ -126,14 +138,25 @@ class TradesController < ApplicationController
     end
 
     def user_info_return
-      # ユーザー情報の取得
-      @user = Shipping.find_by(user_id: current_user.id)
-      #クレジットカード情報の取得
-      @user_credit_card = CreditCard.find_by(user_id: current_user.id)
       # 購入ページに遷移する際にユーザー情報と届け先情報がない場合は、登録ページへリダイレクト
+      @user = Shipping.find_by(user_id: current_user.id)
+      @user_credit_card = CreditCard.find_by(user_id: current_user.id)
       unless @user.present? && @user_credit_card.present?
         redirect_to order_trades_path
       end
     end
 
+    def check_arigato
+      # tradeのstatusが2のtradeがある場合、カート画面に入る前に、0へ変更
+      arigato_trade = Trade.where(status: 2, user_id: current_user.id)
+
+      if arigato_trade.present?
+
+        arigato_trade.each do |i|
+          i.update(status: 0)
+        end
+
+        redirect_to trades_path
+      end
+    end
 end

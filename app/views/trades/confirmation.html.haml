@@ -12,7 +12,7 @@
         %td.confirm-table__index お届け先
         %td.confirm-table__middle
           %p.confirm-table__info
-            %span 
+            %span
               = @user.name
             %span 様
           %p.confirm-table__info
@@ -40,7 +40,7 @@
                 %span 詳細
         %td.confirm-table__background-receive-btn
           %button{class: "shop-selection-btn"}店舗選択
-    
+
     %table.confirm-table-ex
       %tr
         %td.confirm-table__index 支払い方法
@@ -49,27 +49,27 @@
           %span.confirm-table__info ＊＊＊＊＊＊＊＊#{@credit_card.number.slice(8..11)}
           %span.confirm-table__info (一括払い)
         %td.confirm-table__index.payment-add ¥0
-        %td.payment-add 
+        %td.payment-add
           .confirm-item__box-top-btn
             = link_to "変更", order_trades_path
       %tr
-    
+
     %table.confirm-table-ex
       %tr
         %td.confirm-table__index.arigato-add ARIGATO応援先
         %td.confirm-table__index 今回のご注文ではご利用いただけません。
-    
+
     %table.confirm-table-ex
       %tr
         %td.confirm-table__index.arigato-add ZOZOポイント
         %td.confirm-table__index ご利用可能ポイント：0ポイント / 今回の還元ポイント : 0ポイント
-    
+
     .confirm-item
       .confirm-item__header お届け商品
       .confirm-item__box
         .confirm-item__box-top.clearfix
           %ul.side-by-side-ul.confirm-top-marign
-            %li.side-by-side-li 
+            %li.side-by-side-li
               .confirm-item__box-top__index お届け日
             %li.side-by-side-li
               .confirm-item__box-top__info
@@ -84,7 +84,7 @@
             %li.side-by-side-li
               .confirm-item__box-top-btn
                 = link_to "変更", order_trades_path
-        
+
         =render partial: "/trades/trades_confirmation/open_trade.html.haml", collection: @open_trade
         .confirm-item__box-item.clearfix
 
@@ -101,24 +101,37 @@
         %button{type: :submit, class: "confirm-main__right__top-btn"}注文を確定する
     .confirm-main__right__info
       %span.confirm-main__right__info-msg 商品合計
-      %span.confirm-main__right__info-price ¥#{@items_sum}
-    .confirm-main__right__detail 
+      -if @open_trade.present?
+        %span.confirm-main__right__info-price ¥#{@items_sum}
+      -if @arigato_trade.present?
+        %span.confirm-main__right__info-price ¥#{@arigato_sum.floor}
+
+    .confirm-main__right__detail
       .confirm-main__right__detail__head
       .confirm-main__right__detail__top
       .confirm-main__right__detail__bottom
         %span.confirm-main__right__detail__bottom-msg 品代
-        %span.confirm-main__right__detail__bottom-price ¥#{@items_sum}
+        -if @open_trade.present?
+          %span.confirm-main__right__detail__bottom-price ¥#{@items_sum}
+        -if @arigato_trade.present?
+          %span.confirm-main__right__detail__bottom-price ¥#{@arigato_sum.floor}
+
     .confirm-main__right__shipping
       %span.confirm-main__right__shipping-msg 送料
       %span.confirm-main__right__shipping-add (指定なし：2〜5日以内に発送)
       %span.confirm-main__right__shipping-price ¥320
+
     .confirm-main__right__extra-fee
       %span.confirm-main__right__extra-fee-msg 支払い手数料
       %span.confirm-main__right__extra-fee-price ¥0
+
     .confirm-main__right__sum.include-fee_head-bar
       %span.confirm-main__right__sum-msg 合計
       %span.confirm-main__right__sum-add (税込)
-      %span.confirm-main__right__sum-price ¥#{@include_fee}
+      -if @open_trade.present?
+        %span.confirm-main__right__sum-price ¥#{@include_fee}
+      -if @arigato_trade.present?
+        %span.confirm-main__right__sum-price ¥#{@arigato_fee.floor}
     .confirm-main__right__bottom
       %p.gray ※送料は一律￥200です。
       %p ご注文完了前に必ずサイズ・カラー・価格・数量の

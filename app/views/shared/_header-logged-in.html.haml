@@ -7,13 +7,21 @@
         %input.header__main__input{ placeholder: "何をお探しですか？", type: "search"}
           %input.header__main__search{type:"submit" , value:""}
           = fa_icon ("search") ,class: "search-image"
+
       .header__right
         %ul.header__right__ul
           %li.header__right__li-cog
             .header__right__cog-js
               %span
-                = link_to new_item_path do
-                  = fa_icon("cog")
+                = fa_icon("cog")
+              .header__right__popup2
+                .header__right__popup__inner-list2
+                  .header__right__popup__inner__listbox2
+                    %ul.header__right__popup__ulist2
+                      %li.header__right__popup__list-big2
+                        = link_to '商品登録', new_item_path
+                      %li.header__right__popup__list2
+                        = link_to '在庫管理', stocks_path
 
           %li.header__right__li
             .header__right__name-js
@@ -161,5 +169,3 @@
                     %p.header__right__popup__inner__comment-text 新着のお知らせが○件あります。
                     .header__right__popup__inner__comment-box
                       = link_to 'お知らせ一覧' , '#' , class: 'header__right__popup__inner__comment-button'
-
-

@@ -141,4 +141,12 @@ $(function(){
    $('.header__right__menu-js').mouseout(function(){
     $('.header__right__popup__inner-list').hide();
    });
-})
+
+  $('.header__right__cog-js').on('mouseover',function(){
+    $('.header__right__popup__inner-list2').show();
+  });
+
+   $('.header__right__cog-js').mouseout(function(){
+    $('.header__right__popup__inner-list2').hide();
+   });
+});

@@ -565,3 +565,15 @@
         }
       }
 }
+
+.header__right__popup__inner-list2{
+  opacity: 0.9;
+  width: 200px;
+  background-color: #fff;
+  font-weight: bold;
+  display: none;
+  position: absolute;
+  left:850px;
+  box-shadow: 0 0 5px rgba(77,77,77,0.2);
+  border-radius: 0 0 4px 4px;
+}

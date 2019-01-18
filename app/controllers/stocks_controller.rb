@@ -39,10 +39,16 @@ class StocksController < ApplicationController
     end
   end
 
+  def sort
+   stock = Stock.find(params[:stock_id])
+   stock.update(stock_params)
+   render nothing: true
+  end
+
   private
 
   def stock_params
-    params.require(:stock).permit(:item_id, :color_id, :size_id, :count, :image)
+    params.require(:stock).permit(:item_id, :color_id, :size_id, :count, :image, :row_order_position)
   end
 
   def check_shop

@@ -18,7 +18,7 @@
         = link_to new_stock_path, remote: true do
           %button.addBtn 追加
       #tblStockInfo
-        %table
+        %table.table-sortable
           %thead
             %tr
               %th アイテム名
@@ -32,7 +32,7 @@
           %tbody
             - @items.each do |item|
               - item.stocks.rank(:row_order).each do |stock|
-                %tr.specDetail
+                %tr.specDetail.item{data: { model_name: "#{stock.class.name.underscore}", update_url: stock_sort_path(stock) }}
                   %th.itemName
                     = item.name
                   %td

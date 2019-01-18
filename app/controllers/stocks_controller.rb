@@ -21,7 +21,7 @@ class StocksController < ApplicationController
   end
 
   def destroy
-    if @stock.delete
+    if @stock.destroy
       redirect_to stocks_path
     else
       render :index

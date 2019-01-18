@@ -8,7 +8,6 @@ $(function(){
     var btnPrev = $('#btnPrev')
     var btnNext = $('#btnNext')
 
-
     function click_open(){
       $(photoList[current]).stop().fadeIn(0, checkControl)
     }
@@ -99,6 +98,10 @@ $(function(){
     };
     checkControl();
     slide_open();
+
+    if(photoLine.length == 1){
+      hideControl(btnNext)
+    }
   };
   photoChange('#photoGallery')
 });

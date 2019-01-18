@@ -14,7 +14,7 @@ $(function(){
     viewed_items.push(item);
   }
 
-  if (viewed_items.length >= 23){
+  if (viewed_items.length >= 33){
     viewed_items.shift();
   }
 

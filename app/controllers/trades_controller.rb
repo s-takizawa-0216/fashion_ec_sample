@@ -44,13 +44,14 @@ class TradesController < ApplicationController
   end
 
   def arigato_update
+    # ARIGATO価格での購入時
     trade = Trade.where(status: 0, user_id: current_user.id)
     trade.update(status: 2)
     redirect_to order_trades_path
   end
 
   def order
-    #通常価格での購入時の音届け先・配送先・支払い方法登録ページ
+    # 購入時のお届け先・配送先・支払い方法登録ページ
     @open_trade = Trade.where(status: 0, user_id: current_user.id)
     @items_sum = @open_trade.sum{|trade|trade[:total]}
     @include_fee = @items_sum+320
@@ -66,7 +67,7 @@ class TradesController < ApplicationController
   end
 
   def add_user_info
-    # 通常価格での購入時の音届け先・配送先・支払い方法登録
+    # 購入時のお届け先・配送先・支払い方法登録
     @user = Shipping.find_by(user_id: current_user.id)
     @user_credit_card = CreditCard.find_by(user_id: current_user.id)
     @credit_card = CreditCard.new(credit_card_params)
@@ -80,7 +81,7 @@ class TradesController < ApplicationController
   end
 
   def confirmation
-    # 通常価格での購入時の注文内容確認ページ
+    # 購入時の注文内容確認ページ
     @user = Shipping.order('created_at': :desc).find_by(user_id: current_user.id)
     @credit_card = CreditCard.order('created_at': :desc).find_by(user_id: current_user.id)
     @open_trade = Trade.where(status: 0, user_id: current_user.id)
@@ -93,7 +94,7 @@ class TradesController < ApplicationController
   end
 
   def done_transaction
-    # 通常価格での購入完了
+    # 購入完了
     trade = Trade.where(status: 0, user_id: current_user.id)
     arigato_trade = Trade.where(status: 2, user_id: current_user.id)
 

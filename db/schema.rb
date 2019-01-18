@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_15_071535) do
+ActiveRecord::Schema.define(version: 2019_01_18_095025) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -101,6 +101,14 @@ ActiveRecord::Schema.define(version: 2019_01_15_071535) do
     t.index ["child_category_id"], name: "index_items_on_child_category_id"
     t.index ["parent_category_id"], name: "index_items_on_parent_category_id"
     t.index ["shop_id"], name: "index_items_on_shop_id"
+  end
+
+  create_table "markets", primary_key: "prefecture", id: :string, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "count", default: 0, null: false
+    t.integer "amount", default: 0, null: false
+    t.integer "ave_age"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "shippings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

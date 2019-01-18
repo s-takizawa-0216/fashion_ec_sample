@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :check_stocks, only: [:show]
 
+  before_action :check_stocks, only: [:show]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :check_shop_user, only: [:new]
 

@@ -97,16 +97,17 @@ class TradesController < ApplicationController
     # 購入完了
     trade = Trade.where(status: 0, user_id: current_user.id)
     arigato_trade = Trade.where(status: 2, user_id: current_user.id)
-    market = Market.where(prefecture: current_user.prefecture)
+    market = Market.find_by(prefecture: current_user.prefecture)
+    arigato_market = Market.find_by(prefecture: current_user.prefecture)
     sum = trade.sum{|trade|trade[:total]}
+    arigato_sum = arigato_trade.sum{|trade|trade[:total]}*0.9
 
     if trade.present?
       trade.each do |i|
         i.update(status: 3)
         i.stock.update(count: i.stock.count-i.count)
       end
-      binding.pry
-      market.update(count: market.count+1, amount: market.amount+sum)
+      market.update(count: market.count+1, total: market.total+sum)
 
     elsif arigato_trade.present?
 
@@ -114,6 +115,8 @@ class TradesController < ApplicationController
         i.update(status: 3, total: i.total*0.9)
         i.stock.update(count: i.stock.count-i.count)
       end
+      arigato_market.update(count: arigato_market.count+1, total: arigato_market.total+arigato_sum)
+
     end
   end
 
@@ -127,6 +130,7 @@ class TradesController < ApplicationController
   end
 
   def prefecture
+    @area = Market.all
   end
 
   private

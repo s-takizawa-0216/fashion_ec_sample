@@ -1,6 +1,6 @@
 class StocksController < ApplicationController
   before_action :authenticate_user!, only: [:index]
-  before_action :check_shop, only: [:index]
+  before_action :check_shop, only: [:index, :sort]
   before_action :set_shop, only: [:index, :new, :edit]
   before_action :set_stock, only: [:destroy, :edit, :update]
   protect_from_forgery except: [:sort]
@@ -44,7 +44,7 @@ class StocksController < ApplicationController
   def sort
    stock = Stock.find(params[:stock_id])
    stock.update(stock_params)
-   render nothing: true
+   head :ok
   end
 
   private

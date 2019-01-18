@@ -55,9 +55,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  def prefecture
-  end
-
   def search_category
     # 商品出品ページのカテゴリー選択ajax通信
     respond_to do |format|

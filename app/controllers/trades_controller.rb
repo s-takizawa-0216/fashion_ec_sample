@@ -97,13 +97,16 @@ class TradesController < ApplicationController
     # 購入完了
     trade = Trade.where(status: 0, user_id: current_user.id)
     arigato_trade = Trade.where(status: 2, user_id: current_user.id)
+    market = Market.where(prefecture: current_user.prefecture)
+    sum = trade.sum{|trade|trade[:total]}
 
     if trade.present?
-
       trade.each do |i|
         i.update(status: 3)
         i.stock.update(count: i.stock.count-i.count)
       end
+      binding.pry
+      market.update(count: market.count+1, amount: market.amount+sum)
 
     elsif arigato_trade.present?
 
@@ -121,7 +124,9 @@ class TradesController < ApplicationController
     else
       render "items/show"
     end
+  end
 
+  def prefecture
   end
 
   private

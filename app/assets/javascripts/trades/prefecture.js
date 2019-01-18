@@ -4,6 +4,7 @@ $(function () {
 
       var name = $(this).val();
 
+
     $.ajax({
       type: 'GET',
       data: ('prefecture=' + name),
@@ -48,30 +49,4 @@ $(function () {
       });
     });
   });
-});
-
-// 動きの実装
-$(function () {
-    var TIMER;
-
-    function move(){
-        //0～90の乱数
-        $(".target").animate({
-            'top': Math.round( Math.random()*90 ) + "%",
-            'left': Math.round( Math.random()*90 ) + "%"
-        },200);
-    }
-
-    $('.target').click(function(){
-        alert("click");
-        clearInterval(TIMER);
-    });
-    $('#start_button').click(function(){
-        clearInterval(TIMER);
-        TIMER = setInterval(function(){move()}, 500);
-    });
-    $('#stop_button').click(function(){
-        clearInterval(TIMER);
-    });
-
 });

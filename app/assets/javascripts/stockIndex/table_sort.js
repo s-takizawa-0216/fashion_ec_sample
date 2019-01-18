@@ -1,4 +1,5 @@
 $(function() {
+
   $('.table-sortable').sortable({
     axis: 'y',
     items: '.item',
@@ -15,6 +16,15 @@ $(function() {
         dataType: 'json',
         data: params
       });
+    },
+
+    start: function(e, ui) {
+      $('tbody .itemName').css('width', '281px' )
+      $('tbody .itemBrand').css('width', '272px')
+      $('tbody .stockSize').css('width', '109px')
+      $('tbody .stockColor').css('width', '190px')
+      $('tbody .stockCount').css('width', '130px')
+      $('tbody .iconBtn').css('width', '110px')
     }
   });
 });

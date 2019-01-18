@@ -34,13 +34,13 @@
               %tr.specDetail.item{data: { model_name: "#{stock.class.name.underscore}", update_url: stock_sort_path(stock) }}
                 %th.itemName
                   = stock.item.name
-                %td
+                %td.itemBrand
                   = stock.item.brand.name
-                %td
+                %td.stockSize
                   = stock.size.size
-                %td
+                %td.stockColor
                   = stock.color.name
-                %td
+                %td.stockCount
                   = stock.count
                 %td.iconBtn.iconIMG
                   = fa_icon("image")

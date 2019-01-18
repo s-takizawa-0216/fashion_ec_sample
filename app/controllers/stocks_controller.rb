@@ -3,6 +3,7 @@ class StocksController < ApplicationController
   before_action :check_shop, only: [:index]
   before_action :set_shop, only: [:index, :new, :edit]
   before_action :set_stock, only: [:destroy, :edit, :update]
+  protect_from_forgery except: [:sort]
 
   def index
     @stocks = @shop.stocks.rank(:row_order)

@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     patch  'shipping_update',  to: 'users#shipping_update',  as: :shipping_update, on: :collection
   end
 
-  resources :trades, only: [:index, :plus_count, :minus_count, :erace_item, :return_to_cart, :arigato_update, :order, :add_user_info, :confirmation, :done_transaction, :create, :prefecture] do
+  resources :trades, only: [:index, :plus_count, :minus_count, :erace_item, :return_to_cart, :arigato_update, :order, :add_user_info, :confirmation, :done_transaction, :create, :prefecture, :search_prefecture] do
     post  'plus_count/:trade_id',     to: 'trades#plus_count',                as: :plus_count
     post  'minus_count/:trade_id',    to: 'trades#minus_count',               as: :minus_count
     post  'erace_item/:trade_id',     to: 'trades#erace_item',                as: :erace_item
@@ -39,6 +39,7 @@ Rails.application.routes.draw do
     get   'confirmation',             to: 'trades#confirmation',              as: :confirmation, on: :collection
     post  'done_transaction',         to: 'trades#done_transaction',          as: :done_transaction, on: :collection
     get  'prefecture',                to: 'trades#prefecture',                as: :prefecture, on: :collection
+    get  'search_prefecture',         to: 'trades#search_prefecture',         as: :search_prefecture, on: :collection
   end
 
   resources :stocks, except: [:show]

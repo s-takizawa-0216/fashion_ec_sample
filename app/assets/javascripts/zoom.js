@@ -3,8 +3,8 @@ $(function(){
   var zoomArea = $('#zoomContainer');
   var zoomImage = zoomArea.find('img');
   var size = 172;
-  var topScale = 600 / size;
-  var leftScale = 500 / size;
+  var topScale = 600 / 200;
+  var leftScale = 500 / 167;
 
   $('#photoMain').find('li').each(function(index, elem){
     var lens = $(elem).find('.loupe');
@@ -14,10 +14,10 @@ $(function(){
       var image = $(elem).find('img');
       zoomArea.addClass("active");
       zoomImage.attr('src', image.attr('src'));
-      // var width = (image.width() * topScale)
-      // zoomImage.css('width', width)
-      // var height = (image.height() * leftScale)
-      // zoomImage.css('height', height)
+      var width = (image.width() * topScale)
+      zoomImage.css('width', width)
+      var height = (image.height() * leftScale)
+      zoomImage.css('height', height)
       $("#btnNext").addClass("opacity-zero")
     });
 
@@ -26,14 +26,8 @@ $(function(){
       $("#btnNext").removeClass("opacity-zero")
     });
 
-     // var xmax, ymax;
-     // ${"img").bind('load', function(){
-     // xmax = img.width() - size;
-     // ymax = img.height() - size;
-     // });
-
-     var xmax = 500 - size;
-     var ymax = 600 - size;
+     var xmax = 500 - 169;
+     var ymax = 600 - 202;
 
     $(elem).on('mousemove', function(e){
       var rect = $(elem).offset() ;

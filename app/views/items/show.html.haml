@@ -29,18 +29,6 @@
                   #zoomContainer
                     = image_tag ""
                   %ul#photoMain.hasZoom
-                    %li.list-item
-                      = image_tag "https://c.imgz.jp/442/34183442/34183442B_33_D_500.jpg"
-                      .loupe
-                    %li
-                      = image_tag "https://c.imgz.jp/442/34183442/34183442B_1_D_500.jpg"
-                      .loupe
-                    %li
-                      = image_tag "https://c.imgz.jp/442/34183442/34183442B_8_D_500.jpg"
-                      .loupe
-                    %li
-                      = image_tag "https://c.imgz.jp/442/34183442/34183442B_163_D_500.jpg"
-                      .loupe
                     - @item.images.each do |image|
                       %li.list-item
                         = image_tag "#{image.image}"
@@ -54,30 +42,7 @@
                     インディゴブルー H185/58kg / B90 / W77 / H90 / 着用サイズ：XL
                   /アイテムミニ画像
                   %ul#photoThimb
-                    %li.current
-                      #div
-                        %span#goodsdiv
-                          = image_tag "https://c.imgz.jp/442/34183442/34183442B_33_D_500.jpg", width: "35px", heigth: "42px"
-                        %p インディゴブルー
-                        %span.imCaption インディゴブルー H185/58kg / B90 / W77 / H90 / 着用サイズ：XL
-                    %li
-                      #div
-                        %span#goodsdiv
-                          = image_tag "https://c.imgz.jp/442/34183442/34183442B_1_D_500.jpg", width: "35px", heigth: "42px"
-                      %p ホワイト
-                      %span.imCaption ホワイト H185/58kg / B90 / W77 / H90 / 着用サイズ：XL
-                    %li
-                      #div
-                        %span#goodsdiv
-                          = image_tag "https://c.imgz.jp/442/34183442/34183442B_8_D_500.jpg", width: "35px", heigth: "42px"
-                      %p ブラック
-                      %span.imCaption ブラック H185/58kg / B90 / W77 / H90 / 着用サイズ：XL
-                    %li
-                      #div
-                        %span#goodsdiv
-                          = image_tag "https://c.imgz.jp/442/34183442/34183442B_163_D_500.jpg", width: "35px", heigth: "42px"
-                      %p グリーン
-                      %span.imCaption グリーン H185/58kg / B90 / W77 / H90 / 着用サイズ：XL
+
                     = render partial: "/items/items_show/item_image_line", collection: @item_image_line
 
                 #zozoReviewStatus.section
@@ -338,11 +303,7 @@
                         .innerBox
                           .contbox
                             %div
-                              %h5 【GILDAN ギルダン】
-                            %div
-                              北米マーケットシェアNO.1の実績を誇るTシャツメーカー。
-                              ギルダンの製品は、テキスタイル・エコロジー国際共同体が定める人体への有害物質が含まれていないことを保証した
-                              「エコテックススタンダード100」の認証による安全性と信頼性に優れた製品として広く認知されている。
+                              = @item.discription
 
                         .itemDetailInfo
                           .contbox

@@ -11,8 +11,7 @@ Rails.application.routes.draw do
   root "items#index"
 
   resources :items, only: [:new, :create ,:cordinate ,:show, :search_category] do
-    get 'cordination' , to: 'items#cordination', on: :collection
-    get 'prefecture' , to: 'items#prefecture' , on: :collection
+    get 'cordination' ,     to: 'items#cordination',      on: :collection
     get 'search_category' , to: 'items#search_category' , on: :collection
   end
 
@@ -38,8 +37,8 @@ Rails.application.routes.draw do
     post  'add_user_info',            to: 'trades#add_user_info',             as: :add_user_info, on: :collection
     get   'confirmation',             to: 'trades#confirmation',              as: :confirmation, on: :collection
     post  'done_transaction',         to: 'trades#done_transaction',          as: :done_transaction, on: :collection
-    get  'prefecture',                to: 'trades#prefecture',                as: :prefecture, on: :collection
-    get  'search_prefecture',         to: 'trades#search_prefecture',         as: :search_prefecture, on: :collection
+    get   'prefecture',               to: 'trades#prefecture',                as: :prefecture, on: :collection
+    get   'search_prefecture',        to: 'trades#search_prefecture',         as: :search_prefecture, on: :collection
   end
 
   resources :stocks, except: [:show]

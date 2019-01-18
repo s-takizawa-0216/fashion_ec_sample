@@ -362,3 +362,19 @@
   margin-top: 30px;
   padding-left: 40px;
 }
+
+.return-to-root{
+  position: relative;
+  float: right;
+  margin: 450px 90px 0 0;
+
+  .root-btn{
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    background: purple;
+    border-radius: 50%;
+    width: 140px;
+    height: 80px;
+  }
+}

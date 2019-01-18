@@ -107,7 +107,8 @@ class TradesController < ApplicationController
         i.update(status: 3)
         i.stock.update(count: i.stock.count-i.count)
       end
-      market.update(count: market.count+1, total: market.total+sum)
+      market.update(count: market.count+1, total: market.total+sum, items: market.items+trade.length)
+      binding.pry
 
     elsif arigato_trade.present?
 
@@ -115,7 +116,7 @@ class TradesController < ApplicationController
         i.update(status: 3, total: i.total*0.9)
         i.stock.update(count: i.stock.count-i.count)
       end
-      arigato_market.update(count: arigato_market.count+1, total: arigato_market.total+arigato_sum)
+      arigato_market.update(count: arigato_market.count+1, total: arigato_market.total+arigato_sum, items: arigato_market.items+arigato_trade.length)
 
     end
   end
@@ -130,7 +131,7 @@ class TradesController < ApplicationController
   end
 
   def prefecture
-    @area = Market.all
+    @pref = Market.where(prefecture: params[:prefecture])
   end
 
   private

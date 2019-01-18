@@ -31,7 +31,7 @@
               %th.iconCell 削除
           %tbody
             - @items.each do |item|
-              - item.stocks.each do |stock|
+              - item.stocks.rank(:row_order).each do |stock|
                 %tr.specDetail
                   %th.itemName
                     = item.name

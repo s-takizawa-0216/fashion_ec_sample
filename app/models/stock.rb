@@ -8,4 +8,7 @@ class Stock < ApplicationRecord
   belongs_to :color
   belongs_to :size
 
+  include RankedModel
+  ranks :row_order
+
 end

@@ -5,6 +5,7 @@ class StocksController < ApplicationController
   before_action :set_stock, only: [:destroy, :edit, :update]
 
   def index
+    @stocks = @shop.stocks.rank(:row_order)
   end
 
   def new
@@ -48,7 +49,7 @@ class StocksController < ApplicationController
   private
 
   def stock_params
-    params.require(:stock).permit(:item_id, :color_id, :size_id, :count, :image, :row_order_position)
+    params.require(:stock).permit(:item_id, :color_id, :size_id, :count, :image, :row_order_position).merge(shop_id: current_user.shop.id)
   end
 
   def check_shop

@@ -30,28 +30,27 @@
               %th.iconCell 編集
               %th.iconCell 削除
           %tbody
-            - @items.each do |item|
-              - item.stocks.rank(:row_order).each do |stock|
-                %tr.specDetail.item{data: { model_name: "#{stock.class.name.underscore}", update_url: stock_sort_path(stock) }}
-                  %th.itemName
-                    = item.name
-                  %td
-                    = item.brand.name
-                  %td
-                    = stock.size.size
-                  %td
-                    = stock.color.name
-                  %td
-                    = stock.count
-                  %td.iconBtn.iconIMG
-                    = fa_icon("image")
-                    = image_tag("#{stock.image}")
-                  %td.iconBtn.iconEdit
-                    = link_to edit_stock_path(stock), remote: true do
-                      = fa_icon("edit")
-                  %td.iconBtn.iconDelete
-                    = link_to stock_path(stock), method: :delete do
-                      = fa_icon("trash")
+            - @stocks.each do |stock|
+              %tr.specDetail.item{data: { model_name: "#{stock.class.name.underscore}", update_url: stock_sort_path(stock) }}
+                %th.itemName
+                  = stock.item.name
+                %td
+                  = stock.item.brand.name
+                %td
+                  = stock.size.size
+                %td
+                  = stock.color.name
+                %td
+                  = stock.count
+                %td.iconBtn.iconIMG
+                  = fa_icon("image")
+                  = image_tag("#{stock.image}")
+                %td.iconBtn.iconEdit
+                  = link_to edit_stock_path(stock), remote: true do
+                    = fa_icon("edit")
+                %td.iconBtn.iconDelete
+                  = link_to stock_path(stock), method: :delete do
+                    = fa_icon("trash")
 
 
 

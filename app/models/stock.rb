@@ -7,6 +7,7 @@ class Stock < ApplicationRecord
   belongs_to :item
   belongs_to :color
   belongs_to :size
+  belongs_to :shop
 
   include RankedModel
   ranks :row_order

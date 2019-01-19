@@ -32,7 +32,7 @@
               %li.side-by-side-li.user-resistration-form__gender__line__birth 生年月日
               %li.side-by-side-li
                 - year =[*1945..2019]
-                = f.select :birth_year, year.map{|year|[year,year]}, {}, required: true
+                = f.select :birth_year, year.map{|i|[i,i]}, {}, required: true
 
               %li.side-by-side-li.user-resistration-form__gender__line__year  年
               %li.side-by-side-li.user-resistration-form__gender__line__female-msg

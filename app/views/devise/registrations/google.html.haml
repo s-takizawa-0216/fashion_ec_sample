@@ -1,5 +1,5 @@
 .sign-up
-  .sign-up__header this header is created by Mr.T
+  = render partial: 'shared/header-log-in'
   .sign-up__breadcrumbs breadcrumbs will be set here
 
   .sign-up__main
@@ -34,13 +34,14 @@
             %ul.side-by-side-ul.user-resistration-form__gender__line.clearfix
               %li.side-by-side-li.user-resistration-form__gender__line__birth.gray 生年月日
               %li.side-by-side-li
-                = f.select :birth_year,[[],[1990, 1990], [1991, 1991], [1992, 1992], [1993, 1993], [1994, 1994], [1995, 1995]], {}
+                - year =[*1945..2019]
+                = f.select :birth_year, year.map{|i|[i,i]}, {}, required: true
               %li.side-by-side-li.user-resistration-form__gender__line__year  年
-              %li.side-by-side-li.user-resistration-form__gender__line__female-msg 
-                = f.select :birth_month,[[],[1,1], [2,2], [3,3,], [4,4], [5,5], [6, 6],[7,7],[8,8],[9,9],[10,10],[11,11],[12,12]],{}
+              %li.side-by-side-li.user-resistration-form__gender__line__female-msg
+                = f.select :birth_month,[[],[1,1], [2,2], [3,3,], [4,4], [5,5], [6, 6],[7,7],[8,8],[9,9],[10,10],[11,11],[12,12]],{}, required: true
               %li.side-by-side-li.user-resistration-form__gender__line__year  月
-              %li.side-by-side-li.user-resistration-form__gender__line__female-msg  
-                = f.select :birth_day,[[],[1,1], [2,2], [3,3,], [4,4], [5,5], [6, 6],[7,7],[8,8],[9,9],[10,10],[11,11],[12,12],[13,13],[14,14],[15,15],[16,16],[17,17],[18,18],[19,19],[20,20],[21,21],[22,22],[23,23],[24,24],[25,25,],[26,26],[27,27],[28,28],[29,29],[30,30],[31,31]],{}
+              %li.side-by-side-li.user-resistration-form__gender__line__female-msg
+                = f.select :birth_day,[[],[1,1], [2,2], [3,3,], [4,4], [5,5], [6, 6],[7,7],[8,8],[9,9],[10,10],[11,11],[12,12],[13,13],[14,14],[15,15],[16,16],[17,17],[18,18],[19,19],[20,20],[21,21],[22,22],[23,23],[24,24],[25,25,],[26,26],[27,27],[28,28],[29,29],[30,30],[31,31]],{}, required: true
               %li.side-by-side-li.user-resistration-form__gender__line__year  日
 
           .user-resistration-form__gender
@@ -66,4 +67,4 @@
           = f.submit "会員登録を完了する", class: "sns-resistration-btn"
 
 
-  .sign-up__footer
+  = render partial: 'shared/footer'

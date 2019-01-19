@@ -75,6 +75,7 @@ class TradesController < ApplicationController
 
     if @credit_card.save && @shipping_info.save
       redirect_to confirmation_trades_path
+
     elsif @credit_card.save || @shipping_info.save
       redirect_to confirmation_trades_path
     end
@@ -96,10 +97,11 @@ class TradesController < ApplicationController
   def done_transaction
     # 購入完了
     trade = Trade.where(status: 0, user_id: current_user.id)
-    arigato_trade = Trade.where(status: 2, user_id: current_user.id)
     market = Market.find_by(prefecture: current_user.prefecture)
-    arigato_market = Market.find_by(prefecture: current_user.prefecture)
     sum = trade.sum{|trade|trade[:total]}
+
+    arigato_trade = Trade.where(status: 2, user_id: current_user.id)
+    arigato_market = Market.find_by(prefecture: current_user.prefecture)
     arigato_sum = arigato_trade.sum{|trade|trade[:total]}*0.9
 
     if trade.present?
@@ -108,10 +110,8 @@ class TradesController < ApplicationController
         i.stock.update(count: i.stock.count-i.count)
       end
       market.update(count: market.count+1, total: market.total+sum, items: market.items+trade.length)
-      binding.pry
 
     elsif arigato_trade.present?
-
       arigato_trade.each do |i|
         i.update(status: 3, total: i.total*0.9)
         i.stock.update(count: i.stock.count-i.count)

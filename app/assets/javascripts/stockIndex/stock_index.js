@@ -31,3 +31,8 @@ $(function(){
   });
 });
 
+$(function(){
+  var modal = $('.modal-overlay')
+  modal.css("width", $("body").width())
+  modal.css("height", $("body").height())
+})

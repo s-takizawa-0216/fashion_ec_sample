@@ -31,12 +31,9 @@ class ItemsController < ApplicationController
     @trade = Trade.new
     @popular_item = Item.find(params[:id])
     impressionist(@popular_item, nil, :unique => [:session_hash])
-<<<<<<< HEAD
     @stock = Stock.where(item_id: @item)
     @user = User.find(user_id)
-=======
-
->>>>>>> master
+    @items = cookies[:recently_viewed_items].split(",").reverse unless cookies[:recently_viewed_items].nil?
   end
 
   def new

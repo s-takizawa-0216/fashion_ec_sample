@@ -99,6 +99,10 @@ $(function(){
     };
     checkControl();
     slide_open();
+
+    if(photoLine.length == 1){
+      hideControl(btnNext)
+    }
   };
   photoChange('#photoGallery')
 });

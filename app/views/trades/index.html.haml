@@ -24,15 +24,18 @@
       .cart-main__middle__right-tab.clearfix
         %button{class: "cart-main__middle__right-tab__zozo selected", id: "zozotab"} ZOZO
         %button{class: "cart-main__middle__right-tab__facebook", id: "facebooktab"} Google
+
       .cart-main__middle__right-tab-zozo
         .cart-main__middle__right__zozobox
+
           -unless user_signed_in?
             .cart-main__middle__right__zozobox-msg ログインしてレジに進む
             %input{type: "text", placeholder: "メールアドレスまたはZOZOID", class: "cart-main__middle__right__zozobox-input", value: current_user.email }
             %input{type: "password", placeholder: "パスワード", class: "cart-main__middle__right__zozobox-input"}
             = link_to "ID・パスワードを忘れた方パスワードを忘れた方" do
               .forget-email-box ID・パスワードを忘れた方
-          = link_to order_trades_path do
+
+          = link_to  arigato_update_trades_path do
             .cart-main__middle__right__zozobox-arigato-transaction-btn
               %p.arigato-price-msg ARIGATO価格
               %p.confirm-arigato-price ¥#{@sum_arigato.floor}
@@ -49,7 +52,7 @@
               %span 通常価格
               %span ¥#{@items_sum}
               %span で購入する
-              %span 
+              %span
                 = fa_icon "angle-down", class: "usual-price-arrow"
             .cart-main__middle__right__footer__usual-continue-shopping
               = link_to "ショッピングを続ける", root_path
@@ -105,7 +108,7 @@
       %p.cart-main__middle__sum-payment-price
         %span.v 商品合計
         %span.cart-main__middle__sum-payment-price-span ¥#{@items_sum}
-      %p.cart-main__middle__sum-payment-zozoarigato 
+      %p.cart-main__middle__sum-payment-zozoarigato
         %span ZOZOARIGATO価格
         %span.cart-main__middle__sum-payment-zozoarigato-span  ¥#{@sum_arigato.floor}
       %p.cart-main__middle__sum-payment-limit
@@ -114,7 +117,7 @@
         %span.cart-main__middle__sum-payment-limit-span 2月28日
         %span でOK。
         %span
-          = link_to "詳細" 
+          = link_to "詳細"
 
 -if @once_in_cart.present?
   .cart-main__checked-item.clearfix

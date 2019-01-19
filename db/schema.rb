@@ -10,11 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2019_01_15_045129) do
-=======
+
 ActiveRecord::Schema.define(version: 2019_01_15_071535) do
->>>>>>> master
+
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -210,12 +208,9 @@ ActiveRecord::Schema.define(version: 2019_01_15_071535) do
   end
 
   add_foreign_key "credit_cards", "users"
-<<<<<<< HEAD
   add_foreign_key "fav_stocks", "stocks"
   add_foreign_key "fav_stocks", "users"
-=======
   add_foreign_key "images", "colors"
->>>>>>> master
   add_foreign_key "images", "items"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories", column: "child_category_id"

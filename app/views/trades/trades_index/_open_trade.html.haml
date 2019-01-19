@@ -1,39 +1,58 @@
 %tr.cart-main__middle__left__item-space
   %td.cart-main__middle__left__item-space-image
-    = image_tag "#{open_trade.stock.item.images.first.image}", class: "in-cart-item-image"
+    = link_to item_path(open_trade.stock.item.id) do
+      = image_tag "#{open_trade.stock.item.images.first.image}", class: "in-cart-item-image"
   %td.cart-main__middle__left__item-space-detail
     %p.in-cart-item-p
       = open_trade.stock.item.shop.name
+
     -if Brand.where(id: open_trade.stock.item.brand_id).present?
       %p.in-cart-item-p
         = open_trade.stock.item.brand.name
+
     %p.in-cart-item-p #{open_trade.stock.item.parent_category.name}/#{open_trade.stock.item.child_category.name}
+
     %p.in-cart-item-p
       = open_trade.stock.item.name
+
     -if Size.where(id: open_trade.stock.color_id).present?
       %p.in-cart-item-p
         = open_trade.stock.color.name
+
     -if Size.where(id: open_trade.stock.size_id).present?
       %p.in-cart-item-p
         = open_trade.stock.size.size
+
     %p.in-cart-item-p-no-retutn 返品交換対象外
+
     -if open_trade.count == open_trade.stock.count-1
       %p.last_one_msg 残り1点
+
+    -if open_trade.stock.count ==1 && open_trade.count ==1
+      %p.stock-one-msg 残り1点のみ
+
   %td.cart-main__middle__left__item-space-price ¥#{open_trade.stock.item.price}
   %td.cart-main__middle__left__item-space-count-item
 
     /在庫数2以上の時はマイナスボタンありを条件分岐
     .cart-main__middle__left__item-space-count-item__box.clearfix
-      -if open_trade.count >= open_trade.stock.count
+
+      -if open_trade.stock.count ==1 && open_trade.count ==1
+        .cart-main__middle__left__item-space-count-item__box-btn-minus.minus_box
+        %input{type: :text, class: "cart-main__middle__left__item-space-count-item__box-number", value: "#{open_trade.count}", id: "number"}
+
+      -elsif open_trade.count >= open_trade.stock.count
         = form_tag(trade_minus_count_url(open_trade),method: :post) do
           %button{type: :submit, class: "cart-main__middle__left__item-space-count-item__box-btn-minus", id: "minus"} -
         %input{type: :text, class: "cart-main__middle__left__item-space-count-item__box-number", value: "#{open_trade.count}", id: "number"}
+
       -elsif open_trade.count >= 2
         = form_tag(trade_minus_count_url(open_trade),method: :post) do
           %button{type: :submit, class: "cart-main__middle__left__item-space-count-item__box-btn-minus", id: "minus"} -
         %input{type: :text, class: "cart-main__middle__left__item-space-count-item__box-number", value: "#{open_trade.count}", id: "number"}
         = form_tag(trade_plus_count_url(open_trade),method: :post) do
           %button{type: :submit, class: "cart-main__middle__left__item-space-count-item__box-btn-plus", id: "minus"} +
+
       -else
         .cart-main__middle__left__item-space-count-item__box-btn-minus.minus_box
         %input{type: :text, class: "cart-main__middle__left__item-space-count-item__box-number", value: "#{open_trade.count}", id: "number"}

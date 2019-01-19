@@ -3,6 +3,7 @@
   %script{ src: "https://code.jquery.com/jquery-3.3.1.min.js"}
   %script{:src => "/assets/jquery.color.js", :type => "text/javascript"}
   %script{:src => "http://code.jquery.com/ui/1.10.3/jquery-ui.min.js", :type => "text/javascript"}
+  %script{ src: "https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"}
 
   = render partial: 'shared/header-notice'
 
@@ -10,6 +11,9 @@
   = render partial: 'shared/header-logged-in'
 - else
   = render partial: 'shared/header-log-in'
+
+#forCookie.display-none
+  = @item.id
 
 #zozotown
   #wrapper
@@ -24,18 +28,6 @@
                   #zoomContainer
                     = image_tag ""
                   %ul#photoMain.hasZoom
-                    %li.list-item
-                      = image_tag "https://c.imgz.jp/442/34183442/34183442B_33_D_500.jpg"
-                      .loupe
-                    %li
-                      = image_tag "https://c.imgz.jp/442/34183442/34183442B_1_D_500.jpg"
-                      .loupe
-                    %li
-                      = image_tag "https://c.imgz.jp/442/34183442/34183442B_8_D_500.jpg"
-                      .loupe
-                    %li
-                      = image_tag "https://c.imgz.jp/442/34183442/34183442B_163_D_500.jpg"
-                      .loupe
                     - @item.images.each do |image|
                       %li.list-item
                         = image_tag "#{image.image}"
@@ -49,30 +41,6 @@
                     インディゴブルー H185/58kg / B90 / W77 / H90 / 着用サイズ：XL
                   /アイテムミニ画像
                   %ul#photoThimb
-                    %li.current
-                      #div
-                        %span#goodsdiv
-                          = image_tag "https://c.imgz.jp/442/34183442/34183442B_33_D_500.jpg", width: "35px", heigth: "42px"
-                        %p インディゴブルー
-                        %span.imCaption インディゴブルー H185/58kg / B90 / W77 / H90 / 着用サイズ：XL
-                    %li
-                      #div
-                        %span#goodsdiv
-                          = image_tag "https://c.imgz.jp/442/34183442/34183442B_1_D_500.jpg", width: "35px", heigth: "42px"
-                      %p ホワイト
-                      %span.imCaption ホワイト H185/58kg / B90 / W77 / H90 / 着用サイズ：XL
-                    %li
-                      #div
-                        %span#goodsdiv
-                          = image_tag "https://c.imgz.jp/442/34183442/34183442B_8_D_500.jpg", width: "35px", heigth: "42px"
-                      %p ブラック
-                      %span.imCaption ブラック H185/58kg / B90 / W77 / H90 / 着用サイズ：XL
-                    %li
-                      #div
-                        %span#goodsdiv
-                          = image_tag "https://c.imgz.jp/442/34183442/34183442B_163_D_500.jpg", width: "35px", heigth: "42px"
-                      %p グリーン
-                      %span.imCaption グリーン H185/58kg / B90 / W77 / H90 / 着用サイズ：XL
                     = render partial: "/items/items_show/item_image_line", collection: @item_image_line
 
                 #zozoReviewStatus.section
@@ -333,11 +301,7 @@
                         .innerBox
                           .contbox
                             %div
-                              %h5 【GILDAN ギルダン】
-                            %div
-                              北米マーケットシェアNO.1の実績を誇るTシャツメーカー。
-                              ギルダンの製品は、テキスタイル・エコロジー国際共同体が定める人体への有害物質が含まれていないことを保証した
-                              「エコテックススタンダード100」の認証による安全性と信頼性に優れた製品として広く認知されている。
+                              = @item.discription
 
                         .itemDetailInfo
                           .contbox
@@ -679,64 +643,23 @@
             %p.moreLink
               %a.link スウェットランキング一覧
 
-          #history_item.section.item_show_control
-            .tit.clearfix
-              .h 最近チェックしたアイテム
-            .container
-              .data
-                %ul.clearfix
-                  %li
-                    .img
-                      %a
-                        = image_tag "https://c.imgz.jp/667/37954667/37954667B_35_d_215.jpg"
-                  %li
-                    .img
-                      %a
-                        = image_tag "https://c.imgz.jp/968/33002968/33002968B_18_D_500.jpg"
-                  %li
-                    .img
-                      %a
-                        = image_tag "https://c.imgz.jp/968/33002968/33002968B_b_14_500.jpg"
-                  %li
-                    .img
-                      %a
-                        = image_tag "https://c.imgz.jp/667/37954667/37954667B_35_d_215.jpg"
-                  %li
-                    .img
-                      %a
-                        = image_tag "https://c.imgz.jp/968/33002968/33002968B_18_D_500.jpg"
-                  %li
-                    .img
-                      %a
-                        = image_tag "https://c.imgz.jp/968/33002968/33002968B_b_14_500.jpg"
-                  %li
-                    .img
-                      %a
-                        = image_tag "https://c.imgz.jp/667/37954667/37954667B_35_d_215.jpg"
-                  %li
-                    .img
-                      %a
-                        = image_tag "https://c.imgz.jp/968/33002968/33002968B_18_D_500.jpg"
-                  %li
-                    .img
-                      %a
-                        = image_tag "https://c.imgz.jp/968/33002968/33002968B_b_14_500.jpg"
-                  %li
-                    .img
-                      %a
-                        = image_tag "https://c.imgz.jp/667/37954667/37954667B_35_d_215.jpg"
-                  %li
-                    .img
-                      %a
-                        = image_tag "https://c.imgz.jp/968/33002968/33002968B_18_D_500.jpg"
-                  %li
-                    .img
-                      %a
-                        = image_tag "https://c.imgz.jp/615/28917615/28917615B_16_D_215.jpg"
-                  %li
-                    .img
-                      %a
-                        = image_tag "https://c.imgz.jp/615/28917615/28917615B_16_D_215.jpg"
+          - if @items.present?
+            #history_item.section.item_show_control
+              .tit.clearfix
+                .h 最近チェックしたアイテム
+              .container
+                .data
+                  %ul.clearfix
+                    - @items.each do |id|
+                      - if Item.find(id).present?
+                        - item = Item.find(id)
+                        %li
+                          .img
+                            = link_to item_path(item) do
+                              = image_tag "#{item.images.first.image}"
+
+
+
 
               .nav
                 .prev

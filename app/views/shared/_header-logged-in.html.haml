@@ -17,7 +17,7 @@
 
           %li.header__right__li
             .header__right__name-js
-              %span.header__right__name {user-email}様
+              %span.header__right__name
               .header__right__popup__inner
                 .header__right__popup__inner-box
                   %ul.header__right__popup__inner-ul
@@ -122,7 +122,7 @@
                   %p.header__right__popup__inner__favbox お気に入り
                   %ul.header__right__popup__inner__fav
                     %li
-                      %lavel.header__right__popup__inner__fav-li アイテム一覧
+                      =link_to 'アイテム一覧' , favorite_favorites_path , class: 'header__right__popup__inner__fav-li'
                     %li
                       %label.header__right__popup__inner__fav-li ブランド一覧
                     %li

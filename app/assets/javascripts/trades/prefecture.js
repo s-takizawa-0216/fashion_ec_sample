@@ -4,7 +4,6 @@ $(function () {
 
     var name = $(this).val();
 
-
     $.ajax({
       type: 'GET',
       data: ('prefecture=' + name),
@@ -13,7 +12,6 @@ $(function () {
     })
 
     .done(function(data){
-
       var html = `<div class="area">
                     <div class="area__box">
                       <div class="prefecture">${data.prefecture}</div>

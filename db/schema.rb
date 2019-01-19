@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_15_071535) do
+ActiveRecord::Schema.define(version: 2019_01_18_152324) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -103,6 +103,14 @@ ActiveRecord::Schema.define(version: 2019_01_15_071535) do
     t.index ["shop_id"], name: "index_items_on_shop_id"
   end
 
+  create_table "markets", primary_key: "prefecture", id: :string, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "count", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "total", default: 0, null: false
+    t.integer "items", default: 0, null: false
+  end
+
   create_table "shippings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "genre", null: false
     t.string "name", null: false
@@ -139,8 +147,11 @@ ActiveRecord::Schema.define(version: 2019_01_15_071535) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
+    t.integer "row_order"
+    t.bigint "shop_id"
     t.index ["color_id"], name: "index_stocks_on_color_id"
     t.index ["item_id"], name: "index_stocks_on_item_id"
+    t.index ["shop_id"], name: "index_stocks_on_shop_id"
     t.index ["size_id"], name: "index_stocks_on_size_id"
   end
 
@@ -192,6 +203,7 @@ ActiveRecord::Schema.define(version: 2019_01_15_071535) do
     t.integer "mail_magazine", null: false
     t.string "provider"
     t.string "uid"
+    t.string "prefecture"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -207,6 +219,7 @@ ActiveRecord::Schema.define(version: 2019_01_15_071535) do
   add_foreign_key "shops", "users"
   add_foreign_key "stocks", "colors"
   add_foreign_key "stocks", "items"
+  add_foreign_key "stocks", "shops"
   add_foreign_key "stocks", "sizes"
   add_foreign_key "trades", "stocks"
   add_foreign_key "trades", "users"

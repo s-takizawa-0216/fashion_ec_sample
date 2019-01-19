@@ -1,10 +1,12 @@
 class StocksController < ApplicationController
   before_action :authenticate_user!, only: [:index]
-  before_action :check_shop, only: [:index]
+  before_action :check_shop, only: [:index, :sort]
   before_action :set_shop, only: [:index, :new, :edit]
   before_action :set_stock, only: [:destroy, :edit, :update]
+  protect_from_forgery except: [:sort]
 
   def index
+    @stocks = @shop.stocks.rank(:row_order)
   end
 
   def new
@@ -21,7 +23,7 @@ class StocksController < ApplicationController
   end
 
   def destroy
-    if @stock.delete
+    if @stock.destroy
       redirect_to stocks_path
     else
       render :index
@@ -39,10 +41,16 @@ class StocksController < ApplicationController
     end
   end
 
+  def sort
+   stock = Stock.find(params[:stock_id])
+   stock.update(stock_params)
+   head :ok
+  end
+
   private
 
   def stock_params
-    params.require(:stock).permit(:item_id, :color_id, :size_id, :count, :image)
+    params.require(:stock).permit(:item_id, :color_id, :size_id, :count, :image, :row_order_position).merge(shop_id: current_user.shop.id)
   end
 
   def check_shop

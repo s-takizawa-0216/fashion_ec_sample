@@ -44,13 +44,14 @@ class TradesController < ApplicationController
   end
 
   def arigato_update
+    # ARIGATO価格での購入時
     trade = Trade.where(status: 0, user_id: current_user.id)
     trade.update(status: 2)
     redirect_to order_trades_path
   end
 
   def order
-    #通常価格での購入時の音届け先・配送先・支払い方法登録ページ
+    # 購入時のお届け先・配送先・支払い方法登録ページ
     @open_trade = Trade.where(status: 0, user_id: current_user.id)
     @items_sum = @open_trade.sum{|trade|trade[:total]}
     @include_fee = @items_sum+320
@@ -66,7 +67,7 @@ class TradesController < ApplicationController
   end
 
   def add_user_info
-    # 通常価格での購入時の音届け先・配送先・支払い方法登録
+    # 購入時のお届け先・配送先・支払い方法登録
     @user = Shipping.find_by(user_id: current_user.id)
     @user_credit_card = CreditCard.find_by(user_id: current_user.id)
     @credit_card = CreditCard.new(credit_card_params)
@@ -74,13 +75,14 @@ class TradesController < ApplicationController
 
     if @credit_card.save && @shipping_info.save
       redirect_to confirmation_trades_path
+
     elsif @credit_card.save || @shipping_info.save
       redirect_to confirmation_trades_path
     end
   end
 
   def confirmation
-    # 通常価格での購入時の注文内容確認ページ
+    # 購入時の注文内容確認ページ
     @user = Shipping.order('created_at': :desc).find_by(user_id: current_user.id)
     @credit_card = CreditCard.order('created_at': :desc).find_by(user_id: current_user.id)
     @open_trade = Trade.where(status: 0, user_id: current_user.id)
@@ -93,23 +95,29 @@ class TradesController < ApplicationController
   end
 
   def done_transaction
-    # 通常価格での購入完了
+    # 購入完了
     trade = Trade.where(status: 0, user_id: current_user.id)
+    market = Market.find_by(prefecture: current_user.prefecture)
+    sum = trade.sum{|trade|trade[:total]}
+
     arigato_trade = Trade.where(status: 2, user_id: current_user.id)
+    arigato_market = Market.find_by(prefecture: current_user.prefecture)
+    arigato_sum = arigato_trade.sum{|trade|trade[:total]}*0.9
 
     if trade.present?
-
       trade.each do |i|
         i.update(status: 3)
         i.stock.update(count: i.stock.count-i.count)
       end
+      market.update(count: market.count+1, total: market.total+sum, items: market.items+trade.length)
 
     elsif arigato_trade.present?
-
       arigato_trade.each do |i|
         i.update(status: 3, total: i.total*0.9)
         i.stock.update(count: i.stock.count-i.count)
       end
+      arigato_market.update(count: arigato_market.count+1, total: arigato_market.total+arigato_sum, items: arigato_market.items+arigato_trade.length)
+
     end
   end
 
@@ -120,8 +128,18 @@ class TradesController < ApplicationController
     else
       render "items/show"
     end
-
   end
+
+  def prefecture
+  end
+
+  def search_prefecture
+    # ＃県ごとの市場データ取得に関するajax通信
+    respond_to do |format|
+        format.json {render 'prefecture', json: @pref = Market.find_by(prefecture: params[:prefecture])}
+    end
+  end
+
 
   private
 

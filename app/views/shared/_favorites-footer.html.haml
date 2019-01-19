@@ -1,0 +1,94 @@
+.footer{style: "margin-top:12px"}
+  .footer__inner.clearfix
+    .footer__zozo
+      %ul
+        %li
+          = link_to 'ZOZOTOWN' ,'#'
+        %li
+          = link_to 'ZOZOUSED' , '#'
+        %li
+          = link_to 'WEAR(ウェア）' , '#'
+
+    .footer__category__shop
+      %ul
+        %li
+          = link_to 'カテゴリー一覧' , '#'
+        %li
+          = link_to 'ブランド一覧' , '#'
+        %li
+          = link_to 'ショップ一覧' , '#'
+        %li
+          = link_to 'ランキング一覧' , '#'
+        %li
+          = link_to 'こだわり検索' , '#'
+      %ul
+        %li
+          = link_to 'ショップニュース一覧' , '#'
+        %li
+          = link_to 'コーディネイト一覧' ,  cordination_items_path
+        %li
+          = link_to 'ファッションまとめ一覧' , '#'
+        %li
+          = link_to '注目キーワード一覧' , '#'
+
+    .footer__zozocard
+      %ul
+        %li
+          = link_to 'ZOZOCARD'
+        %li
+          = link_to 'メールマガジン'
+
+    .footer__help
+      %ul
+        %li
+          = link_to 'HELP'
+        %li
+          = link_to '初めての方へ'
+    .footer__sns
+      %ul
+        %li
+          = link_to 'iPhoneアプリ'
+        %li
+          = link_to 'Androidアプリ'
+        %li
+          = link_to '＃' do
+            %i.fab.fa-twitter
+            %span Twitter
+        %li
+          = link_to '#' do
+            %i.fab.fa-facebook-f
+            %span facebook
+        %li
+          = link_to '#' do
+            %i.fab.fa-instagram
+            %span instagram
+
+  .footer__information.clearfix
+    %ul
+      %li
+        = link_to '#' do
+          %span コーポレートサイト
+          %i.fas.fa-external-link-alt
+      %li
+        = link_to '#' do
+          %span 会社概要
+          %i.fas.fa-external-link-alt
+      %li
+        = link_to '#' do
+          %span IR情報
+          %i.fas.fa-external-link-alt
+      %li
+        = link_to '#' do
+          %span 採用情報
+          %i.fas.fa-external-link-alt
+      %li
+        = link_to '利用規約'
+      %li
+        = link_to 'プライバシーポリシー'
+      %li
+        = link_to '特定商取引法に基づく表示・古物営業法に基づく表示'
+
+  .footer__last.clearfix
+    %span ©️ZOZO , inc.
+    = image_tag '/assets/zozocom_banner_pc.png' , width: '308' , height: '58'
+

@@ -399,7 +399,35 @@
   }
 }
 
+input[type="checkbox"]#multi-delete{
+  font-size: 18px;
+  float: right;
+}
 
+#hidden__detete{
+  background: #EEEEEE;
+  height: 90px;
+  width: 100%;
+  margin-top: 30px;
+  border: 2px solid #FFF;
+  position: sticky;
+  bottom: 1px;
+  #cancel-button{
+    margin: 25px 0 0 400px;
+    width: 200px;
+    height: 40px;
+    border: 1px solid #2490D0;
+    color: #2490D0;
+    background: transparent;
+  }
+  #implement-detele{
+    margin: 25px 0 0 20px;
+    width: 200px;
+    height: 40px;
+    background: #2490D0;
+    color: #fff;
+  }
+}
 
 
 

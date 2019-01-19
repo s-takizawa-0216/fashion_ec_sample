@@ -40,7 +40,9 @@ Rails.application.routes.draw do
     post  'done_transaction',         to: 'trades#done_transaction',          as: :done_transaction, on: :collection
   end
 
-  resources :stocks, except: [:show]
+  resources :stocks, except: [:show] do
+    put :sort
+  end
 
   resources :shops, only: [:new, :create]
 

@@ -1,6 +1,8 @@
 .sign-up
   = render partial: 'shared/header-log-in'
-  .sign-up__breadcrumbs breadcrumbs will be set here
+  .breadcrumbs
+    - breadcrumb :signIn
+    = breadcrumbs  separator: " › "
 
   .sign-up__main
     .sign-up__main__header.clearfix
@@ -33,4 +35,4 @@
           = link_to 'Google アカウント', user_google_oauth2_omniauth_authorize_path, class: "facebook-auth"
           .user-login-form__right__point ZOZOポイントが貯まる
 
-  .sign-up__footer
+  = render partial: 'shared/footer'

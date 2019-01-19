@@ -10,11 +10,17 @@ Rails.application.routes.draw do
 
   root "items#index"
 
+<<<<<<< HEAD
+
+  resources :items, only: [:new, :create ,:cordinate , :prefecture ,:show, :search_category] do
+    get 'cordination' , to: 'items#cordination', on: :collection
+    get 'prefecture' , to: 'items#prefecture' , on: :collection
+=======
   resources :items, only: [:new, :create ,:cordinate ,:show, :search_category] do
     get 'cordination' ,     to: 'items#cordination',      on: :collection
+>>>>>>> master
     get 'search_category' , to: 'items#search_category' , on: :collection
   end
-
 
   resources :users, only: [:new, :create_info, :show, :edit, :update_info, :email, :update_email, :shipping, :shipping_new, :shipping_edit, :shipping_update] do
     post  'create_info',   to: 'users#create_info',   as: :create_info, on: :collection
@@ -46,4 +52,9 @@ Rails.application.routes.draw do
   end
 
   resources :shops, only: [:new, :create]
+
+  resources :favorites , only: [:destroy ,:favorite] do
+    get 'favorite' , to: 'favorites#favorite' , on: :collection
+    post 'favorite' , to: 'favorites#create' , on: :collection
+  end
 end

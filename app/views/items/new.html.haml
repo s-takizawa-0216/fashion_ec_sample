@@ -1,7 +1,8 @@
 .item-new
   .item-new-header
     .item-new-header__content
-      .item-new-header__content__msg ZOZOTOWN
+      = link_to root_path do
+        .item-new-header__content__msg ZOZOTOWN
 
 = form_for @item, multipart: true do |f|
   .zozoshop.clearfix

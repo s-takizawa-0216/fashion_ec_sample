@@ -5,8 +5,7 @@ class ItemsController < ApplicationController
   before_action :check_shop_user, only: [:new]
 
   def index
-    @item = Item.order("created_at DESC")
-    @zozo = @item.where(shop_id: '1').limit(3)
+    @zozo = Item.order("created_at DESC").limit(3)
     @rank1 = Item.order('impressions_count DESC').take(1)
     @rank2 = Item.order('impressions_count DESC').offset(1).take(1)
     @rank3 = Item.order('impressions_count DESC').offset(2).take(1)
@@ -21,6 +20,8 @@ class ItemsController < ApplicationController
     @brand_rank3 = Brand.offset(2).take(1)
     @brand_other_rank = Brand.offset(3).take(17)
     @brand_other_number_4_20 = [*4..20]
+
+    @user = User.find(user_id)
   end
 
   def show
@@ -30,8 +31,9 @@ class ItemsController < ApplicationController
     @trade = Trade.new
     @popular_item = Item.find(params[:id])
     impressionist(@popular_item, nil, :unique => [:session_hash])
+    @stock = Stock.where(item_id: @item)
+    @user = User.find(user_id)
     @items = cookies[:recently_viewed_items].split(",").reverse unless cookies[:recently_viewed_items].nil?
-
   end
 
   def new

@@ -10,6 +10,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def google
   end
+
   # GET /resource/sign_up
   # def new
   #   super

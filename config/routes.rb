@@ -10,27 +10,21 @@ Rails.application.routes.draw do
 
   root "items#index"
 
-<<<<<<< HEAD
-
   resources :items, only: [:new, :create ,:cordinate , :prefecture ,:show, :search_category] do
-    get 'cordination' , to: 'items#cordination', on: :collection
-    get 'prefecture' , to: 'items#prefecture' , on: :collection
-=======
-  resources :items, only: [:new, :create ,:cordinate ,:show, :search_category] do
     get 'cordination' ,     to: 'items#cordination',      on: :collection
->>>>>>> master
+    get 'prefecture' ,      to: 'items#prefecture' ,      on: :collection
     get 'search_category' , to: 'items#search_category' , on: :collection
   end
 
   resources :users, only: [:new, :create_info, :show, :edit, :update_info, :email, :update_email, :shipping, :shipping_new, :shipping_edit, :shipping_update] do
-    post  'create_info',   to: 'users#create_info',   as: :create_info, on: :collection
-    patch 'update_info',   to: 'users#update_info',   as: :update_info, on: :collection
-    get   'email',         to: 'users#email',         as: :email
-    patch 'update_email',  to: 'users#update_email',  as: :update_email
-    get   'shipping',      to: 'users#shipping',      as: :shipping, on: :collection
-    post  'shipping_new',  to: 'users#shipping_new',  as: :shipping_new, on: :collection
-    get  'shipping_edit',  to: 'users#shipping_edit',  as: :shipping_edit, on: :collection
-    patch  'shipping_update',  to: 'users#shipping_update',  as: :shipping_update, on: :collection
+    post  'create_info',      to: 'users#create_info',     as: :create_info, on: :collection
+    patch 'update_info',      to: 'users#update_info',     as: :update_info, on: :collection
+    get   'email',            to: 'users#email',           as: :email
+    patch 'update_email',     to: 'users#update_email',    as: :update_email
+    get   'shipping',         to: 'users#shipping',        as: :shipping, on: :collection
+    post  'shipping_new',     to: 'users#shipping_new',    as: :shipping_new, on: :collection
+    get  'shipping_edit',     to: 'users#shipping_edit',   as: :shipping_edit, on: :collection
+    patch  'shipping_update', to: 'users#shipping_update', as: :shipping_update, on: :collection
   end
 
   resources :trades, only: [:index, :plus_count, :minus_count, :erace_item, :return_to_cart, :arigato_update, :order, :add_user_info, :confirmation, :done_transaction, :create, :prefecture, :search_prefecture] do
@@ -54,7 +48,7 @@ Rails.application.routes.draw do
   resources :shops, only: [:new, :create]
 
   resources :favorites , only: [:destroy ,:favorite] do
-    get 'favorite' , to: 'favorites#favorite' , on: :collection
-    post 'favorite' , to: 'favorites#create' , on: :collection
+    get 'favorite' ,  to: 'favorites#favorite' , on: :collection
+    post 'favorite' , to: 'favorites#create' ,   on: :collection
   end
 end

@@ -7,16 +7,14 @@ class FavoritesController < ApplicationController
   end
 
   def create
-    @user_id = current_user.id
-    @stock_id = Stock.find(params[:id]).id
-    @favorite = FavStock.new(stock_id: @stock_id, user_id: @user_id)
+    @favorite = FavStock.new(stock_id: "#{params[:stock][:stock_id]}", user_id: current_user.id)
     @favorite.save
   end
 
   def destroy
     @favorite = FavStock.find(params[:id])
     if @favorite.destroy
-      redirect_to favorite_users_path
+      redirect_to favorite_favorites_path
     end
   end
 

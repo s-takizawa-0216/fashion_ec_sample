@@ -57,7 +57,6 @@
             %li
               = n.shop.name
 
-
       %li.all-category-show
         %span すべてのカテゴリー
         = fa_icon ('angle-down')
@@ -66,6 +65,7 @@
           - @categories.each do |n|
             %li
               = n.parent_category.name
+
       %li.all-show
         %span すべて
         = fa_icon ('angle-down')
@@ -73,6 +73,7 @@
           %li#add-all-color すべて
           %li 通常商品
           %li セール
+
       %li
         = fa_icon ('check-circle')
         %span 販売終了を除く
@@ -88,10 +89,12 @@
             .fav__main__image__box__up
               %p #{item.stock.item.brand.name}
               %p #{item.stock.size.size} / #{item.stock.color.name}
+
             .fav__main__image__box__bottom.clearfix
               %p ¥ #{item.stock.item.price}
               %p #{100-item.stock.item.coupon*100} %OFF
               %input{type: :checkbox, form: "form", id: "multi-delete", value: "#{item.id}", name: "stock_id[]"}
+
               .fav__main__image__box__cart#cart-icon
                 = link_to trades_path(trade:{stock_id:item.stock.id , user_id: current_user.id , status: 0 ,count: item.stock.count,total:item.stock.item.price}), method: :post do
                   = fa_icon ('shopping-cart')
@@ -112,7 +115,6 @@
       %span
         LINEとID連携やメルマガを購読すると、お気に入りの値下げ・再入荷情報などをピックアップしてお届けします。
 
-
   .fav__main__wear
     .fav__main__wear__news.clearfix
       = image_tag ('wear_ico_notice.png') , width: '40' , height: '40'
@@ -128,6 +130,5 @@
     %ul{style: "display:flex"}
       %button{type: :button, id: "cancel-button"}キャンセルする
       %button{type: :submit, id: "implement-detele", form: "form"}削除する
-
 
   = render partial: 'shared/favorites-footer'

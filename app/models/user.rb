@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
   has_many :credit_cards
   has_many :shippings
+  has_many :fav_stocks
 
   validates :email, :password, :postal_code, presence: true
 

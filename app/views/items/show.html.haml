@@ -15,6 +15,7 @@
 #forCookie.display-none
   = @item.id
 
+
 #zozotown
   #wrapper
     #headNavi
@@ -285,7 +286,11 @@
 
                                       .bkmk
                                         %button.btn
-                                          = fa_icon("gratipay")
+                                          = form_for [stock], url: favorite_favorites_path(stock), method: :post do |f|
+                                            = f.hidden_field :stock_id, value: "#{stock.id}"
+                                            = f.hidden_field :total, value: "#{stock.item.price}"
+                                            = button_tag type: 'submit', class: 'btn' do
+                                              = fa_icon("gratipay")
 
                   .tabContainer
                     .detailBlock

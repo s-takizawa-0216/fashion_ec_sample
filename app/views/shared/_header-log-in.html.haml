@@ -84,34 +84,37 @@
               %span
                 = fa_icon ("shopping-cart")
                 .header__right__popup
-              .header__right__popup__inner-cart
-                .header__right__popup__inner__cartbox
-                  .header__right__popup__inner__cart
-                    =fa_icon ("shopping-cart 3x" )
-                  %p.header__right__popup__inner__cart-text カートに商品が○件あります。
+              -if user_signed_in?
+                .header__right__popup__inner-cart
+                  .header__right__popup__inner__cartbox
+                    .header__right__popup__inner__cart
+                      =fa_icon ("shopping-cart 3x" )
+                    %p.header__right__popup__inner__cart-text カートに商品が○件あります。
 
           %li.header__right__li-fav
             .header__right__fav-js
               %span
                 = fa_icon ("heart")
               .header__right__popup
-                .header__right__popup__inner-fav-log-in
-                  = fa_icon ("heart 3x")
-                  %p.header__right__popup__inner__favbox-log-in
-                    会員でない方でも「お気に入り」が使えるようになりました。
-                  .header__right__popup__inner__comment-box-log-in
-                    = link_to '詳しくはこちら' , '#'
+                -if user_signed_in?
+                  .header__right__popup__inner-fav-log-in
+                    = fa_icon ("heart 3x")
+                    %p.header__right__popup__inner__favbox-log-in
+                      会員でない方でも「お気に入り」が使えるようになりました。
+                    .header__right__popup__inner__comment-box-log-in
+                      = link_to '詳しくはこちら' , '#'
 
           %li.header__right__li-notice
             .header__right__notice-js
               %span
                 = fa_icon ("comment")
               .header__right__popup
-                .header__right__popup__inner-comment-log-in
-                  .header__right__popup__inner__commentbox
-                    .header__right__popup__inner__comment
-                      =fa_icon ("comment 3x" )
-                    %p.header__right__popup__inner__comment-text-log-in
-                      お気に入りアイテムやショップの値下がり情報などをお知らせします
-                    .header__right__popup__inner__comment-box-log-in
-                      = link_to '詳しくはこちら' , '#'
+                -if user_signed_in?
+                  .header__right__popup__inner-comment-log-in
+                    .header__right__popup__inner__commentbox
+                      .header__right__popup__inner__comment
+                        =fa_icon ("comment 3x" )
+                      %p.header__right__popup__inner__comment-text-log-in
+                        お気に入りアイテムやショップの値下がり情報などをお知らせします
+                      .header__right__popup__inner__comment-box-log-in
+                        = link_to '詳しくはこちら' , '#'

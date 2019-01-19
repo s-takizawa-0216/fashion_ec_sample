@@ -1,6 +1,8 @@
 .sign-up
   = render partial: 'shared/header-log-in'
-  .sign-up__breadcrumbs breadcrumbs will be set here
+  .breadcrumbs
+    - breadcrumb :signIn
+    = breadcrumbs  separator: " › "
 
   .sign-up__main
     .sign-up__main__header.clearfix

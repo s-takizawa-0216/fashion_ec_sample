@@ -12,6 +12,10 @@
 - else
   = render partial: 'shared/header-log-in'
 
+.breadcrumbs
+  - breadcrumb :itemShow
+  = breadcrumbs  separator: " › "
+
 #forCookie.display-none
   = @item.id
 

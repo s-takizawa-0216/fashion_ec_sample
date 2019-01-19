@@ -8,13 +8,13 @@
     .cart-main__header__right
       = image_tag "/images/cart-info_step1.jpg"
 
-  / カートに何も入っていない時　if文で条件文分岐
+  / カートに何も入っていない時
 -unless @open_trade.present?
   .cart-main__content
     .cart-main__content__noitem-msg カートに商品は入っていません
     = link_to "ショピングを続ける", root_path, class: "continue-shopping-btn"
 
-/ カートにアイテムがある時 if文で条件文分岐
+/ カートにアイテムがある時
 -if @open_trade.present?
   .cart-main__middle
     %table.cart-main__middle__left
@@ -40,7 +40,7 @@
           %p.cart-main__middle__right__zozobox-zozoarigato-info-up ※ZOZOARIGATO価格での購入にはZOZOARIGATO
           %p.cart-main__middle__right__zozobox-zozoarigato-info-bottom
             %span メンバー入会（有料）が必要になります。
-            %span.cart-main__middle__right__zozobox-zozoarigato-detail 
+            %span.cart-main__middle__right__zozobox-zozoarigato-detail
               = link_to "詳細"
 
         .cart-main__middle__right__footer
@@ -80,14 +80,14 @@
         %p.cart-main__middle__right__facebookbox-text ・クーポン
         %p.cart-main__middle__right__facebookbox-text ・ZOZOTOW GIFTCARD
         %p.cart-main__middle__right__facebookbox-text 上記サービスがご利用いただけません
-        %p.cart-main__middle__right__facebookbox-info 
+        %p.cart-main__middle__right__facebookbox-info
           %span ※ご利用になる場合は,
           %span
             = link_to "ZOZO IDと連携"
           %span.cart-main__middle__right__facebookbox-info し,
         %p.cart-main__middle__right__facebookbox-info ZOZOIDで再ログインしてください。
         %button{class: "cart-main__middle__right__facebookbox-btn"} Google IDでログイン
-        .cart-main__middle__right__facebookbox-info 
+        .cart-main__middle__right__facebookbox-info
           = link_to "Google IDログインに関して"
         .cart-main__middle__right__footer__open-wrapping.facebook-wrapping.clearfix
           %input{type: :checkbox, class: "cart-main__middle__right__footer__open-wrapping-checkbox"}
@@ -120,7 +120,7 @@
   .cart-main__checked-item.clearfix
     .cart-main__checked-item-msg 以前カートに入れたアイテム
     %ul.side-by-side-ul.cart-main__checked-item__line.clearfix
-      = render partial:'/trades/trades_index/once_in_cart.html.haml', collection: @once_in_cart
+      = render partial:'/trades/trades_index/once_in_cart', collection: @once_in_cart
 
 .order-main__footer
   .order-main__footer-box
@@ -133,4 +133,3 @@
       %li.side-by-side-li.order-main__footer-box-li-both プライバシーポリシー
       %li.side-by-side-li.order-main__footer-box-li-left 特定商取引法に基づく表示・古物営業法に基づく表示
   .order-main__footer-bottom ©ZOZO,Inc
-

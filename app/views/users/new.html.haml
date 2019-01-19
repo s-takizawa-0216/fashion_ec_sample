@@ -12,12 +12,12 @@
 
     = render "/users/shared/sidebar2.html.haml"
 
-    = form_for(@user_detail, url: update_info_users_path, html: {method: :patch, class: "h-adr"}) do |f|
+    = form_for(@user_detail, url: create_info_users_path, html: {method: :post, class: "h-adr"}) do |f|
       .user-info-main__body-right
         .body-right__top
           .body-right__top-inside
             .body-right__top-inside__header
-              .body-right__top-inside__header-index 基本情報の変更
+              .body-right__top-inside__header-index 基本情報の登録
             .body-right__top-inside__content
               %table
                 %tr.basic-user-info__content-tr
@@ -80,7 +80,7 @@
                   %td.basic-user-info__content-td
                     .users-table-space
                       %span.margin-space15
-                        = f.text_field :postal_code, maxlength: 8, size: "8", class: "p-postal-code basic-userpostal-input required", placeholder: " 例) 2617127",required: true
+                        = f.text_field :postal_code, maxlength: 8, size: "8", class: "p-postal-code basic-userpostal-input", placeholder: " 例) 2617127",required: true
                       %span.margin-space15
                         %button{class: "basic-userpostal-btn", disabled: true} 住所を自動入力
                       %span.margin-space15.usernasic-postal
@@ -94,7 +94,7 @@
                   %td.basic-user-info__content-td
                     .users-table-space-shorter
                       %input{class: "p-region postal-input-pref", disabled: "disabled", placeholder: "郵便番号を入力してください"}
-                      = f.text_field :prefecture, type: :hidden, class: "p-region postal-input-pref required", required: true
+                      = f.text_field :prefecture, type: :hidden, class: "p-region postal-input-pref", required: true
 
                 %tr
                   %th.basic-user-info__content-th
@@ -128,6 +128,4 @@
                     .users-table-space.usesr-basic-info-bottom
                       =f.submit "確認する", class: "user-basicinfo-btn"
 
-
 = render '/shared/footer.html.haml'
-

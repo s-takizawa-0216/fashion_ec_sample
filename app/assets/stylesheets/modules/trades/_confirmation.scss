@@ -164,16 +164,17 @@
 }
 
 .confirm-main__right{
-  left: 800px;
+  margin-left: 730px;
   position: absolute;
   float: left;
-  margin-left: 40px;
   width: 300px;
   background: #f6f6f6;
   border: 1px solid #EDEDED;
   border-radius: 6px;
+
   &__top{
     text-align: center;
+
     &-btn{
       opacity: 0.8;
       font-size: 26px;
@@ -186,35 +187,43 @@
       border-style: ridge;
     }
   }
+
   &__info{
     margin-top: 15px;
     font-size: 14px;
+
     &-msg{
       padding-left: 30px;
     }
+
     &-price{
       padding-left: 140px;
     }
   }
+
   &__detail{
     margin-top: 10px;
     height: 64px;
     background: #eaeaea;
     font-size: 14px;
+
     &__head{
       height: 15px;
     }
+
     &__top{
       margin: 0 auto;
       width: 250px;
       height: 1px;
       background: lightgray;
     }
+
     &__bottom{
       margin-top: 10px;
       &-msg{
         padding-left: 30px;
       }
+
       &-price{
         padding-left: 170px;
       }
@@ -222,46 +231,57 @@
   }
   &__shipping{
     margin-top: 10px;
+
     &-msg{
       padding-left: 30px;
       font-size: 14px;
     }
+
     &-add{
       font-size: 11px;
       color: gray;
     }
+
     &-price{
       padding-left: 10px;
       font-size: 14px;
     }
   }
+
   &__extra-fee{
     margin-top: 10px;
+
     &-msg{
       font-size: 14px;
       padding-left: 30px;
     }
+
     &-price{
       font-size: 14px;
       padding-left: 120px;
     }
   }
+
   &__sum{
     margin-top: 10px;
     border-top: 1px solid lightgray;
     padding-top: 10px;
     font-size: 18px;
+
     &-msg{
       padding-left: 20px;
     }
+
     &-add{
       font-size: 11px;
     }
+
     &-price{
       padding-left: 130px;
       font-size: 14px;
     }
   }
+
   &__bottom{
     margin: 10px 0 20px 30px;
     font-size: 11px;

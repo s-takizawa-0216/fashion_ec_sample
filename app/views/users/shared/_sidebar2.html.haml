@@ -3,11 +3,11 @@
     %li.user-info-main__body-left-list__side-box
       %p.side-box-index 会員情報登録
       %p.side-box-msg
-        = link_to "会員情報登録", "#basic-userinfo"
+        = link_to "会員情報登録", user_path(current_user.id)
       %p.side-box-msg
-        = link_to "お届け先の変更・追加", "#additonal-address"
+        = link_to "お届け先の変更・追加", user_path(current_user.id)
       %p
-        = link_to "クレジットカード情報", "#alter-credit-card"
+        = link_to "クレジットカード情報", user_path(current_user.id)
     %li.user-info-main__body-left-list__side-box
       %p.side-box-index ZOZOポイント
       %p

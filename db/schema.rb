@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_01_15_045129) do
+=======
+ActiveRecord::Schema.define(version: 2019_01_15_071535) do
+>>>>>>> master
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -57,6 +61,9 @@ ActiveRecord::Schema.define(version: 2019_01_15_045129) do
     t.bigint "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "color_id"
+    t.text "discription"
+    t.index ["color_id"], name: "index_images_on_color_id"
     t.index ["item_id"], name: "index_images_on_item_id"
   end
 
@@ -102,7 +109,7 @@ ActiveRecord::Schema.define(version: 2019_01_15_045129) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "impressions_count"
-    t.integer "coupon"
+    t.decimal "coupon", precision: 2, scale: 1
     t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["child_category_id"], name: "index_items_on_child_category_id"
     t.index ["parent_category_id"], name: "index_items_on_parent_category_id"
@@ -203,8 +210,12 @@ ActiveRecord::Schema.define(version: 2019_01_15_045129) do
   end
 
   add_foreign_key "credit_cards", "users"
+<<<<<<< HEAD
   add_foreign_key "fav_stocks", "stocks"
   add_foreign_key "fav_stocks", "users"
+=======
+  add_foreign_key "images", "colors"
+>>>>>>> master
   add_foreign_key "images", "items"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories", column: "child_category_id"

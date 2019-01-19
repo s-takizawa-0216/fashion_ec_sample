@@ -22,7 +22,7 @@
   %td.cart-main__middle__left__item-space-price ¥#{open_trade.stock.item.price}
   %td.cart-main__middle__left__item-space-count-item
 
-    /在庫数2以上の時はマイナスボタンありをif文で条件分岐
+    /在庫数2以上の時はマイナスボタンありを条件分岐
     .cart-main__middle__left__item-space-count-item__box.clearfix
       -if open_trade.count >= open_trade.stock.count
         = form_tag(trade_minus_count_url(open_trade),method: :post) do

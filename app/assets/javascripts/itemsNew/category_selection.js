@@ -1,17 +1,23 @@
+// 商品出品のカテゴリー選択
 $(function () {
-
   $('select#item_parent_category_id').change(function() {
-    var r = $(this).val();
 
-    if(r == 1){
-      $('#item_child_category_id.tops').css("display", "block");
+    $("select#item_child_category_id").show();
+    $("select#item_child_category_id option").next().remove();
+      var input = $(this).val();
 
-    }else if(r == 5){
-      $('#item_child_category_id.jackets').css("display", "block");
+    $.ajax({
+      type: 'GET',
+      data: ('parent_id=' + input),
+      url: '/items/search_category',
+      dataType: 'json',
+    })
 
-    }else if(r == 9 ){
-      $('#item_child_category_id.pants').css("display", "block");
-    }
-  })
+    .done(function(data){
+      $(data).each(function appendCategory(id, category){
+
+        $("select#item_child_category_id").append($("<option>").val(category["id"]).text(category["name"]));
+      });
+    })
+  });
 });
-

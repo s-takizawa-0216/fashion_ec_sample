@@ -19,6 +19,7 @@
 #forCookie.display-none
   = @item.id
 
+
 #zozotown
   #wrapper
     #headNavi
@@ -45,7 +46,6 @@
                     インディゴブルー H185/58kg / B90 / W77 / H90 / 着用サイズ：XL
                   /アイテムミニ画像
                   %ul#photoThimb
-
                     = render partial: "/items/items_show/item_image_line", collection: @item_image_line
 
                 #zozoReviewStatus.section
@@ -290,7 +290,11 @@
 
                                       .bkmk
                                         %button.btn
-                                          = fa_icon("gratipay")
+                                          = form_for [stock], url: favorite_favorites_path(stock), method: :post do |f|
+                                            = f.hidden_field :stock_id, value: "#{stock.id}"
+                                            = f.hidden_field :total, value: "#{stock.item.price}"
+                                            = button_tag type: 'submit', class: 'btn' do
+                                              = fa_icon("gratipay")
 
                   .tabContainer
                     .detailBlock

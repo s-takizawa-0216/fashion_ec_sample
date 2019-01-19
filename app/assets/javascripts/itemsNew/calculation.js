@@ -13,6 +13,7 @@ $(function () {
         $("input#calc").val("");
 
     }else if(calc > 0 && coupon != 1){
+
     $("input#calc").val(int);
     }
   });
@@ -32,6 +33,7 @@ $(function () {
     $("#item_price").val(int_price)
 
     if(calc > 0 && coupon != 1){
+
     $("input#calc").val(int);
     }
   });

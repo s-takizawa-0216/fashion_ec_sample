@@ -37,8 +37,8 @@ Rails.application.routes.draw do
 
   resources :shops, only: [:new, :create]
 
-  resources :favorites , only: [:destroy] do
-    get 'favorite' , to: 'users#favorite' , on: :collection
+  resources :favorites , only: [:destroy ,:favorite] do
+    get 'favorite' , to: 'favorites#favorite' , on: :collection
     member do
     post "add", to: "favorites#create"
     end

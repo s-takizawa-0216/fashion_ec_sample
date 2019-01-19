@@ -1,5 +1,5 @@
 .sign-up
-  = render partial: 'shared/header-log-in'
+  = render partial: 'shared/header-logged-in'
   .sign-up__breadcrumbs breadcrumbs will be set here
 
   .sign-up__main
@@ -10,8 +10,13 @@
       .done-signup-container__text この後もZOZOTOWNでのお買い物をどうぞお楽しみください。
 
       .addShop_container
-        = link_to new_shop_path, class: "link" do
-          %span<> ショップ登録する方
-          はこちらへ ＞
+        %p
+          = link_to root_path, class: "link" do
+            %span<> お買い物を開始する方
+            はこちらへ ＞
+        %p
+          = link_to new_shop_path, class: "link" do
+            %span<> ショップ登録する方
+            はこちらへ ＞
 
   .sign-up__footer

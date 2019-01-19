@@ -1,312 +1,380 @@
-.japan {
-  width:880px;
-  height: 600px;
-  margin: 50px auto;
+.world{
+  width: 100%;
+  height: 100%;
+  background: lightgray;
+  position: absolute;
+  font-weight: bold;
 
-  >ul {
+  &__header{
+    height: 80px;
+    padding-top: 10px;
+    background: black;
+    color: #fff;
+    font-size: 45px;
+    text-align: center;
+  }
+
+  .japan {
+    margin-left: 200px;
+
+    ul {
       position: relative;
 
-    >li {
-      width:59px;
-      height: 62px;
-      background-color: #ffffff;
-      border:1px solid #808080;
-      line-height: 62px;
-      font-size: 13px;
-      text-align: center;
-      // border-radius: 50%;
-      box-shadow: 0.3px 0 0.3px 0.3px #2d2d2d;
+      li {
+        width:59px;
+        height: 62px;
+        background-color: #ffffff;
+        border:1px solid #808080;
+        line-height: 62px;
+        font-size: 13px;
+        text-align: center;
+        box-shadow: 0.3px 0 0.3px 0.3px #2d2d2d;
+
+        button{
+          background: transparent;
+          border: none;
+          cursor: pointer;
+          color: purple;
+        }
+      }
     }
   }
 }
 
-#hokkaido {
+.hokkaido {
   position: absolute;
   top:20px;
   left:800px;
 }
 
-#akita {
+.akita {
   position: absolute;
   top:100px;
   left:675px;
 }
 
-#aomori {
+.aomori {
   position: absolute;
   top:100px;
   left:740px;
 }
 
-#iwate {
+.iwate {
   position: absolute;
   top:167px;
   left:740px;
 }
 
-#yamagata {
+.yamagata {
   position: absolute;
   top:167px;
   left:675px;
 }
 
-#miyagi {
+.miyagi {
   position: absolute;
   top:234px;
   left:740px;
 }
 
-#tochigi {
+.tochigi {
   position: absolute;
   top:234px;
   left:675px;
 }
 
-#fukushima {
+.fukushima {
   position: absolute;
   top:301px;
   left:740px;
 }
 
-#saitama {
+.saitama {
   position: absolute;
   top: 301px;
   left:675px;
 }
 
-#tokyo {
+.tokyo {
   position: absolute;
   top: 368px;
   left:675px;
 }
 
-#ibaraki {
+.ibaraki {
   position: absolute;
   top: 368px;
   left:740px;
 }
 
-#chiba {
+.chiba {
   position: absolute;
   top: 435px;
   left:740px;
 }
 
-#niigata {
+.niigata {
   position: absolute;
   top: 234px;
   left:611px;
 }
 
 
-#gunma {
+.gunma {
   position: absolute;
   top: 301px;
   left:611px;
 }
 
-#kanagawa {
+.kanagawa {
   position: absolute;
   top: 368px;
   left:611px;
 }
 
-#toyama {
+.toyama {
   position: absolute;
   top: 234px;
   left:547px;
 }
 
-#nagano {
+.nagano {
   position: absolute;
   top:301px;
   left:547px;
 }
 
-#yamanashi {
+.yamanashi {
   position: absolute;
   top: 368px;
   left:547px;
 }
 
-#shizuoka {
+.shizuoka {
   position: absolute;
   top: 435px;
   left:547px;
 }
 
-#ishikawa {
+.ishikawa {
   position: absolute;
   top: 234px;
   left:483px;
 }
 
-#gihu {
+.gihu {
   position: absolute;
   top:301px;
   left:483px;
 }
 
-#aichi {
+.aichi {
   position: absolute;
   top:368px;
   left:483px;
 }
 
 
-#fukui {
+.fukui {
   position: absolute;
   top:234px;
   left:419px;
 }
 
-#shiga {
+.shiga {
   position: absolute;
   top:301px;
   left:419px;
 }
 
-#nara {
+.nara {
   position: absolute;
   top:368px;
   left:419px;
 }
 
-#mie {
+.mie {
   position: absolute;
   top:435px;
   left:419px;
 }
 
-#kyoto {
+.kyoto {
   position: absolute;
   top:234px;
   left:355px;
 }
 
-#hyogo {
+.hyogo {
   position: absolute;
   top:301px;
   left: 355px;
 }
 
-#osaka {
+.osaka {
   position: absolute;
   top:368px;
   left:355px;
 }
 
-#wakayama {
+.wakayama {
   position: absolute;
   top:435px;
   left:355px;
 }
 
-#tottori {
+.tottori {
   position: absolute;
   top:234px;
   left:291px;
 }
 
-#okayama {
+.okayama {
   position: absolute;
   top:301px;
   left:291px;
 }
 
-#shimane {
+.shimane {
   position: absolute;
   top:234px;
   left:227px;
 }
 
-#hiroshima {
+.hiroshima {
   position: absolute;
   top:301px;
   left:227px;
 }
 
-#yamaguchi {
+.yamaguchi {
   position: absolute;
   top:234px;
   left:163px;
 }
 
-#fukuoka {
+.fukuoka {
   position: absolute;
   top:234px;
   left:99px;
 }
 
-#oita {
+.oita {
   position: absolute;
   top:301px;
   left:99px;
 }
 
-#miyazaki {
+.miyazaki {
   position: absolute;
   top:368px;
   left:99px;
 }
 
-#saga {
+.saga {
   position: absolute;
   top:234px;
   left:35px;
 }
 
-#nagasaki {
+.nagasaki {
   position: absolute;
   top:301px;
   left:35px;
 }
 
-#kumamoto {
+.kumamoto {
   position: absolute;
   top:368px;
   left:35px;
 }
 
-#kagoshima {
+.kagoshima {
   position: absolute;
   top:435px;
   left:35px;
 }
 
-#okinawa {
+.okinawa {
   position: absolute;
   top:435px;
   left:-29px;
 }
 
-#ehime {
+.ehime {
   position: absolute;
   top:368px;
   left:196px;
 
 }
 
-#kagawa {
+.kagawa {
   position: absolute;
   top:368px;
   left:260px;
 }
 
-#tokushima {
+.tokushima {
   position: absolute;
   top:435px;
   left:260px;
 
 }
 
-#kochi {
+.kochi {
   position: absolute;
   top: 435px;
   left: 196px;
 }
 
+.area{
+  width: 430px;
+  height: 300px;
+  margin-left: 420px;
+  bottom: 300px;
+  background: #FFFFEE;
+  position: fixed;
+  border-radius: 50%;
 
+  &__box{
+    font-weight: bold;
+    font-size: 16px;
+    width: 300px;
+    height: 130px;
+    margin: 50px 0 0 120px;
 
+    .prefecture{
+      padding: 0 18px;
+      width: 80px;
+      font-size: 20px;
+      margin: 0 0 30px 40px;
+      border: 2px solid gray;
+    }
+  }
+}
 
+#hide-area{
+  color: red;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  font-size: 25px;
+  margin-top: 30px;
+  padding-left: 40px;
+}
 
+.return-to-root{
+  position: relative;
+  float: right;
+  margin: 450px 90px 0 0;
+
+  .root-btn{
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    background: purple;
+    border-radius: 50%;
+    width: 140px;
+    height: 80px;
+  }
+}

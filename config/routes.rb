@@ -10,10 +10,15 @@ Rails.application.routes.draw do
 
   root "items#index"
 
+<<<<<<< HEAD
 
   resources :items, only: [:new, :create ,:cordinate , :prefecture ,:show, :search_category] do
     get 'cordination' , to: 'items#cordination', on: :collection
     get 'prefecture' , to: 'items#prefecture' , on: :collection
+=======
+  resources :items, only: [:new, :create ,:cordinate ,:show, :search_category] do
+    get 'cordination' ,     to: 'items#cordination',      on: :collection
+>>>>>>> master
     get 'search_category' , to: 'items#search_category' , on: :collection
   end
 
@@ -28,16 +33,18 @@ Rails.application.routes.draw do
     patch  'shipping_update',  to: 'users#shipping_update',  as: :shipping_update, on: :collection
   end
 
-  resources :trades, only: [:index, :plus_count, :minus_count, :erace_item, :return_to_cart, :arigato_update, :order, :add_user_info, :confirmation, :done_transaction, :create] do
+  resources :trades, only: [:index, :plus_count, :minus_count, :erace_item, :return_to_cart, :arigato_update, :order, :add_user_info, :confirmation, :done_transaction, :create, :prefecture, :search_prefecture] do
     post  'plus_count/:trade_id',     to: 'trades#plus_count',                as: :plus_count
     post  'minus_count/:trade_id',    to: 'trades#minus_count',               as: :minus_count
     post  'erace_item/:trade_id',     to: 'trades#erace_item',                as: :erace_item
     post  'return_to_cart/:trade_id', to: 'trades#return_to_cart',            as: :return_to_cart
-    get   'arigato_update',          to: 'trades#arigato_update',             as: :arigato_update, on: :collection
+    get   'arigato_update',           to: 'trades#arigato_update',            as: :arigato_update, on: :collection
     get   'order',                    to: 'trades#order',                     as: :order, on: :collection
     post  'add_user_info',            to: 'trades#add_user_info',             as: :add_user_info, on: :collection
     get   'confirmation',             to: 'trades#confirmation',              as: :confirmation, on: :collection
     post  'done_transaction',         to: 'trades#done_transaction',          as: :done_transaction, on: :collection
+    get   'prefecture',               to: 'trades#prefecture',                as: :prefecture, on: :collection
+    get   'search_prefecture',        to: 'trades#search_prefecture',         as: :search_prefecture, on: :collection
   end
 
   resources :stocks, except: [:show] do

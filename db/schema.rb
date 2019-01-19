@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2019_01_13_081142) do
+ActiveRecord::Schema.define(version: 2019_01_15_045129) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -42,6 +41,15 @@ ActiveRecord::Schema.define(version: 2019_01_13_081142) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_credit_cards_on_user_id"
+  end
+
+  create_table "fav_stocks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "stock_id"
+    t.index ["stock_id"], name: "index_fav_stocks_on_stock_id"
+    t.index ["user_id"], name: "index_fav_stocks_on_user_id"
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -108,7 +116,7 @@ ActiveRecord::Schema.define(version: 2019_01_13_081142) do
     t.string "prefecture", null: false
     t.string "address1", null: false
     t.string "address2"
-    t.integer "phonenumber", null: false
+    t.text "phonenumber", null: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -161,11 +169,16 @@ ActiveRecord::Schema.define(version: 2019_01_13_081142) do
     t.string "first_name_kana", null: false
     t.string "prefecture", null: false
     t.string "address1", null: false
-    t.string "address2", null: false
-    t.string "phonenumber", null: false
+    t.string "address2"
+    t.text "phonenumber", null: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "gender"
+    t.string "birth_year"
+    t.string "birth_month"
+    t.string "birth_day"
+    t.integer "postal_code", null: false
     t.index ["user_id"], name: "index_user_details_on_user_id"
   end
 
@@ -190,13 +203,15 @@ ActiveRecord::Schema.define(version: 2019_01_13_081142) do
   end
 
   add_foreign_key "credit_cards", "users"
+  add_foreign_key "fav_stocks", "stocks"
+  add_foreign_key "fav_stocks", "users"
   add_foreign_key "images", "items"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories", column: "child_category_id"
   add_foreign_key "items", "categories", column: "parent_category_id"
   add_foreign_key "items", "shops"
-  add_foreign_key "shops", "users"
   add_foreign_key "shippings", "users"
+  add_foreign_key "shops", "users"
   add_foreign_key "stocks", "colors"
   add_foreign_key "stocks", "items"
   add_foreign_key "stocks", "sizes"

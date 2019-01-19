@@ -41,7 +41,9 @@ Rails.application.routes.draw do
     get   'search_prefecture',        to: 'trades#search_prefecture',         as: :search_prefecture, on: :collection
   end
 
-  resources :stocks, except: [:show]
+  resources :stocks, except: [:show] do
+    put :sort
+  end
 
   resources :shops, only: [:new, :create]
 end

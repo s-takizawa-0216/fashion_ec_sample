@@ -147,8 +147,11 @@ ActiveRecord::Schema.define(version: 2019_01_18_152324) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
+    t.integer "row_order"
+    t.bigint "shop_id"
     t.index ["color_id"], name: "index_stocks_on_color_id"
     t.index ["item_id"], name: "index_stocks_on_item_id"
+    t.index ["shop_id"], name: "index_stocks_on_shop_id"
     t.index ["size_id"], name: "index_stocks_on_size_id"
   end
 
@@ -216,6 +219,7 @@ ActiveRecord::Schema.define(version: 2019_01_18_152324) do
   add_foreign_key "shops", "users"
   add_foreign_key "stocks", "colors"
   add_foreign_key "stocks", "items"
+  add_foreign_key "stocks", "shops"
   add_foreign_key "stocks", "sizes"
   add_foreign_key "trades", "stocks"
   add_foreign_key "trades", "users"

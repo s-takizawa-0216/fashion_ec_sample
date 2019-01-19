@@ -13,4 +13,5 @@
 //= require activestorage
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui/widgets/sortable
 //= require_tree .

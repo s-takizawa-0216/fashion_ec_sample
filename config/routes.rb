@@ -48,8 +48,6 @@ Rails.application.routes.draw do
 
   resources :favorites , only: [:destroy ,:favorite] do
     get 'favorite' , to: 'favorites#favorite' , on: :collection
-    member do
-    post "add", to: "favorites#create"
-    end
+    post 'favorite' , to: 'favorites#create' , on: :collection
   end
 end

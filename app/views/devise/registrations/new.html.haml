@@ -11,7 +11,8 @@
 
     .sign-up__main__middle
       .user-resistration-form.clearfix
-        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "h-adr"}) do |f|
+          %span.p-country-name{:style => "display:none;"} Japan
           .user-resistration-form__top-msg 基本情報
           .user-resistration-form__gender
             %ul.side-by-side-ul.user-resistration-form__gender__line.clearfix
@@ -46,7 +47,8 @@
                 .user-resistration-form__postal__line__hissu-box
                   .user-resistration-form__postal__line__hissu-box-msg 必須
               %li.side-by-side-li
-                = f.text_field :postal_code, class: "text-arrange-postal", placeholder: "例:2617116", required: "required"
+                = f.text_field :postal_code, class: "p-postal-code text-arrange-postal", placeholder: "例:2617116", required: "required"
+                = f.hidden_field :prefecture, class: "p-region"
               .postal-7-numbers 郵便番号をハイフン無しの数字7ケタで入力してください
               =link_to "https://www.post.japanpost.jp/zipcode/index.html" do
                 %li.side-by-side-li.user-resistration-form__postal__line__postal-search 郵便番号を検索

@@ -11,6 +11,7 @@ $(function () {
 
     if(coupon == 1){
         $("input#calc").val("");
+
     }else if(calc > 0 && coupon != 1){
     $("input#calc").val(int);
     }

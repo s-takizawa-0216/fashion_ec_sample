@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :check_stocks, only: [:show]
 
+  before_action :check_stocks, only: [:show]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :check_shop_user, only: [:new]
 
@@ -55,15 +55,13 @@ class ItemsController < ApplicationController
     end
   end
 
-  def prefecture
-  end
-
   def search_category
     # 商品出品ページのカテゴリー選択ajax通信
     respond_to do |format|
         format.json {render 'new', json: @child_category = Category.where(parent_id: params[:parent_id])}
     end
   end
+
 
   private
 

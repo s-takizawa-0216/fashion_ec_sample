@@ -23,7 +23,7 @@
   .fav__main__content__name
     %h1
       = fa_icon ('heart')
-      %sapn #{@user.email.slice(/\w+/)}様のお気に入り
+      %sapn #{current_user.email.slice(/\w+/)}様のお気に入り
 
   .fav__main__news
     .fav__main__news__content.clearfix
@@ -85,20 +85,18 @@
             = link_to '#' do
               = image_tag  "#{item.stock.item.images.first.image}" , width: '164' ,height: '200'
             .fav__main__image__box__up
-              %p sample-bland
+              %p #{item.stock.item.brand.name}
               %p #{item.stock.size.size} / #{item.stock.color.name}
             .fav__main__image__box__bottom.clearfix
               %p ¥ #{item.stock.item.price}
-              %p sample-tax
+              %p #{100-item.stock.item.coupon*100} %OFF
               .fav__main__image__box__cart
                 = link_to trades_path(trade:{stock_id:item.stock.id , user_id: current_user.id , status: 0 ,count: item.stock.count,total:item.stock.item.price}), method: :post do
                   = fa_icon ('shopping-cart')
 
-            - @user.fav_stocks.each do |i|
               .triangle
-              = link_to favorite_path(i) , method: :delete do
+              = link_to favorite_path(item) , method: :delete do
                 = fa_icon ('times') ,class: 'triangle-cross'
-
 
   .fav__main__sns
     .fav__main__sns__news.clearfix

@@ -73,7 +73,7 @@
               .confirm-item__box-top__index お届け日
             %li.side-by-side-li
               .confirm-item__box-top__info
-                %p 指定なし：2〜5日以内に発送 
+                %p 指定なし：2〜5日以内に発送
                 %p.gray 日時指定：日時を選択してください。
                 %p.gray
                   %span 即日配送：※今回のご注文では選択できません。
@@ -106,6 +106,7 @@
       -if @arigato_trade.present?
         %span.confirm-main__right__info-price ¥#{@arigato_sum.floor}
 
+
     .confirm-main__right__detail
       .confirm-main__right__detail__head
       .confirm-main__right__detail__top
@@ -115,6 +116,7 @@
           %span.confirm-main__right__detail__bottom-price ¥#{@items_sum}
         -if @arigato_trade.present?
           %span.confirm-main__right__detail__bottom-price ¥#{@arigato_sum.floor}
+
 
     .confirm-main__right__shipping
       %span.confirm-main__right__shipping-msg 送料

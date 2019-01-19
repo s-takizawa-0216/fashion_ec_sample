@@ -133,10 +133,21 @@ class TradesController < ApplicationController
   def prefecture
   end
 
+<<<<<<< HEAD
+
+
+  def create
+    trade = Trade.new(trade_params)
+    if trade.save
+      redirect_to trades_path
+    else
+      render "items/show"
+=======
   def search_prefecture
     # ＃県ごとの市場データ取得に関するajax通信
     respond_to do |format|
         format.json {render 'prefecture', json: @pref = Market.find_by(prefecture: params[:prefecture])}
+>>>>>>> master
     end
   end
 
@@ -154,6 +165,8 @@ class TradesController < ApplicationController
     def trade_params
       params.require(:trade).permit(:stock_id, :total).merge(status: 0, user_id: current_user.id, count: 1)
     end
+
+
 
     def user_info_return
       # 購入ページに遷移する際にユーザー情報と届け先情報がない場合は、登録ページへリダイレクト
@@ -177,4 +190,5 @@ class TradesController < ApplicationController
         redirect_to trades_path
       end
     end
+
 end

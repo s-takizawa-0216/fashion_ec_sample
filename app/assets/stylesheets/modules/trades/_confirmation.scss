@@ -110,14 +110,17 @@
         width: 120px;
         text-align: center;
       }
+
       &__image{
         padding: 19px 0;
         width: 70px;
       }
+
       &__info{
         margin-left: 10px;
         font-size: 13px;
       }
+
       &__price{
         margin-top: 40px;
       font-size: 14px;
@@ -125,13 +128,16 @@
       text-align: center;
       }
     }
+
     &-shipping{
       width: 100%;
       font-size: 13px;
+
       &__index{
         margin-left: 20px;
         padding-bottom: 15px;
       }
+
       &__price{
         padding-left: 400px;
       }

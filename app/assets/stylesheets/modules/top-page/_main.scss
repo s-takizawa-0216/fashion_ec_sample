@@ -202,7 +202,7 @@
             position: absolute;
             left:-999999px;
             top: 0;
-            z-index: 1;
+            z-index: 10;
             width: 322px;
             background: #ffffff;
             box-shadow: 0 2px 8px rgba(77,77,77,0.2);
@@ -239,7 +239,7 @@
             position: absolute;
             left:-999999px;
             top: 0;
-            z-index: 1;
+            z-index: 10;
             width: 322px;
             background: #ffffff;
             box-shadow: 0 2px 8px rgba(77,77,77,0.2);
@@ -450,6 +450,8 @@
                 .right__content__price {
                   margin-left: 3px;
                   font-size: 15px;
+                  font-size: 10px;
+                  color:#2d2d2d;
                 }
 
                 .right__content__tax {
@@ -483,6 +485,7 @@
               >li {
                 float: left;
                 margin-right: 10px;
+                position: relative;
 
               // &:hover {
               //   opacity: 0.7;
@@ -1637,9 +1640,24 @@
   }
 }
 
+.coupon__label {
+  background:rgba(254,63,81,0.9);
+  width: 90px;
+  position: absolute;
+  bottom:55px;
+
+  >span {
+    font-size: 10px;
+    color:#FFFFFF;
+    padding:5px;
+  }
+}
 
 
-
+.right__content__coupon__price__none {
+  font-size: 10px;
+  color:#2d2d2d;
+}
 
 
 

@@ -11,4 +11,3 @@ $(function () {
         $('#hide-password').css("display", "block");
     });
 });
-

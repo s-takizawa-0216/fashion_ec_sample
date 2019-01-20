@@ -1,5 +1,8 @@
 = render "/shared/header-logged-in.html.haml"
-.sign-up__breadcrumbs breadcrumbs will be set here
+
+.breadcrumbs
+  - breadcrumb :userShow
+  = breadcrumbs  separator: " › "
 
 .user-info-main
   .user-info-main__header

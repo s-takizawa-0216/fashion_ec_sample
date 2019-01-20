@@ -20,6 +20,8 @@
                     .header__right__popup__inner__listbox2
                       %ul.header__right__popup__ulist2
                         %li.header__right__popup__list-big2
+                          %p.shop_name #{current_user.shop.name}様
+                        %li.header__right__popup__list-big2
                           = link_to '商品登録', new_item_path
                         %li.header__right__popup__list2
                           = link_to '在庫管理', stocks_path
@@ -115,13 +117,18 @@
           %li.header__right__li-cart
             .header__right__cart-js
               %span
-                = fa_icon ("shopping-cart")
+                = link_to trades_path do
+                  = fa_icon ("shopping-cart"), class: "icon-white"
                 .header__right__popup
               .header__right__popup__inner-cart
                 .header__right__popup__inner__cartbox
                   .header__right__popup__inner__cart
                     =fa_icon ("shopping-cart 2x" )
-                  %p.header__right__popup__inner__cart-text カートに商品が○件あります。
+                  %p.header__right__popup__inner__cart-text
+                    %span カートに商品が
+                    %span
+                      = Trade.where(status: 0).where(user_id: current_user.id).count
+                    %span あります。
                   .header__right__popup__inner__cart-box
                     = link_to 'ショッピングカートを見る' , trades_path , class: 'header__right__popup__inner__cart-button'
 

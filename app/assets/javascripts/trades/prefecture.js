@@ -1,9 +1,8 @@
 // 県ごとの市場データのajax通信
 $(function () {
-  $('#hokkaido, #akita, #aomori, #iwate, #yamagata, #miyagi, #tochigi, #fukushima, #saitama, #tokyo, #ibaraki, #chiba, #niigata, #gunma, #kanagawa, #toyama, #nagano, #yamanashi, #shizuoka, #ishikawa, #guhu, #aichi, #fukui, #shiga, #nara, #hyogo, #mie, #kyoto, #osaka, #wakayama, #tottori, #okayama, #shimane, #hiroshima, #yamaguchi, #fukuoka, #oita, #miyazaki, #saga, #nagasaki, #kumamoto, #kagoshima, #okinawa, #ehime, #kagawa, #tokushima, #kochi').click(function() {
+  $('#hokkaido, #akita, #aomori, #iwate, #yamagata, #miyagi, #tochigi, #fukushima, #saitama, #tokyo, #ibaraki, #chiba, #niigata, #gunma, #kanagawa, #toyama, #nagano, #yamanashi, #shizuoka, #ishikawa, #guhu, #aichi, #fukui, #shiga, #nara, #hyogo, #mie, #kyoto, #osaka, #wakayama, #tottori, #okayama, #shimane, #hiroshima, #yamaguchi, #fukuoka, #oita, #miyazaki, #saga, #nagasaki, #kumamoto, #kagoshima, #okinawa, #gihu, #ehime, #kagawa, #tokushima, #kochi').click(function() {
 
     var name = $(this).val();
-
 
     $.ajax({
       type: 'GET',
@@ -13,7 +12,6 @@ $(function () {
     })
 
     .done(function(data){
-
       var html = `<div class="area">
                     <div class="area__box">
                       <div class="prefecture">${data.prefecture}</div>

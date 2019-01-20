@@ -1,6 +1,9 @@
 .sign-up
   = render partial: 'shared/header-logged-in'
-  .sign-up__breadcrumbs breadcrumbs will be set here
+
+  .breadcrumbs
+    - breadcrumb :doneSignUP
+    = breadcrumbs  separator: " › "
 
   .sign-up__main
     .done-signup-container
@@ -19,4 +22,4 @@
             %span<> ショップ登録する方
             はこちらへ ＞
 
-  .sign-up__footer
+  = render partial: 'shared/footer'

@@ -134,7 +134,8 @@
           %li.header__right__li-fav
             .header__right__fav-js
               %span
-                = fa_icon ("heart")
+                = link_to favorite_favorites_path do
+                  = fa_icon ("heart"), class: "heart-icon", style: "color: #fff"
               .header__right__popup
                 .header__right__popup__inner-fav
                   %p.header__right__popup__inner__favbox お気に入り

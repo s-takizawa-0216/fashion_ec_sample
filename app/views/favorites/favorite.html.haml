@@ -17,8 +17,9 @@
   - else
     = render partial: 'shared/header-log-in'
 
-  .breadCrumb
-
+  .breadCrumb__fav
+    - breadcrumb :favorite
+    = breadcrumbs  separator: " > "
 
 .fav__main__content
   .fav__main__content__name
@@ -90,7 +91,7 @@
               %p #{item.stock.size.size} / #{item.stock.color.name}
             .fav__main__image__box__bottom.clearfix
               %p ¥ #{item.stock.item.price}
-              %p #{100-item.stock.item.coupon*100} %OFF
+              %p #{(100-item.stock.item.coupon*100).ceil} %OFF
               .fav__main__image__box__cart
                 = link_to trades_path(trade:{stock_id:item.stock.id , user_id: current_user.id , status: 0 ,count: item.stock.count,total:item.stock.item.price}), method: :post do
                   = fa_icon ('shopping-cart')

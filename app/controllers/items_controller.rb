@@ -23,6 +23,12 @@ class ItemsController < ApplicationController
     @brand_other_rank = Brand.offset(3).take(17)
     @brand_other_number_4_20 = [*4..20]
 
+    @shop_rank1 = Shop.offset(0).take(1)
+    @shop_rank2 = Shop.offset(1).take(1)
+    @shop_rank3 = Shop.offset(2).take(1)
+    @shop_other_rank = Shop.offset(3).take(17)
+    @shop_other_number_4_20 = [*4..20]
+
     @user = User.find(user_id)
   end
 
@@ -65,6 +71,18 @@ class ItemsController < ApplicationController
         format.json {render 'new', json: @child_category = Category.where(parent_id: params[:parent_id])}
     end
   end
+
+  def ranking
+    @rank1 = Item.order('impressions_count DESC').take(1)
+    @rank2 = Item.order('impressions_count DESC').offset(1).take(1)
+    @rank3 = Item.order('impressions_count DESC').offset(2).take(1)
+    @number1 = [*1..3].take(1)
+    @number2 = [*2..3].take(1)
+    @number3 = [*3..3].take(1)
+    @other_most_viewd = Item.order('impressions_count DESC').offset(3).take(17)
+    @number4_20 = [*4..23]
+  end
+
 
 
   private

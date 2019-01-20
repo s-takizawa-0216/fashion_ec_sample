@@ -75,6 +75,9 @@
       .delete {
         color:#007ebe;
         font-size: 12px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
       }
   }
 }
@@ -398,12 +401,14 @@
   }
 }
 
-input[type="checkbox"]#multi-delete{
+input[type="checkbox"]#multi__delete{
+  display: none;
   font-size: 18px;
   float: right;
 }
 
 #hidden__detete{
+  display: none;
   background: #EEEEEE;
   height: 90px;
   width: 100%;

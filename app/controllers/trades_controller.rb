@@ -133,21 +133,11 @@ class TradesController < ApplicationController
   def prefecture
   end
 
-<<<<<<< HEAD
 
-
-  def create
-    trade = Trade.new(trade_params)
-    if trade.save
-      redirect_to trades_path
-    else
-      render "items/show"
-=======
   def search_prefecture
     # ＃県ごとの市場データ取得に関するajax通信
     respond_to do |format|
         format.json {render 'prefecture', json: @pref = Market.find_by(prefecture: params[:prefecture])}
->>>>>>> master
     end
   end
 

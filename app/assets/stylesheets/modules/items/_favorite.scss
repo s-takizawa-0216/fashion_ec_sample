@@ -1,0 +1,407 @@
+.fav__main__content {
+  background-color:#EEEEEE;
+}
+
+
+.fav__main__content__name {
+  width: 100%;
+  padding-top: 20px;
+
+  >h1 {
+    margin: 0 auto;
+    width: 980px;
+    font-size: 25px;
+
+    >i {
+      font-size: 30px;
+      color:#007ebe;
+    }
+  }
+}
+
+
+.fav__main__news__content {
+  width: 980px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  margin-top: 20px;
+  height: 40px;
+
+  >img {
+    float:left;
+  }
+
+  >span {
+    font-size: 15px;
+    line-height: 40px;
+  }
+
+  &__right {
+    float: right;
+
+    >img {
+      float: right;
+      margin-right: 8px;
+      margin-top: 5px;
+    }
+  }
+}
+
+
+.fav__main__tub {
+  width: 980px;
+  margin:20px auto 0;
+  list-style: none;
+  border-bottom:1px solid #C0C0C0;
+
+  >ul {
+
+    >li {
+      float: left;
+      padding: 0 10px 0 10px;
+
+      &:hover {
+        background-color: #e8e8e8;
+      }
+
+      >a {
+        color:#2d2d2d;
+      }
+    }
+
+      .delete__right {
+        float: right;
+      }
+
+      .delete {
+        color:#007ebe;
+        font-size: 12px;
+      }
+  }
+}
+
+#add-color {
+  background-color:#e8e8e8;
+}
+
+.fav__main__content__tub {
+  width: 980px;
+  margin:20px auto 0;
+
+  >ul {
+
+    >li {
+      float: left;
+      padding: 0 40px 0 10px;
+      font-size: 15px;
+      color:#2d2d2d;
+      position:relative;
+
+      >span {
+
+      }
+
+        >i {
+          font-size: 15px;
+        }
+    }
+  }
+}
+
+
+.all-shop-hide {
+  background-color: #ffffff;
+  border:1px solid #C0C0C0;
+  width: 200px;
+  box-shadow:1px 1px 1px 1px rgba(0,0,0,0.2);
+  text-align: center;
+  position: absolute;
+  left: -999999999px;
+  z-index: 10;
+
+  >li {
+    padding: 5px;
+    font-size: 12px;
+
+  &:hover {
+      background-color: #e8e8e8;
+    }
+  }
+}
+
+#add-shop-color {
+  background-color: #e8e8e8;
+  margin-top: 5px;
+}
+
+.all-category-hide {
+  background-color: #ffffff;
+  border:1px solid #C0C0C0;
+  width: 200px;
+  box-shadow:1px 1px 1px 1px rgba(0,0,0,0.2);
+  text-align: center;
+  position: absolute;
+  left: -99999999px;
+  z-index: 10;
+
+  >li {
+    padding: 5px;
+    font-size: 12px;
+
+  &:hover {
+      background-color: #e8e8e8;
+    }
+  }
+}
+
+#add-category-color {
+  background-color: #e8e8e8;
+  margin-top: 5px;
+}
+
+.all-hide {
+  background-color: #ffffff;
+  border:1px solid #C0C0C0;
+  width: 200px;
+  box-shadow:1px 1px 1px 1px rgba(0,0,0,0.2);
+  text-align: center;
+  position: absolute;
+  left: -999999999px;
+  z-index: 10;
+
+  >li {
+    padding: 5px;
+    font-size: 12px;
+
+  &:hover {
+      background-color: #e8e8e8;
+    }
+  }
+}
+
+#add-all-color {
+  background-color: #e8e8e8;
+  margin-top: 5px;
+}
+
+.fav__main__image {
+
+  &__box {
+    width: 980px;
+    margin: 20px auto 0 ;
+    list-style: none;
+
+    >ul {
+      width: 980px;
+
+      >li {
+        margin-right: 30px;
+        margin-top: 20px;
+        height: 337px;
+        position:relative;
+        float: left;
+      }
+    }
+  }
+
+    &__box__up {
+      font-size: 12px;
+      color:#2d2d2d;
+    }
+
+    &__box__bottom {
+      color:#E73656;
+      width:150px;
+      font-size: 12px;
+    }
+
+    &__box__cart {
+      width: 30px;
+      height: 30px;
+      background-color: #007ebe;
+      border-radius: 50%;
+      float: right;
+      margin-top: -20px;
+
+      >a {
+
+        >i {
+          line-height: 30px;
+          color: #ffffff;
+          margin-left: 7px;
+        }
+      }
+    }
+
+    &__box__stock-none {
+      height: 30px;
+      float: right;
+      margin-right: 20px;
+      margin-top: -20px;
+    }
+
+    &__box__show {
+      border-top:1px solid #C0C0C0;
+      margin-top: 20px;
+      width: 150px;
+
+      >p {
+        color:#2d2d2d;
+        font-size: 13px;
+        text-align: center;
+      }
+    }
+
+    &__box__hide {
+      // display: none;
+      height: 206px;
+
+      >ul {
+        display: flex;
+
+        >li {
+          margin-right: 10px;
+
+          a> {
+
+            img> {
+
+            }
+          }
+
+          .bland-text {
+            color:#2d2d2d;
+            font-size: 12px;
+          }
+
+          .price-text {
+            color:#E73656;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+}
+
+.triangle{
+  width: 0px;
+  border-top: 10px solid #C0C0C0;
+  border-right: 10px solid #C0C0C0;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid transparent;
+  position: absolute;
+  bottom:318px;
+  left: 144px;
+}
+
+.triangle-cross {
+    position: absolute;
+    bottom:327px;
+    left: 155px;
+    font-size: 10px;
+    color:#2d2d2d;
+}
+
+
+
+.fav__main__sns {
+
+  &__news {
+    width: 980px;
+    margin:0 auto;
+    background-color: #e8e8e8;
+    margin-top: 40px;
+
+    .fab.fa-line {
+      color:#00B900;
+      font-size: 40px;
+      margin: 0 10px 0 10px;
+      margin: 0 10px 0 10px;
+    }
+
+    .fas.fa-envelope-square {
+      color:#1DA1F2;
+      font-size: 40px;
+    }
+
+    >span {
+      color:#2d2d2d;
+      font-size: 12px;
+      display: block;
+      float: right;
+      line-height: 40px;
+      margin-right: 40px;
+    }
+
+    >ul {
+      float: right;
+
+      >li {
+        float: left;
+        font-size: 12px;
+        line-height: 40px;
+        margin-right: 20px;
+
+        >a {
+        color:#007ebe;
+        padding-right: 15px;
+        }
+
+        .line-border {
+          border-right: 1px solid #C0C0C0;
+        }
+      }
+    }
+  }
+}
+
+
+.fav__main__wear {
+
+  &__news {
+    width: 980px;
+    margin:0 auto;
+    background-color: #e8e8e8;
+    margin-top: 20px;
+
+    >img {
+      margin: 3px 10px 0 10px;
+    }
+
+    >span {
+      color:#2d2d2d;
+      font-size: 12px;
+      display: block;
+      float: right;
+      line-height: 40px;
+      margin-right: 180px;
+    }
+
+    >ul {
+      float: right;
+
+      >li {
+        float: left;
+        font-size: 12px;
+        line-height: 43px;
+        margin-right: 20px;
+
+        >a {
+        color:#007ebe;
+        padding-right: 15px;
+        }
+
+        .line-border {
+          border-right: 1px solid #C0C0C0;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+

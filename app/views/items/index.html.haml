@@ -416,7 +416,7 @@
 
     .right__content.clearfix
       .right__content__top
-        %section
+        %section.clearfix
           %ul.clearfix
           - @zozo.each do |item|
             %li
@@ -510,7 +510,7 @@
           %p.zozo-item
             = link_to 'クーポン対象アイテム一覧' , '#'
 
-        %section.right__content__ranking
+        %section.right__content__ranking.clearfix
           %h2 人気アイテムランキング
           .right__content__ranking__content.clearfix
           %ul
@@ -570,8 +570,8 @@
                   %span 税込
                   %span 40%OFF
 
-          %p.zozo-item
-            = link_to 'ランキング一覧' , '#'
+        %p.zozo-item
+          = link_to 'ランキング一覧' , '#'
 
         %section.right__content__coordination
           %h2

@@ -2,7 +2,9 @@
   .headerContent
     .inner.clearfix
       .txt
-        %h1 zozotown 商品在庫の一覧
+        %h1
+          = link_to "zozotown", root_path
+          商品在庫の一覧
       .searchItem.clearfix
         %p.keyword
           %input{type: "serch", placeholder: "出品アイテムをここに", class: "stockKeyword"}
@@ -18,7 +20,7 @@
         = link_to new_stock_path, remote: true do
           %button.addBtn 追加
       #tblStockInfo
-        %table
+        %table.table-sortable
           %thead
             %tr
               %th アイテム名
@@ -30,28 +32,27 @@
               %th.iconCell 編集
               %th.iconCell 削除
           %tbody
-            - @items.each do |item|
-              - item.stocks.each do |stock|
-                %tr.specDetail
-                  %th.itemName
-                    = item.name
-                  %td
-                    = item.brand.name
-                  %td
-                    = stock.size.size
-                  %td
-                    = stock.color.name
-                  %td
-                    = stock.count
-                  %td.iconBtn.iconIMG
-                    = fa_icon("image")
-                    = image_tag("#{stock.image}")
-                  %td.iconBtn.iconEdit
-                    = link_to edit_stock_path(stock), remote: true do
-                      = fa_icon("edit")
-                  %td.iconBtn.iconDelete
-                    = link_to stock_path(stock), method: :delete do
-                      = fa_icon("trash")
+            - @stocks.each do |stock|
+              %tr.specDetail.item{data: { model_name: "#{stock.class.name.underscore}", update_url: stock_sort_path(stock) }}
+                %th.itemName
+                  = stock.item.name
+                %td.itemBrand
+                  = stock.item.brand.name
+                %td.stockSize
+                  = stock.size.size
+                %td.stockColor
+                  = stock.color.name
+                %td.stockCount
+                  = stock.count
+                %td.iconBtn.iconIMG
+                  = fa_icon("image")
+                  = image_tag("#{stock.image}")
+                %td.iconBtn.iconEdit
+                  = link_to edit_stock_path(stock), remote: true do
+                    = fa_icon("edit")
+                %td.iconBtn.iconDelete
+                  = link_to stock_path(stock), method: :delete do
+                    = fa_icon("trash")
 
 
 

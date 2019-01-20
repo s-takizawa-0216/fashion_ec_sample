@@ -1,6 +1,9 @@
 .sign-up
   = render partial: 'shared/header-log-in'
-  .sign-up__breadcrumbs breadcrumbs will be set here
+
+  .breadcrumbs
+    - breadcrumb :signUP
+    = breadcrumbs  separator: " › "
 
   .sign-up__main
     .sign-up__main__header.clearfix
@@ -11,7 +14,8 @@
 
     .sign-up__main__middle
       .user-resistration-form.clearfix
-        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "h-adr"}) do |f|
+          %span.p-country-name{:style => "display:none;"} Japan
           .user-resistration-form__top-msg 基本情報
           .user-resistration-form__gender
             %ul.side-by-side-ul.user-resistration-form__gender__line.clearfix
@@ -30,13 +34,15 @@
             %ul.side-by-side-ul.user-resistration-form__gender__line.clearfix
               %li.side-by-side-li.user-resistration-form__gender__line__birth 生年月日
               %li.side-by-side-li
-                = f.select :birth_year,[[],[1990, 1990], [1991, 1991], [1992, 1992], [1993, 1993], [1994, 1994], [1995, 1995]], {}
+                - year =[*1945..2019]
+                = f.select :birth_year, year.map{|i|[i,i]}, {}, required: true
+
               %li.side-by-side-li.user-resistration-form__gender__line__year  年
               %li.side-by-side-li.user-resistration-form__gender__line__female-msg
-                = f.select :birth_month,[[],[1,1], [2,2], [3,3,], [4,4], [5,5], [6, 6],[7,7],[8,8],[9,9],[10,10],[11,11],[12,12]],{}
+                = f.select :birth_month,[[1,1], [2,2], [3,3,], [4,4], [5,5], [6, 6],[7,7],[8,8],[9,9],[10,10],[11,11],[12,12]],{}, required: true
               %li.side-by-side-li.user-resistration-form__gender__line__year  月
               %li.side-by-side-li.user-resistration-form__gender__line__female-msg
-                = f.select :birth_day,[[],[1,1], [2,2], [3,3,], [4,4], [5,5], [6, 6],[7,7],[8,8],[9,9],[10,10],[11,11],[12,12],[13,13],[14,14],[15,15],[16,16],[17,17],[18,18],[19,19],[20,20],[21,21],[22,22],[23,23],[24,24],[25,25,],[26,26],[27,27],[28,28],[29,29],[30,30],[31,31]],{}
+                = f.select :birth_day,[[1,1], [2,2], [3,3,], [4,4], [5,5], [6, 6],[7,7],[8,8],[9,9],[10,10],[11,11],[12,12],[13,13],[14,14],[15,15],[16,16],[17,17],[18,18],[19,19],[20,20],[21,21],[22,22],[23,23],[24,24],[25,25,],[26,26],[27,27],[28,28],[29,29],[30,30],[31,31]],{}, required: true
               %li.side-by-side-li.user-resistration-form__gender__line__year  日
 
           .user-resistration-form__gender
@@ -46,7 +52,8 @@
                 .user-resistration-form__postal__line__hissu-box
                   .user-resistration-form__postal__line__hissu-box-msg 必須
               %li.side-by-side-li
-                = f.text_field :postal_code, class: "text-arrange-postal", placeholder: "例:2617116", required: "required"
+                = f.text_field :postal_code, maxlength: 8, class: "p-postal-code text-arrange-postal", placeholder: "例:2617116", required: "required"
+                = f.hidden_field :prefecture, class: "p-region", required: true
               .postal-7-numbers 郵便番号をハイフン無しの数字7ケタで入力してください
               =link_to "https://www.post.japanpost.jp/zipcode/index.html" do
                 %li.side-by-side-li.user-resistration-form__postal__line__postal-search 郵便番号を検索
@@ -64,7 +71,7 @@
                   .zozoid__hissu-box
                     .zozoid__hissu-box-msg 必須
                 %li.mail-to-zozoid#input-email メールアドレスを入力してください
-                %li.mail-to-zozoid#hide-zozo※メールアドレスがZOZOIDとなります
+                %li.mail-to-zozoid#hide-zozo ※メールアドレスがZOZOIDとなります
               %ui.side-by-side-ul.clearfix
                 %li.side-by-side-li.checkbox-arrange-coupon
                   = f.check_box :mail_magazine, checkedvalue: 1, uncheckedvalue: 0
@@ -102,4 +109,4 @@
             = f.submit "会員登録", class: "new-resistration-btn"
 
 
-  .sign-up__footer
+  = render partial: 'shared/footer'

@@ -15,7 +15,11 @@ class TradesController < ApplicationController
   def minus_count
     # カート内アイテムの購入数マイナス
     trade = Trade.find(params[:trade_id])
-    count_items = trade.update(count: trade.count-1)
+
+    if trade.count > 1
+      count_items = trade.update(count: trade.count-1)
+    end
+
     total_price = trade.update(total: trade.stock.item.price*trade.count)
     redirect_to trades_path
   end
@@ -23,8 +27,12 @@ class TradesController < ApplicationController
   def plus_count
     # カート内画面の購入数のプラス
     trade = Trade.find(params[:trade_id])
-    count_items = trade.update(count: trade.count+1)
-    total_price = trade.update(total: trade.stock.item.price*trade.count)
+
+    if trade.stock.count > trade.count
+      count_items = trade.update(count: trade.count+1)
+    end
+
+   total_price = trade.update(total: trade.stock.item.price*trade.count)
     redirect_to trades_path
   end
 
@@ -131,23 +139,20 @@ class TradesController < ApplicationController
   end
 
   def prefecture
+    # 市場調査画面
   end
 
-<<<<<<< HEAD
+  def maximum_total
+    # 市場調査画面にて購入金額が最大の県を色付け
+    respond_to do |format|
+        format.json {render 'prefecture', json: Market.find_by(total: Market.maximum(:total))}
+    end
+  end
 
-
-  def create
-    trade = Trade.new(trade_params)
-    if trade.save
-      redirect_to trades_path
-    else
-      render "items/show"
-=======
   def search_prefecture
-    # ＃県ごとの市場データ取得に関するajax通信
+    # 市場調査画面にて県ごとの市場データ取得に関するajax通信
     respond_to do |format|
         format.json {render 'prefecture', json: @pref = Market.find_by(prefecture: params[:prefecture])}
->>>>>>> master
     end
   end
 

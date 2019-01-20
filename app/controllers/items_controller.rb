@@ -6,6 +6,8 @@ class ItemsController < ApplicationController
 
   def index
     @zozo = Item.order("created_at DESC").limit(3)
+    @coupon_item = Item.where.not(coupon: 1).order("created_at DESC").limit(3)
+    @coupon_other_item = Item.where.not(coupon: 1).order("created_at DESC").offset(3).take(4)
     @rank1 = Item.order('impressions_count DESC').take(1)
     @rank2 = Item.order('impressions_count DESC').offset(1).take(1)
     @rank3 = Item.order('impressions_count DESC').offset(2).take(1)

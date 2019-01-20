@@ -1,0 +1,115 @@
+%body.fashion_ec_sample
+  %script{ src: "https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"}
+  %link{:href => "http://code.jquery.com/ui/1.10.3/themes/cupertino/jquery-ui.min.css", :rel => "stylesheet", :type => "text/css"}/
+  %link{:crossorigin => "anonymous", :href => "https://use.fontawesome.com/releases/v5.6.3/css/all.css", :integrity => "sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/", :rel => "stylesheet"}/
+
+  = render partial: 'shared/header-notice'
+
+  - if user_signed_in?
+    = render partial: 'shared/header-logged-in'
+  - else
+    = render partial: 'shared/header-log-in'
+
+  .breadCrumb__ranking
+    - breadcrumb :ranking
+    = breadcrumbs  separator: " > "
+
+
+  .ranking__content
+    .ranking__content__top.clearfix
+      = fa_icon ('chess-king')
+      %h3 人気アイテムランキング
+
+  .ranking__content__tub
+    %ul.clearfix
+      %li#ranking-all
+        = link_to 'すべて' , '#'
+      %li
+        = link_to 'メンズ' , '#'
+      %li
+        = link_to 'レディース' , '#'
+      %li
+        = link_to 'キッズ' , '#'
+      %li#gift-ranking
+        = link_to 'ギフトアイテムのランキングを見る', '#'
+
+    .ranking__content__tub__bottom
+      %ul.clearfix
+        %li
+          = link_to 'ブランド選択' ,'#'
+        %li
+          = link_to '#' do
+            %span すべてのカテゴリー
+            = fa_icon ('angle-down')
+
+  .ranking__content__image
+    %ul.clearfix
+      - @rank1.zip(@number1).each do |item ,number|
+        %li
+          #rank1
+            %span
+              %label #{number}
+          = link_to "#{item.id}" do
+            = image_tag "#{item.images.first.image}", width: '310' , height:'317'
+          .ranking__content__image__box
+            %ul
+              %li
+                #{item.brand.name}
+              %li
+                #{item.discription}
+              %li
+                ¥ #{item.price}
+                %span 税込
+
+      - @rank2.zip(@number2).each do |item ,number|
+        %li
+          #rank2
+            %span
+              %label #{number}
+          = link_to "#{item.id}" do
+            = image_tag "#{item.images.first.image}", width: '310' , height:'317'
+          .ranking__content__image__box
+            %ul
+              %li
+                #{item.brand.name}
+              %li
+                #{item.discription}
+              %li
+                ¥ #{item.price}
+                %span 税込
+
+      - @rank3.zip(@number3).each do |item ,number|
+        %li
+          #rank3
+            %span
+              %label #{number}
+          = link_to "#{item.id}" do
+            = image_tag "#{item.images.first.image}", width: '310' , height:'317'
+          .ranking__content__image__box
+            %ul
+              %li
+                #{item.brand.name}
+              %li
+                #{item.discription}
+              %li
+                ¥ #{item.price}
+                %span 税込
+
+      - @other_most_viewd.zip(@number4_20).each do |item ,number|
+        %li
+          #rank-other
+            %span
+              %label #{number}
+          = link_to "#{item.id}" do
+            = image_tag "#{item.images.first.image}", width: '215' , height:'258'
+          .ranking__content__image__box
+            %ul
+              %li
+                #{item.brand.name}
+              %li
+                #{item.discription}
+              %li
+                ¥ #{item.price}
+                %span 税込
+
+= render partial: 'shared/footer'

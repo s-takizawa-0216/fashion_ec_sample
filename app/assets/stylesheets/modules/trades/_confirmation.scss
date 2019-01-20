@@ -99,6 +99,7 @@
       &__price{
         font-size: 15px;
         margin-top: 15px;
+        padding-right: 35px;
         width: 115px;
         text-align: center;
       }
@@ -122,9 +123,9 @@
       }
 
       &__price{
-        margin-top: 40px;
+      margin-top: 40px;
       font-size: 14px;
-      width: 200px;
+      width: 120px;
       text-align: center;
       }
     }
@@ -139,7 +140,7 @@
       }
 
       &__price{
-        padding-left: 400px;
+        padding-left: 440px;
       }
     }
   }
@@ -249,7 +250,7 @@
     }
 
     &-price{
-      padding-left: 10px;
+      padding-left: 20px;
       font-size: 14px;
     }
   }

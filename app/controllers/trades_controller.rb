@@ -15,7 +15,11 @@ class TradesController < ApplicationController
   def minus_count
     # カート内アイテムの購入数マイナス
     trade = Trade.find(params[:trade_id])
-    count_items = trade.update(count: trade.count-1)
+
+    if trade.count > 1
+      count_items = trade.update(count: trade.count-1)
+    end
+
     total_price = trade.update(total: trade.stock.item.price*trade.count)
     redirect_to trades_path
   end
@@ -23,8 +27,12 @@ class TradesController < ApplicationController
   def plus_count
     # カート内画面の購入数のプラス
     trade = Trade.find(params[:trade_id])
-    count_items = trade.update(count: trade.count+1)
-    total_price = trade.update(total: trade.stock.item.price*trade.count)
+
+    if trade.stock.count > trade.count
+      count_items = trade.update(count: trade.count+1)
+    end
+
+   total_price = trade.update(total: trade.stock.item.price*trade.count)
     redirect_to trades_path
   end
 

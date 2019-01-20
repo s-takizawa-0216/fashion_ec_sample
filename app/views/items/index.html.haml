@@ -437,75 +437,28 @@
           %h2 クーポン対象アイテム
           .right__content__coupon__content.clearfix
             %ul
+            - @coupon_item.each do |item|
               %li
-                = link_to '#' do
-                  = image_tag "/assets/35255289B_8_D_215.jpg", width: '171' , height:'205'
+                = link_to 'items/#{item.id}' do
+                  = image_tag "#{item.images.first.image}", width: '171' , height:'205'
                 %p.right__content__coupon__text
-                  URBAN RESEARCH
+                  #{item.brand.name}
                 %p.right__content__coupon__price
-                  ¥30000
+                  ¥ #{item.price}
                   %span 税込
-                  %span 40%OFF
+                  %span #{100-item.coupon*100}%OFF
 
+            - @coupon_other_item.each do |item|
               %li
-                = link_to '#' do
-                  = image_tag "/assets/35058982B_18_D_215.jpg", width: '171' , height:'205'
+                = link_to 'items/#{item.id}' do
+                  = image_tag "#{item.images.first.image}", width: '125' , height:'150'
                 %p.right__content__coupon__text
-                  URBAN RESEARCH
+                  #{item.brand.name}
                 %p.right__content__coupon__price
-                  ¥30000
+                  ¥ #{item.price}
                   %span 税込
-                  %span 40%OFF
+                  %span #{100-item.coupon*100}%OFF
 
-              %li
-                = link_to '#' do
-                  = image_tag "/assets/34747132B_8_D_215.jpg", width: '171' , height:'205'
-                %p.right__content__coupon__text
-                  URBAN RESEARCH
-                %p.right__content__coupon__price
-                  ¥30000
-                  %span 税込
-                  %span 40%OFF
-
-              %li.rank
-                = link_to '#' do
-                  = image_tag "/assets/35255289B_8_D_215.jpg", width: '125' , height:'150'
-                %p.right__content__coupon__text
-                  URBAN RESEARCH
-                %p.right__content__coupon__price
-                  ¥30000
-                  %span 税込
-                  %span 40%OFF
-
-              %li.rank
-                = link_to '#' do
-                  = image_tag "/assets/35255289B_8_D_215.jpg", width: '125' , height:'150'
-                %p.right__content__coupon__text
-                  URBAN RESEARCH
-                %p.right__content__coupon__price
-                  ¥30000
-                  %span 税込
-                  %span 40%OFF
-
-              %li.rank
-                = link_to '#' do
-                  = image_tag "/assets/35255289B_8_D_215.jpg", width: '125' , height:'150'
-                %p.right__content__coupon__text
-                  URBAN RESEARCH
-                %p.right__content__coupon__price
-                  ¥30000
-                  %span 税込
-                  %span 40%OFF
-
-              %li.rank
-                = link_to '#' do
-                  = image_tag "/assets/35255289B_8_D_215.jpg", width: '125' , height:'150'
-                %p.right__content__coupon__text
-                  URBAN RESEARCH
-                %p.right__content__coupon__price
-                  ¥30000
-                  %span 税込
-                  %span 40%OFF
 
           %p.zozo-item
             = link_to 'クーポン対象アイテム一覧' , '#'
@@ -526,7 +479,10 @@
                 %p.right__content__coupon__price
                   ¥#{item.price}
                   %span 税込
-                  %span 40%OFF
+                  - if item.coupon == 1.0
+                  - else
+                    %p.right__content__coupon__price
+                    %span #{(100-item.coupon*100).ceil} %OFF
 
           - @rank2.zip(@number2).each do |item, number|
             %li
@@ -540,7 +496,11 @@
                 %p.right__content__coupon__price
                   ¥#{item.price}
                   %span 税込
-                  %span 40%OFF
+                - if item.coupon == 1.0
+                - else
+                  %p.right__content__coupon__price
+                    %span #{(100-item.coupon*100).ceil} %OFF
+
 
           - @rank3.zip(@number3).each do |item, number|
             %li
@@ -554,7 +514,11 @@
                 %p.right__content__coupon__price
                   ¥#{item.price}
                   %span 税込
-                  %span 40%OFF
+                - if item.coupon == 1.0
+                - else
+                  %p.right__content__coupon__price
+                    %span #{(100-item.coupon*100).ceil} %OFF
+
 
           - @other_most_viewd.zip(@number4_23).each do |item, number|
             %li.rank
@@ -568,7 +532,11 @@
                 %p.right__content__coupon__price
                   ¥#{item.price}
                   %span 税込
-                  %span 40%OFF
+                - if item.coupon == 1.0
+                - else
+                  %p.right__content__coupon__price
+                    %span #{(100-item.coupon*100).ceil} %OFF
+
 
         %p.zozo-item
           = link_to 'ランキング一覧' , '#'

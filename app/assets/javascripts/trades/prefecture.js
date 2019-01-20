@@ -61,12 +61,13 @@ $(function () {
     })
 
     .done(function(data){
-      $("*[value="+data.prefecture+"]").css('background', 'red');
-      $("*[value="+data.prefecture+"]").css('padding-top', '20px');
-      $("*[value="+data.prefecture+"]").css('padding-bottom', '20px');
-      $("*[value="+data.prefecture+"]").css('color', '#fff');
-      $("*[value="+data.prefecture+"]").css('opacity', '0.8');
-      $("*[value="+data.prefecture+"]").css('font-weight', 'bold');
+      $("*[value="+data.prefecture+"]").css({ 'background': 'red',
+                                              'padding-top':'20px',
+                                              'padding-bottom':'20px',
+                                              'color':'#fff',
+                                              'opacity':'0.8',
+                                              'font-weight': 'bold'
+      });
     });
   });
 });

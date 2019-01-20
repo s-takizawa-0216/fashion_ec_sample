@@ -432,7 +432,6 @@
                 right:0;
                 top:0;
                 bottom:0;
-
               }
             }
           }
@@ -476,18 +475,19 @@
 
           &__content {
             margin-top: 10px;
+            list-style: none;
 
             >ul {
+            }
 
               >li {
                 float: left;
-                margin-right: 15px;
+                margin-right: 10px;
 
               // &:hover {
               //   opacity: 0.7;
               // }
               }
-            }
           }
 
             .rank {

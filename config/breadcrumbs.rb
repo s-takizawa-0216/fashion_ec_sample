@@ -8,6 +8,18 @@ crumb :signIn do
   parent :root
 end
 
+# お気に入り画面
+crumb :favorite do
+  link "お気に入りアイテム" ,favorite_favorites_path
+  parent :root
+end
+
+# ランキング画面
+crumb :ranking do
+  link "人気アイテムランキング" ,ranking_items_path
+  parent :root
+end
+
 # 新規登録画面
 crumb :signUP do
   link "新規会員登録", new_user_registration_path
@@ -75,7 +87,7 @@ end
 crumb :childCategorydShow do
   child_category = Item.find(params[:id]).child_category.name
   link child_category,  item_path
-  parent :parentCategorydShow 
+  parent :parentCategorydShow
 end
 
 # アイテム詳細

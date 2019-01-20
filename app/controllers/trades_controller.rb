@@ -139,10 +139,18 @@ class TradesController < ApplicationController
   end
 
   def prefecture
+    # 市場調査画面
+  end
+
+  def maximum_total
+    # 市場調査画面にて購入金額が最大の県を色付け
+    respond_to do |format|
+        format.json {render 'prefecture', json: Market.find_by(total: Market.maximum(:total))}
+    end
   end
 
   def search_prefecture
-    # 県ごとの市場データ取得に関するajax通信
+    # 市場調査画面にて県ごとの市場データ取得に関するajax通信
     respond_to do |format|
         format.json {render 'prefecture', json: @pref = Market.find_by(prefecture: params[:prefecture])}
     end

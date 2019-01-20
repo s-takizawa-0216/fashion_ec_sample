@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     get 'cordination' , to: 'items#cordination', on: :collection
     get 'prefecture' , to: 'items#prefecture' , on: :collection
     get 'search_category' , to: 'items#search_category' , on: :collection
+    get 'ranking' , to:'items#ranking' , on: :collection
   end
 
   resources :users, only: [:new, :create_info, :show, :edit, :update_info, :email, :update_email, :shipping, :shipping_new, :shipping_edit, :shipping_update] do

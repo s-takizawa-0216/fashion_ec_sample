@@ -125,7 +125,6 @@ class TradesController < ApplicationController
         i.stock.update(count: i.stock.count-i.count)
       end
       arigato_market.update(count: arigato_market.count+1, total: arigato_market.total+arigato_sum, items: arigato_market.items+arigato_trade.length)
-
     end
   end
 
@@ -170,8 +169,6 @@ class TradesController < ApplicationController
     def trade_params
       params.require(:trade).permit(:stock_id, :total).merge(status: 0, user_id: current_user.id, count: 1)
     end
-
-
 
     def user_info_return
       # 購入ページに遷移する際にユーザー情報と届け先情報がない場合は、登録ページへリダイレクト

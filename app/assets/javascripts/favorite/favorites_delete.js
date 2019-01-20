@@ -6,8 +6,7 @@ $(function(){
     $(".input-check").css("display", "block");
     $(".fav__main__image__box__cart").hide();
     $("#cancel-msg").show();
-    $(".triangle").hide();
-    $(".triangle-cross").hide();
+    $(".triangle-box").hide();
   });
 });
 
@@ -19,8 +18,7 @@ $(function(){
     $(".fav__main__image__box__cart").show();
     $("#hidden__detete").hide();
     $(".input-check").hide();
-    $(".triangle").show();
-    $(".triangle-cross").show();
+    $(".triangle-box").show();
   });
 });
 

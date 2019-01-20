@@ -1,19 +1,16 @@
-%head
+%script{ src: "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"}
+%script{ src: "https://code.jquery.com/jquery-3.3.1.min.js"}
+%script{:src => "/assets/jquery.color.js", :type => "text/javascript"}
+%script{:src => "https://cdnjs.cloudflare.com/ajax/libs/jquery-color/2.1.2/jquery.color.js"}
+%script{:src => "http://code.jquery.com/ui/1.10.3/jquery-ui.min.js", :type => "text/javascript"}
+%script{ src: "https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"}
+%link{:href => "http://code.jquery.com/ui/1.10.3/themes/cupertino/jquery-ui.min.css", :rel => "stylesheet", :type => "text/css"}/
+%link{:crossorigin => "anonymous", :href => "https://use.fontawesome.com/releases/v5.6.3/css/all.css", :integrity => "sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/", :rel => "stylesheet"}/
 
-%body.fashion_ec_sample
-  %script{ src: "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"}
-  %script{ src: "https://code.jquery.com/jquery-3.3.1.min.js"}
-  %script{:src => "/assets/jquery.color.js", :type => "text/javascript"}
-  %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/jquery-color/2.1.2/jquery.color.js"}
-  %script{:src => "http://code.jquery.com/ui/1.10.3/jquery-ui.min.js", :type => "text/javascript"}
-  %script{ src: "https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"}
-  %link{:href => "http://code.jquery.com/ui/1.10.3/themes/cupertino/jquery-ui.min.css", :rel => "stylesheet", :type => "text/css"}/
-  %link{:crossorigin => "anonymous", :href => "https://use.fontawesome.com/releases/v5.6.3/css/all.css", :integrity => "sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/", :rel => "stylesheet"}/
+= render partial: 'shared/header-notice'
 
-  = render partial: 'shared/header-notice'
-
-  = render partial: 'shared/header-logged-in'
-  .breadCrumb
+= render partial: 'shared/header-logged-in'
+.breadCrumb
 
 .fav__main__content
   .fav__main__content__name
@@ -41,6 +38,7 @@
       .delete__right
         %button{type: :button, class: "delete", id: "delete-msg"}複数削除する
         %button{type: :button, class: "delete", id: "cancel-msg", style:"display: none"}キャンセル
+
   .fav__main__content__tub.clearfix
     %ul
       %li
@@ -93,16 +91,17 @@
             .fav__main__image__box__bottom.clearfix
               %p ¥ #{item.stock.item.price}
               %p #{100-item.stock.item.coupon*100} %OFF
+
               %input.input-check#multi__delete{type: :checkbox, form: "form", value: "#{item.id}", name: "stock_id[]"}
-              %label
 
               .fav__main__image__box__cart#cart-icon
                 = link_to trades_path(trade:{stock_id:item.stock.id , user_id: current_user.id , status: 0 ,count: item.stock.count,total:item.stock.item.price}), method: :post do
                   = fa_icon ('shopping-cart')
 
-              .triangle
-              = link_to favorite_path(item) , method: :delete do
-                = fa_icon ('times') ,class: 'triangle-cross'
+              .triangle-box
+                .triangle
+                = link_to favorite_path(item) , method: :delete do
+                  = fa_icon ('times') ,class: 'triangle-cross'
 
   .fav__main__sns
     .fav__main__sns__news.clearfix
@@ -129,7 +128,7 @@
 
   #hidden__detete
     %ul{style: "display:flex"}
-      %button{type: :button, id: "cancel-button"}キャンセルする
+      %button{type: :button, id: "cancel-button"}リセットする
       %button{type: :submit, id: "implement-detele", form: "form"}削除する
 
   = render partial: 'shared/favorites-footer'

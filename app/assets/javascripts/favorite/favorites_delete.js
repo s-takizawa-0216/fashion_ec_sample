@@ -26,14 +26,8 @@ $(function(){
 
 // 複数削除のリセットを選択時
 $(function(){
-  $("#cancel-msg").click(function(){
-    $(this).hide();
-    $("#delete-msg").show();
-    $(".fav__main__image__box__cart").show();
-    $("#hidden__detete").hide();
-    $(".input-check").hide();
-    $(".triangle").show();
-    $(".triangle-cross").show();
+  $("#cancel-button").click(function(){
+    $(".input-check").prop("checked", false);
   });
 });
 

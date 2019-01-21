@@ -53,7 +53,6 @@ $(function () {
 $(function () {
   $(document).ready(function() {
 
-
     $.ajax({
       type: 'GET',
       url: '/trades/maximum_total',

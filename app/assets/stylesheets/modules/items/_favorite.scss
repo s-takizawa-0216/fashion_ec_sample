@@ -68,17 +68,17 @@
       }
     }
 
-      .delete__right {
+    .delete__right {
         float: right;
-      }
+    }
 
-      .delete {
-        color:#007ebe;
-        font-size: 12px;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-      }
+    .delete {
+      color:#007ebe;
+      font-size: 12px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+    }
   }
 }
 
@@ -103,9 +103,9 @@
 
       }
 
-        >i {
-          font-size: 15px;
-        }
+      >i {
+        font-size: 15px;
+      }
     }
   }
 }
@@ -125,7 +125,7 @@
     padding: 5px;
     font-size: 12px;
 
-  &:hover {
+    &:hover {
       background-color: #e8e8e8;
     }
   }
@@ -150,7 +150,7 @@
     padding: 5px;
     font-size: 12px;
 
-  &:hover {
+    &:hover {
       background-color: #e8e8e8;
     }
   }
@@ -175,7 +175,7 @@
     padding: 5px;
     font-size: 12px;
 
-  &:hover {
+    &:hover {
       background-color: #e8e8e8;
     }
   }
@@ -255,7 +255,6 @@
     }
 
     &__box__hide {
-      // display: none;
       height: 206px;
 
       >ul {
@@ -297,11 +296,11 @@
 }
 
 .triangle-cross {
-    position: absolute;
-    bottom:327px;
-    left: 155px;
-    font-size: 10px;
-    color:#2d2d2d;
+  position: absolute;
+  bottom:327px;
+  left: 155px;
+  font-size: 10px;
+  color:#2d2d2d;
 }
 
 

@@ -79,3 +79,7 @@ gem 'impressionist'
 gem 'jp_prefecture'
 gem 'ranked-model'
 gem 'jquery-ui-rails'
+
+group :production do
+  gem 'unicorn'
+end

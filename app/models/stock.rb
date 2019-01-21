@@ -14,5 +14,7 @@ class Stock < ApplicationRecord
   include RankedModel
   ranks :row_order
 
+  validates :item_id, :color_id, :size_id, :count, presence: true
+
 
 end

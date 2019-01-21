@@ -9,7 +9,7 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '39c9533034cad0748573ffac372c58fecf6c1b0e9db7259cc7f6df932bcdf20bfec7ae83b83b07b007359f1828a0549b94c3e3b8f0286b4ec3600126020f38a5'
-  
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
@@ -266,8 +266,9 @@ Devise.setup do |config|
   # change the failure app, you can configure them inside the config.warden block.
   #
   # config.warden do |manager|
-  #   manager.intercept_401 = false
-  #   manager.default_strategies(scope: :user).unshift :some_external_strategy
+    # manager.failure_app = CustomFailure
+    # manager.intercept_401 = false
+    # manager.default_strategies(scope: :user).unshift :some_external_strategy
   # end
 
   # ==> Mountable engine configurations

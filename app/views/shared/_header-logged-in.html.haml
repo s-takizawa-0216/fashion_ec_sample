@@ -30,7 +30,7 @@
 
           %li.header__right__li
             .header__right__name-js
-              %span.header__right__name
+              %span.header__right__name {user-email}様
               .header__right__popup__inner
                 .header__right__popup__inner-box
                   %ul.header__right__popup__inner-ul
@@ -134,7 +134,8 @@
           %li.header__right__li-fav
             .header__right__fav-js
               %span
-                = fa_icon ("heart")
+                = link_to favorite_favorites_path do
+                  = fa_icon ("heart"), class: "heart-icon", style: "color: #fff"
               .header__right__popup
                 .header__right__popup__inner-fav
                   %p.header__right__popup__inner__favbox お気に入り

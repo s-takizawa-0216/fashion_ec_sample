@@ -19,6 +19,7 @@
           = f.hidden_field :provider, value: "#{@user.provider}"
           = f.hidden_field :password, value: "#{@user.password}"
           = f.hidden_field :email, value: "#{@user.email}"
+          %span.p-country-name{:style => "display:none;"} Japan
           .user-resistration-form__top-msg 基本情報
           .user-resistration-form__gender
             %ul.side-by-side-ul.user-resistration-form__gender__line.clearfix
@@ -68,6 +69,5 @@
               %li.sale_and_coupon.sns-coupon セールやクーポンなどのお得な情報を受け取る
 
           = f.submit "会員登録を完了する", class: "sns-resistration-btn"
-
 
   = render partial: 'shared/footer'

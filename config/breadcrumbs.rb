@@ -20,6 +20,12 @@ crumb :google do
   parent :root
 end
 
+# 会員登録完了
+crumb :doneSignUP do
+  link "新規会員登録完了", user_resistration_done_signup_path
+  parent :root
+end
+
 # ユーザー登録情報
 crumb :userShow do
   link "登録情報", user_path

@@ -10,15 +10,10 @@ Rails.application.routes.draw do
 
   root "items#index"
 
-<<<<<<< HEAD
 
   resources :items, only: [:new, :create ,:cordinate , :prefecture ,:show, :search_category] do
     get 'cordination' , to: 'items#cordination', on: :collection
     get 'prefecture' , to: 'items#prefecture' , on: :collection
-=======
-  resources :items, only: [:new, :create ,:cordinate ,:show, :search_category] do
-    get 'cordination' ,     to: 'items#cordination',      on: :collection
->>>>>>> master
     get 'search_category' , to: 'items#search_category' , on: :collection
   end
 

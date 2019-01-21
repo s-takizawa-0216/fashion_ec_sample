@@ -79,6 +79,7 @@ gem 'impressionist'
 gem 'jp_prefecture'
 gem 'ranked-model'
 gem 'jquery-ui-rails'
+gem 'fog-aws'
 
 group :production do
   gem 'unicorn'
@@ -92,5 +93,3 @@ group :development, :test do
   gem 'capistrano3-unicorn'
 end
 
-gem 'carrierwave'
-gem 'fog-aws'

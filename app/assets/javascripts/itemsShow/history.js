@@ -17,6 +17,6 @@ $(function(){
   if (viewed_items.length >= 33){
     viewed_items.shift();
   }
-
-  $.cookie(cookie_name, viewed_items);
+  items_history = $.grep(viewed_items, function(e){return e !== "";});
+  $.cookie(cookie_name, items_history);
 });

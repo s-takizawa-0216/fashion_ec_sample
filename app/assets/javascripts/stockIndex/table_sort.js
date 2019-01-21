@@ -19,12 +19,12 @@ $(function() {
     },
 
     start: function(e, ui) {
-      $('tbody .itemName').css('width', '281px' )
-      $('tbody .itemBrand').css('width', '272px')
-      $('tbody .stockSize').css('width', '109px')
-      $('tbody .stockColor').css('width', '190px')
-      $('tbody .stockCount').css('width', '130px')
-      $('tbody .iconBtn').css('width', '110px')
+      $('tbody .itemName').css('width', '292px' )
+      $('tbody .itemBrand').css('width', '230px')
+      $('tbody .stockSize').css('width', '114px')
+      $('tbody .stockColor').css('width', '197px')
+      $('tbody .stockCount').css('width', '142px')
+      $('tbody .iconBtn').css('width', '114px')
     }
   });
 });

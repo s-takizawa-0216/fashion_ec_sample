@@ -136,7 +136,7 @@
               .newitem-preview__box-color
                 %p.color-msg ※カラーがある場合は選択してください
                 %p
-                  = image.select :color_id, @color.map{|color|[color.name, color.id]}, {prompt: "選択してください"}, class: "select-style"
+                  = image.select :color_id, @color.map{|color|[color.name, color.id]}, {prompt: "選択してください"}, required: true, class: "select-style"
               .newitem-preview__box-text
                 = image.text_area :discription, placeholder: "画像に関する説明がある場合はここに書いてください", class: "item-text", style: "resize: none"
 

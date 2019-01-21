@@ -660,7 +660,7 @@
                 .data
                   %ul.clearfix
                     - @items.each do |id|
-                      - if Item.find(id).present?
+                      - if Item.where(id: id).present?
                         - item = Item.find(id)
                         %li
                           .img

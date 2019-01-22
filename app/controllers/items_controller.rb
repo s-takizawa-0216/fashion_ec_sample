@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   before_action :check_stocks, only: [:show]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authentication, except: [:index, :show]
   before_action :check_shop_user, only: [:new]
 
   def index
@@ -20,7 +20,6 @@ class ItemsController < ApplicationController
     @brand_rank3 = Brand.offset(2).take(1)
     @brand_other_rank = Brand.offset(3).take(17)
     @brand_other_number_4_20 = [*4..20]
-
   end
 
   def show
@@ -61,7 +60,6 @@ class ItemsController < ApplicationController
         format.json {render 'new', json: @child_category = Category.where(parent_id: params[:parent_id])}
     end
   end
-
 
   private
 

@@ -1,3 +1,4 @@
+// 新規登録画面の文字表示
 $(function () {
     $('input#ask-email').change(function () {
         $('#input-email').hide();

@@ -28,4 +28,3 @@ $(function(){
     $(".input-check").prop("checked", false);
   });
 });
-

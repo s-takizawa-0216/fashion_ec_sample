@@ -4,7 +4,6 @@
     - breadcrumb :google
     = breadcrumbs  separator: " › "
 
-
   .sign-up__main
     .sign-up__main__header.clearfix
       %ul.side-by-side-ul
@@ -54,7 +53,7 @@
               %li.side-by-side-li
                 = f.text_field :postal_code, class: "p-postal-code text-arrange-postal", placeholder: "例:2617116",required: "required"
                 = f.hidden_field :prefecture, class: "p-region"
-              =link_to "https://www.post.japanpost.jp/zipcode/index.html" do
+              =link_to "https://www.post.japanpost.jp/zipcode/index.html", target: "_blank" do
                 %li.side-by-side-li.postal-sns-search 郵便番号を検索
                 %li.side-by-side-li.postal-sns-search-icon
                   %i.fa.fa-edit

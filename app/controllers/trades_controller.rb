@@ -1,6 +1,6 @@
 class TradesController < ApplicationController
 
-  before_action :authenticate_user!, except: [:index]
+  before_action :authentication
   before_action :user_info_return, only: [:confirmation]
   before_action :check_arigato, only: [:index]
 

@@ -90,7 +90,7 @@
 
             .fav__main__image__box__bottom.clearfix
               %p ¥ #{item.stock.item.price}
-              %p #{100-item.stock.item.coupon*100} %OFF
+              %p #{(100-item.stock.item.coupon*100).floor} %OFF
 
               %input.input-check#multi__delete{type: :checkbox, form: "form", value: "#{item.id}", name: "stock_id[]"}
 

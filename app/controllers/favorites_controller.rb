@@ -1,6 +1,6 @@
 class FavoritesController < ApplicationController
 
-  before_action :authenticate_user!
+  before_action :authentication
   protect_from_forgery except: :multi_delete
 
   def favorite

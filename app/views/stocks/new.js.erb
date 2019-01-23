@@ -41,3 +41,26 @@ $(function(){
   modal.css("width", $("body").width())
   modal.css("height", $("body").height())
 })
+
+
+$(function(){
+  $(".AddStackForm .radioSelect input").change(function(){
+    result = $(this).val()
+
+    $("select#stock_color_id option").next().remove()
+
+    $.ajax({
+      type: 'GET',
+      data: ('item_id=' + result),
+      url: '/stocks/search_color',
+      dataType: 'json'
+    })
+
+    .done(function(data){
+      console.log(data)
+      $(data).each(function (index, ele){
+        $("select#stock_color_id").append($("<option>").val(ele["id"]).text(ele["name"]));
+      })
+    })
+  })
+})

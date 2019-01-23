@@ -46,6 +46,8 @@ Rails.application.routes.draw do
     put :sort
   end
 
+  get 'stocks/search_color', to: 'stocks#search_color', as: :stock_search_color
+
   resources :shops, only: [:new, :create]
 
   resources :favorites , only: [:destroy ,:favorite, :multi_delete] do

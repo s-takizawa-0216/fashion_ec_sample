@@ -57,7 +57,6 @@ $(function(){
     })
 
     .done(function(data){
-      console.log(data)
       $(data).each(function (index, ele){
         $("select#stock_color_id").append($("<option>").val(ele["id"]).text(ele["name"]));
       })

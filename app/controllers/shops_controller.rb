@@ -1,5 +1,7 @@
 class ShopsController < ApplicationController
 
+  before_action :authentication
+
   def new
     @shop = Shop.new
   end

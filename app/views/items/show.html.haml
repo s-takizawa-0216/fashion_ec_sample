@@ -652,6 +652,7 @@
             %p.moreLink
               %a.link スウェットランキング一覧
 
+
           - if @items.present?
             #history_item.section.item_show_control
               .tit.clearfix
@@ -660,21 +661,18 @@
                 .data
                   %ul.clearfix
                     - @items.each do |id|
-                      - if Item.find(id).present?
+                      - if Item.where(id: id).present?
                         - item = Item.find(id)
                         %li
                           .img
                             = link_to item_path(item) do
                               = image_tag "#{item.images.first.image}"
-
-
-
-
               .nav
                 .prev
                   = fa_icon("angle-left")
                 .next
                   = fa_icon("angle-right")
+
 
           #keywordBlock.section
             %h3 このアイテムのキーワード

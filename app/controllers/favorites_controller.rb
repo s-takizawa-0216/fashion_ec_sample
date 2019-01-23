@@ -1,9 +1,13 @@
 class FavoritesController < ApplicationController
 
+  before_action :authentication
+  protect_from_forgery except: :multi_delete
 
   def favorite
-    @user = User.find(user_id)
-    @favorites = FavStock.where(user_id:current_user.id)
+    # お気に入り一覧
+    @favorites = FavStock.where(user_id: current_user.id)
+    @shops = Stock.where(id:@favorites.uniq{|i|i.stock_id}.pluck(:stock_id)).uniq{|e|e.shop_id}
+    @categories = Item.where(id:Stock.where(id:@favorites.uniq{|i|i.stock_id}.pluck(:stock_id)).pluck(:item_id))
   end
 
   def create
@@ -18,8 +22,15 @@ class FavoritesController < ApplicationController
     end
   end
 
+  def multi_delete
+    # アイテムの一括削除
+    delete = FavStock.where(id: params[:stock_id])
+    delete.delete_all
+    redirect_to favorite_favorites_path
+  end
 
 end
+
 
 
 

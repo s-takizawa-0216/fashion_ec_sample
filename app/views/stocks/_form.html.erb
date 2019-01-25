@@ -16,7 +16,7 @@
   <span class="form-require">必須</span>
   <br class="clearBoth"/>
   <div class="selectBox">
-    <%= f.select :size_id , Size.all.map{|size|[size.size, size.id]}, required: true %>
+    <%= f.select :size_id , Size.all.map{|size|[size.size, size.id]}, required: true, prompt: "選択してください" %>
   </div>
 </div>
 
@@ -25,7 +25,7 @@
   <span class="form-require">必須</span>
   <br class="clearBoth"/>
   <div class="selectBox">
-    <%= f.select :color_id, Color.all.map{|color|[color.name, color.id]}, required: true %>
+    <%= f.select :color_id, {}, required: true, prompt: "選択してください" %>
   </div>
 </div>
 

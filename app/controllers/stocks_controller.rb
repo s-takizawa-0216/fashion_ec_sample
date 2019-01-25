@@ -48,6 +48,19 @@ class StocksController < ApplicationController
    head :ok
   end
 
+  def search_color
+    @colors = []
+
+    Image.where(item: params[:item_id]).where.not(color_id: nil).each do |image|
+      @colors << image.color
+    end
+
+    respond_to do |format|
+      format.json {render 'new', json: @colors}
+    end
+  end
+
+
   private
 
   def stock_params

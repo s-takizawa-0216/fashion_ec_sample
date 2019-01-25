@@ -15,10 +15,13 @@
         %h2 #{@shop.name} 様
   .mainContent
     #stockInfo
-      #addStock
-
+      #addStock.clearfix
+        = link_to root_path do
+          %button.btn.naby 商品一覧へ
+        = link_to new_item_path do
+          %button.btn.green 出品画面へ
         = link_to new_stock_path, remote: true do
-          %button.addBtn 追加
+          %button.btn.red 在庫の追加
       #tblStockInfo
         %table.table-sortable
           %thead

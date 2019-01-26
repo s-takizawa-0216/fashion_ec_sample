@@ -2,7 +2,6 @@ class Stock < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
-
   has_many :trades
   has_many :fav_stocks
   has_many :trades, dependent: :destroy
@@ -13,6 +12,8 @@ class Stock < ApplicationRecord
 
   include RankedModel
   ranks :row_order
+
+  validates :item_id, :color_id, :size_id, :count, presence: true
 
 
 end

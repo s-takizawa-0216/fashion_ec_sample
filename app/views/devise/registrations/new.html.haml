@@ -55,7 +55,7 @@
                 = f.text_field :postal_code, maxlength: 8, class: "p-postal-code text-arrange-postal", placeholder: "例:2617116", required: "required"
                 = f.hidden_field :prefecture, class: "p-region", required: true
               .postal-7-numbers 郵便番号をハイフン無しの数字7ケタで入力してください
-              =link_to "https://www.post.japanpost.jp/zipcode/index.html" do
+              =link_to "https://www.post.japanpost.jp/zipcode/index.html", target: "_blank" do
                 %li.side-by-side-li.user-resistration-form__postal__line__postal-search 郵便番号を検索
                 %li.side-by-side-li.user-resistration-form__postal__line__postal-icon
                   %i.fa.fa-edit
@@ -107,6 +107,5 @@
                     %i.fa.fa-bookmark
                 %li.side-by-side-li に同意する
             = f.submit "会員登録", class: "new-resistration-btn"
-
 
   = render partial: 'shared/footer'

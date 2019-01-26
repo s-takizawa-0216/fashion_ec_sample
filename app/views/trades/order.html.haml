@@ -255,7 +255,6 @@
       .popup-card#popup-image
         = image_tag "/images/popupcard.png", width: "300px", height: "200px"
 
-
       .order-main__body__zozocard
         %p
           %span ※
@@ -267,7 +266,6 @@
             = link_to "注意事情"
           %span をご確認ください。
         %p ※コンビニを選択した場合、お支払いを確認後に配送方法「指定なし」でお届けなしとなります。
-
 
     .order-main__right#order-right
       -unless @user.present? && @user_credit_card.present?

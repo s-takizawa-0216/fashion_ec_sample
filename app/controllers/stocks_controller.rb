@@ -1,5 +1,6 @@
 class StocksController < ApplicationController
-  before_action :authenticate_user!, only: [:index]
+
+  before_action :authentication, only: [:index]
   before_action :check_shop, only: [:index, :sort]
   before_action :set_shop, only: [:index, :new, :edit]
   before_action :set_stock, only: [:destroy, :edit, :update]
@@ -46,6 +47,19 @@ class StocksController < ApplicationController
    stock.update(stock_params)
    head :ok
   end
+
+  def search_color
+    @colors = []
+
+    Image.where(item: params[:item_id]).where.not(color_id: nil).each do |image|
+      @colors << image.color
+    end
+
+    respond_to do |format|
+      format.json {render 'new', json: @colors}
+    end
+  end
+
 
   private
 

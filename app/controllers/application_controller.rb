@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
     new_user_session_path
   end
 
+  def authentication
+    redirect_to new_user_session_path unless user_signed_in?
+  end
+
   protected
 
     def configure_permitted_parameters

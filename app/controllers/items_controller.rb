@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   before_action :check_stocks, only: [:show]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authentication, except: [:index, :show]
   before_action :check_shop_user, only: [:new]
 
   def index
@@ -22,6 +22,7 @@ class ItemsController < ApplicationController
     @brand_rank3 = Brand.offset(2).take(1)
     @brand_other_rank = Brand.offset(3).take(17)
     @brand_other_number_4_20 = [*4..20]
+
 
     @shop_rank1 = Shop.offset(0).take(1)
     @shop_rank2 = Shop.offset(1).take(1)
@@ -45,7 +46,6 @@ class ItemsController < ApplicationController
     @popular_item = Item.find(params[:id])
     impressionist(@popular_item, nil, :unique => [:session_hash])
     @stock = Stock.where(item_id: @item)
-    @user = User.find(user_id)
     @items = cookies[:recently_viewed_items].split(",").reverse unless cookies[:recently_viewed_items].nil?
     @favorite_shops = FavShop.where(user_id:current_user.id)
   end
@@ -77,6 +77,7 @@ class ItemsController < ApplicationController
         format.json {render 'new', json: @child_category = Category.where(parent_id: params[:parent_id])}
     end
   end
+
 
   def ranking
     @rank1 = Item.order('impressions_count DESC').take(1)

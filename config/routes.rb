@@ -10,26 +10,25 @@ Rails.application.routes.draw do
 
   root "items#index"
 
-
   resources :items, only: [:new, :create ,:cordinate , :prefecture ,:show, :search_category] do
-    get 'cordination' , to: 'items#cordination', on: :collection
-    get 'prefecture' , to: 'items#prefecture' , on: :collection
+    get 'cordination' ,     to: 'items#cordination',      on: :collection
+    get 'prefecture' ,      to: 'items#prefecture' ,      on: :collection
     get 'search_category' , to: 'items#search_category' , on: :collection
     get 'ranking' , to:'items#ranking' , on: :collection
   end
 
   resources :users, only: [:new, :create_info, :show, :edit, :update_info, :email, :update_email, :shipping, :shipping_new, :shipping_edit, :shipping_update] do
-    post  'create_info',   to: 'users#create_info',   as: :create_info, on: :collection
-    patch 'update_info',   to: 'users#update_info',   as: :update_info, on: :collection
-    get   'email',         to: 'users#email',         as: :email
-    patch 'update_email',  to: 'users#update_email',  as: :update_email
-    get   'shipping',      to: 'users#shipping',      as: :shipping, on: :collection
-    post  'shipping_new',  to: 'users#shipping_new',  as: :shipping_new, on: :collection
-    get  'shipping_edit',  to: 'users#shipping_edit',  as: :shipping_edit, on: :collection
-    patch  'shipping_update',  to: 'users#shipping_update',  as: :shipping_update, on: :collection
+    post  'create_info',      to: 'users#create_info',     as: :create_info, on: :collection
+    patch 'update_info',      to: 'users#update_info',     as: :update_info, on: :collection
+    get   'email',            to: 'users#email',           as: :email
+    patch 'update_email',     to: 'users#update_email',    as: :update_email
+    get   'shipping',         to: 'users#shipping',        as: :shipping, on: :collection
+    post  'shipping_new',     to: 'users#shipping_new',    as: :shipping_new, on: :collection
+    get  'shipping_edit',     to: 'users#shipping_edit',   as: :shipping_edit, on: :collection
+    patch  'shipping_update', to: 'users#shipping_update', as: :shipping_update, on: :collection
   end
 
-  resources :trades, only: [:index, :plus_count, :minus_count, :erace_item, :return_to_cart, :arigato_update, :order, :add_user_info, :confirmation, :done_transaction, :create, :prefecture, :search_prefecture] do
+  resources :trades, only: [:index, :plus_count, :minus_count, :erace_item, :return_to_cart, :arigato_update, :order, :add_user_info, :confirmation, :done_transaction, :create, :prefecture, :maximum_total, :search_prefecture] do
     post  'plus_count/:trade_id',     to: 'trades#plus_count',                as: :plus_count
     post  'minus_count/:trade_id',    to: 'trades#minus_count',               as: :minus_count
     post  'erace_item/:trade_id',     to: 'trades#erace_item',                as: :erace_item
@@ -40,6 +39,7 @@ Rails.application.routes.draw do
     get   'confirmation',             to: 'trades#confirmation',              as: :confirmation, on: :collection
     post  'done_transaction',         to: 'trades#done_transaction',          as: :done_transaction, on: :collection
     get   'prefecture',               to: 'trades#prefecture',                as: :prefecture, on: :collection
+    get   'maximum_total',            to: 'trades#maximum_total',             as: :maximum_total, on: :collection
     get   'search_prefecture',        to: 'trades#search_prefecture',         as: :search_prefecture, on: :collection
   end
 
@@ -47,11 +47,14 @@ Rails.application.routes.draw do
     put :sort
   end
 
+  get 'stocks/search_color', to: 'stocks#search_color', as: :stock_search_color
+
   resources :shops, only: [:index, :show, :new, :create]
 
-  resources :favorites , only: [:destroy ,:favorite , :favorite_shop] do
+  resources :favorites , only: [:destroy ,:favorite , :favorite_shop , :multi_delete] do
     get 'favorite' , to: 'favorites#favorite' , on: :collection
     post 'favorite' , to: 'favorites#create' , on: :collection
+    post 'multi_delete', to: 'favorites#multi_delete' ,   on: :collection
 
     get 'favorite_shop' , to: 'favorites#favorite_shop' , on: :collection
     post 'favorite_shop' , to: 'favorites#shop_create' , on: :collection

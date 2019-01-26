@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+
+  before_action :authentication
   before_action :check_user_detail_edit, only: [:edit]
   before_action :check_user_detail_new, only: [:new]
   before_action :check_user_shipping_edit, only: [:shipping_edit]

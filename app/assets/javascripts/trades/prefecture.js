@@ -48,3 +48,25 @@ $(function () {
     });
   });
 });
+
+// 総購入金額が最大の県を色付け
+$(function () {
+  $(document).ready(function() {
+
+    $.ajax({
+      type: 'GET',
+      url: '/trades/maximum_total',
+      dataType: 'json',
+    })
+
+    .done(function(data){
+      $("*[value="+data.prefecture+"]").css({ 'background': 'red',
+                                              'padding-top':'20px',
+                                              'padding-bottom':'20px',
+                                              'color':'#fff',
+                                              'opacity':'0.8',
+                                              'font-weight': 'bold'
+      });
+    });
+  });
+});

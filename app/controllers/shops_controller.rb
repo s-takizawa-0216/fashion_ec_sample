@@ -1,5 +1,7 @@
 class ShopsController < ApplicationController
 
+  before_action :authentication
+
   def index
     @alphabet =('a'..'z').to_a
     @shopsA = Shop.where("name LIKE?","a%")
@@ -30,6 +32,8 @@ class ShopsController < ApplicationController
     @shopsZ = Shop.where("name LIKE?","z%")
     @favorite_shops = FavShop.where(user_id:current_user.id)
   end
+
+
 
   def new
     @shop = Shop.new

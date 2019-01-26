@@ -65,19 +65,34 @@
     #stockInfo{
       margin: 0 auto;
       #addStock{
-        padding: 0 10px 15px;
-        .addBtn{
+        padding: 0 14px 15px;
+        .btn{
+          float: right;
           width: 100px;
           height: 40px;
           display: block;
-          margin: 0 0 0 auto;
-          background-color: #8B0000;
+          margin: 0 0 0 10px;
           color: #FFFFE0;
           font-weight: 500;
-          border: solid 1px #8B0000;
           border-radius: 3px;
         }
-        .addBtn:hover{
+        .red{
+          background-color: #8B0000;
+          border: solid 1px #8B0000;
+          margin-right: 3px;
+        }
+        .naby{
+          background-color: #000044;
+          border: solid 1px #000044;
+          margin-right: -5px;
+        }
+        .green{
+          background-color: #003300;
+          border: solid 1px #003300;
+          margin-right: 3px;
+
+        }
+        .btn:hover{
           opacity: 0.8;
           box-shadow: 0 0 15px rgba(#B22222,0.3);
         }

@@ -99,10 +99,12 @@
       &__price{
         font-size: 15px;
         margin-top: 15px;
+        padding-right: 35px;
         width: 115px;
         text-align: center;
       }
     }
+
     &-item{
       border-bottom: 1px solid silver;
       &__index{
@@ -122,9 +124,9 @@
       }
 
       &__price{
-        margin-top: 40px;
+      margin-top: 40px;
       font-size: 14px;
-      width: 200px;
+      width: 120px;
       text-align: center;
       }
     }
@@ -139,7 +141,7 @@
       }
 
       &__price{
-        padding-left: 400px;
+        padding-left: 440px;
       }
     }
   }
@@ -165,6 +167,7 @@
 .margin-giving{
   margin-top: 10px;
 }
+
 .confirm-item-zone{
   margin-top: 45px;
 }
@@ -226,6 +229,7 @@
 
     &__bottom{
       margin-top: 10px;
+
       &-msg{
         padding-left: 30px;
       }
@@ -234,6 +238,7 @@
         padding-left: 170px;
       }
     }
+
   }
   &__shipping{
     margin-top: 10px;
@@ -249,7 +254,7 @@
     }
 
     &-price{
-      padding-left: 10px;
+      padding-left: 20px;
       font-size: 14px;
     }
   }

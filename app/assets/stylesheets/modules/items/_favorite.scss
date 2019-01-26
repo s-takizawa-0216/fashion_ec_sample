@@ -2,6 +2,7 @@
   background-color:#EEEEEE;
 }
 
+
 .breadCrumb__fav {
   padding-left:155px;
   background-color: #EEEEEE;
@@ -13,6 +14,8 @@
     color:#007ebe;
   }
 }
+
+
 
 
 .fav__main__content__name {
@@ -81,14 +84,17 @@
       }
     }
 
-      .delete__right {
+    .delete__right {
         float: right;
-      }
+    }
 
-      .delete {
-        color:#007ebe;
-        font-size: 12px;
-      }
+    .delete {
+      color:#007ebe;
+      font-size: 12px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+    }
   }
 }
 
@@ -113,9 +119,9 @@
 
       }
 
-        >i {
-          font-size: 15px;
-        }
+      >i {
+        font-size: 15px;
+      }
     }
   }
 }
@@ -135,7 +141,7 @@
     padding: 5px;
     font-size: 12px;
 
-  &:hover {
+    &:hover {
       background-color: #e8e8e8;
     }
   }
@@ -160,7 +166,7 @@
     padding: 5px;
     font-size: 12px;
 
-  &:hover {
+    &:hover {
       background-color: #e8e8e8;
     }
   }
@@ -185,7 +191,7 @@
     padding: 5px;
     font-size: 12px;
 
-  &:hover {
+    &:hover {
       background-color: #e8e8e8;
     }
   }
@@ -265,7 +271,6 @@
     }
 
     &__box__hide {
-      // display: none;
       height: 206px;
 
       >ul {
@@ -307,11 +312,11 @@
 }
 
 .triangle-cross {
-    position: absolute;
-    bottom:327px;
-    left: 155px;
-    font-size: 10px;
-    color:#2d2d2d;
+  position: absolute;
+  bottom:327px;
+  left: 155px;
+  font-size: 10px;
+  color:#2d2d2d;
 }
 
 
@@ -411,9 +416,37 @@
   }
 }
 
+input[type="checkbox"]#multi__delete{
+  display: none;
+  font-size: 22px;
+  float: right;
+}
 
 
+#hidden__detete{
+  display: none;
+  background: #EEEEEE;
+  height: 90px;
+  width: 100%;
+  margin-top: 30px;
+  border: 2px solid #FFF;
+  position: sticky;
+  bottom: 1px;
 
+  #cancel-button{
+    margin: 25px 0 0 400px;
+    width: 200px;
+    height: 40px;
+    border: 1px solid #2490D0;
+    color: #2490D0;
+    background: transparent;
+  }
 
-
-
+  #implement-detele{
+    margin: 25px 0 0 20px;
+    width: 200px;
+    height: 40px;
+    background: #2490D0;
+    color: #fff;
+  }
+}

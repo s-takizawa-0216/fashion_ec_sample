@@ -30,6 +30,11 @@ class ItemsController < ApplicationController
     @shop_other_number_4_20 = [*4..20]
 
     @user = User.find(user_id)
+
+    @rank1_shop = Shop.order('impressions_count DESC').take(1)
+
+    @favorite_shops = FavShop.where(user_id:current_user.id)
+
   end
 
   def show
@@ -42,6 +47,7 @@ class ItemsController < ApplicationController
     @stock = Stock.where(item_id: @item)
     @user = User.find(user_id)
     @items = cookies[:recently_viewed_items].split(",").reverse unless cookies[:recently_viewed_items].nil?
+    @favorite_shops = FavShop.where(user_id:current_user.id)
   end
 
   def new
@@ -80,7 +86,7 @@ class ItemsController < ApplicationController
     @number2 = [*2..3].take(1)
     @number3 = [*3..3].take(1)
     @other_most_viewd = Item.order('impressions_count DESC').offset(3).take(17)
-    @number4_20 = [*4..23]
+    @number4_20 = [*4..20]
   end
 
 

@@ -20,6 +20,26 @@ crumb :ranking do
   parent :root
 end
 
+# ショップ画面一覧
+crumb :shop do
+  link "ショップから探す" , shops_path
+  parent :root
+end
+
+# ショップ詳細画面
+crumb :shop_info do
+  shop_info = Shop.find(params[:id]).name
+  link shop_info , shop_path
+  link "対象商品"
+  parent :root
+end
+
+# ショップお気に入り画面
+crumb :shop_fav do
+  link "お気に入りショップ"
+  parent :root
+end
+
 # 新規登録画面
 crumb :signUP do
   link "新規会員登録", new_user_registration_path

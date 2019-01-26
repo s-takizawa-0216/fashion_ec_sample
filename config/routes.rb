@@ -47,10 +47,13 @@ Rails.application.routes.draw do
     put :sort
   end
 
-  resources :shops, only: [:new, :create]
+  resources :shops, only: [:index, :show, :new, :create]
 
-  resources :favorites , only: [:destroy ,:favorite] do
+  resources :favorites , only: [:destroy ,:favorite , :favorite_shop] do
     get 'favorite' , to: 'favorites#favorite' , on: :collection
     post 'favorite' , to: 'favorites#create' , on: :collection
+
+    get 'favorite_shop' , to: 'favorites#favorite_shop' , on: :collection
+    post 'favorite_shop' , to: 'favorites#shop_create' , on: :collection
   end
 end

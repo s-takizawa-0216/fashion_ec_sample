@@ -659,13 +659,7 @@
               .container
                 .data
                   %ul.clearfix
-                    - @items.each do |id|
-                      - if Item.find(id).present?
-                        - item = Item.find(id)
-                        %li
-                          .img
-                            = link_to item_path(item) do
-                              = image_tag "#{item.images.first.image}"
+
 
 
 

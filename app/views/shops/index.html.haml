@@ -1,0 +1,255 @@
+%head
+
+%body.fashion_ec_sample
+  %script{ src: "https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"}
+  %link{:href => "http://code.jquery.com/ui/1.10.3/themes/cupertino/jquery-ui.min.css", :rel => "stylesheet", :type => "text/css"}/
+  %link{:crossorigin => "anonymous", :href => "https://use.fontawesome.com/releases/v5.6.3/css/all.css", :integrity => "sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/", :rel => "stylesheet"}/
+
+  = render partial: 'shared/header-notice'
+
+  - if user_signed_in?
+    = render partial: 'shared/header-logged-in'
+  - else
+    = render partial: 'shared/header-log-in'
+
+  .breadCrumb__ranking
+    - breadcrumb :shop
+    = breadcrumbs  separator: " > "
+
+  .ranking__content
+    .ranking__content__top.clearfix
+      = fa_icon ('home')
+      %h3 ショップ一覧
+
+  .ranking__content__tub
+    %ul.clearfix
+      %li#ranking-all
+        = link_to 'すべて' , '#'
+      %li
+        = link_to 'メンズ' , '#'
+      %li
+        = link_to 'レディース' , '#'
+      %li
+        = link_to 'キッズ' , '#'
+      %li#gift-ranking
+        = link_to '#' do
+          = fa_icon ('camera')
+          %span ショップスタッフコーディネイト
+
+  .shop__search
+    .shop__search__inner
+      %form{action:"#" , method:"#"}
+        %input.shop__search__input{ placeholder: "お探しのショップは？", type: "search"}
+
+  %ul.shop__alphabet.clearfix
+    - @alphabet.each do |alphabet|
+      %li
+        = link_to "#{alphabet}" , '#'
+
+  .shop__list
+    %h3 A
+    %ul.clearfix
+      - @shopsA.each do |a|
+        .shop__list__check.clearfix
+          = fa_icon('check')
+          %li
+            = link_to "#{a.name}" , "shops/#{a.id}"
+
+    %h3 B
+    %ul.clearfix
+      - @shopsB.each do |a|
+        .shop__list__check.clearfix
+          = fa_icon('check')
+          %li
+            = link_to "#{a.name}" , "shops/#{a.id}"
+
+    %h3 C
+    %ul.clearfix
+      - @shopsC.each do |a|
+        .shop__list__check.clearfix
+          = fa_icon('check')
+          %li
+            = link_to "#{a.name}" , "shops/#{a.id}"
+
+    %h3 D
+    %ul.clearfix
+      - @shopsD.each do |a|
+        .shop__list__check.clearfix
+          = fa_icon('check')
+          %li
+            = link_to "#{a.name}" , "shops/#{a.id}"
+
+    %h3 E
+    %ul.clearfix
+      - @shopsE.each do |a|
+        .shop__list__check.clearfix
+          = fa_icon('check')
+          %li
+            = link_to "#{a.name}" , "shops/#{a.id}"
+
+    %h3 F
+    %ul.clearfix
+      - @shopsF.each do |a|
+        .shop__list__check.clearfix
+          = fa_icon('check')
+          %li
+            = link_to "#{a.name}" , "shops/#{a.id}"
+
+    %h3 G
+    %ul.clearfix
+      - @shopsG.each do |a|
+        .shop__list__check.clearfix
+          = fa_icon('check')
+          %li
+            = link_to "#{a.name}" , "shops/#{a.id}"
+
+    %h3 H
+    %ul.clearfix
+      - @shopsH.each do |a|
+        .shop__list__check.clearfix
+          = fa_icon('check')
+          %li
+            = link_to "#{a.name}" , "shops/#{a.id}"
+
+    %h3 I
+    %ul.clearfix
+      - @shopsI.each do |a|
+        .shop__list__check.clearfix
+          = fa_icon('check')
+          %li
+            = link_to "#{a.name}" , "shops/#{a.id}"
+
+    %h3 J
+    %ul.clearfix
+      - @shopsJ.each do |a|
+        .shop__list__check.clearfix
+          = fa_icon('check')
+          %li
+            = link_to "#{a.name}" , "shops/#{a.id}"
+
+    %h3 K
+    %ul.clearfix
+      - @shopsK.each do |a|
+        .shop__list__check.clearfix
+          = fa_icon('check')
+          %li
+            = link_to "#{a.name}" , "shops/#{a.id}"
+
+    %h3 L
+    %ul.clearfix
+      - @shopsL.each do |a|
+        .shop__list__check.clearfix
+          = fa_icon('check')
+          %li
+            = link_to "#{a.name}" , "shops/#{a.id}"
+
+    %h3 M
+    %ul.clearfix
+      - @shopsM.each do |a|
+        .shop__list__check.clearfix
+          = fa_icon('check')
+          %li
+            = link_to "#{a.name}" , "shops/#{a.id}"
+
+    %h3 N
+    %ul.clearfix
+      - @shopsN.each do |a|
+        .shop__list__check.clearfix
+          = fa_icon('check')
+          %li
+            = link_to "#{a.name}" , "shops/#{a.id}"
+
+    %h3 O
+    %ul.clearfix
+      - @shopsO.each do |a|
+        .shop__list__check.clearfix
+          = fa_icon('check')
+          %li
+            = link_to "#{a.name}" , "shops/#{a.id}"
+
+    %h3 P
+    %ul.clearfix
+      - @shopsP.each do |a|
+        .shop__list__check.clearfix
+          = fa_icon('check')
+          %li
+            = link_to "#{a.name}" , "shops/#{a.id}"
+
+    %h3 Q
+    %ul.clearfix
+      - @shopsQ.each do |a|
+        .shop__list__check.clearfix
+          = fa_icon('check')
+          %li
+            = link_to "#{a.name}" , "shops/#{a.id}"
+
+    %h3 R
+    %ul.clearfix
+      - @shopsR.each do |a|
+        .shop__list__check.clearfix
+          = fa_icon('check')
+          %li
+            = link_to "#{a.name}" , "shops/#{a.id}"
+
+    %h3 S
+    %ul.clearfix
+      - @shopsS.each do |a|
+        .shop__list__check.clearfix
+          = fa_icon('check')
+          %li
+            = link_to "#{a.name}" , "shops/#{a.id}"
+
+    %h3 T
+    %ul.clearfix
+      - @shopsT.each do |a|
+        .shop__list__check.clearfix
+          = fa_icon('check')
+          %li
+            = link_to "#{a.name}" , "shops/#{a.id}"
+
+    %h3 V
+    %ul.clearfix
+      - @shopsV.each do |a|
+        .shop__list__check.clearfix
+          = fa_icon('check')
+          %li
+            = link_to "#{a.name}" , "shops/#{a.id}"
+
+    %h3 W
+    %ul.clearfix
+      - @shopsW.each do |a|
+        .shop__list__check.clearfix
+          = fa_icon('check')
+          %li
+            = link_to "#{a.name}" , "shops/#{a.id}"
+
+    %h3 X
+    %ul.clearfix
+      - @shopsX.each do |a|
+        .shop__list__check.clearfix
+          = fa_icon('check')
+          %li
+            = link_to "#{a.name}" , "shops/#{a.id}"
+
+    %h3 Y
+    %ul.clearfix
+      - @shopsY.each do |a|
+        .shop__list__check.clearfix
+          = fa_icon('check')
+          %li
+            = link_to "#{a.name}" , "shops/#{a.id}"
+
+    %h3 Z
+    %ul.clearfix
+      - @shopsZ.each do |a|
+        .shop__list__check.clearfix
+          = fa_icon('check')
+          %li
+            = link_to "#{a.name}" , "shops/#{a.id}"
+
+
+
+
+
+= render partial: 'shared/footer'
+

@@ -1,0 +1,122 @@
+%head
+
+%body.fashion_ec_sample
+  %script{ src: "https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"}
+  %link{:href => "http://code.jquery.com/ui/1.10.3/themes/cupertino/jquery-ui.min.css", :rel => "stylesheet", :type => "text/css"}/
+  %link{:crossorigin => "anonymous", :href => "https://use.fontawesome.com/releases/v5.6.3/css/all.css", :integrity => "sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/", :rel => "stylesheet"}/
+
+  = render partial: 'shared/header-notice'
+
+  - if user_signed_in?
+    = render partial: 'shared/header-logged-in'
+  - else
+    = render partial: 'shared/header-log-in'
+
+  .breadCrumb__ranking
+    - breadcrumb :shop_info
+    = breadcrumbs  separator: " > "
+
+.main__shops__top.clearfix
+  = @shop.name
+
+.main__shops__main.clearfix
+  .main__shops__left
+    = render partial: 'shared/cordination-leftbar'
+
+  .main__shops__right
+    .main__shops__right__name
+      = @shop.name
+
+    .main__shops__right__subname
+      %h3
+        = @shop.name
+      %h4.main__shops__right__subname
+        shop_introduciton
+      %h4.main__shops__right__favorite
+        - if @shops.present?
+          = fa_icon('heart')
+          %span お気に入りショップに追加されています。
+        - else
+          = form_for [@shop], url: favorite_shop_favorites_path(@shop), method: :post do |f|
+            = f.hidden_field :shop_id, value: "#{@shop.id}"
+            = f.hidden_field :user_id, value: "#{current_user.id}"
+            = button_tag type: 'submit', class: 'btn-fav' do
+              = fa_icon ('heart')
+              %span お気に入りショップに追加
+
+
+    .main__shops__right__tub
+      %ul.clearfix
+        %li.main__shops__right__tub__new
+          = link_to '#' do
+            %span 新品
+        %li.main__shops__right__tub__cordination
+          = link_to '#' do
+            %span コーデ
+
+    .main__shops__right__category.clearfix
+      %ul
+      - @items.zip(@category).each do |item , category|
+        %li
+          = link_to '#' do
+            %span #{item.parent_category.name}
+
+    .main__shops__right__stock
+      %ul.clearfix
+        %li
+          = link_to '#' do
+            %span 在庫商品 予約商品
+            = fa_icon ('angle-down')
+        %li
+          = link_to '#' do
+            %span 在庫あり
+            = fa_icon ('angle-down')
+        %li
+          = link_to '#' do
+            %span 人気順
+            = fa_icon ('angle-down')
+
+        %li
+          = link_to '#' do
+            =fa_icon ('th')
+        %li
+          = link_to '#' do
+            =fa_icon ('th-large')
+
+    .main__shops__right__item
+      %ul.clearfix
+        - @items.each do |item|
+          .main__shops__right__item__box
+            %li
+              = link_to '#' do
+                = image_tag "#{item.images.first.image}" , width:128 ,height:154
+            %p.main__shops__right__item__box__shop
+              = @shop.name
+              = link_to '#' do
+                = fa_icon('search')
+            %p.main__shops__right__item__box__price
+              ¥ #{item.price}
+            %p.main__shops__right__item__box__arigato
+              ARIGATOメンバーならさらに10%OFF
+            %p.main__shops__right__item__box__arigato__text
+              ¥ #{(item.price*0.9).ceil}
+
+.scroll__box#scroll-js
+  .scroll__box__inner
+    = fa_icon ('angle-double-up')
+    %span scroll
+
+
+
+
+
+= render partial: 'shared/footer'
+
+
+
+
+
+
+
+
+

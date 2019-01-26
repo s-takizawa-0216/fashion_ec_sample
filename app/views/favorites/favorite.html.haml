@@ -43,7 +43,7 @@
       %li
         = link_to 'ブランド' , '#'
       %li
-        = link_to 'ショップ' , '#'
+        = link_to 'ショップ' , favorite_shop_favorites_path
       .delete__right
         = link_to '複数削除する', '#' , class: 'delete'
 
@@ -51,7 +51,8 @@
     %ul
       %li
         %span アイテム
-        %span ○
+        %span
+          #{@favorites.length}
         %span 件
       %li.all-shop-show
         %span すべてのショップ

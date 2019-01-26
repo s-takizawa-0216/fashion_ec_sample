@@ -37,9 +37,9 @@
           %li
             = link_to 'ブランドから探す'
           %li
-            = link_to 'ショップから探す'
+            = link_to 'ショップから探す' , shops_path
           %li
-            = link_to 'ランキングから探す'
+            = link_to 'ランキングから探す' , ranking_items_path
           %li
             = link_to 'コーディネイトから探す'
           %li
@@ -432,80 +432,81 @@
 
         %section.right__content__ranking.clearfix
           %h2 人気アイテムランキング
-          .right__content__ranking__content.clearfix
-          %ul
-          - @rank1.zip(@number1).each do |item, number|
-            %li
-              %p.right__content__ranking__content-rank1
-                %span
-                  %label #{number}
-                = link_to "item/#{item.id}" do
-                  = image_tag "#{item.images.first.image}", width: '171' , height:'205'
-                %p.right__content__coupon__text
-                  #{item.brand.name}
-                  - if item.coupon == 1.0
-                    %p.right__content__coupon__price__none
-                      ¥#{item.price}
-                      %span 税込
-                  - else
-                    %p.right__content__coupon__price
-                    %span #{(100-item.coupon*100).ceil} %OFF
+          .right__content__ranking__content
+            %ul.clearfix
+              - @rank1.zip(@number1).each do |item, number|
+                %li
+                  %p.right__content__ranking__content-rank1
+                    %span
+                      %label #{number}
+                    = link_to "item/#{item.id}" do
+                      = image_tag "#{item.images.first.image}", width: '171' , height:'205'
+                    %p.right__content__coupon__text
+                      #{item.brand.name}
+                      - if item.coupon == 1.0
+                        %p.right__content__coupon__price__none
+                          ¥#{item.price}
+                          %span 税込
+                      - else
+                        %p.right__content__coupon__price
+                          ¥#{item.price}
+                          %span #{(100-item.coupon*100).ceil} %OFF
 
-          - @rank2.zip(@number2).each do |item, number|
-            %li
-              %p.right__content__ranking__content-rank2
-                %span
-                  %label #{number}
-                = link_to "items/#{item.id}" do
-                  = image_tag "#{item.images.first.image}", width: '171' , height:'205'
-                %p.right__content__coupon__text
-                  #{item.brand.name}
-                - if item.coupon == 1.0
-                  %p.right__content__coupon__price__none
-                    ¥#{item.price}
-                    %span 税込
-                - else
-                  %p.right__content__coupon__price
-                    ¥#{item.price}
-                    %span #{(100-item.coupon*100).ceil} %OFF
-
-
-          - @rank3.zip(@number3).each do |item, number|
-            %li
-              %p.right__content__ranking__content-rank3
-                %span
-                  %label #{number}
-                = link_to "items/#{item.id}" do
-                  = image_tag "#{item.images.first.image}", width: '171' , height:'205'
-                %p.right__content__coupon__text
-                  #{item.brand.name}
-                - if item.coupon == 1.0
-                  %p.right__content__coupon__price__none
-                    ¥#{item.price}
-                    %span 税込
-                - else
-                  %p.right__content__coupon__price
-                    ¥#{item.price}
-                    %span #{(100-item.coupon*100).ceil} %OFF
+              - @rank2.zip(@number2).each do |item, number|
+                %li
+                  %p.right__content__ranking__content-rank2
+                    %span
+                      %label #{number}
+                    = link_to "items/#{item.id}" do
+                      = image_tag "#{item.images.first.image}", width: '171' , height:'205'
+                    %p.right__content__coupon__text
+                      #{item.brand.name}
+                    - if item.coupon == 1.0
+                      %p.right__content__coupon__price__none
+                        ¥#{item.price}
+                        %span 税込
+                    - else
+                      %p.right__content__coupon__price
+                        ¥#{item.price}
+                        %span #{(100-item.coupon*100).ceil} %OFF
 
 
-          - @other_most_viewd.zip(@number4_23).each do |item, number|
-            %li.rank
-              %p.right__content__ranking__content-rank-other
-                %span
-                  %label #{number}
-                = link_to "items/#{item.id}" do
-                  = image_tag "#{item.images.first.image}", width: '125' , height:'150'
-                %p.right__content__coupon__text
-                  #{item.brand.name}
-                - if item.coupon == 1.0
-                  %p.right__content__coupon__price__none
-                    ¥#{item.price}
-                    %span 税込
-                - else
-                  %p.right__content__coupon__price
-                    ¥#{item.price}
-                    %span #{(100-item.coupon*100).ceil} %OFF
+              - @rank3.zip(@number3).each do |item, number|
+                %li
+                  %p.right__content__ranking__content-rank3
+                    %span
+                      %label #{number}
+                    = link_to "items/#{item.id}" do
+                      = image_tag "#{item.images.first.image}", width: '171' , height:'205'
+                    %p.right__content__coupon__text
+                      #{item.brand.name}
+                    - if item.coupon == 1.0
+                      %p.right__content__coupon__price__none
+                        ¥#{item.price}
+                        %span 税込
+                    - else
+                      %p.right__content__coupon__price
+                        ¥#{item.price}
+                        %span #{(100-item.coupon*100).ceil} %OFF
+
+
+              - @other_most_viewd.zip(@number4_23).each do |item, number|
+                %li.rank
+                  %p.right__content__ranking__content-rank-other
+                    %span
+                      %label #{number}
+                    = link_to "items/#{item.id}" do
+                      = image_tag "#{item.images.first.image}", width: '125' , height:'150'
+                    %p.right__content__coupon__text
+                      #{item.brand.name}
+                    - if item.coupon == 1.0
+                      %p.right__content__coupon__price__none
+                        ¥#{item.price}
+                        %span 税込
+                    - else
+                      %p.right__content__coupon__price
+                        ¥#{item.price}
+                        %span #{(100-item.coupon*100).ceil} %OFF
 
 
         %p.zozo-item

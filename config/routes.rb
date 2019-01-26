@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     get 'cordination' ,     to: 'items#cordination',      on: :collection
     get 'prefecture' ,      to: 'items#prefecture' ,      on: :collection
     get 'search_category' , to: 'items#search_category' , on: :collection
+    get 'ranking' , to:'items#ranking' , on: :collection
   end
 
   resources :users, only: [:new, :create_info, :show, :edit, :update_info, :email, :update_email, :shipping, :shipping_new, :shipping_edit, :shipping_update] do
@@ -48,11 +49,14 @@ Rails.application.routes.draw do
 
   get 'stocks/search_color', to: 'stocks#search_color', as: :stock_search_color
 
-  resources :shops, only: [:new, :create]
+  resources :shops, only: [:index, :show, :new, :create]
 
-  resources :favorites , only: [:destroy ,:favorite, :multi_delete] do
-    get 'favorite' ,     to: 'favorites#favorite' , on: :collection
-    post 'favorite' ,    to: 'favorites#create' ,   on: :collection
+  resources :favorites , only: [:destroy ,:favorite , :favorite_shop , :multi_delete] do
+    get 'favorite' , to: 'favorites#favorite' , on: :collection
+    post 'favorite' , to: 'favorites#create' , on: :collection
     post 'multi_delete', to: 'favorites#multi_delete' ,   on: :collection
+
+    get 'favorite_shop' , to: 'favorites#favorite_shop' , on: :collection
+    post 'favorite_shop' , to: 'favorites#shop_create' , on: :collection
   end
 end

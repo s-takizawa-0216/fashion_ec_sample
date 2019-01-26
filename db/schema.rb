@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_18_152324) do
+ActiveRecord::Schema.define(version: 2019_01_23_093640) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -41,6 +41,15 @@ ActiveRecord::Schema.define(version: 2019_01_18_152324) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_credit_cards_on_user_id"
+  end
+
+  create_table "fav_shops", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "shop_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shop_id"], name: "index_fav_shops_on_shop_id"
+    t.index ["user_id"], name: "index_fav_shops_on_user_id"
   end
 
   create_table "fav_stocks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -139,6 +148,7 @@ ActiveRecord::Schema.define(version: 2019_01_18_152324) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.integer "impressions_count"
     t.index ["user_id"], name: "index_shops_on_user_id"
   end
 
@@ -218,6 +228,8 @@ ActiveRecord::Schema.define(version: 2019_01_18_152324) do
   end
 
   add_foreign_key "credit_cards", "users"
+  add_foreign_key "fav_shops", "shops"
+  add_foreign_key "fav_shops", "users"
   add_foreign_key "fav_stocks", "stocks"
   add_foreign_key "fav_stocks", "users"
   add_foreign_key "images", "colors"

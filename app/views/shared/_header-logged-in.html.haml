@@ -28,9 +28,10 @@
                         %li.header__right__popup__list2
                           = link_to '市場調査', prefecture_trades_path
 
+
           %li.header__right__li
             .header__right__name-js
-              %span.header__right__name {user-email}様
+              %span.header__right__name  #{current_user.email.slice(/\w+/)}様
               .header__right__popup__inner
                 .header__right__popup__inner-box
                   %ul.header__right__popup__inner-ul
@@ -145,7 +146,7 @@
                     %li
                       %label.header__right__popup__inner__fav-li ブランド一覧
                     %li
-                      %label.header__right__popup__inner__fav-li ショップ一覧
+                      = link_to 'ショップ一覧' , favorite_shop_favorites_path ,class: 'header__right__popup__inner__fav-li'
                   %dl.header__right__popup__bland.clearfix
                     %dt ブランド
                     %dd.header__right__popup__font
@@ -160,13 +161,24 @@
                       = link_to 'zozo'
                     %dd.header__right__popup__font
                       = link_to 'zozo'
-                  %dl.header__right__popup__shop.clearfix
-                    %dt ショップ
-                    %dd.header__right__popup__favlogo
-                      = fa_icon ("heart 3x")
-                    %dd.header__right__popup__shfont
-                      %p お気に入りのショップを
-                      見つけよう！
+                  - if @favorite_shop.present?
+                    %dl.header__right__popup__shop.clearfix
+                      %dt ショップ
+                      %dd.header__right__popup__favlogo
+                        = fa_icon ("heart 3x")
+                      %dd.header__right__popup__shfont
+                        %p お気に入りのショップを
+                        見つけよう！
+                  - else
+                    %dl.header__right__popup__shop
+                      %dt ショップ
+                      %dd.header__right__popup__shop__add.clearfix
+                        = link_to '全てのお気に入りショップ'
+                      - @favorite_shops.each do |shop|
+                        %dd.header__right__popup__shop__add.clearfix
+                          = link_to shop_path(shop.id) do
+                            %span
+                              #{shop.shop.name}
 
           %li.header__right__li-notice
             .header__right__notice-js

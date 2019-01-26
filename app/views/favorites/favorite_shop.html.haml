@@ -1,0 +1,61 @@
+%head
+
+%body.fashion_ec_sample
+  %script{ src: "https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"}
+  %link{:href => "http://code.jquery.com/ui/1.10.3/themes/cupertino/jquery-ui.min.css", :rel => "stylesheet", :type => "text/css"}/
+  %link{:crossorigin => "anonymous", :href => "https://use.fontawesome.com/releases/v5.6.3/css/all.css", :integrity => "sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/", :rel => "stylesheet"}/
+
+  = render partial: 'shared/header-notice'
+
+  - if user_signed_in?
+    = render partial: 'shared/header-logged-in'
+  - else
+    = render partial: 'shared/header-log-in'
+
+  .breadCrumb__fav
+    - breadcrumb :shop_fav
+    = breadcrumbs  separator: " > "
+
+.fav__main__content
+  .fav__main__content__name
+    %h1
+      = fa_icon ('heart')
+      %sapn #{current_user.email.slice(/\w+/)}様のお気に入り
+
+  .fav__main__tub.clearfix
+    %ul
+      %li
+        = link_to 'アイテム' , favorite_favorites_path
+      %li
+        = link_to 'ブランド' , '#'
+      %li#add-color
+        = link_to 'ショップ' , '#'
+      .delete__right
+        = link_to '編集する', '#' , class: 'delete'
+
+  .fav__main__content__tub.clearfix
+    %ul
+      %li
+        %span ショップ
+        %span
+          #{@favorite_shops.length}
+        %span 件
+      %li.fav__shop__all
+        = link_to '#' do
+          %span お気に入りショップの全アイテム
+
+  .fav__main__content__shop.clearfix
+    %ul
+    - @favorite_shops.each do |shop|
+      %li
+        = link_to "shops/#{shop.id}" do
+          %span
+            #{shop.shop.name}
+
+
+
+
+
+  = render partial: 'shared/footer'
+
+

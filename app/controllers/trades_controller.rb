@@ -10,6 +10,7 @@ class TradesController < ApplicationController
     @once_in_cart = Trade.where(status: 1, user_id: current_user.id)
     @items_sum = @open_trade.sum{|trade|trade[:total]}
     @sum_arigato = @items_sum*0.9
+    @favorite_shops = FavShop.where(user_id:current_user.id)
   end
 
   def minus_count
@@ -141,12 +142,14 @@ class TradesController < ApplicationController
     # 市場調査画面
   end
 
+
   def maximum_total
     # 市場調査画面にて購入金額が最大の県を色付け
     respond_to do |format|
         format.json {render 'prefecture', json: Market.find_by(total: Market.maximum(:total))}
     end
   end
+
 
   def search_prefecture
     # 市場調査画面にて県ごとの市場データ取得に関するajax通信

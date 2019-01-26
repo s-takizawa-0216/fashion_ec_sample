@@ -2,6 +2,7 @@
 %head
 
 %body.fashion_ec_sample
+  %script{ src: "https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"}
   %link{:href => "http://code.jquery.com/ui/1.10.3/themes/cupertino/jquery-ui.min.css", :rel => "stylesheet", :type => "text/css"}/
   %link{:crossorigin => "anonymous", :href => "https://use.fontawesome.com/releases/v5.6.3/css/all.css", :integrity => "sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/", :rel => "stylesheet"}/
 
@@ -36,9 +37,9 @@
           %li
             = link_to 'ブランドから探す'
           %li
-            = link_to 'ショップから探す'
+            = link_to 'ショップから探す' , shops_path
           %li
-            = link_to 'ランキングから探す'
+            = link_to 'ランキングから探す' , ranking_items_path
           %li
             = link_to 'コーディネイトから探す'
           %li
@@ -314,68 +315,30 @@
       %section
         %h2 ショップ
         %ol.left__content__list-bland
+      - @shop_rank1.zip(@number1).each do |shop , number|
+        %li
+          %span#rank1 #{number}
+          = link_to "#" do
+            #{shop.name}
+      - @shop_rank2.zip(@number2).each do |shop , number|
+        %li
+          %span#rank2  #{number}
+          = link_to "#" do
+            #{shop.name}
+      - @shop_rank3.zip(@number3).each do |shop , number|
+        %li
+          %span#rank3  #{number}
+          = link_to "#" do
+            #{shop.name}
+        - @shop_other_rank.zip(@shop_other_number_4_20).each do |shop , number|
           %li
-            %span#rank1 1
-            = link_to 'nanouniverse', '#'
-          %li
-            %span#rank2 2
-            = link_to 'nanouniverse' , '#'
-          %li
-            %span#rank3 3
-            = link_to 'nanouniverse' , '#'
-          %li
-            %span#rank-other 4
-            = link_to 'nanouniverse' , '#'
-          %li
-            %span#rank-other 5
-            = link_to 'nanouniverse' , '#'
-          %li
-            %span#rank-other 6
-            = link_to 'nanouniverse' , '#'
-          %li
-            %span#rank-other 7
-            = link_to 'nanouniverse' , '#'
-          %li
-            %span#rank-other 8
-            = link_to 'nanouniverse' , '#'
-          %li
-            %span#rank-other 9
-            = link_to 'nanouniverse' , '#'
-          %li
-            %span#rank-other 10
-            = link_to 'nanouniverse' , '#'
-          %li
-            %span#rank-other 11
-            = link_to 'nanouniverse' , '#'
-          %li
-            %span#rank-other 12
-            = link_to 'nanouniverse' , '#'
-          %li
-            %span#rank-other 13
-            = link_to 'nanouniverse' , '#'
-          %li
-            %span#rank-other 14
-            = link_to 'nanouniverse' , '#'
-          %li
-            %span#rank-other 15
-            = link_to 'nanouniverse' , '#'
-          %li
-            %span#rank-other 16
-            = link_to 'nanouniverse' , '#'
-          %li
-            %span#rank-other 17
-            = link_to 'nanouniverse' , '#'
-          %li
-            %span#rank-other 18
-            = link_to 'nanouniverse' , '#'
-          %li
-            %span#rank-other 19
-            = link_to 'nanouniverse' , '#'
-          %li
-            %span#rank-other 20
-            = link_to 'nanouniverse' , '#'
-          %li
-            = link_to 'ショップ一覧' , '#' , id: 'shop_bland-all'
+            %span#rank-other #{number}
+            = link_to "#" do
+              #{shop.name}
+
+
+        %li
+          = link_to 'ショップ一覧' , '#' , id: 'shop_bland-all'
 
       %section
         %h2 モール
@@ -437,138 +400,114 @@
           %h2 クーポン対象アイテム
           .right__content__coupon__content.clearfix
             %ul
+            - @coupon_item.each do |item|
               %li
-                = link_to '#' do
-                  = image_tag "/assets/35255289B_8_D_215.jpg", width: '171' , height:'205'
+                = link_to "items/#{item.id}" do
+                  = image_tag "#{item.images.first.image}", width: '171' , height:'205'
+                  .coupon__label
+                    %span ¥ #{(item.price*item.coupon).ceil}クーポン
                 %p.right__content__coupon__text
-                  URBAN RESEARCH
+                  #{item.brand.name}
                 %p.right__content__coupon__price
-                  ¥30000
+                  ¥ #{item.price}
                   %span 税込
-                  %span 40%OFF
+                  %span #{(100-item.coupon*100).ceil} %OFF
 
+
+            - @coupon_other_item.each do |item|
               %li
-                = link_to '#' do
-                  = image_tag "/assets/35058982B_18_D_215.jpg", width: '171' , height:'205'
+                = link_to "items/#{item.id}" do
+                  = image_tag "#{item.images.first.image}", width: '125' , height:'150'
+                  .coupon__label
+                    %span ¥ #{(item.price*item.coupon).ceil}クーポン
                 %p.right__content__coupon__text
-                  URBAN RESEARCH
+                  #{item.brand.name}
                 %p.right__content__coupon__price
-                  ¥30000
+                  ¥ #{item.price}
                   %span 税込
-                  %span 40%OFF
-
-              %li
-                = link_to '#' do
-                  = image_tag "/assets/34747132B_8_D_215.jpg", width: '171' , height:'205'
-                %p.right__content__coupon__text
-                  URBAN RESEARCH
-                %p.right__content__coupon__price
-                  ¥30000
-                  %span 税込
-                  %span 40%OFF
-
-              %li.rank
-                = link_to '#' do
-                  = image_tag "/assets/35255289B_8_D_215.jpg", width: '125' , height:'150'
-                %p.right__content__coupon__text
-                  URBAN RESEARCH
-                %p.right__content__coupon__price
-                  ¥30000
-                  %span 税込
-                  %span 40%OFF
-
-              %li.rank
-                = link_to '#' do
-                  = image_tag "/assets/35255289B_8_D_215.jpg", width: '125' , height:'150'
-                %p.right__content__coupon__text
-                  URBAN RESEARCH
-                %p.right__content__coupon__price
-                  ¥30000
-                  %span 税込
-                  %span 40%OFF
-
-              %li.rank
-                = link_to '#' do
-                  = image_tag "/assets/35255289B_8_D_215.jpg", width: '125' , height:'150'
-                %p.right__content__coupon__text
-                  URBAN RESEARCH
-                %p.right__content__coupon__price
-                  ¥30000
-                  %span 税込
-                  %span 40%OFF
-
-              %li.rank
-                = link_to '#' do
-                  = image_tag "/assets/35255289B_8_D_215.jpg", width: '125' , height:'150'
-                %p.right__content__coupon__text
-                  URBAN RESEARCH
-                %p.right__content__coupon__price
-                  ¥30000
-                  %span 税込
-                  %span 40%OFF
+                  %span #{(100-item.coupon*100).ceil} %OFF
 
           %p.zozo-item
             = link_to 'クーポン対象アイテム一覧' , '#'
 
         %section.right__content__ranking.clearfix
           %h2 人気アイテムランキング
-          .right__content__ranking__content.clearfix
-          %ul
-          - @rank1.zip(@number1).each do |item, number|
-            %li
-              %p.right__content__ranking__content-rank1
-                %span
-                  %label #{number}
-                = link_to "items/#{item.id}" do
-                  = image_tag "#{item.images.first.image}", width: '171' , height:'205'
-                %p.right__content__coupon__text
-                  #{item.brand.name}
-                %p.right__content__coupon__price
-                  ¥#{item.price}
-                  %span 税込
-                  %span 40%OFF
+          .right__content__ranking__content
+            %ul.clearfix
+              - @rank1.zip(@number1).each do |item, number|
+                %li
+                  %p.right__content__ranking__content-rank1
+                    %span
+                      %label #{number}
+                    = link_to "item/#{item.id}" do
+                      = image_tag "#{item.images.first.image}", width: '171' , height:'205'
+                    %p.right__content__coupon__text
+                      #{item.brand.name}
+                      - if item.coupon == 1.0
+                        %p.right__content__coupon__price__none
+                          ¥#{item.price}
+                          %span 税込
+                      - else
+                        %p.right__content__coupon__price
+                          ¥#{item.price}
+                          %span #{(100-item.coupon*100).ceil} %OFF
 
-          - @rank2.zip(@number2).each do |item, number|
-            %li
-              %p.right__content__ranking__content-rank2
-                %span
-                  %label #{number}
-                = link_to "items/#{item.id}" do
-                  = image_tag "#{item.images.first.image}", width: '171' , height:'205'
-                %p.right__content__coupon__text
-                  #{item.brand.name}
-                %p.right__content__coupon__price
-                  ¥#{item.price}
-                  %span 税込
-                  %span 40%OFF
+              - @rank2.zip(@number2).each do |item, number|
+                %li
+                  %p.right__content__ranking__content-rank2
+                    %span
+                      %label #{number}
+                    = link_to "items/#{item.id}" do
+                      = image_tag "#{item.images.first.image}", width: '171' , height:'205'
+                    %p.right__content__coupon__text
+                      #{item.brand.name}
+                    - if item.coupon == 1.0
+                      %p.right__content__coupon__price__none
+                        ¥#{item.price}
+                        %span 税込
+                    - else
+                      %p.right__content__coupon__price
+                        ¥#{item.price}
+                        %span #{(100-item.coupon*100).ceil} %OFF
 
-          - @rank3.zip(@number3).each do |item, number|
-            %li
-              %p.right__content__ranking__content-rank3
-                %span
-                  %label #{number}
-                = link_to "items/#{item.id}" do
-                  = image_tag "#{item.images.first.image}", width: '171' , height:'205'
-                %p.right__content__coupon__text
-                  #{item.brand.name}
-                %p.right__content__coupon__price
-                  ¥#{item.price}
-                  %span 税込
-                  %span 40%OFF
 
-          - @other_most_viewd.zip(@number4_23).each do |item, number|
-            %li.rank
-              %p.right__content__ranking__content-rank-other
-                %span
-                  %label #{number}
-                = link_to "items/#{item.id}" do
-                  = image_tag "#{item.images.first.image}", width: '125' , height:'150'
-                %p.right__content__coupon__text
-                  #{item.brand.name}
-                %p.right__content__coupon__price
-                  ¥#{item.price}
-                  %span 税込
-                  %span 40%OFF
+              - @rank3.zip(@number3).each do |item, number|
+                %li
+                  %p.right__content__ranking__content-rank3
+                    %span
+                      %label #{number}
+                    = link_to "items/#{item.id}" do
+                      = image_tag "#{item.images.first.image}", width: '171' , height:'205'
+                    %p.right__content__coupon__text
+                      #{item.brand.name}
+                    - if item.coupon == 1.0
+                      %p.right__content__coupon__price__none
+                        ¥#{item.price}
+                        %span 税込
+                    - else
+                      %p.right__content__coupon__price
+                        ¥#{item.price}
+                        %span #{(100-item.coupon*100).ceil} %OFF
+
+
+              - @other_most_viewd.zip(@number4_23).each do |item, number|
+                %li.rank
+                  %p.right__content__ranking__content-rank-other
+                    %span
+                      %label #{number}
+                    = link_to "items/#{item.id}" do
+                      = image_tag "#{item.images.first.image}", width: '125' , height:'150'
+                    %p.right__content__coupon__text
+                      #{item.brand.name}
+                    - if item.coupon == 1.0
+                      %p.right__content__coupon__price__none
+                        ¥#{item.price}
+                        %span 税込
+                    - else
+                      %p.right__content__coupon__price
+                        ¥#{item.price}
+                        %span #{(100-item.coupon*100).ceil} %OFF
+
 
         %p.zozo-item
           = link_to 'ランキング一覧' , '#'
@@ -903,96 +842,7 @@
                   ¥30000 税込
                   %p.right__content__checked-item__tax 40%OFF
 
-              %li
-                = link_to '#' do
-                  = image_tag "/assets/35653720_8_D_215.jpg", width: '70' , height:'84'
-                %p.right__content__checked-item__price
-                  ¥30000 税込
-                  %p.right__content__checked-item__tax 40%OFF
 
-              %li
-                = link_to '#' do
-                  = image_tag "/assets/35653720_8_D_215.jpg", width: '70' , height:'84'
-                %p.right__content__checked-item__price
-                  ¥30000 税込
-                  %p.right__content__checked-item__tax 40%OFF
-
-              %li
-                = link_to '#' do
-                  = image_tag "/assets/35653720_8_D_215.jpg", width: '70' , height:'84'
-                %p.right__content__checked-item__price
-                  ¥30000 税込
-                  %p.right__content__checked-item__tax 40%OFF
-
-              %li
-                = link_to '#' do
-                  = image_tag "/assets/35653720_8_D_215.jpg", width: '70' , height:'84'
-                %p.right__content__checked-item__price
-                  ¥30000 税込
-                  %p.right__content__checked-item__tax 40%OFF
-
-              %li
-                = link_to '#' do
-                  = image_tag "/assets/35653720_8_D_215.jpg", width: '70' , height:'84'
-                %p.right__content__checked-item__price
-                  ¥30000 税込
-                  %p.right__content__checked-item__tax 40%OFF
-
-              %li
-                = link_to '#' do
-                  = image_tag "/assets/35653720_8_D_215.jpg", width: '70' , height:'84'
-                %p.right__content__checked-item__price
-                  ¥30000 税込
-                  %p.right__content__checked-item__tax 40%OFF
-
-              %li
-                = link_to '#' do
-                  = image_tag "/assets/35653720_8_D_215.jpg", width: '70' , height:'84'
-                %p.right__content__checked-item__price
-                  ¥30000 税込
-                  %p.right__content__checked-item__tax 40%OFF
-
-              %li
-                = link_to '#' do
-                  = image_tag "/assets/35653720_8_D_215.jpg", width: '70' , height:'84'
-                %p.right__content__checked-item__price
-                  ¥30000 税込
-                  %p.right__content__checked-item__tax 40%OFF
-
-              %li
-                = link_to '#' do
-                  = image_tag "/assets/35653720_8_D_215.jpg", width: '70' , height:'84'
-                %p.right__content__checked-item__price
-                  ¥30000 税込
-                  %p.right__content__checked-item__tax 40%OFF
-
-              %li
-                = link_to '#' do
-                  = image_tag "/assets/35653720_8_D_215.jpg", width: '70' , height:'84'
-                %p.right__content__checked-item__price
-                  ¥30000 税込
-                  %p.right__content__checked-item__tax 40%OFF
-
-              %li
-                = link_to '#' do
-                  = image_tag "/assets/35653720_8_D_215.jpg", width: '70' , height:'84'
-                %p.right__content__checked-item__price
-                  ¥30000 税込
-                  %p.right__content__checked-item__tax 40%OFF
-
-              %li
-                = link_to '#' do
-                  = image_tag "/assets/35653720_8_D_215.jpg", width: '70' , height:'84'
-                %p.right__content__checked-item__price
-                  ¥30000 税込
-                  %p.right__content__checked-item__tax 40%OFF
-
-              %li
-                = link_to '#' do
-                  = image_tag "/assets/35653720_8_D_215.jpg", width: '70' , height:'84'
-                %p.right__content__checked-item__price
-                  ¥30000 税込
-                  %p.right__content__checked-item__tax 40%OFF
 
         %section.right__content__checked-item
           %h2

@@ -1,0 +1,360 @@
+.left__cordination
+
+  %section
+    .left__cordination__target-item
+      %h2 対象商品
+      %span 100000
+      %label 件
+
+  %section.left__cordination__size.clearfix
+    .left__cordination__inner
+      = fa_icon ('user-circle')
+      %h2 あなたサイズ
+      %p 対象カテゴリーを選択するとあなたに最適なサイズの商品で絞り込めます
+    .left__cordination__box
+      .left__cordination__slide 使用できません。
+
+  .left__cordination__search
+    %section.left__cordination__gender
+      %h2 性別
+      %ul
+        %li.clearfix#basic-color
+          = link_to '#' do
+            %span メンズ
+            = fa_icon ('times-circle')
+        %li
+          = link_to '#' do
+            %span レディース
+        %li
+          = link_to '#' do
+            %span キッズ
+            = fa_icon ('chevron-right')
+
+    %section.left__cordination__price
+      %h2 価格タイプ
+      %ul
+        %li
+          = link_to '#' do
+            %span 通常価格
+        %li
+          = link_to '#' do
+            %label セール価格
+
+    %section.left__cordination__bland
+      %h2 ブランド
+      %ul
+        %li
+          = link_to '#' do
+            %span お気に入りブランド
+            = fa_icon ('chevron-right')
+        %p ブランドを選択する
+
+    %section.left__cordination__shop
+      %h2 ショップ
+      %p ショップを選択する
+
+    %section
+      %h2 カテゴリー
+      %ul.left__content__list-category
+        %li#category-js-show
+          = link_to '#' do
+            %label トップス
+            = fa_icon 'chevron-right', id:'chevron-right'
+            #category-js-hide
+              %ul
+                %li
+                  = link_to 'Tシャツ/カットソー' , '#'
+                %li
+                  = link_to 'シャツ/ブラウス', '#'
+                %li
+                  = link_to 'ポロシャツ', '#'
+                %li
+                  = link_to 'ニット/セーター', '#'
+                %li
+                  = link_to 'ベスト', '#'
+                %li
+                  = link_to 'パーカー', '#'
+                %li
+                  = link_to 'スウェット', '#'
+                %li
+                  = link_to 'カーディガン', '#'
+                %li
+                  = link_to 'アンサンブル', '#'
+                %li
+                  = link_to 'ジャージ', '#'
+                %li
+                  = link_to 'タンクトップ', '#'
+                %li
+                  = link_to 'キャミソール', '#'
+                %li
+                  = link_to 'チューブトップ', '#'
+                %li
+                  = link_to 'その他トップス', '#'
+
+        %li#category-js-show-outer
+          = link_to '#' do
+            %label ジャケット/アウター
+            = fa_icon 'chevron-right', id:'chevron-right'
+            #category-js-hide-outer
+              %ul
+                %li
+                  = link_to 'テーラードジャケット' , '#'
+                %li
+                  = link_to 'ノーカラージャケット', '#'
+                %li
+                  = link_to 'デニムジャケット', '#'
+                %li
+                  = link_to 'ライダースジャケット', '#'
+                %li
+                  = link_to 'ブルゾン', '#'
+                %li
+                  = link_to 'カバーオール', '#'
+                %li
+                  = link_to 'ミリタリージャケット', '#'
+                %li
+                  = link_to 'MA1', '#'
+                %li
+                  = link_to 'ダウンベスト', '#'
+                %li
+                  = link_to 'ダウンジャケット/コート', '#'
+                %li
+                  = link_to 'ダッフルコート', '#'
+                %li
+                  = link_to 'モッズコート', '#'
+                %li
+                  = link_to 'ピーコート', '#'
+                %li
+                  = link_to 'ステンカラーコート', '#'
+                %li
+                  = link_to 'トレンチコート', '#'
+                %li
+                  = link_to 'チェスターコート', '#'
+                %li
+                  = link_to 'ムートンコート', '#'
+                %li
+                  = link_to 'ナイロンジャケット', '#'
+                %li
+                  = link_to 'マウンテンパーカー', '#'
+                %li
+                  = link_to 'スタジャン', '#'
+                %li
+                  = link_to 'スカジャン', '#'
+                %li
+                  = link_to 'ポンチョ', '#'
+                %li
+                  = link_to 'その他アウター', '#'
+
+        %li#category-js-show-pant
+          = link_to '#' do
+            %lavel パンツ
+            = fa_icon 'chevron-right', id:'chevron-right'
+            #category-js-hide-pant
+              %ul
+                %li
+                  = link_to 'デニムパンツ' , '#'
+                %li
+                  = link_to 'カーゴパンツ', '#'
+                %li
+                  = link_to 'チノパンツ', '#'
+                %li
+                  = link_to 'スラックス', '#'
+                %li
+                  = link_to 'パンツ', '#'
+
+        %li
+          = link_to '#' do
+            %lavel オールインワン
+            = fa_icon 'chevron-right', id:'chevron-right'
+        %li
+          = link_to '#' do
+            %lavel スカート
+            = fa_icon 'chevron-right', id:'chevron-right'
+        %li
+          = link_to '#' do
+            %lavel ワンピース
+            = fa_icon 'chevron-right', id:'chevron-right'
+        %li
+          = link_to '#' do
+            %lavel スーツ/ネクタイ
+            = fa_icon 'chevron-right', id:'chevron-right'
+        %li
+          = link_to '#' do
+            %lavel バッグ
+            = fa_icon 'chevron-right', id:'chevron-right'
+        %li
+          = link_to '#' do
+            %lavel シューズ
+            = fa_icon 'chevron-right', id:'chevron-right'
+        %li
+          = link_to '#' do
+            %lavel ファッション雑貨
+            = fa_icon 'chevron-right', id:'chevron-right'
+        %li
+          = link_to '#' do
+            %lavel 財布/小物
+            = fa_icon 'chevron-right', id:'chevron-right'
+        %li
+          = link_to '#' do
+            %lavel 時計
+            = fa_icon 'chevron-right', id:'chevron-right'
+        %li
+          = link_to '#' do
+            %lavel ヘアアクセサリー
+            = fa_icon 'chevron-right', id:'chevron-right'
+        %li
+          = link_to '#' do
+            %lavel アクセサリー
+            = fa_icon 'chevron-right', id:'chevron-right'
+        %li
+          = link_to '#' do
+            %lavel アンダーウェア
+            = fa_icon 'chevron-right', id:'chevron-right'
+        %li
+          = link_to '#' do
+            %lavel レッグウェア
+            = fa_icon 'chevron-right', id:'chevron-right'
+        %li
+          = link_to '#' do
+            %lavel 帽子
+            = fa_icon 'chevron-right', id:'chevron-right'
+        %li
+          = link_to '#' do
+            %lavel インテリア
+            = fa_icon 'chevron-right', id:'chevron-right'
+        %li
+          = link_to '#' do
+            %lavel 食器/キッチン
+            = fa_icon 'chevron-right', id:'chevron-right'
+        %li
+          = link_to '#' do
+            %lavel 雑貨/ホビー/スポーツ
+            = fa_icon 'chevron-right', id:'chevron-right'
+        %li
+          = link_to '#' do
+            %lavel コスメ/ヘルスケア
+            = fa_icon 'chevron-right', id:'chevron-right'
+        %li
+          = link_to '#' do
+            %lavel 音楽/本・雑誌
+            = fa_icon 'chevron-right', id:'chevron-right'
+        %li
+          = link_to '#' do
+            %lavel 水着/着物・浴衣
+            = fa_icon 'chevron-right', id:'chevron-right'
+        %li
+          = link_to '#' do
+            %lavel マタニティ/ベビー
+            = fa_icon 'chevron-right', id:'chevron-right'
+        %li
+          = link_to '#' do
+            %lavel その他
+            = fa_icon 'chevron-right', id:'chevron-right'
+
+    %section.left__cordination__user
+      %h2 ユーザータイプ
+      %p 公認ユーザー
+
+    %section.left__cordination__user
+      %h2 身長
+      .left__cordination__slider
+        .left__cordination__slider__inner
+          .left__cordination__slider__bar#slider
+            .left__cordination__slider__control#slider
+              %input#min{:readonly => "readonly", :size => "3", :type => "text"}/
+              %span.left__cordination__slider__text cm
+              %input#max{:readonly => "readonly", :size => "3", :type => "text"}/
+              %span.left__cordination__slider__text cm
+    %ul.left__cordination__slider__button.clearfix
+      %li.left__cordination__slider__button__clear clear
+      %li.left__cordination__slider__button__ok ok
+
+    %section.left__cordination__user
+      %h2 価格
+      .left__cordination__slider
+        .left__cordination__slider__inner
+          .left__cordination__slider__bar#slider-price
+            .left__cordination__slider__control#slider-price
+              %input#min-price{:readonly => "readonly", :size => "3", :type => "text"}/
+              %span.left__cordination__slider__text cm
+              %input#max-price{:readonly => "readonly", :size => "3", :type => "text"}/
+              %span.left__cordination__slider__text cm
+    %ul.left__cordination__slider__button
+      %li.left__cordination__slider__button__clear clear
+      %li.left__cordination__slider__button__ok ok
+
+    %section.left__cordination__color
+      %h2 カラー
+      %ul
+        %li#color-white
+          %span
+          = link_to '#' do
+            %label
+        %li#color-black
+          %span
+          = link_to '#' do
+            %label
+        %li#color-gray
+          %span
+          = link_to '#' do
+            %label
+        %li#color-blown
+          %span
+          = link_to '#' do
+            %labe#color-blackl
+        %li#color-beige
+          %span
+          = link_to '#' do
+            %label
+        %li#color-green
+          %span
+          = link_to '#' do
+            %label
+        %li#color-blue
+          %span
+          = link_to '#' do
+            %label
+        %li#color-purple
+          %span
+          = link_to '#' do
+            %label
+        %li#color-yellow
+          %span
+          = link_to '#' do
+            %label
+        %li#color-pink
+          %span
+          = link_to '#' do
+            %label
+        %li#color-red
+          %span
+          = link_to '#' do
+            %label
+        %li#color-orange
+          %span
+          = link_to '#' do
+            %label
+        %li#color-silver
+          %span
+          = link_to '#' do
+            %label
+        %li#color-gold
+          %span
+          = link_to '#' do
+            %label
+        %li
+          = link_to '#' do
+            .left__cordination__color__other
+              .left__cordination__color__other__red
+              .left__cordination__color__other__green
+              .left__cordination__color__other__yellow
+              .left__cordination__color__other__blue
+
+    %section.left__cordination__gift
+      %h2 ギフトラッピング
+      = link_to '#' do
+        %p ラッピング対応商品
+
+    %section.left__cordination__coupon
+      %h2 クーポン
+      = link_to '#' do
+        %p クーポン対応商品

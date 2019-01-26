@@ -1,16 +1,23 @@
-%script{ src: "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"}
-%script{ src: "https://code.jquery.com/jquery-3.3.1.min.js"}
-%script{:src => "/assets/jquery.color.js", :type => "text/javascript"}
-%script{:src => "https://cdnjs.cloudflare.com/ajax/libs/jquery-color/2.1.2/jquery.color.js"}
-%script{:src => "http://code.jquery.com/ui/1.10.3/jquery-ui.min.js", :type => "text/javascript"}
-%script{ src: "https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"}
-%link{:href => "http://code.jquery.com/ui/1.10.3/themes/cupertino/jquery-ui.min.css", :rel => "stylesheet", :type => "text/css"}/
-%link{:crossorigin => "anonymous", :href => "https://use.fontawesome.com/releases/v5.6.3/css/all.css", :integrity => "sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/", :rel => "stylesheet"}/
+%body.fashion_ec_sample
+  %script{ src: "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"}
+  %script{ src: "https://code.jquery.com/jquery-3.3.1.min.js"}
+  %script{:src => "/assets/jquery.color.js", :type => "text/javascript"}
+  %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/jquery-color/2.1.2/jquery.color.js"}
+  %script{:src => "http://code.jquery.com/ui/1.10.3/jquery-ui.min.js", :type => "text/javascript"}
+  %script{ src: "https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"}
+  %link{:href => "http://code.jquery.com/ui/1.10.3/themes/cupertino/jquery-ui.min.css", :rel => "stylesheet", :type => "text/css"}/
+  %link{:crossorigin => "anonymous", :href => "https://use.fontawesome.com/releases/v5.6.3/css/all.css", :integrity => "sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/", :rel => "stylesheet"}/
 
-= render partial: 'shared/header-notice'
+  = render partial: 'shared/header-notice'
 
-= render partial: 'shared/header-logged-in'
-.breadCrumb
+  - if user_signed_in?
+    = render partial: 'shared/header-logged-in'
+  - else
+    = render partial: 'shared/header-log-in'
+
+  .breadCrumb__fav
+    - breadcrumb :favorite
+    = breadcrumbs  separator: " > "
 
 .fav__main__content
   .fav__main__content__name
@@ -34,7 +41,7 @@
       %li
         = link_to 'ブランド' , '#'
       %li
-        = link_to 'ショップ' , '#'
+        = link_to 'ショップ' , favorite_shop_favorites_path
       .delete__right
         %button{type: :button, class: "delete", id: "delete-msg"}複数削除する
         %button{type: :button, class: "delete", id: "cancel-msg", style:"display: none"}キャンセル
@@ -44,7 +51,7 @@
       %li
         %span アイテム
         %span
-          = @favorites.length
+          #{@favorites.length}
         %span 件
       %li.all-shop-show
         %span すべてのショップ
@@ -90,10 +97,8 @@
 
             .fav__main__image__box__bottom.clearfix
               %p ¥ #{item.stock.item.price}
-              %p #{100-item.stock.item.coupon*100} %OFF
-
+              %p #{(100-item.stock.item.coupon*100).ceil} %OFF
               %input.input-check#multi__delete{type: :checkbox, form: "form", value: "#{item.id}", name: "stock_id[]"}
-
               .fav__main__image__box__cart#cart-icon
                 = link_to trades_path(trade:{stock_id:item.stock.id , user_id: current_user.id , status: 0 ,count: item.stock.count,total:item.stock.item.price}), method: :post do
                   = fa_icon ('shopping-cart')

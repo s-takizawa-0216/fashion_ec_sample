@@ -8,6 +8,8 @@ class FavoritesController < ApplicationController
     @user = User.find(user_id)
     @favorites = FavStock.where(user_id:current_user.id)
     @favorite_shops = FavShop.where(user_id:current_user.id)
+    @shops = Stock.where(id:@favorites.uniq{|i|i.stock_id}.pluck(:stock_id)).uniq{|e|e.shop_id}
+    @categories = Item.where(id:Stock.where(id:@favorites.uniq{|i|i.stock_id}.pluck(:stock_id)).pluck(:item_id))
   end
 
   def favorite_shop
@@ -18,7 +20,6 @@ class FavoritesController < ApplicationController
     @favorites = FavStock.where(user_id: current_user.id)
     @shops = Stock.where(id:@favorites.uniq{|i|i.stock_id}.pluck(:stock_id)).uniq{|e|e.shop_id}
     @categories = Item.where(id:Stock.where(id:@favorites.uniq{|i|i.stock_id}.pluck(:stock_id)).pluck(:item_id))
-
   end
 
   def create

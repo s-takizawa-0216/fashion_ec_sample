@@ -10,6 +10,7 @@ class TradesController < ApplicationController
     @once_in_cart = Trade.where(status: 1, user_id: current_user.id)
     @items_sum = @open_trade.sum{|trade|trade[:total]}
     @sum_arigato = @items_sum*0.9
+    @favorite_shops = FavShop.where(user_id:current_user.id)
   end
 
   def minus_count

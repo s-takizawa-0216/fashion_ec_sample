@@ -88,6 +88,7 @@ class ItemsController < ApplicationController
     @number3 = [*3..3].take(1)
     @other_most_viewd = Item.order('impressions_count DESC').offset(3).take(17)
     @number4_20 = [*4..20]
+    @favorite_shops = FavShop.where(user_id:current_user.id)
   end
 
 

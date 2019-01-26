@@ -98,8 +98,6 @@
             .fav__main__image__box__bottom.clearfix
               %p ¥ #{item.stock.item.price}
               %p #{(100-item.stock.item.coupon*100).ceil} %OFF
-              .fav__main__image__box__cart
-              %p #{100-item.stock.item.coupon*100} %OFF
               %input.input-check#multi__delete{type: :checkbox, form: "form", value: "#{item.id}", name: "stock_id[]"}
               .fav__main__image__box__cart#cart-icon
                 = link_to trades_path(trade:{stock_id:item.stock.id , user_id: current_user.id , status: 0 ,count: item.stock.count,total:item.stock.item.price}), method: :post do

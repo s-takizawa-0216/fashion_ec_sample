@@ -30,8 +30,6 @@ class ItemsController < ApplicationController
     @shop_other_rank = Shop.offset(3).take(17)
     @shop_other_number_4_20 = [*4..20]
 
-    @user = User.find(user_id)
-
     @rank1_shop = Shop.order('impressions_count DESC').take(1)
 
     @favorite_shops = FavShop.where(user_id:current_user.id)

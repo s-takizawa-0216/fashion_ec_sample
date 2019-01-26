@@ -202,7 +202,7 @@
             position: absolute;
             left:-999999px;
             top: 0;
-            z-index: 1;
+            z-index: 10;
             width: 322px;
             background: #ffffff;
             box-shadow: 0 2px 8px rgba(77,77,77,0.2);
@@ -239,7 +239,7 @@
             position: absolute;
             left:-999999px;
             top: 0;
-            z-index: 1;
+            z-index: 10;
             width: 322px;
             background: #ffffff;
             box-shadow: 0 2px 8px rgba(77,77,77,0.2);
@@ -432,7 +432,6 @@
                 right:0;
                 top:0;
                 bottom:0;
-
               }
             }
           }
@@ -451,6 +450,8 @@
                 .right__content__price {
                   margin-left: 3px;
                   font-size: 15px;
+                  font-size: 10px;
+                  color:#2d2d2d;
                 }
 
                 .right__content__tax {
@@ -476,18 +477,21 @@
 
           &__content {
             margin-top: 10px;
+            list-style: none;
 
             >ul {
+            }
 
               >li {
                 float: left;
-                margin-right: 15px;
+                margin-right: 10px;
+                margin-top: 10px;
+                position: relative;
 
               // &:hover {
               //   opacity: 0.7;
               // }
               }
-            }
           }
 
             .rank {
@@ -512,11 +516,11 @@
                    line-height: 1.1;
                    margin: 3px 0 0;
                    color:#E73656;
-                   font-size: 13px;
+                   font-size: 10px;
                    overflow: hidden;
                    text-overflow: ellipsis;
                    white-space: nowrap;
-                   display: inline-block;
+
 
                    >span {
                     font-size: 10px;
@@ -536,8 +540,8 @@
               >ul {
 
                 >li {
-                  float: left;
                   margin-right: 15px;
+                  float:left;
 
                 // &:hover {
                 //   opacity: 0.7;
@@ -621,6 +625,7 @@
 
                 &__content-rank-other {
                 position: relative;
+
 
                   >span {
                     border-radius: 50%;
@@ -1637,26 +1642,21 @@
   }
 }
 
+.coupon__label {
+  background:rgba(254,63,81,0.9);
+  width: 90px;
+  position: absolute;
+  bottom:45px;
+
+  >span {
+    font-size: 10px;
+    color:#FFFFFF;
+    padding:5px;
+  }
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.right__content__coupon__price__none {
+  font-size: 10px;
+  color:#2d2d2d;
+}

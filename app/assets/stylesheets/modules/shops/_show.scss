@@ -1,0 +1,187 @@
+.main__shops__top {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #DEDEDE;
+  color:#FFFFFF;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.main__shops__main {
+  width: 980px;
+  margin: 0 auto;
+}
+
+
+.main__shops__left {
+  float: left;
+}
+
+
+.main__shops__right {
+  width: 700px;
+  float: right;
+  margin-top: 20px;
+
+  &__name {
+    background-color: #DEDEDE;
+    height: 200px;
+    text-align: center;
+    line-height: 200px;
+    color: #FFFFFF;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  &__subname {
+    text-align: center;
+    margin-top: 5px;
+
+    >h3 {
+      color:#2d2d2d;
+    }
+
+    >h4 {
+      color:#DEDEDE;
+    }
+  }
+}
+
+.main__shops__right__tub {
+  width: 700px;
+  margin-top: 20px;
+
+  >ul {
+
+  }
+
+    &__new {
+      float: left;
+      padding: 20px 40px;
+      border: 2px solid #DEDEDE;
+      border-bottom: 2px solid #FFFFFF;
+      margin-right: 5px;
+
+      >a {
+
+        >span {
+          color:#2D2D2D;
+        }
+      }
+    }
+
+    &__cordination {
+      float: left;
+      padding: 20px 40px;
+      background-color: #DEDEDE;
+
+      >a {
+
+        >span {
+          color:#2D2D2D;
+        }
+      }
+    }
+}
+
+
+.main__shops__right__category {
+  width: 700px;
+  margin-top: 20px;
+  list-style: none;
+
+  >ul {
+
+  }
+
+    >li {
+      float: left;
+      margin-right: 20px;
+
+      >a {
+        color:#007ebe;
+      }
+    }
+}
+
+.main__shops__right__stock {
+  width: 700px;
+  border-top: 1px solid #DEDEDE;
+  margin-top: 20px;
+
+  >ul {
+
+    >li {
+      float: left;
+      padding:20px 20px 20px 0 ;
+
+      >a {
+        color:#2D2D2D;
+      }
+    }
+  }
+}
+
+.main__shops__right__item {
+  width: 700px;
+  list-style: none;
+
+  >ul {
+
+
+    >li {
+      margin-right: 12px;
+    }
+  }
+}
+
+.main__shops__right__item__box {
+  float: left;
+  margin-right: 15px;
+  font-size: 12px;
+
+  &__shop {
+
+    >a {
+    color:#DEDEDE;
+    }
+  }
+
+  &__arigato {
+    word-wrap: break-word;
+    width: 128px;
+  }
+
+  &__price {
+    color:#e73656;
+  }
+
+  &__arigato {
+   color:#c49a44;
+   font-size: 10px;
+  }
+
+  &__arigato__text {
+    color:#c49a44;
+    font-size: 15px;
+    font-weight: bold;
+  }
+}
+
+.main__shops__right__favorite {
+  color:#e73656;
+  font-size: 12px;
+
+  >i {
+    color:#FF82B2;
+  }
+}
+
+
+.btn-fav {
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color:#007ebe;
+}

@@ -1,0 +1,44 @@
+.fav__shop__all {
+  width: 200px;
+  height: 30px;
+  background-color:#007ebe;
+  position: relative;
+  left:570px;
+
+  >a {
+    color:#FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+    padding-left:10px;
+
+    >span {
+      padding-left:10px;
+      line-height: 30px;
+    }
+  }
+}
+
+.fav__main__content__shop {
+  width: 980px;
+  margin: 10px auto;
+  list-style: none;
+  text-align: center;
+
+  >ul {
+
+  }
+    >li {
+      width: 200px;
+      height: 100px;
+      background-color: #DCDCDC;
+      float: left;
+      margin-right: 10px;
+      margin-top: 10px;
+
+      >a{
+        color:#FFFFFF;
+        line-height: 100px;
+        overflow: hidden;
+      }
+    }
+}

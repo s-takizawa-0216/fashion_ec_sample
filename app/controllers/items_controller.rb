@@ -32,7 +32,9 @@ class ItemsController < ApplicationController
 
     @rank1_shop = Shop.order('impressions_count DESC').take(1)
 
-    @favorite_shops = FavShop.where(user_id:current_user.id)
+    if user_signed_in?
+      @favorite_shops = FavShop.where(user_id:current_user.id)
+    end
 
   end
 

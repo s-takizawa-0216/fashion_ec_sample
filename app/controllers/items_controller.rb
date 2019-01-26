@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @arigatoPrice = (@item.price * 0.7).round
+    @arigatoPrice = (@item.price * 0.9).round
     @item_image_line = @item.images
     @trade = Trade.new
     @popular_item = Item.find(params[:id])

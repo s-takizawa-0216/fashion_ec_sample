@@ -8,13 +8,13 @@ class ItemsController < ApplicationController
     @zozo = Item.order("created_at DESC").limit(3)
     @coupon_item = Item.where.not(coupon: 1).order("created_at DESC").limit(3)
     @coupon_other_item = Item.where.not(coupon: 1).order("created_at DESC").offset(3).take(4)
-    # @rank1 = Item.order('impressions_count DESC').take(1)
-    # @rank2 = Item.order('impressions_count DESC').offset(1).take(1)
-    # @rank3 = Item.order('impressions_count DESC').offset(2).take(1)
+    @rank1 = Item.order('impressions_count DESC').take(1)
+    @rank2 = Item.order('impressions_count DESC').offset(1).take(1)
+    @rank3 = Item.order('impressions_count DESC').offset(2).take(1)
     @number1 = [*1..3].take(1)
     @number2 = [*2..3].take(1)
     @number3 = [*3..3].take(1)
-    # @other_most_viewd = Item.order('impressions_count DESC').offset(3).take(20)
+    @other_most_viewd = Item.order('impressions_count DESC').offset(3).take(20)
     @number4_23 = [*4..23]
 
     @brand_rank1 = Brand.offset(0).take(1)
@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
     @shop_other_rank = Shop.offset(3).take(17)
     @shop_other_number_4_20 = [*4..20]
 
-    # @rank1_shop = Shop.order('impressions_count DESC').take(1)
+    @rank1_shop = Shop.order('impressions_count DESC').take(1)
 
     if user_signed_in?
       @favorite_shops = FavShop.where(user_id:current_user.id)

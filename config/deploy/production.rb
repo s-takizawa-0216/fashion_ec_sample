@@ -62,5 +62,7 @@
 
 server '52.192.244.140', user: 'ec2-user', roles: %w{app db web}
 
+ ActiveRecord::Base.logger = Logger.new("log/debug.log")
+  ActiveRecord::Base.logger.level = 0
 
 

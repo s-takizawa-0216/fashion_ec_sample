@@ -161,7 +161,7 @@
                       = link_to 'zozo'
                     %dd.header__right__popup__font
                       = link_to 'zozo'
-                  - if @favorite_shop.present?
+                  - unless @favorite_shop.present?
                     %dl.header__right__popup__shop.clearfix
                       %dt ショップ
                       %dd.header__right__popup__favlogo
@@ -169,7 +169,7 @@
                       %dd.header__right__popup__shfont
                         %p お気に入りのショップを
                         見つけよう！
-                  - else
+                  - if @favorite_shop.present?
                     %dl.header__right__popup__shop
                       %dt ショップ
                       %dd.header__right__popup__shop__add.clearfix

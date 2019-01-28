@@ -1,1 +1,1143 @@
-hello world
+// 注意 link_to のパス部分はクオーテーションは不要！！
+%head
+
+%body.fashion_ec_sample
+  %script{ src: "https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"}
+  %link{:href => "http://code.jquery.com/ui/1.10.3/themes/cupertino/jquery-ui.min.css", :rel => "stylesheet", :type => "text/css"}/
+  %link{:crossorigin => "anonymous", :href => "https://use.fontawesome.com/releases/v5.6.3/css/all.css", :integrity => "sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/", :rel => "stylesheet"}/
+
+  = render partial: 'shared/header-notice'
+
+  - if user_signed_in?
+    = render partial: 'shared/header-logged-in'
+  - else
+    = render partial: 'shared/header-log-in'
+
+.header__content.clearfix
+  .header__content__box
+    %ul.header__content__ul
+      %li.header__content__list#tab-all
+        =link_to 'すべて', '#' , id: 'tab-all-js'
+      %li.header__content__list#tab-mens
+        =link_to 'メンズ', '#' , id: 'tab-mens-js'
+      %li.header__content__list#tab-womens
+        =link_to 'レディース', '#' , id: 'tab-womens-js'
+      %li.header__content__list#tab-kids
+        =link_to 'キッズ' , '#' , id: 'tab-kids-js'
+      .header__content__list-news
+        = link_to 'ZOZOTOWNからのお知らせ'
+
+
+.main#main__contents
+  .main__content.clearfix
+    .left__content
+      %section
+        %h2 探す
+        %ul.left__content__list
+          %li
+            = link_to 'ブランドから探す'
+          %li
+            = link_to 'ショップから探す' , shops_path
+          %li
+            = link_to 'ランキングから探す' , ranking_items_path
+          %li
+            = link_to 'コーディネイトから探す'
+          %li
+            = link_to 'こだわり条件から探す'
+
+      %section
+        %h2 カテゴリー
+        %ul.left__content__list-category
+          %li#category-js-show
+            = link_to '#' do
+              %label トップス
+              = fa_icon 'chevron-right', id:'chevron-right'
+              #category-js-hide
+                %ul
+                  %li
+                    = link_to 'Tシャツ/カットソー' , '#'
+                  %li
+                    = link_to 'シャツ/ブラウス', '#'
+                  %li
+                    = link_to 'ポロシャツ', '#'
+                  %li
+                    = link_to 'ニット/セーター', '#'
+                  %li
+                    = link_to 'ベスト', '#'
+                  %li
+                    = link_to 'パーカー', '#'
+                  %li
+                    = link_to 'スウェット', '#'
+                  %li
+                    = link_to 'カーディガン', '#'
+                  %li
+                    = link_to 'アンサンブル', '#'
+                  %li
+                    = link_to 'ジャージ', '#'
+                  %li
+                    = link_to 'タンクトップ', '#'
+                  %li
+                    = link_to 'キャミソール', '#'
+                  %li
+                    = link_to 'チューブトップ', '#'
+                  %li
+                    = link_to 'その他トップス', '#'
+
+          %li#category-js-show-outer
+            = link_to '#' do
+              %label ジャケット/アウター
+              = fa_icon 'chevron-right', id:'chevron-right'
+              #category-js-hide-outer
+                %ul
+                  %li
+                    = link_to 'テーラードジャケット' , '#'
+                  %li
+                    = link_to 'ノーカラージャケット', '#'
+                  %li
+                    = link_to 'デニムジャケット', '#'
+                  %li
+                    = link_to 'ライダースジャケット', '#'
+                  %li
+                    = link_to 'ブルゾン', '#'
+                  %li
+                    = link_to 'カバーオール', '#'
+                  %li
+                    = link_to 'ミリタリージャケット', '#'
+                  %li
+                    = link_to 'MA1', '#'
+                  %li
+                    = link_to 'ダウンベスト', '#'
+                  %li
+                    = link_to 'ダウンジャケット/コート', '#'
+                  %li
+                    = link_to 'ダッフルコート', '#'
+                  %li
+                    = link_to 'モッズコート', '#'
+                  %li
+                    = link_to 'ピーコート', '#'
+                  %li
+                    = link_to 'ステンカラーコート', '#'
+                  %li
+                    = link_to 'トレンチコート', '#'
+                  %li
+                    = link_to 'チェスターコート', '#'
+                  %li
+                    = link_to 'ムートンコート', '#'
+                  %li
+                    = link_to 'ナイロンジャケット', '#'
+                  %li
+                    = link_to 'マウンテンパーカー', '#'
+                  %li
+                    = link_to 'スタジャン', '#'
+                  %li
+                    = link_to 'スカジャン', '#'
+                  %li
+                    = link_to 'ポンチョ', '#'
+                  %li
+                    = link_to 'その他アウター', '#'
+
+          %li#category-js-show-pant
+            = link_to '#' do
+              %lavel パンツ
+              = fa_icon 'chevron-right', id:'chevron-right'
+              #category-js-hide-pant
+                %ul
+                  %li
+                    = link_to 'デニムパンツ' , '#'
+                  %li
+                    = link_to 'カーゴパンツ', '#'
+                  %li
+                    = link_to 'チノパンツ', '#'
+                  %li
+                    = link_to 'スラックス', '#'
+                  %li
+                    = link_to 'パンツ', '#'
+
+          %li
+            = link_to '#' do
+              %lavel オールインワン
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel スカート
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel ワンピース
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel スーツ/ネクタイ
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel バッグ
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel シューズ
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel ファッション雑貨
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel 財布/小物
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel 時計
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel ヘアアクセサリー
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel アクセサリー
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel アンダーウェア
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel レッグウェア
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel 帽子
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel インテリア
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel 食器/キッチン
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel 雑貨/ホビー/スポーツ
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel コスメ/ヘルスケア
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel 音楽/本・雑誌
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel 水着/着物・浴衣
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel マタニティ/ベビー
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to '#' do
+              %lavel その他
+              = fa_icon 'chevron-right', id:'chevron-right'
+          %li
+            = link_to 'カテゴリ一覧' , '#' , id: 'category-all'
+
+      %section.favorite
+        %h2
+          %label お気に入り
+          %span NEW
+        %ul.left__content__list-category
+          %li
+            = link_to 'アイテム' , '#'
+
+          %li#fav-js-show
+            = link_to '#' do
+              %label ブランド
+              = fa_icon 'chevron-right', id:'chevron-right'
+              #fav-js-hide
+                .fav__box
+                  .fav__box__icon
+                    = fa_icon ('heart 3x')
+                  .fav__box__text
+                    %p 会員でない方でも「お気に入り」が
+                    %p 使えるようになりました。
+                  .fav__box__button
+                    = link_to '詳しくはこちら ' , '#'
+
+          %li#fav-js-show-shop
+            = link_to '#' do
+              %label ショップ
+              = fa_icon 'chevron-right', id:'chevron-right'
+              #fav-js-hide-shop
+                .fav__box
+                  .fav__box__icon
+                    = fa_icon ('heart 3x')
+                  .fav__box__text
+                    %p 会員でない方でも「お気に入り」が
+                    %p 使えるようになりました。
+                  .fav__box__button
+                    = link_to '詳しくはこちら ' , '#'
+
+
+
+      %section
+        %h2 ブランド
+        %ol.left__content__list-bland
+      - @brand_rank1.zip(@number1).each do |brand , number|
+        %li
+          %span#rank1 #{number}
+          = link_to '#' do
+            #{brand.name}
+
+      - @brand_rank2.zip(@number2).each do |brand , number|
+        %li
+          %span#rank2 #{number}
+          = link_to '#' do
+            #{brand.name}
+
+      - @brand_rank3.zip(@number3).each do |brand , number|
+        %li
+          %span#rank3 #{number}
+          = link_to '#' do
+            #{brand.name}
+
+        - @brand_other_rank.zip(@brand_other_number_4_20).each do |brand , number|
+          %li
+            %span#rank-other #{number}
+            = link_to '#' do
+              #{brand.name}
+
+        %li
+          = link_to 'ブランド一覧' , '#' , id: 'shop_bland-all'
+
+      %section
+        %h2 ショップ
+        %ol.left__content__list-bland
+      - @shop_rank1.zip(@number1).each do |shop , number|
+        %li
+          %span#rank1 #{number}
+          = link_to "#" do
+            #{shop.name}
+      - @shop_rank2.zip(@number2).each do |shop , number|
+        %li
+          %span#rank2  #{number}
+          = link_to "#" do
+            #{shop.name}
+      - @shop_rank3.zip(@number3).each do |shop , number|
+        %li
+          %span#rank3  #{number}
+          = link_to "#" do
+            #{shop.name}
+        - @shop_other_rank.zip(@shop_other_number_4_20).each do |shop , number|
+          %li
+            %span#rank-other #{number}
+            = link_to "#" do
+              #{shop.name}
+
+
+        %li
+          = link_to 'ショップ一覧' , '#' , id: 'shop_bland-all'
+
+      %section
+        %h2 モール
+        %ul.left__content__list
+          %li
+            = link_to 'ZOZOUSED', '#'
+        .left__content__image
+          %ul.left__content__list
+            %li
+              = link_to '#' do
+                = image_tag ("/assets/pc_banner_used_20170907.png")
+
+      %section.dd
+        %h2 採用情報
+        %ul.left__content__list-recruit
+          %li
+            = link_to '#' do
+              %label
+              %p カスタマーサポート 中途採用
+              %p.bottom-text ZOZOTOWN
+          %li
+            = link_to '#' do
+              %label
+              %p つくば商品管理アルバイト採用
+              %p.bottom-text ZOZOTOWN
+          %li
+            = link_to '#' do
+              %label
+              %p お直しスタッフ アルバイト採用
+              %p.bottom-text プライベートブランド ZOZO
+          %li
+            = link_to '#' do
+              %label
+              %p エンジニア・商品管理中途採用
+              %p.bottom-text ZOZOUSED
+          %li
+            = link_to '採用情報一覧' , '#' , id: 'category-all'
+
+    .right__content.clearfix
+      .right__content__top
+        %section.clearfix
+          %ul.clearfix
+          - @zozo.each do |item|
+            %li
+              = link_to "items/#{item.id}" do
+                = image_tag "#{item.images.first.image}", width: '171' , height:'205'
+              .right__content__price-box
+                .right__content__bland-name
+                  zozo
+                .right__content__price
+                  ¥ #{item.price}
+                  %small.right__content__tax
+                    %span 税込
+
+          .zozo-item
+            = link_to 'ZOZOアイテム一覧' , '#'
+
+        %section.right__content__coupon
+          %h2 クーポン対象アイテム
+          .right__content__coupon__content.clearfix
+            %ul
+            - @coupon_item.each do |item|
+              %li
+                = link_to "items/#{item.id}" do
+                  = image_tag "#{item.images.first.image}", width: '171' , height:'205'
+                  .coupon__label
+                    %span ¥ #{(item.price*item.coupon).ceil}クーポン
+                %p.right__content__coupon__text
+                  #{item.brand.name}
+                %p.right__content__coupon__price
+                  ¥ #{item.price}
+                  %span 税込
+                  %span #{(100-item.coupon*100).ceil} %OFF
+
+
+            - @coupon_other_item.each do |item|
+              %li
+                = link_to "items/#{item.id}" do
+                  = image_tag "#{item.images.first.image}", width: '125' , height:'150'
+                  .coupon__label
+                    %span ¥ #{(item.price*item.coupon).ceil}クーポン
+                %p.right__content__coupon__text
+                  #{item.brand.name}
+                %p.right__content__coupon__price
+                  ¥ #{item.price}
+                  %span 税込
+                  %span #{(100-item.coupon*100).ceil} %OFF
+
+          %p.zozo-item
+            = link_to 'クーポン対象アイテム一覧' , '#'
+
+        %section.right__content__ranking.clearfix
+          %h2 人気アイテムランキング
+          .right__content__ranking__content
+            %ul.clearfix
+              - @rank1.zip(@number1).each do |item, number|
+                %li
+                  %p.right__content__ranking__content-rank1
+                    %span
+                      %label #{number}
+                    = link_to "item/#{item.id}" do
+                      = image_tag "#{item.images.first.image}", width: '171' , height:'205'
+                    %p.right__content__coupon__text
+                      #{item.brand.name}
+                      - if item.coupon == 1.0
+                        %p.right__content__coupon__price__none
+                          ¥#{item.price}
+                          %span 税込
+                      - else
+                        %p.right__content__coupon__price
+                          ¥#{item.price}
+                          %span #{(100-item.coupon*100).ceil} %OFF
+
+              - @rank2.zip(@number2).each do |item, number|
+                %li
+                  %p.right__content__ranking__content-rank2
+                    %span
+                      %label #{number}
+                    = link_to "items/#{item.id}" do
+                      = image_tag "#{item.images.first.image}", width: '171' , height:'205'
+                    %p.right__content__coupon__text
+                      #{item.brand.name}
+                    - if item.coupon == 1.0
+                      %p.right__content__coupon__price__none
+                        ¥#{item.price}
+                        %span 税込
+                    - else
+                      %p.right__content__coupon__price
+                        ¥#{item.price}
+                        %span #{(100-item.coupon*100).ceil} %OFF
+
+
+              - @rank3.zip(@number3).each do |item, number|
+                %li
+                  %p.right__content__ranking__content-rank3
+                    %span
+                      %label #{number}
+                    = link_to "items/#{item.id}" do
+                      = image_tag "#{item.images.first.image}", width: '171' , height:'205'
+                    %p.right__content__coupon__text
+                      #{item.brand.name}
+                    - if item.coupon == 1.0
+                      %p.right__content__coupon__price__none
+                        ¥#{item.price}
+                        %span 税込
+                    - else
+                      %p.right__content__coupon__price
+                        ¥#{item.price}
+                        %span #{(100-item.coupon*100).ceil} %OFF
+
+
+              - @other_most_viewd.zip(@number4_23).each do |item, number|
+                %li.rank
+                  %p.right__content__ranking__content-rank-other
+                    %span
+                      %label #{number}
+                    = link_to "items/#{item.id}" do
+                      = image_tag "#{item.images.first.image}", width: '125' , height:'150'
+                    %p.right__content__coupon__text
+                      #{item.brand.name}
+                    - if item.coupon == 1.0
+                      %p.right__content__coupon__price__none
+                        ¥#{item.price}
+                        %span 税込
+                    - else
+                      %p.right__content__coupon__price
+                        ¥#{item.price}
+                        %span #{(100-item.coupon*100).ceil} %OFF
+
+
+        %p.zozo-item
+          = link_to 'ランキング一覧' , '#'
+
+        %section.right__content__coordination
+          %h2
+            コーディネイト
+            %span
+              powered by
+              = link_to 'WEAR'
+          .right__content__coordination__content.clearfix
+            %ul
+              %li
+                %p.right__content__coordination__content-rank1
+                  %span
+                    %label 1
+                  = link_to '#' do
+                    = image_tag "/assets/35653720_8_D_215.png", width: '174' , height:'258'
+                .right__content__coordination__show
+                  .right__content__coordination__show-item#show__rank1
+                    = link_to '#'  do
+                      %dl
+                        .right__content__coordination__box
+                          %dt Pコート
+                          %dd
+                            ¥40000
+                            %span 税込
+                        %dd
+                          = image_tag "/assets/35653720_8_D_215.png", width: '35' , height:'42'
+
+                  .right__content__coordination__item#show__rank1-js
+                    = link_to '#'  do
+                      %dl.right__content__coordination__hide
+                        .right__content__coordination__box
+                          %dt Pコート
+                          %dd
+                            ¥40000
+                            %span 税込
+                        %dd
+                          = image_tag "/assets/34747132B_8_D_215.png", width: '35' , height:'42'
+
+
+                      %dl.right__content__coordination__hide
+                        .right__content__coordination__box
+                          %dt Pコート
+                          %dd
+                            ¥40000
+                            %span 税込
+                        %dd
+                          = image_tag "/assets/34747132B_8_D_215.png", width: '35' , height:'42'
+
+
+                      %dl.right__content__coordination__hide
+                        .right__content__coordination__box
+                          %dt Pコート
+                          %dd
+                            ¥40000
+                            %span 税込
+                        %dd
+                          = image_tag "/assets/34747132B_8_D_215.png", width: '35' , height:'42'
+                  %p.right__content__coupon__text URBAN RESEARCH
+
+              %li
+                %p.right__content__coordination__content-rank2
+                  %span
+                    %label 2
+                  = link_to '#' do
+                    = image_tag "/assets/35058982B_18_D_215.png", width: '174' , height:'258'
+                .right__content__coordination__show
+                  .right__content__coordination__show-item#show__rank2
+                    = link_to '#'  do
+                      %dl
+                        .right__content__coordination__box
+                          %dt Pコート
+                          %dd
+                            ¥40000
+                            %span 税込
+                        %dd
+                          = image_tag "/assets/35653720_8_D_215.png", width: '35' , height:'42'
+
+                  .right__content__coordination__item#show__rank2-js
+                    = link_to '#'  do
+
+                      %dl.right__content__coordination__hide
+                        .right__content__coordination__box
+                          %dt Pコート
+                          %dd
+                            ¥40000
+                            %span 税込
+                        %dd
+                          = image_tag "/assets/34747132B_8_D_215.png", width: '35' , height:'42'
+
+
+                      %dl.right__content__coordination__hide
+                        .right__content__coordination__box
+                          %dt Pコート
+                          %dd
+                            ¥40000
+                            %span 税込
+                        %dd
+                          = image_tag "/assets/34747132B_8_D_215.png", width: '35' , height:'42'
+
+                      %dl.right__content__coordination__hide
+                        .right__content__coordination__box
+                          %dt Pコート
+                          %dd
+                            ¥40000
+                            %span 税込
+                        %dd
+                          = image_tag "/assets/34747132B_8_D_215.png", width: '35' , height:'42'
+
+                  %p.right__content__coupon__text URBAN RESEARCH
+
+
+              %li
+                %p.right__content__coordination__content-rank3
+                  %span
+                    %label 3
+                  = link_to '#' do
+                    = image_tag "/assets/36256444B_52_D_215.png", width: '174' , height:'258'
+                .right__content__coordination__show
+                  .right__content__coordination__show-item#show__rank3
+                    = link_to '#'  do
+                      %dl
+                        .right__content__coordination__box
+                          %dt Pコート
+                          %dd
+                            ¥40000
+                            %span 税込
+                        %dd
+                          = image_tag "/assets/35653720_8_D_215.png", width: '35' , height:'42'
+
+                  .right__content__coordination__item#show__rank3-js
+                    = link_to '#'  do
+                      %dl.right__content__coordination__hide
+                        .right__content__coordination__box
+                          %dt Pコート
+                          %dd
+                            ¥40000
+                            %span 税込
+                        %dd
+                          = image_tag "/assets/34747132B_8_D_215.png", width: '35' , height:'42'
+
+
+                      %dl.right__content__coordination__hide
+                        .right__content__coordination__box
+                          %dt Pコート
+                          %dd
+                            ¥40000
+                            %span 税込
+                        %dd
+                          = image_tag "/assets/34747132B_8_D_215.png", width: '35' , height:'42'
+
+
+                      %dl.right__content__coordination__hide
+                        .right__content__coordination__box
+                          %dt Pコート
+                          %dd
+                            ¥40000
+                            %span 税込
+                        %dd
+                          = image_tag "/assets/34747132B_8_D_215.png", width: '35' , height:'42'
+
+
+                  %p.right__content__coupon__text URBAN RESEARCH
+
+              %li
+                %p.right__content__coordination__content-coordination-other
+                  %span
+                    %label 4
+                  = link_to '#' do
+                    = image_tag "/assets/35653720_8_D_215.png", width: '174' , height:'258'
+                .right__content__coordination__show
+                  .right__content__coordination__show-item#show__rank4
+                    = link_to '#'  do
+                      %dl
+                        .right__content__coordination__box
+                          %dt Pコート
+                          %dd
+                            ¥40000
+                            %span 税込
+                        %dd
+                          = image_tag "/assets/35653720_8_D_215.png", width: '35' , height:'42'
+
+                  .right__content__coordination__item#show__rank4-js
+                    = link_to '#'  do
+                      %dl.right__content__coordination__hide
+                        .right__content__coordination__box
+                          %dt Pコート
+                          %dd
+                            ¥40000
+                            %span 税込
+                        %dd
+                          = image_tag "/assets/34747132B_8_D_215.png", width: '35' , height:'42'
+
+
+                      %dl.right__content__coordination__hide
+                        .right__content__coordination__box
+                          %dt Pコート
+                          %dd
+                            ¥40000
+                            %span 税込
+                        %dd
+                          = image_tag "/assets/34747132B_8_D_215.png", width: '35' , height:'42'
+
+
+                      %dl.right__content__coordination__hide
+                        .right__content__coordination__box
+                          %dt Pコート
+                          %dd
+                            ¥40000
+                            %span 税込
+                        %dd
+                          = image_tag "/assets/34747132B_8_D_215.png", width: '35' , height:'42'
+                  %p.right__content__coupon__text URBAN RESEARCH
+
+              %li
+                %p.right__content__coordination__content-coordination-other
+                  %span
+                    %label 5
+                  = link_to '#' do
+                    = image_tag "/assets/35058982B_18_D_215.png", width: '174' , height:'258'
+                .right__content__coordination__show
+                  .right__content__coordination__show-item#show__rank5
+                    = link_to '#'  do
+                      %dl
+                        .right__content__coordination__box
+                          %dt Pコート
+                          %dd
+                            ¥40000
+                            %span 税込
+                        %dd
+                          = image_tag "/assets/35653720_8_D_215.png", width: '35' , height:'42'
+
+                  .right__content__coordination__item#show__rank5-js
+                    = link_to '#'  do
+                      %dl.right__content__coordination__hide
+                        .right__content__coordination__box
+                          %dt Pコート
+                          %dd
+                            ¥40000
+                            %span 税込
+                        %dd
+                          = image_tag "/assets/34747132B_8_D_215.png", width: '35' , height:'42'
+
+
+                      %dl.right__content__coordination__hide
+                        .right__content__coordination__box
+                          %dt Pコート
+                          %dd
+                            ¥40000
+                            %span 税込
+                        %dd
+                          = image_tag "/assets/34747132B_8_D_215.png", width: '35' , height:'42'
+
+
+                      %dl.right__content__coordination__hide
+                        .right__content__coordination__box
+                          %dt Pコート
+                          %dd
+                            ¥40000
+                            %span 税込
+                        %dd
+                          = image_tag "/assets/34747132B_8_D_215.png", width: '35' , height:'42'
+                  %p.right__content__coupon__text URBAN RESEARCH
+
+              %li
+                %p.right__content__coordination__content-coordination-other
+                  %span
+                    %label 6
+                  = link_to '#' do
+                    = image_tag "/assets/36256444B_52_D_215.png", width: '174' , height:'258'
+                .right__content__coordination__show
+                  .right__content__coordination__show-item#show__rank6
+                    = link_to '#'  do
+                      %dl
+                        .right__content__coordination__box
+                          %dt Pコート
+                          %dd
+                            ¥40000
+                            %span 税込
+                        %dd
+                          = image_tag "/assets/35653720_8_D_215.png", width: '35' , height:'42'
+
+                  .right__content__coordination__item#show__rank6-js
+                    = link_to '#'  do
+                      %dl.right__content__coordination__hide
+                        .right__content__coordination__box
+                          %dt Pコート
+                          %dd
+                            ¥40000
+                            %span 税込
+                        %dd
+                          = image_tag "/assets/34747132B_8_D_215.png", width: '35' , height:'42'
+
+
+                      %dl.right__content__coordination__hide
+                        .right__content__coordination__box
+                          %dt Pコート
+                          %dd
+                            ¥40000
+                            %span 税込
+                        %dd
+                          = image_tag "/assets/34747132B_8_D_215.png", width: '35' , height:'42'
+
+
+                      %dl.right__content__coordination__hide
+                        .right__content__coordination__box
+                          %dt Pコート
+                          %dd
+                            ¥40000
+                            %span 税込
+                        %dd
+                          = image_tag "/assets/34747132B_8_D_215.png", width: '35' , height:'42'
+                  %p.right__content__coupon__text URBAN RESEARCH
+
+          %ul.coordination__bottom.clearfix
+            %li.coordination__label
+              = link_to 'コーディネイトランキング' , '#'
+            %li
+              = link_to 'コーディネイト一覧' , '#'
+
+        %section.right__content__checked-item
+          %h2
+            チェックしたアイテム
+          .right__content__checked-item__content.clearfix
+            %ul
+              %li
+                = link_to '#' do
+                  = image_tag "/assets/35653720_8_D_215.png", width: '70' , height:'84'
+                %p.right__content__checked-item__price
+                  ¥30000 税込
+                  %p.right__content__checked-item__tax 40%OFF
+
+
+
+        %section.right__content__checked-item
+          %h2
+            チェックしたショップ
+          .right__content__checked-item__content.clearfix
+            %ul
+              %li
+                = link_to '#' do
+                  = image_tag "/assets/shop_1982.png", width: '70' , height:'71'
+              %li
+                = link_to '#' do
+                  = image_tag "/assets/shop_39.png", width: '70' , height:'71'
+              %li
+                = link_to '#' do
+                  = image_tag "/assets/shop_1982.png", width: '70' , height:'71'
+              %li
+                = link_to '#' do
+                  = image_tag "/assets/shop_39.png", width: '70' , height:'71'
+              %li
+                = link_to '#' do
+                  = image_tag "/assets/shop_1982.png", width: '70' , height:'71'
+              %li
+                = link_to '#' do
+                  = image_tag "/assets/shop_39.png", width: '70' , height:'71'
+              %li
+                = link_to '#' do
+                  = image_tag "/assets/shop_1982.png", width: '70' , height:'71'
+              %li
+                = link_to '#' do
+                  = image_tag "/assets/shop_39.png", width: '70' , height:'71'
+              %li
+                = link_to '#' do
+                  = image_tag "/assets/shop_1982.png", width: '70' , height:'71'
+              %li
+                = link_to '#' do
+                  = image_tag "/assets/shop_39.png", width: '70' , height:'71'
+              %li
+                = link_to '#' do
+                  = image_tag "/assets/shop_1982.png", width: '70' , height:'71'
+              %li
+                = link_to '#' do
+                  = image_tag "/assets/shop_39.png", width: '70' , height:'71'
+              %li
+                = link_to '#' do
+                  = image_tag "/assets/shop_1982.png", width: '70' , height:'71'
+              %li
+                = link_to '#' do
+                  = image_tag "/assets/shop_39.png", width: '70' , height:'71'
+
+        %section.right__content__news
+          %h2
+            お知らせ
+          .right__content__news__content
+            %ul
+              %li
+                = link_to '年末年始・セール期間中のお届けについて' ,'#'
+              %li
+                = link_to '【カスタマーサポート】年末年始の営業' , '#'
+              %li
+                = link_to '各地発送制限と遅延について【12/11更新】' , '#'
+
+        %section.right__content__introduction
+          %h2
+            ZOZOTOWN(ゾゾタウン)のご紹介
+          %p ZOZOTOWNではトップス・パンツ・ワンピースなど最新トレンドアイテムをオンラインでご購入いただけます。ZOZOは7162ブランドの人気アイテムを公式に取扱うファッション通販サイトです！
+          .right__content__introduction__content
+            %ul
+              %li
+                = link_to 'ZOZOTOWNお買い物ガイド' ,'#'
+              %li.right__content__introduction__line
+                = link_to '会員登録はこちらから' , new_user_registration_path
+              %li.right__content__introduction__line
+                = link_to 'メールマガジン登録' , '#'
+
+
+      .right__content__sub
+        .right__content__sub__banner
+          = link_to '#' do
+            = image_tag "/assets/banner-home-lg", width: '212' , height:'280'
+        .right__content__sub__banner
+          = link_to '#' do
+            = image_tag "/assets/5c298d980c0a7108d209b970__pc_01", width: '212' , height:'108'
+        .right__content__sub__banner
+          = link_to '#' do
+            = image_tag "/assets/5c29c1710c0a7108d209b986__20190101_zozostyle_all_pc", width: '212' , height:'108'
+        .right__content__sub__banner
+          = link_to '#' do
+            = image_tag "/assets/banner-home-md-30p", width: '212' , height:'108'
+
+
+      .right__content__sub__shop-news
+        %section
+          %h2 ショップニュース
+          %ul
+            %li
+              .right__content__sub__box1.clearfix
+                %label.right__content__sub__rank 1
+                = link_to '#' do
+                  = image_tag "https://o.imgz.jp/shoptopics/170/887489.jpg" , width: '68' , height:'82'
+                .right__content__sub__news
+                  %span NATAL DESIGN
+                  %p [完全必至]ネイタルデザインからHAPPY BOX2019の販売が
+            %li
+              .right__content__sub__box2.clearfix
+                %label.right__content__sub__rank 2
+                = link_to '#' do
+                  = image_tag "https://o.imgz.jp/shoptopics/170/887489.jpg" , width: '68' , height:'82'
+                .right__content__sub__news
+                  %span NATAL DESIGN
+                  %p [完全必至]ネイタルデザインからHAPPY BOX2019の販売が
+            %li
+              .right__content__sub__box3.clearfix
+                %label.right__content__sub__rank 3
+                = link_to '#' do
+                  = image_tag "https://o.imgz.jp/shoptopics/170/887489.jpg" , width: '68' , height:'82'
+                .right__content__sub__news
+                  %span NATAL DESIGN
+                  %p [完全必至]ネイタルデザインからHAPPY BOX2019の販売が
+            %li
+              .right__content__sub__box-other.clearfix
+                %label.right__content__sub__rank 4
+                = link_to '#' do
+                  = image_tag "https://o.imgz.jp/shoptopics/170/887489.jpg" , width: '68' , height:'82'
+                .right__content__sub__news
+                  %span NATAL DESIGN
+                  %p [完全必至]ネイタルデザインからHAPPY BOX2019の販売が
+            %li
+              .right__content__sub__box-other.clearfix
+                %label.right__content__sub__rank 5
+                = link_to '#' do
+                  = image_tag "https://o.imgz.jp/shoptopics/170/887489.jpg" , width: '68' , height:'82'
+                .right__content__sub__news
+                  %span NATAL DESIGN
+                  %p [完全必至]ネイタルデザインからHAPPY BOX2019の販売が
+            %li
+              .right__content__sub__box-other.clearfix
+                %label.right__content__sub__rank 6
+                = link_to '#' do
+                  = image_tag "https://o.imgz.jp/shoptopics/170/887489.jpg" , width: '68' , height:'82'
+                .right__content__sub__news
+                  %span NATAL DESIGN
+                  %p [完全必至]ネイタルデザインからHAPPY BOX2019の販売が
+            %li
+              .right__content__sub__box-other.clearfix
+                %label.right__content__sub__rank 7
+                = link_to '#' do
+                  = image_tag "https://o.imgz.jp/shoptopics/170/887489.jpg" , width: '68' , height:'82'
+                .right__content__sub__news
+                  %span NATAL DESIGN
+                  %p [完全必至]ネイタルデザインからHAPPY BOX2019の販売が
+            %li
+              .right__content__sub__box-other.clearfix
+                %label.right__content__sub__rank 8
+                = link_to '#' do
+                  = image_tag "https://o.imgz.jp/shoptopics/170/887489.jpg" , width: '68' , height:'82'
+                .right__content__sub__news
+                  %span NATAL DESIGN
+                  %p [完全必至]ネイタルデザインからHAPPY BOX2019の販売が
+            %li
+              .right__content__sub__box-other.clearfix
+                %label.right__content__sub__rank 9
+                = link_to '#' do
+                  = image_tag "https://o.imgz.jp/shoptopics/170/887489.jpg" , width: '68' , height:'82'
+                .right__content__sub__news
+                  %span NATAL DESIGN
+                  %p [完全必至]ネイタルデザインからHAPPY BOX2019の販売が
+            %li
+              .right__content__sub__box-other.clearfix
+                %label.right__content__sub__rank 10
+                = link_to '#' do
+                  = image_tag "https://o.imgz.jp/shoptopics/170/887489.jpg" , width: '68' , height:'82'
+                .right__content__sub__news
+                  %span NATAL DESIGN
+                  %p [完全必至]ネイタルデザインからHAPPY BOX2019の販売が
+
+            %p.zozo-item
+              = link_to 'ショップニュース一覧' , '#'
+
+      .right__content__sub__fashion-news
+        %section
+          %h2 ファッションまとめ
+          %ul
+            %li
+              .right__content__sub__box1.clearfix
+                %label.right__content__sub__rank 1
+                = link_to '#' do
+                  = image_tag "https://o.imgz.jp/shoptopics/170/887489.jpg" , width: '68' , height:'82'
+                .right__content__sub__news1
+                  %p [完全必至]ネイタルデザインからHAPPY BOX2019の販売が
+                  %span NATAL DESIGN
+            %li
+              .right__content__sub__box2.clearfix
+                %label.right__content__sub__rank 2
+                = link_to '#' do
+                  = image_tag "https://o.imgz.jp/shoptopics/170/887489.jpg" , width: '68' , height:'82'
+                .right__content__sub__news1
+                  %p [完全必至]ネイタルデザインからHAPPY BOX2019の販売が
+                  %span NATAL DESIGN
+            %li
+              .right__content__sub__box3.clearfix
+                %label.right__content__sub__rank 3
+                = link_to '#' do
+                  = image_tag "https://o.imgz.jp/shoptopics/170/887489.jpg" , width: '68' , height:'82'
+                .right__content__sub__news1
+                  %p [完全必至]ネイタルデザインからHAPPY BOX2019の販売が
+                  %span NATAL DESIGN
+            %li
+              .right__content__sub__box-other.clearfix
+                %label.right__content__sub__rank 4
+                = link_to '#' do
+                  = image_tag "https://o.imgz.jp/shoptopics/170/887489.jpg" , width: '68' , height:'82'
+                .right__content__sub__news1
+                  %p [完全必至]ネイタルデザインからHAPPY BOX2019の販売が
+                  %span NATAL DESIGN
+            %li
+              .right__content__sub__box-other.clearfix
+                %label.right__content__sub__rank 5
+                = link_to '#' do
+                  = image_tag "https://o.imgz.jp/shoptopics/170/887489.jpg" , width: '68' , height:'82'
+                .right__content__sub__news1
+                  %p [完全必至]ネイタルデザインからHAPPY BOX2019の販売が
+                  %span NATAL DESIGN
+
+            %p.zozo-item
+              = link_to 'ファッションニュース一覧' , '#'
+
+      .right__content__sub__link
+        %section
+          %ul
+            %li.clearfix
+              .right__content__sub__link__box-top.clearfix
+                = link_to '#' do
+                  = fa_icon 'briefcase 2x'
+                  %p 新春セール開催中！
+            %li.clearfix
+              .right__content__sub__link__box-other.clearfix
+                = link_to '#' do
+                  = fa_icon 'gifts 2x'
+                  %p ギフトラッピングサービス
+            %li.clearfix
+              .right__content__sub__link__box-other.clearfix
+                = link_to '#' do
+                  = fa_icon ('sync-alt 2x')
+                  %p ブランド服を買取中！
+            %li.clearfix
+              .right__content__sub__link__box-other.clearfix
+                = link_to '#' do
+                  = fa_icon ('credit-card 2x')
+                  %p ZOZOCARD
+
+      .right__content__sub__menu
+        %section
+          %ul
+            %li.clearfix
+              .right__content__sub__menu__box.clearfix
+                = link_to '#' do
+                  %span DESIGNERS BLAND ZONE
+                  %p 国内外のラグジュアリーブランドが集結したデザイナーズゾーン！
+            %li.clearfix
+              .right__content__sub__menu__box-1.clearfix
+                = link_to '#' do
+                  %span ZOZOUSED
+                  %p 新春セール開催中！
+                  %p ブランド古着が最大90%OFF!
+            %li.clearfix
+              .right__content__sub__menu__box.clearfix
+                = link_to '#' do
+                  %span おまかせ定期便
+                  %p あなたの好み、体型を分析して似合う洋服をお届けします
+            %li.clearfix
+              .right__content__sub__menu__box.clearfix
+                = link_to '#' do
+                  %span WEAR
+                  %p 着こなしの検索やコーデ投稿ができるファッションアプリ登場
+                  = link_to '#' do
+                    = image_tag '/assets/app_image.png' , width: '90px', height: '25px'
+                  = link_to '#' do
+                    = image_tag '/assets/google_image.png' , width: '90px', height: '25px'
+            %li.clearfix
+              .right__content__sub__sns__box.clearfix
+                = link_to '#' do
+                  %span 公式SNS
+              .twitter
+                %i.fab.fa-twitter
+              .facebook
+                %i.fab.fa-facebook-f
+              .instagram
+                %i.fab.fa-instagram
+            %li.clearfix
+              .right__content__sub__line__box.clearfix
+                = link_to '#' do
+                  %i.fab.fa-line
+                .right__content__sub__line__inner-box
+                  %p LINE@ZOZOTOWN
+                  %span LINEから便利でお得な情報を配信
+
+= render partial: 'shared/footer'
+
